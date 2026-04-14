@@ -8,6 +8,7 @@ const dict: Dictionary = {
   },
   nav: {
     about: '关于',
+    manifesto: '宣言',
     experience: '经历',
     projects: '项目',
     skills: '技术栈',
@@ -58,6 +59,38 @@ const dict: Dictionary = {
       '优秀的工程师能理解用户需求、UX与业务目标并据此解决问题。我重视基于指标的决策和快速的反馈循环,也持续投入稳定的云基础设施与SDLC。',
     philosophy2:
       '我寻找重视多元视角、以创新方案开拓市场的团队。基于体系化流程的快速决策与执行,是打造真正影响市场的产品的关键。',
+  },
+  manifesto: {
+    sectionTitle: 'AI时代的开发',
+    eyebrow: 'Manifesto',
+    thesis: 'AI是工具,人是导演。只有理解才能提问,只有理解才能验证。',
+    mindsetTitle: 'Mindset',
+    actionsTitle: 'Actions',
+    mindset: [
+      {
+        key: 'agentic',
+        title: 'Agentic Engineering',
+        note:
+          'AI代理运行的基础设施与护栏由人来设计。架构决策、分工与安全边界依然是人的责任。',
+      },
+      {
+        key: 'verify',
+        title: '知识即质量门禁',
+        note:
+          '11年的生产经验与领域知识成为AI产出的验证层。只有理解才能提问,只有理解才能验证。',
+      },
+      {
+        key: 'learn',
+        title: '复利式学习',
+        note: '持续吸收新的技术栈、领域与问题空间。AI时代的前提条件是"持续的自我教育"。',
+      },
+    ],
+    actions: [
+      '把过去因成本与时间限制无法尝试的服务与工具亲自做出来。',
+      '参与开源,专注于问题本身。',
+      '探索与实验符合AI时代的商业思维、领导力与协作方式。',
+      '用软件对这些问题给出原型级答案。',
+    ],
   },
   experience: {
     sectionTitle: '经历',

@@ -3,6 +3,7 @@ import { isLocale } from '@/lib/i18n';
 import { getDictionary } from '@/content/i18n';
 import { Hero } from '@/components/sections/Hero';
 import { About } from '@/components/sections/About';
+import { Manifesto } from '@/components/sections/Manifesto';
 import { Experience } from '@/components/sections/Experience';
 import { Projects } from '@/components/sections/Projects';
 import { Skills } from '@/components/sections/Skills';
@@ -24,6 +25,7 @@ export default async function LocalePage({
     <main>
       <Hero locale={locale} dict={dict} />
       <About locale={locale} dict={dict} />
+      <Manifesto dict={dict} />
       <Experience locale={locale} dict={dict} />
       <Projects dict={dict} />
       <Skills dict={dict} />

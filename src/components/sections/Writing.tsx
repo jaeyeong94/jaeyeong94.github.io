@@ -16,7 +16,7 @@ export function Writing({ dict }: Props) {
     >
       <Reveal>
         <div className="flex items-center gap-4">
-          <span className="font-display text-2xl italic text-fg-subtle">05</span>
+          <span className="font-display text-2xl italic text-fg-subtle">06</span>
           <span className="h-px flex-1 bg-border" />
           <span className="text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle">
             {dict.writing.eyebrow}

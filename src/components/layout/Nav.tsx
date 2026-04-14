@@ -20,6 +20,7 @@ export function Nav({ locale, dict }: Props) {
   const base = `/${locale}/`;
   const items: Array<{ href: string; label: string }> = [
     { href: `${base}#about`, label: dict.nav.about },
+    { href: `${base}#manifesto`, label: dict.nav.manifesto },
     { href: `${base}#experience`, label: dict.nav.experience },
     { href: `${base}#projects`, label: dict.nav.projects },
     { href: `${base}#skills`, label: dict.nav.skills },

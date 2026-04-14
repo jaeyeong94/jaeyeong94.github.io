@@ -8,6 +8,7 @@ const dict: Dictionary = {
   },
   nav: {
     about: 'About',
+    manifesto: 'Manifesto',
     experience: 'Experience',
     projects: 'Projects',
     skills: 'Skills',
@@ -58,6 +59,40 @@ const dict: Dictionary = {
       'I believe great engineers understand user needs, UX, and business goals — and solve from there. I value metric-driven decisions and fast feedback loops, with a strong investment in resilient cloud infrastructure and SDLC.',
     philosophy2:
       'I look for teams that embrace diverse perspectives and open new markets with innovative solutions. Rapid decisions and disciplined execution are, to me, the keys to products that truly move the market.',
+  },
+  manifesto: {
+    sectionTitle: 'Building in the AI era',
+    eyebrow: 'Manifesto',
+    thesis:
+      'AI is the tool; a human directs. You can only ask what you understand — and only verify what you know.',
+    mindsetTitle: 'Mindset',
+    actionsTitle: 'Actions',
+    mindset: [
+      {
+        key: 'agentic',
+        title: 'Agentic engineering',
+        note:
+          'I architect the infrastructure and guardrails that AI agents run inside. Architecture, division of labor, and safety controls remain a human responsibility.',
+      },
+      {
+        key: 'verify',
+        title: 'Knowledge as the quality gate',
+        note:
+          'Eleven years of production and domain knowledge become the verification layer for AI output. You can only ask what you know — and only validate what you understand.',
+      },
+      {
+        key: 'learn',
+        title: 'Compound learning',
+        note:
+          'New stacks, new domains, new problem spaces — absorbed continuously. In the AI era, relentless self-education is the prerequisite, not a bonus.',
+      },
+    ],
+    actions: [
+      'Shipping services and tools that cost/time constraints had previously blocked.',
+      'Contributing to open source, focused on problems over polish.',
+      'Experimenting with business, leadership, and collaboration patterns fit for this era.',
+      'Prototyping software that answers those questions.',
+    ],
   },
   experience: {
     sectionTitle: 'Experience',
