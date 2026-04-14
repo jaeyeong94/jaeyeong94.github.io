@@ -41,7 +41,9 @@ const config: Config = {
         },
       },
       maxWidth: {
-        content: '64rem',
+        prose: '38rem',
+        readable: '42rem',
+        wide: '100rem',
       },
     },
   },

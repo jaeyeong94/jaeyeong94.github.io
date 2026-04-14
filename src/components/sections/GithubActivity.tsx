@@ -18,7 +18,7 @@ export function GithubActivity({ dict, repos }: Props) {
     <section
       id="github"
       aria-labelledby="github-heading"
-      className="mx-auto max-w-content scroll-mt-24 px-6 py-20 md:py-28"
+      className="w-full scroll-mt-24 px-6 py-20 md:px-10 md:py-28 lg:px-16 xl:px-24"
     >
       <SectionHeading
         id="github-heading"

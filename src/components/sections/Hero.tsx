@@ -16,7 +16,7 @@ export function Hero({ locale, dict }: Props) {
 
   return (
     <section className="relative isolate overflow-hidden">
-      <div className="mx-auto max-w-content px-6 pt-28 pb-16 md:pt-36 md:pb-24">
+      <div className="w-full px-6 pt-28 pb-16 md:px-10 md:pt-36 md:pb-24 lg:px-16 xl:px-24">
         {/* Top masthead rule */}
         <Reveal>
           <div className="flex items-end justify-between gap-6 border-b border-border pb-6">

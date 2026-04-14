@@ -38,7 +38,7 @@ export function Experience({ locale, dict }: Props) {
     <section
       id="experience"
       aria-labelledby="experience-heading"
-      className="relative mx-auto max-w-content scroll-mt-24 px-6 py-24 md:py-32"
+      className="relative w-full scroll-mt-24 px-6 py-24 md:px-10 md:py-32 lg:px-16 xl:px-24"
     >
       <Reveal>
         <div className="flex items-center gap-4">
@@ -113,7 +113,7 @@ function ExperienceRow({
 
   return (
     <Reveal as="li">
-      <article className="group grid grid-cols-1 gap-x-8 gap-y-4 md:grid-cols-[9rem_1fr]">
+      <article className="group grid grid-cols-1 gap-x-8 gap-y-4 md:grid-cols-[11rem_1fr] lg:grid-cols-[14rem_1fr_minmax(0,28rem)] xl:grid-cols-[16rem_1fr_minmax(0,32rem)]">
         {/* Left rail: giant year span */}
         <div className="md:pt-1">
           <p className="font-display text-2xl italic leading-none text-fg-subtle md:text-3xl">
@@ -135,11 +135,11 @@ function ExperienceRow({
           </p>
         </div>
 
-        {/* Right: content */}
+        {/* Middle: content */}
         <div className="border-l border-border pl-6 md:pl-8">
           <h4 className="text-xl font-semibold text-fg md:text-2xl">{item.company}</h4>
           <p className="mt-1 text-sm text-fg-muted">{exp.role}</p>
-          <ul className="mt-5 space-y-2.5 text-sm leading-relaxed text-fg-muted md:text-[0.95rem]">
+          <ul className="mt-5 space-y-2.5 text-sm leading-relaxed text-fg-muted md:text-[0.95rem] lg:hidden">
             {item.bullets.map((b, i) => (
               <li key={i} className="flex gap-3">
                 <span
@@ -151,9 +151,24 @@ function ExperienceRow({
             ))}
           </ul>
           {exp.stack.length > 0 && (
-            <p className="mt-5 font-mono text-xs text-fg-subtle">
+            <p className="mt-5 font-mono text-xs text-fg-subtle lg:hidden">
               {exp.stack.join(' · ')}
             </p>
+          )}
+        </div>
+
+        {/* Right: bullets + stack on large screens (uses full-wide real estate) */}
+        <div className="hidden lg:block">
+          <ul className="space-y-2.5 text-sm leading-relaxed text-fg-muted lg:text-[0.95rem]">
+            {item.bullets.map((b, i) => (
+              <li key={i} className="flex gap-3">
+                <span aria-hidden className="mt-2 size-1 shrink-0 rounded-full bg-accent-1/60" />
+                <span>{b}</span>
+              </li>
+            ))}
+          </ul>
+          {exp.stack.length > 0 && (
+            <p className="mt-5 font-mono text-xs text-fg-subtle">{exp.stack.join(' · ')}</p>
           )}
         </div>
       </article>

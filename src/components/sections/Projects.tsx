@@ -18,7 +18,7 @@ export function Projects({ dict }: Props) {
     <section
       id="projects"
       aria-labelledby="projects-heading"
-      className="relative mx-auto max-w-content scroll-mt-24 px-6 py-24 md:py-32"
+      className="relative w-full scroll-mt-24 px-6 py-24 md:px-10 md:py-32 lg:px-16 xl:px-24"
     >
       <Reveal>
         <div className="flex items-center gap-4">

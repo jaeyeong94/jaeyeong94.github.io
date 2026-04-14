@@ -15,7 +15,7 @@ export function About({ dict }: Props) {
     <section
       id="about"
       aria-labelledby="about-heading"
-      className="relative mx-auto max-w-content scroll-mt-24 px-6 py-24 md:py-32"
+      className="relative w-full scroll-mt-24 px-6 py-24 md:px-10 md:py-32 lg:px-16 xl:px-24"
     >
       <Reveal>
         <div className="flex items-center gap-4">
@@ -31,37 +31,38 @@ export function About({ dict }: Props) {
         {dict.about.sectionTitle}
       </h2>
 
-      {/* Impact sentence — large serif display */}
-      <Reveal>
-        <p className="mt-10 max-w-3xl font-display text-3xl leading-[1.25] text-fg md:text-[2.75rem]">
-          {dict.about.impact}
-        </p>
-      </Reveal>
+      {/* Impact + stats — asymmetric full-wide split */}
+      <div className="mt-14 grid grid-cols-1 gap-12 lg:mt-20 lg:grid-cols-12 lg:gap-16">
+        <Reveal className="lg:col-span-8">
+          <p className="font-display text-3xl leading-[1.15] text-fg md:text-5xl lg:text-[3.5rem] xl:text-6xl">
+            {dict.about.impact}
+          </p>
+        </Reveal>
 
-      {/* Stats — editorial three-column */}
-      <Reveal>
-        <dl className="mt-16 grid grid-cols-1 gap-10 border-t border-border pt-10 md:grid-cols-3">
-          <StatBlock
-            kicker={dict.about.stat1Label}
-            value={
-              <>
-                <span className="font-display italic">{years}</span>
-                <span className="ml-1 text-fg-muted">{dict.about.stat1Suffix}</span>
-              </>
-            }
-          />
-          <StatBlock kicker={dict.about.stat2Label} value={dict.about.stat2Value} />
-          <StatBlock kicker={dict.about.stat3Label} value={dict.about.stat3Value} small />
-        </dl>
-      </Reveal>
+        <Reveal className="lg:col-span-4">
+          <dl className="flex flex-col gap-10 border-t border-border pt-10 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
+            <StatBlock
+              kicker={dict.about.stat1Label}
+              value={
+                <>
+                  <span className="font-display italic">{years}</span>
+                  <span className="ml-1 text-fg-muted">{dict.about.stat1Suffix}</span>
+                </>
+              }
+            />
+            <StatBlock kicker={dict.about.stat2Label} value={dict.about.stat2Value} />
+            <StatBlock kicker={dict.about.stat3Label} value={dict.about.stat3Value} small />
+          </dl>
+        </Reveal>
+      </div>
 
-      {/* Philosophy as editorial footnote */}
+      {/* Philosophy — editorial footnote */}
       <Reveal>
-        <div className="mt-20 grid grid-cols-[auto_1fr] gap-8 md:grid-cols-[14rem_1fr]">
-          <p className="text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle">
+        <div className="mt-24 grid grid-cols-1 gap-8 border-t border-border pt-12 md:grid-cols-12 md:gap-12">
+          <p className="text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle md:col-span-3">
             ≀ {dict.about.philosophyTitle}
           </p>
-          <div className="max-w-2xl space-y-5 text-base leading-relaxed text-fg-muted md:text-lg">
+          <div className="max-w-readable space-y-5 text-base leading-relaxed text-fg-muted md:col-span-9 md:text-lg">
             <p>{dict.about.philosophy1}</p>
             <p>{dict.about.philosophy2}</p>
           </div>
