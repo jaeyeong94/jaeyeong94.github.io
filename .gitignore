@@ -44,3 +44,7 @@ next-env.d.ts
 
 # private source documents (contain personal data)
 docs/
+
+# local-only QA artifacts
+.playwright-mcp/
+*.png
