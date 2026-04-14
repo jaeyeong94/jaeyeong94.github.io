@@ -39,7 +39,7 @@ const dict: Dictionary = {
     tagline: 'I build products that drive business growth.',
     ctaContact: 'Get in touch',
     nowLabel: 'Now',
-    nowValue: 'Architecting a CCTV AI vision backend at Ontoh Vision.',
+    nowValue: 'Building an insurance-focused SaaS with a Silicon Valley company.',
     keywordsLabel: 'Currently focused on',
   },
   about: {
@@ -140,8 +140,16 @@ const dict: Dictionary = {
   },
   projects: {
     sectionTitle: 'Projects',
-    eyebrow: 'Projects',
+    eyebrow: 'Selected Work',
+    description: 'A curated mix of shipped public products and closed or internal work.',
     viewSite: 'Open site',
+    publicGroup: 'Live products',
+    internalGroup: 'Closed & internal work',
+    status: {
+      live: 'Live',
+      discontinued: 'Shut down',
+      internal: 'Internal',
+    },
     items: {
       randibot: {
         title: 'Randibot',
@@ -158,11 +166,78 @@ const dict: Dictionary = {
         desc:
           'iOS/Android community app for nurses — location-based social feed with collection analytics dashboards.',
       },
+      'flfi-exchange': {
+        title: 'FLFI Derivatives Exchange',
+        desc:
+          'Crypto derivatives exchange on OKX Broker API — real-time streaming, matching, and position management.',
+      },
+      'flfi-lending': {
+        title: 'FLFI Fintech Platform',
+        desc:
+          'NestJS + Vue 3 + EKS end-to-end architecture, blue-green delivery, image CDN, and Web3 DApp.',
+      },
+      'ontoh-vision': {
+        title: 'Ontoh Vision',
+        desc: 'CCTV (RTSP) → on-site AI event detection → Cloudflare R2 workflow.',
+      },
+      'rootstone-trading': {
+        title: 'Rootstone Trading',
+        desc:
+          'Electron desktop system for crypto arbitrage and market-making portfolios.',
+      },
     },
   },
   skills: {
     sectionTitle: 'Skills',
-    eyebrow: 'Skills',
+    eyebrow: 'Craft',
+    description:
+      "Split between 'signature stacks' I've shipped production on for years, and secondary tools picked up where needed.",
+    signaturesTitle: 'Signature stacks',
+    othersTitle: 'Other tools I reach for',
+    signatures: [
+      {
+        key: 'backend-ts',
+        title: 'Node.js · NestJS · TypeScript',
+        note: 'Primary stack for SaaS/fintech backends — REST, event-driven, multi-tenant.',
+        years: 11,
+      },
+      {
+        key: 'cloud',
+        title: 'AWS · Kubernetes · Terraform',
+        note: 'EKS + Karpenter + ArgoCD zero-downtime delivery; IaC-first reproducible infra.',
+        years: 6,
+      },
+      {
+        key: 'data',
+        title: 'PostgreSQL · Redis · RabbitMQ',
+        note: 'Schema design, indexing, caching, and queues to separate read/write paths.',
+        years: 8,
+      },
+      {
+        key: 'ai',
+        title: 'LLM · RAG · Vector DB',
+        note: 'OpenAI API + LangChain + Pinecone for RAG and agent workflows.',
+        years: 2,
+      },
+      {
+        key: 'blockchain',
+        title: 'web3.js · Solidity · Ethers.js',
+        note: 'DApp frontends with on-chain events; MetaMask login and tx signing.',
+        years: 3,
+      },
+    ],
+    others: {
+      backend: 'Express · Python (FastAPI) · Go · Spring Boot · PHP',
+      frontend: 'React · Next.js · Vue.js · Nuxt · Svelte · React Native · Flutter',
+      data: 'MySQL · MongoDB · Elasticsearch · InfluxDB',
+      infra: 'Docker · GitHub Actions · Nginx',
+    },
+    othersLabels: {
+      backend: 'Backend',
+      frontend: 'Frontend',
+      data: 'Data',
+      infra: 'Infra',
+    },
     categories: {
       backend: 'Backend',
       frontend: 'Frontend',
@@ -229,10 +304,12 @@ const dict: Dictionary = {
   contact: {
     sectionTitle: 'Contact',
     eyebrow: 'Contact',
-    cta: 'Open to new opportunities and collaboration — feel free to reach out.',
+    headline: "Let's build the next thing together.",
+    cta: 'Open to new opportunities and collaborations. Reach out on any channel below.',
     locationLabel: 'Location',
     locationValue: 'Seoul, Korea',
     emailLabel: 'Email',
+    freelanceLabel: 'Freelance profile',
   },
   footer: {
     updated: 'Last updated',

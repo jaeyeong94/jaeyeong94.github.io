@@ -37,7 +37,7 @@ const dict = {
     tagline: '비즈니스 성장을 주도하는 제품을 만듭니다.',
     ctaContact: '연락하기',
     nowLabel: '지금',
-    nowValue: '주식회사 온토에서 CCTV AI 비전 백엔드를 설계하고 있습니다',
+    nowValue: '미국 실리콘밸리에 위치한 회사와 보험사 전용 SaaS를 개발하고 있습니다',
     keywordsLabel: '요즘 집중',
   },
   about: {
@@ -76,7 +76,7 @@ const dict = {
         ],
       },
       dio: {
-        company: 'DIO 플랫폼 프리랜스',
+        company: 'DIO 플랫폼 프리랜서',
         bullets: [
           '(우연히) 지역 음식점 체크인 · 채팅 기반 매칭 앱의 Backend MVP 개발 — 매칭 알고리즘과 자동 체크아웃/정산 핵심 로직을 8주 내 프로덕션까지 안착.',
           '(링커) 매주 실행되는 1:1 매칭 Full-stack MVP — Toss PG · 카카오 알림톡 연동으로 결제 실패율을 1%대로 안정화.',
@@ -136,8 +136,16 @@ const dict = {
   },
   projects: {
     sectionTitle: '프로젝트',
-    eyebrow: 'Projects',
+    eyebrow: 'Selected Work',
+    description: '공개된 제품과, 비공개/종료된 주요 작업을 함께 정리.',
     viewSite: '사이트 열기',
+    publicGroup: '공개 제품',
+    internalGroup: '비공개 · 종료 프로젝트',
+    status: {
+      live: '운영 중',
+      discontinued: '서비스 종료',
+      internal: '비공개',
+    },
     items: {
       randibot: {
         title: 'Randibot',
@@ -152,13 +160,78 @@ const dict = {
       nursevillage: {
         title: 'Nursevillage',
         desc:
-          '간호사 커뮤니티 iOS/Android 앱. 위치 기반 소셜 피드와 컬렉션 통계 대시보드를 제공.',
+          '간호사 커뮤니티 iOS/Android 앱. 위치 기반 소셜 피드와 컬렉션 통계 대시보드.',
+      },
+      'flfi-exchange': {
+        title: 'FLFI 파생 거래소',
+        desc: 'OKX Broker API 기반 크립토 파생상품 거래소. 실시간 시세 · 주문 체결 · 포지션 관리.',
+      },
+      'flfi-lending': {
+        title: 'FLFI 핀테크 플랫폼',
+        desc:
+          'NestJS + Vue 3 + EKS 기반 서비스 아키텍처 전체 설계 · 무중단 Blue-Green · 이미지 CDN · Web3 DApp.',
+      },
+      'ontoh-vision': {
+        title: 'Ontoh Vision',
+        desc: 'CCTV(RTSP) 스트림 → AI 이벤트 감지 → Cloudflare R2 저장 워크플로우.',
+      },
+      'rootstone-trading': {
+        title: 'Rootstone Trading',
+        desc: 'Electron 데스크톱 기반 크립토 차익거래 · 마켓 메이킹 포트폴리오 시스템.',
       },
     },
   },
   skills: {
     sectionTitle: '기술',
-    eyebrow: 'Skills',
+    eyebrow: 'Craft',
+    description:
+      '수년간 반복 사용해 검증된 "시그니처 스택"과, 필요에 따라 선택해 쓰는 보조 도구로 나누어 정리.',
+    signaturesTitle: '시그니처 스택',
+    othersTitle: '그 외 익숙한 도구',
+    signatures: [
+      {
+        key: 'backend-ts',
+        title: 'Node.js · NestJS · TypeScript',
+        note: 'SaaS · 핀테크 백엔드의 주력. RESTful · 이벤트 기반 · 멀티테넌시까지.',
+        years: 11,
+      },
+      {
+        key: 'cloud',
+        title: 'AWS · Kubernetes · Terraform',
+        note: 'EKS + Karpenter + ArgoCD 무중단 배포, IaC 기반 재현 가능한 인프라.',
+        years: 6,
+      },
+      {
+        key: 'data',
+        title: 'PostgreSQL · Redis · RabbitMQ',
+        note: '스키마 설계 · 인덱싱 · 캐싱 · 이벤트 큐로 읽기/쓰기 경로를 분리.',
+        years: 8,
+      },
+      {
+        key: 'ai',
+        title: 'LLM · RAG · Vector DB',
+        note: 'OpenAI API + LangChain + Pinecone 으로 RAG/에이전트 플로우 구축.',
+        years: 2,
+      },
+      {
+        key: 'blockchain',
+        title: 'web3.js · Solidity · Ethers.js',
+        note: 'DApp 프론트 + 온체인 이벤트 연동. 메타마스크 로그인 및 서명.',
+        years: 3,
+      },
+    ],
+    others: {
+      backend: 'Express · Python(FastAPI) · Go · Spring Boot · PHP',
+      frontend: 'React · Next.js · Vue.js · Nuxt · Svelte · React Native · Flutter',
+      data: 'MySQL · MongoDB · Elasticsearch · InfluxDB',
+      infra: 'Docker · GitHub Actions · Nginx',
+    },
+    othersLabels: {
+      backend: 'Backend',
+      frontend: 'Frontend',
+      data: 'Data',
+      infra: 'Infra',
+    },
     categories: {
       backend: 'Backend',
       frontend: 'Frontend',
@@ -223,10 +296,12 @@ const dict = {
   contact: {
     sectionTitle: '연락처',
     eyebrow: 'Contact',
-    cta: '새로운 기회나 협업을 환영합니다. 부담없이 연락주세요.',
+    headline: '다음 프로젝트를 함께 만들어봅시다.',
+    cta: '새로운 기회나 협업을 환영합니다. 아래 채널로 편하게 연락 주세요.',
     locationLabel: '위치',
     locationValue: 'Seoul, Korea',
     emailLabel: '이메일',
+    freelanceLabel: '프리랜서 소개',
   },
   footer: {
     updated: '마지막 업데이트',

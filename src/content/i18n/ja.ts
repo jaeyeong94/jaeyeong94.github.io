@@ -39,7 +39,7 @@ const dict: Dictionary = {
     tagline: 'ビジネスの成長を牽引するプロダクトを作ります。',
     ctaContact: 'お問い合わせ',
     nowLabel: 'Now',
-    nowValue: 'Ontoh VisionでCCTV AIビジョンバックエンドを設計しています。',
+    nowValue: '米国シリコンバレーの企業と、保険会社向けSaaSを開発しています。',
     keywordsLabel: '最近の注力分野',
   },
   about: {
@@ -142,8 +142,16 @@ const dict: Dictionary = {
   },
   projects: {
     sectionTitle: 'プロジェクト',
-    eyebrow: 'Projects',
+    eyebrow: 'Selected Work',
+    description: '公開中のプロダクトと、クローズ/社内向けの主要業務をまとめて。',
     viewSite: 'サイトを開く',
+    publicGroup: '公開プロダクト',
+    internalGroup: '非公開・終了案件',
+    status: {
+      live: '稼働中',
+      discontinued: 'サービス終了',
+      internal: '非公開',
+    },
     items: {
       randibot: {
         title: 'Randibot',
@@ -160,11 +168,78 @@ const dict: Dictionary = {
         desc:
           '看護師向けiOS/Androidコミュニティアプリ — 位置ベースのソーシャルフィードとコレクション統計ダッシュボード。',
       },
+      'flfi-exchange': {
+        title: 'FLFI デリバティブ取引所',
+        desc:
+          'OKX Broker APIベースの暗号資産デリバティブ取引所 — 配信・約定・ポジション管理。',
+      },
+      'flfi-lending': {
+        title: 'FLFI フィンテックプラットフォーム',
+        desc:
+          'NestJS + Vue 3 + EKSによる一貫アーキテクチャ、Blue-Greenデプロイ、画像CDN、Web3 DApp。',
+      },
+      'ontoh-vision': {
+        title: 'Ontoh Vision',
+        desc: 'CCTV(RTSP)→ オンサイトAIイベント検知 → Cloudflare R2保存のワークフロー。',
+      },
+      'rootstone-trading': {
+        title: 'Rootstone Trading',
+        desc:
+          'Electronデスクトップベースの暗号資産アービトラージ/マーケットメイキングポートフォリオシステム。',
+      },
     },
   },
   skills: {
     sectionTitle: 'スキル',
-    eyebrow: 'Skills',
+    eyebrow: 'Craft',
+    description:
+      '長年の本番投入で検証された「シグネチャスタック」と、必要に応じて選択する補助ツールに分けて整理。',
+    signaturesTitle: 'シグネチャスタック',
+    othersTitle: 'よく使うその他のツール',
+    signatures: [
+      {
+        key: 'backend-ts',
+        title: 'Node.js · NestJS · TypeScript',
+        note: 'SaaS / フィンテックのバックエンド主力。REST・イベント駆動・マルチテナント。',
+        years: 11,
+      },
+      {
+        key: 'cloud',
+        title: 'AWS · Kubernetes · Terraform',
+        note: 'EKS + Karpenter + ArgoCDで無停止デプロイ、IaCベースの再現可能なインフラ。',
+        years: 6,
+      },
+      {
+        key: 'data',
+        title: 'PostgreSQL · Redis · RabbitMQ',
+        note: 'スキーマ設計・インデックス・キャッシュ・キューで読み書きパスを分離。',
+        years: 8,
+      },
+      {
+        key: 'ai',
+        title: 'LLM · RAG · Vector DB',
+        note: 'OpenAI API + LangChain + PineconeでRAG/Agentワークフローを構築。',
+        years: 2,
+      },
+      {
+        key: 'blockchain',
+        title: 'web3.js · Solidity · Ethers.js',
+        note: 'DAppフロントとオンチェーンイベント連携、MetaMaskログインと署名。',
+        years: 3,
+      },
+    ],
+    others: {
+      backend: 'Express · Python (FastAPI) · Go · Spring Boot · PHP',
+      frontend: 'React · Next.js · Vue.js · Nuxt · Svelte · React Native · Flutter',
+      data: 'MySQL · MongoDB · Elasticsearch · InfluxDB',
+      infra: 'Docker · GitHub Actions · Nginx',
+    },
+    othersLabels: {
+      backend: 'Backend',
+      frontend: 'Frontend',
+      data: 'Data',
+      infra: 'Infra',
+    },
     categories: {
       backend: 'Backend',
       frontend: 'Frontend',
@@ -230,10 +305,12 @@ const dict: Dictionary = {
   contact: {
     sectionTitle: 'お問い合わせ',
     eyebrow: 'Contact',
-    cta: '新しい機会やコラボレーションを歓迎します。お気軽にご連絡ください。',
+    headline: '次のプロジェクトを、一緒に作りましょう。',
+    cta: '新しい機会やコラボレーションを歓迎します。下記のいずれかでお気軽にご連絡ください。',
     locationLabel: '所在地',
     locationValue: 'ソウル, 韓国',
     emailLabel: 'メール',
+    freelanceLabel: 'フリーランス紹介',
   },
   footer: {
     updated: '最終更新',

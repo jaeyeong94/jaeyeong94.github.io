@@ -39,7 +39,7 @@ const dict: Dictionary = {
     tagline: '打造驱动业务增长的产品。',
     ctaContact: '联系我',
     nowLabel: '当前',
-    nowValue: '正在Ontoh Vision设计CCTV AI视觉后端。',
+    nowValue: '正与位于美国硅谷的公司合作开发保险公司专用SaaS。',
     keywordsLabel: '近期关注',
   },
   about: {
@@ -138,8 +138,16 @@ const dict: Dictionary = {
   },
   projects: {
     sectionTitle: '项目',
-    eyebrow: 'Projects',
+    eyebrow: 'Selected Work',
+    description: '公开产品与已下线或内部项目的精选组合。',
     viewSite: '打开网站',
+    publicGroup: '公开产品',
+    internalGroup: '内部 / 已下线项目',
+    status: {
+      live: '运营中',
+      discontinued: '已下线',
+      internal: '内部',
+    },
     items: {
       randibot: {
         title: 'Randibot',
@@ -154,11 +162,75 @@ const dict: Dictionary = {
         title: 'Nursevillage',
         desc: '面向护士的iOS/Android社区App — 基于位置的社交Feed与收藏统计仪表盘。',
       },
+      'flfi-exchange': {
+        title: 'FLFI 衍生品交易所',
+        desc: '基于OKX Broker API的加密衍生品交易所 — 实时行情、撮合与仓位管理。',
+      },
+      'flfi-lending': {
+        title: 'FLFI 金融科技平台',
+        desc:
+          'NestJS + Vue 3 + EKS端到端架构,蓝绿部署,图片CDN,Web3 DApp。',
+      },
+      'ontoh-vision': {
+        title: 'Ontoh Vision',
+        desc: 'CCTV(RTSP)→ 现场AI事件检测 → Cloudflare R2存储工作流。',
+      },
+      'rootstone-trading': {
+        title: 'Rootstone Trading',
+        desc: '基于Electron桌面端的加密套利与做市投资组合系统。',
+      },
     },
   },
   skills: {
     sectionTitle: '技术栈',
-    eyebrow: 'Skills',
+    eyebrow: 'Craft',
+    description: '长期在生产环境反复验证的"主力栈",以及按需取用的辅助工具。',
+    signaturesTitle: '主力栈',
+    othersTitle: '常用的其他工具',
+    signatures: [
+      {
+        key: 'backend-ts',
+        title: 'Node.js · NestJS · TypeScript',
+        note: 'SaaS / 金融科技后端主力 — REST、事件驱动、多租户。',
+        years: 11,
+      },
+      {
+        key: 'cloud',
+        title: 'AWS · Kubernetes · Terraform',
+        note: 'EKS + Karpenter + ArgoCD零停机部署,基于IaC的可复现基础设施。',
+        years: 6,
+      },
+      {
+        key: 'data',
+        title: 'PostgreSQL · Redis · RabbitMQ',
+        note: 'Schema设计、索引、缓存与队列 — 分离读写路径。',
+        years: 8,
+      },
+      {
+        key: 'ai',
+        title: 'LLM · RAG · Vector DB',
+        note: 'OpenAI API + LangChain + Pinecone,构建RAG与Agent工作流。',
+        years: 2,
+      },
+      {
+        key: 'blockchain',
+        title: 'web3.js · Solidity · Ethers.js',
+        note: 'DApp前端与链上事件联动,MetaMask登录与交易签名。',
+        years: 3,
+      },
+    ],
+    others: {
+      backend: 'Express · Python (FastAPI) · Go · Spring Boot · PHP',
+      frontend: 'React · Next.js · Vue.js · Nuxt · Svelte · React Native · Flutter',
+      data: 'MySQL · MongoDB · Elasticsearch · InfluxDB',
+      infra: 'Docker · GitHub Actions · Nginx',
+    },
+    othersLabels: {
+      backend: 'Backend',
+      frontend: 'Frontend',
+      data: 'Data',
+      infra: 'Infra',
+    },
     categories: {
       backend: 'Backend',
       frontend: 'Frontend',
@@ -223,10 +295,12 @@ const dict: Dictionary = {
   contact: {
     sectionTitle: '联系方式',
     eyebrow: 'Contact',
-    cta: '欢迎新的机会和合作。随时联系我。',
+    headline: '下一个项目,我们一起做吧。',
+    cta: '欢迎新的机会和合作。请通过下方任一渠道联系我。',
     locationLabel: '位置',
     locationValue: '首尔, 韩国',
     emailLabel: '邮箱',
+    freelanceLabel: '自由职业主页',
   },
   footer: {
     updated: '最后更新',

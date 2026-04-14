@@ -1,7 +1,5 @@
 import type { Dictionary } from '@/content/i18n';
 import { resume } from '@/content/resume';
-import { SectionHeading } from '@/components/ui/SectionHeading';
-import { Card } from '@/components/ui/Card';
 import { Reveal } from '@/components/ui/Reveal';
 
 interface Props {
@@ -13,26 +11,41 @@ export function Interests({ dict }: Props) {
     <section
       id="interests"
       aria-labelledby="interests-heading"
-      className="mx-auto max-w-content scroll-mt-24 px-6 py-20 md:py-28"
+      className="relative mx-auto max-w-content scroll-mt-24 px-6 py-24 md:py-32"
     >
-      <SectionHeading
-        id="interests-heading"
-        eyebrow={dict.interests.eyebrow}
-        title={dict.interests.sectionTitle}
-      />
-      <div className="grid gap-5 md:grid-cols-2">
-        {resume.interests.map((id) => {
+      <Reveal>
+        <div className="flex items-center gap-4">
+          <span className="font-display text-2xl italic text-fg-subtle">07</span>
+          <span className="h-px flex-1 bg-border" />
+          <span className="text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle">
+            {dict.interests.eyebrow}
+          </span>
+        </div>
+        <h2 id="interests-heading" className="mt-6 font-display text-4xl italic text-fg md:text-5xl">
+          {dict.interests.sectionTitle}
+        </h2>
+      </Reveal>
+
+      <ol className="mt-12 grid grid-cols-1 gap-x-12 gap-y-10 md:grid-cols-2">
+        {resume.interests.map((id, i) => {
           const item = dict.interests.items[id];
           return (
-            <Reveal key={id}>
-              <Card className="h-full">
-                <h3 className="text-base font-semibold text-fg">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-fg-muted">{item.desc}</p>
-              </Card>
+            <Reveal key={id} as="li">
+              <div className="flex items-baseline gap-4">
+                <span className="font-display text-xl italic text-fg-subtle">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <div className="flex-1">
+                  <h3 className="text-lg font-semibold text-fg md:text-xl">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-fg-muted md:text-base">
+                    {item.desc}
+                  </p>
+                </div>
+              </div>
             </Reveal>
           );
         })}
-      </div>
+      </ol>
     </section>
   );
 }

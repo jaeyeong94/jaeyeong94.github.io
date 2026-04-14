@@ -15,7 +15,16 @@ export type ExperienceId =
   | 'ninefive'
   | '4depth';
 
-export type ProjectId = 'randibot' | 'momentir' | 'nursevillage';
+export type ProjectId =
+  | 'randibot'
+  | 'momentir'
+  | 'nursevillage'
+  | 'flfi-exchange'
+  | 'flfi-lending'
+  | 'ontoh-vision'
+  | 'rootstone-trading';
+
+export type ProjectStatus = 'live' | 'discontinued' | 'internal';
 
 export type SkillCategoryId = 'backend' | 'frontend' | 'db' | 'infra' | 'ai' | 'blockchain';
 
@@ -34,7 +43,8 @@ export interface Experience {
 export interface Project {
   id: ProjectId;
   stack: string[];
-  url: string;
+  url?: string;
+  status: ProjectStatus;
   featured?: boolean;
 }
 
@@ -52,6 +62,7 @@ export interface ResumeData {
     githubHandle: string;
     linkedin: string;
     dio: string;
+    freelanceSite: string;
   };
   keywords: string[];
   experiences: Experience[];
@@ -72,6 +83,7 @@ export const resume: ResumeData = {
     githubHandle: 'jaeyeong94',
     linkedin: 'https://linkedin.com/in/jae-yeong-you',
     dio: 'https://crew.dio.so',
+    freelanceSite: 'https://heyted.dev',
   },
   keywords: ['RAG', 'Multi-tenancy', 'Kubernetes', 'Web3', 'NestJS', 'Event-driven'],
   writingIds: ['this-site', 'multi-tenant-saas'],
@@ -194,22 +206,44 @@ export const resume: ResumeData = {
   ],
   projects: [
     {
-      id: 'randibot',
-      stack: ['Next.js', 'NestJS', 'PostgreSQL', 'Multi-tenancy'],
-      url: 'https://randibot.com',
+      id: 'momentir',
+      stack: ['Next.js', 'NestJS', 'OpenAI/LLM', 'Toss PG', 'PostgreSQL'],
+      url: 'https://momentir.com',
+      status: 'live',
       featured: true,
     },
     {
-      id: 'momentir',
-      stack: ['Framer', 'OpenAI/LLM', 'Toss PG', 'REST'],
-      url: 'https://momentir.com',
+      id: 'randibot',
+      stack: ['Next.js', 'NestJS', 'PostgreSQL', 'Multi-tenancy'],
+      url: 'https://randibot.com',
+      status: 'live',
       featured: true,
     },
     {
       id: 'nursevillage',
       stack: ['Next.js', 'React Native', 'PostgreSQL'],
       url: 'https://nursevillage.com',
-      featured: true,
+      status: 'live',
+    },
+    {
+      id: 'flfi-exchange',
+      stack: ['Node.js', 'PostgreSQL', 'Redis', 'WebSocket', 'OKX Broker API'],
+      status: 'discontinued',
+    },
+    {
+      id: 'flfi-lending',
+      stack: ['NestJS', 'Vue 3', 'AWS', 'Kubernetes', 'web3.js'],
+      status: 'internal',
+    },
+    {
+      id: 'ontoh-vision',
+      stack: ['Node.js', 'RTSP', 'AI/Vision', 'Cloudflare R2'],
+      status: 'internal',
+    },
+    {
+      id: 'rootstone-trading',
+      stack: ['Electron', 'Node.js', 'PostgreSQL', 'Redis'],
+      status: 'internal',
     },
   ],
   skills: [

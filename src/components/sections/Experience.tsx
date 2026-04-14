@@ -3,10 +3,12 @@
 import { useState } from 'react';
 import type { Dictionary } from '@/content/i18n';
 import type { Locale } from '@/lib/i18n';
-import { resume, monthsBetween, type Experience as ExpType } from '@/content/resume';
-import { SectionHeading } from '@/components/ui/SectionHeading';
-import { Card } from '@/components/ui/Card';
-import { Chip } from '@/components/ui/Chip';
+import {
+  resume,
+  monthsBetween,
+  type Experience as ExpType,
+  type EmploymentType,
+} from '@/content/resume';
 import { Reveal } from '@/components/ui/Reveal';
 import { formatYearMonth, formatDuration } from '@/lib/date';
 import { ChevronDown } from 'lucide-react';
@@ -16,34 +18,70 @@ interface Props {
   dict: Dictionary;
 }
 
+type Group = { type: EmploymentType; items: ExpType[] };
+
 export function Experience({ locale, dict }: Props) {
   const [showLegacy, setShowLegacy] = useState(false);
-  const current = resume.experiences.filter((e) => !e.legacy);
-  const legacy = resume.experiences.filter((e) => e.legacy);
+
+  const filtered = resume.experiences.filter((e) => (showLegacy ? true : !e.legacy));
+
+  const freelance = filtered.filter((e) => e.type === 'freelance');
+  const fulltime = filtered.filter((e) => e.type === 'fulltime');
+  const contract = filtered.filter((e) => e.type === 'contract');
+
+  const groups: Group[] = [];
+  if (freelance.length) groups.push({ type: 'freelance', items: freelance });
+  if (fulltime.length) groups.push({ type: 'fulltime', items: fulltime });
+  if (contract.length) groups.push({ type: 'contract', items: contract });
 
   return (
     <section
       id="experience"
       aria-labelledby="experience-heading"
-      className="mx-auto max-w-content scroll-mt-24 px-6 py-20 md:py-28"
+      className="relative mx-auto max-w-content scroll-mt-24 px-6 py-24 md:py-32"
     >
-      <SectionHeading
-        id="experience-heading"
-        eyebrow={dict.experience.eyebrow}
-        title={dict.experience.sectionTitle}
-      />
+      <Reveal>
+        <div className="flex items-center gap-4">
+          <span className="font-display text-2xl italic text-fg-subtle">02</span>
+          <span className="h-px flex-1 bg-border" />
+          <span className="text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle">
+            {dict.experience.eyebrow}
+          </span>
+        </div>
+        <h2 id="experience-heading" className="mt-6 font-display text-4xl italic text-fg md:text-5xl">
+          {dict.experience.sectionTitle}
+        </h2>
+      </Reveal>
 
-      <ol reversed className="relative space-y-6 border-l border-border pl-6 md:pl-8">
-        {current.map((exp) => (
-          <ExperienceCard key={exp.id} exp={exp} locale={locale} dict={dict} />
+      <div className="mt-16 space-y-20">
+        {groups.map((g, gi) => (
+          <div key={g.type}>
+            <Reveal>
+              <div className="mb-8 flex items-baseline gap-4">
+                <span className="font-display text-xl italic text-fg-subtle">
+                  {String(gi + 1).padStart(2, '0')}
+                </span>
+                <h3 className="text-lg font-semibold uppercase tracking-[0.25em] text-fg">
+                  {dict.employment[g.type]}
+                </h3>
+                <span className="h-px flex-1 bg-border" />
+                <span className="text-xs text-fg-subtle">{g.items.length}</span>
+              </div>
+            </Reveal>
+            <ol reversed className="space-y-12">
+              {g.items.map((exp) => (
+                <ExperienceRow key={exp.id} exp={exp} locale={locale} dict={dict} />
+              ))}
+            </ol>
+          </div>
         ))}
-      </ol>
+      </div>
 
-      <div className="mt-10 flex flex-col items-center gap-6">
+      <div className="mt-16 flex justify-center">
         <button
           type="button"
           onClick={() => setShowLegacy((v) => !v)}
-          className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-2 text-sm text-fg-muted transition-colors hover:text-fg"
+          className="inline-flex items-center gap-2 rounded-full border border-border bg-bg-subtle/50 px-5 py-2.5 text-sm text-fg-muted transition-colors hover:text-fg"
           aria-expanded={showLegacy}
         >
           {showLegacy ? dict.common.hideOlder : dict.common.showOlder}
@@ -52,22 +90,12 @@ export function Experience({ locale, dict }: Props) {
             aria-hidden
           />
         </button>
-        {showLegacy && (
-          <ol
-            reversed
-            className="w-full space-y-6 border-l border-border pl-6 md:pl-8"
-          >
-            {legacy.map((exp) => (
-              <ExperienceCard key={exp.id} exp={exp} locale={locale} dict={dict} />
-            ))}
-          </ol>
-        )}
       </div>
     </section>
   );
 }
 
-function ExperienceCard({
+function ExperienceRow({
   exp,
   locale,
   dict,
@@ -80,51 +108,55 @@ function ExperienceCard({
   const startIso = exp.start;
   const endIso = exp.end === 'present' ? new Date().toISOString().slice(0, 7) : exp.end;
   const months = monthsBetween(exp.start, exp.end);
+  const startYear = exp.start.slice(0, 4);
+  const endYear = exp.end === 'present' ? dict.common.present : exp.end.slice(0, 4);
+
   return (
-    <li className="group relative">
-      <span
-        aria-hidden
-        className="timeline-dot absolute -left-[33px] top-6 size-3 rounded-full border-2 border-bg bg-accent-1 md:-left-[41px]"
-      />
-      <Reveal>
-        <Card as="article">
-          <div className="flex flex-wrap items-baseline justify-between gap-3">
-            <h3 className="text-lg font-semibold text-fg">{item.company}</h3>
-            <div className="flex items-center gap-2 text-xs text-fg-subtle">
-              <time dateTime={startIso}>
-                {formatYearMonth(exp.start, locale, dict.common.present)}
-              </time>
-              <span>—</span>
-              <time dateTime={endIso}>
-                {formatYearMonth(exp.end, locale, dict.common.present)}
-              </time>
-              <span className="text-fg-subtle">·</span>
-              <span>
-                {formatDuration(months, locale, dict.common.years, dict.common.months)}
-              </span>
-            </div>
-          </div>
-          <div className="mt-1 flex flex-wrap items-center gap-2 text-sm text-fg-muted">
-            <span>{exp.role}</span>
-            <Chip variant="ghost">{dict.employment[exp.type]}</Chip>
-          </div>
-          <ul className="mt-4 space-y-2 text-sm text-fg-muted">
+    <Reveal as="li">
+      <article className="group grid grid-cols-1 gap-x-8 gap-y-4 md:grid-cols-[9rem_1fr]">
+        {/* Left rail: giant year span */}
+        <div className="md:pt-1">
+          <p className="font-display text-2xl italic leading-none text-fg-subtle md:text-3xl">
+            <span>{startYear}</span>
+            <span className="mx-2 text-fg-subtle/60">/</span>
+            <span>{endYear}</span>
+          </p>
+          <p className="mt-2 text-[0.65rem] font-medium uppercase tracking-[0.3em] text-fg-subtle">
+            <time dateTime={startIso}>
+              {formatYearMonth(exp.start, locale, dict.common.present)}
+            </time>
+            <span className="mx-1">—</span>
+            <time dateTime={endIso}>
+              {formatYearMonth(exp.end, locale, dict.common.present)}
+            </time>
+          </p>
+          <p className="mt-1 text-[0.65rem] font-medium uppercase tracking-[0.3em] text-fg-subtle/80">
+            {formatDuration(months, locale, dict.common.years, dict.common.months)}
+          </p>
+        </div>
+
+        {/* Right: content */}
+        <div className="border-l border-border pl-6 md:pl-8">
+          <h4 className="text-xl font-semibold text-fg md:text-2xl">{item.company}</h4>
+          <p className="mt-1 text-sm text-fg-muted">{exp.role}</p>
+          <ul className="mt-5 space-y-2.5 text-sm leading-relaxed text-fg-muted md:text-[0.95rem]">
             {item.bullets.map((b, i) => (
-              <li key={i} className="flex gap-2 leading-relaxed">
-                <span aria-hidden className="mt-2 size-1 shrink-0 rounded-full bg-fg-subtle" />
+              <li key={i} className="flex gap-3">
+                <span
+                  aria-hidden
+                  className="mt-2 size-1 shrink-0 rounded-full bg-accent-1/60"
+                />
                 <span>{b}</span>
               </li>
             ))}
           </ul>
           {exp.stack.length > 0 && (
-            <div className="mt-5 flex flex-wrap gap-1.5">
-              {exp.stack.map((s) => (
-                <Chip key={s}>{s}</Chip>
-              ))}
-            </div>
+            <p className="mt-5 font-mono text-xs text-fg-subtle">
+              {exp.stack.join(' · ')}
+            </p>
           )}
-        </Card>
-      </Reveal>
-    </li>
+        </div>
+      </article>
+    </Reveal>
   );
 }
