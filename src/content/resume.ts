@@ -49,13 +49,18 @@ export interface ResumeData {
     emailDomain: string;
     careerStart: DateString;
     github: string;
+    githubHandle: string;
     linkedin: string;
     dio: string;
   };
+  keywords: string[];
   experiences: Experience[];
   projects: Project[];
   skills: SkillCategory[];
   interests: InterestId[];
+  writingIds: Array<'this-site' | 'multi-tenant-saas'>;
+  books: Array<{ title: string; author: string }>;
+  tools: string[];
 }
 
 export const resume: ResumeData = {
@@ -64,9 +69,26 @@ export const resume: ResumeData = {
     emailDomain: 'gmail.com',
     careerStart: '2012-12',
     github: 'https://github.com/jaeyeong94',
+    githubHandle: 'jaeyeong94',
     linkedin: 'https://linkedin.com/in/jae-yeong-you',
     dio: 'https://crew.dio.so',
   },
+  keywords: ['RAG', 'Multi-tenancy', 'Kubernetes', 'Web3', 'NestJS', 'Event-driven'],
+  writingIds: ['this-site', 'multi-tenant-saas'],
+  books: [
+    { title: 'Designing Data-Intensive Applications', author: 'Martin Kleppmann' },
+    { title: 'Domain-Driven Design Distilled', author: 'Vaughn Vernon' },
+  ],
+  tools: [
+    'Claude Code',
+    'VS Code',
+    'JetBrains',
+    'tmux',
+    'Raycast',
+    'Linear',
+    '1Password',
+    'Notion',
+  ],
   experiences: [
     {
       id: 'onto',

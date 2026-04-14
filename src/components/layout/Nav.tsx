@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import type { Locale } from '@/lib/i18n';
 import type { Dictionary } from '@/content/i18n';
 import { LocaleSwitcher } from './LocaleSwitcher';
+import { ThemeToggle } from './ThemeToggle';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
 
@@ -22,6 +23,7 @@ export function Nav({ locale, dict }: Props) {
     { href: `${base}#experience`, label: dict.nav.experience },
     { href: `${base}#projects`, label: dict.nav.projects },
     { href: `${base}#skills`, label: dict.nav.skills },
+    { href: `${base}#writing`, label: dict.nav.writing },
     { href: `${base}#contact`, label: dict.nav.contact },
   ];
 
@@ -63,6 +65,7 @@ export function Nav({ locale, dict }: Props) {
           </ul>
         </nav>
         <div className="flex items-center gap-2">
+          <ThemeToggle />
           <LocaleSwitcher currentLocale={locale} />
           <button
             type="button"

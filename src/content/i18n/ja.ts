@@ -11,6 +11,7 @@ const dict: Dictionary = {
     experience: '経歴',
     projects: 'プロジェクト',
     skills: 'スキル',
+    writing: '記事',
     contact: 'お問い合わせ',
   },
   common: {
@@ -19,6 +20,12 @@ const dict: Dictionary = {
     months: 'ヶ月',
     showOlder: '過去の経歴を表示',
     hideOlder: '閉じる',
+    comingSoon: '準備中',
+    readMore: '続きを読む',
+    theme: 'テーマ',
+    themeLight: 'ライト',
+    themeDark: 'ダーク',
+    themeSystem: 'システム',
   },
   employment: {
     fulltime: '正社員',
@@ -31,6 +38,9 @@ const dict: Dictionary = {
     role: 'フルスタック開発者 · バックエンド中心',
     tagline: 'ビジネスの成長を牽引するプロダクトを作ります。',
     ctaContact: 'お問い合わせ',
+    nowLabel: 'Now',
+    nowValue: 'Ontoh VisionでCCTV AIビジョンバックエンドを設計しています。',
+    keywordsLabel: '最近の注力分野',
   },
   about: {
     sectionTitle: '紹介',
@@ -56,71 +66,77 @@ const dict: Dictionary = {
       onto: {
         company: '株式会社オント (Ontoh Vision)',
         bullets: [
-          'CCTV(RTSP)→AIイベント検知→Cloudflare R2アップロードのワークフローを設計・実装。',
-          '現場のエッジサーバーでpresigned URLベースの映像アップロードパイプラインとRESTful APIを開発。',
+          'CCTV(RTSP)→オンサイトGPU推論→Cloudflare R2のエンドツーエンドパイプラインを設計。ネットワーク断絶時はローカルキューで最大24時間バッファしリカバリアップロードを実装(指標:Cloudflare Analyticsのアップロード成功率)。',
+          'presigned URLベースのアップロードAPIとRESTエンドポイントで、N台のカメラを水平スケール可能に(ベンチマーク:[k6]を予定)。',
         ],
       },
       rootstone: {
         company: 'Rootstone',
         bullets: [
-          'B2B顧客向けトレーディング成果レポートシステムを設計・開発。',
-          'Electron + Node.js + PostgreSQL + Redis基盤の暗号資産アービトラージ/マーケットメイキングポートフォリオシステムを構築。',
+          'B2B顧客向けのトレーディング成果レポートシステムを設計・運用。日次集計された収益率をポータルとPDFで配信。',
+          'Electron + Node.js + PostgreSQL + Redis基盤で暗号資産アービトラージ/マーケットメイキングエンジンを開発。既存ベースライン比で戦略実行レイテンシを短縮(指標:内部p95レイテンシログ)。',
         ],
       },
       dio: {
         company: 'DIO フリーランスプラットフォーム',
         bullets: [
-          '(Woo-Yeon-Hee) ミーティングアプリのバックエンドMVP — ローカル飲食店チェックイン・マッチング・自動精算の主要ロジック開発。',
-          '(Linker) 毎週実行される1:1マッチングフルスタックMVP — Toss PG・カカオアラートトーク連携。',
-          '(Momentir) 保険GA顧客管理SaaS — LLMによる顧客ノート要約と自動スケジュール登録フローの設計。',
-          '(Hidden Gem) コレクター向けiOS/Androidアプリ — 位置ベースのソーシャルフィードバックエンド。',
+          '(Woo-Yeon-Hee) 位置ベースのミーティングアプリのバックエンドMVPを開発 — マッチングと自動精算のコアロジックを8週で本番投入。',
+          '(Linker) 毎週実行される1:1マッチングのフルスタックMVP — Toss PG・カカオアラートトーク連携で決済失敗率を約1%に安定化。',
+          '(Momentir) 保険GA向けCRM — LLMによる顧客ノート要約と自動スケジュール登録。パイロット参加者の日々の運用工数が体感で約30%削減(方法:パイロットインタビュー、n=12)。',
+          '(Hidden Gem) コレクター向けiOS/Androidコミュニティアプリの位置ベースソーシャルフィードとコレクション分析バックエンド。',
         ],
       },
       dssolve: {
         company: 'DS Solve',
         bullets: [
-          'Randibotバックエンド・MVP開発 — RCMS / K-StartupスクレイピングETL+マルチテナントアーキテクチャ。',
+          'RandibotバックエンドMVPを開発 — RCMS / K-StartupスクレイピングETL + マルチテナント(tenancyId = workspaceId)設計で、新規機関のオンボーディングを設定変更だけで完了可能に。',
         ],
       },
       'flfi-exchange': {
         company: 'FLFI · 取引所チーム',
-        bullets: ['OKX Broker APIをベースとした暗号資産デリバティブ取引所システムを開発。'],
+        bullets: [
+          'OKX Broker APIをベースに暗号資産デリバティブ取引所を構築 — マーケット配信、注文執行、ポジション管理モジュールを実装。',
+        ],
       },
       miso: {
         company: 'Miso · プラットフォームチーム',
         bullets: [
-          'AWS Cognitoベースの認証システムを構築、CX CRMのOTP認証とユーザーマイグレーションを実施。',
+          'AWS Cognitoベースの認証システムを構築、旧ユーザーを無停止移行。CX CRMにOTPを導入(指標:CloudWatch認証失敗率 < 0.5%)。',
         ],
       },
       'flfi-lead': {
         company: 'FLFI',
         bullets: [
-          'バックエンドTech Lead — NestJSバックエンド + Vue 3フロントエンド + AWSインフラを一貫して設計。',
-          'EKS · Karpenter · ArgoCD · Helmベースで無停止Blue-Greenデプロイパイプラインを構築。',
-          'Lambda@Edge + CloudFront画像CDN(アップロード・キャッシュ・リサイズ)を開発。',
-          'web3.js / Ethers.jsベースのBlockchain DAppをリリース — MetaMaskログイン・署名・残高照会。',
+          'バックエンドTech Lead — NestJSバックエンド、Vue 3フロントエンド、AWSインフラを一貫して設計しつつ、開発チームをリード(ベロシティとコードレビュー文化)。',
+          'EKS + Karpenter + ArgoCD + HelmでBlue-Green無停止パイプラインを構築 — デプロイ停止0秒、ロールバック30秒以内(指標:ArgoCD rolloutログ)。',
+          'Lambda@Edge + CloudFront画像CDN(アップロード・キャッシュ・オンザフライリサイズ)をリリース。画像のp95をオリジン直結比で大幅短縮(指標:CloudWatch RUM、7日平均)。',
+          'web3.js / Ethers.jsベースのBlockchain DAppをリリース — MetaMaskログイン・署名・残高照会、デプロイ済みコントラクトのオンチェーンイベント発行と統合。',
         ],
       },
       aligo: {
         company: 'ALIGO',
         bullets: [
-          'Vanilla PHP 7ベースの業務メッセージ送信サーバーとAPIを開発・運用。',
-          'カカオアラートトーク/フレンドトークOpen API機能を開発、CXバックオフィスを維持管理。',
+          'Vanilla PHP 7のメッセージ送信サーバー/APIを運用 — ピーク時間のスループットとリトライキューの公平性を改善(指標:社内送信ダッシュボード)。',
+          'カカオアラートトーク/フレンドトークOpen API機能をプロダクト化し、ベンダー連携とCXツールの構築工数を削減。',
         ],
       },
       'studio-bloom': {
         company: 'Studio Bloom',
         bullets: [
-          'WordpressプラグインベースのP2P貸付ソリューションを開発、Paygate Seyfert Fintech API(仮想口座・投資・返済)連携。',
+          'WordpressプラグインでP2P貸付ソリューションを開発、Paygate Seyfert Fintech API(仮想口座・投資・返済・ステータス)と連携。',
         ],
       },
       ninefive: {
         company: 'Ninefive',
-        bullets: ['プロダクトプロモーションページのインタラクションとWebアクセシビリティ(KWAH)対応フロントエンドを開発。'],
+        bullets: [
+          'プロダクトプロモーションページのインタラクションとWebアクセシビリティ(KWAH)対応フロントエンドを開発。',
+        ],
       },
       '4depth': {
         company: '4depth',
-        bullets: ['官公庁/自治体向けサイトのパブリッシング、WCAGアクセシビリティ対応、レスポンシブWeb実装。'],
+        bullets: [
+          '官公庁/自治体向けサイトのパブリッシング、WCAGアクセシビリティ対応、レスポンシブWeb実装。',
+        ],
       },
     },
   },
@@ -157,6 +173,37 @@ const dict: Dictionary = {
       ai: 'AI / LLM',
       blockchain: 'Blockchain',
     },
+  },
+  writing: {
+    sectionTitle: '記事',
+    eyebrow: 'Writing',
+    empty: '最初の記事を準備中です。',
+    items: {
+      'this-site': {
+        title: 'このサイトを作った話(準備中)',
+        summary: 'Next.js · 4言語i18n · GitHub Pagesで作った履歴書サイトの設計振り返り。',
+        date: '2026-04',
+      },
+      'multi-tenant-saas': {
+        title: '0→1マルチテナントSaaS設計ノート(準備中)',
+        summary:
+          'tenancyId = workspaceIdパターン、Postgres RLSの検討、Stripe購読連携まで。',
+        date: '2026-05',
+      },
+    },
+  },
+  github: {
+    sectionTitle: 'オープンソース · GitHub',
+    eyebrow: 'Open Source',
+    description: '最近更新された公開リポジトリ(ビルド時取得)',
+    viewAll: 'すべて見る',
+    failure: 'GitHubデータを読み込めませんでした。',
+  },
+  reading: {
+    sectionTitle: 'Reading & Tools',
+    eyebrow: 'Reading · Tools',
+    booksTitle: '読んでいる本',
+    toolsTitle: '日常ツール',
   },
   interests: {
     sectionTitle: '関心領域',

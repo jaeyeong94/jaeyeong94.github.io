@@ -81,10 +81,10 @@ function ExperienceCard({
   const endIso = exp.end === 'present' ? new Date().toISOString().slice(0, 7) : exp.end;
   const months = monthsBetween(exp.start, exp.end);
   return (
-    <li className="relative">
+    <li className="group relative">
       <span
         aria-hidden
-        className="absolute -left-[33px] top-6 size-3 rounded-full border-2 border-bg bg-accent-1 md:-left-[41px]"
+        className="timeline-dot absolute -left-[33px] top-6 size-3 rounded-full border-2 border-bg bg-accent-1 md:-left-[41px]"
       />
       <Reveal>
         <Card as="article">

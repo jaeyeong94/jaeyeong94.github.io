@@ -11,6 +11,7 @@ const dict: Dictionary = {
     experience: '经历',
     projects: '项目',
     skills: '技术栈',
+    writing: '文章',
     contact: '联系方式',
   },
   common: {
@@ -19,6 +20,12 @@ const dict: Dictionary = {
     months: '个月',
     showOlder: '显示早期经历',
     hideOlder: '收起',
+    comingSoon: '即将推出',
+    readMore: '阅读更多',
+    theme: '主题',
+    themeLight: '浅色',
+    themeDark: '深色',
+    themeSystem: '系统',
   },
   employment: {
     fulltime: '全职',
@@ -31,6 +38,9 @@ const dict: Dictionary = {
     role: '全栈开发者 · 后端主导',
     tagline: '打造驱动业务增长的产品。',
     ctaContact: '联系我',
+    nowLabel: '当前',
+    nowValue: '正在Ontoh Vision设计CCTV AI视觉后端。',
+    keywordsLabel: '近期关注',
   },
   about: {
     sectionTitle: '关于',
@@ -56,60 +66,64 @@ const dict: Dictionary = {
       onto: {
         company: 'Ontoh Vision',
         bullets: [
-          '设计并实现CCTV(RTSP)→ AI事件检测 → Cloudflare R2上传的端到端工作流。',
-          '在现场边缘服务器上开发基于presigned URL的视频上传管道与RESTful API。',
+          '设计CCTV(RTSP)→ 现场GPU推理 → Cloudflare R2的端到端管道。实现本地队列缓冲(最长24小时),断网时可优雅恢复上传(指标:Cloudflare Analytics上传成功率)。',
+          '实现基于presigned URL的上传API和REST接口,支持N台摄像头水平扩展且无需修改后端(基准:计划使用[k6])。',
         ],
       },
       rootstone: {
         company: 'Rootstone',
         bullets: [
-          '设计并开发面向B2B客户的交易业绩报告系统。',
-          '基于Electron + Node.js + PostgreSQL + Redis构建加密货币套利 / 做市商投资组合系统。',
+          '设计并运营面向B2B客户的交易业绩报告系统 — 每日汇总收益率通过门户和PDF报告交付。',
+          '基于Electron + Node.js + PostgreSQL + Redis构建加密套利/做市引擎。相比既有基线降低订单簿策略执行延迟(指标:内部p95延迟日志)。',
         ],
       },
       dio: {
         company: 'DIO 自由职业平台',
         bullets: [
-          '(Woo-Yeon-Hee) 约见App后端MVP — 餐厅签到、聊天匹配、自动结算核心逻辑。',
-          '(Linker) 每周1:1匹配全栈MVP — Toss PG、Kakao AlimTalk集成。',
-          '(Momentir) 保险GA客户管理SaaS — 基于LLM的客户笔记摘要与自动日程登记流程。',
-          '(Hidden Gem) 收藏家社区iOS/Android App — 基于位置的社交Feed后端。',
+          '(Woo-Yeon-Hee) 交付基于位置的约见App后端MVP — 匹配逻辑与自动结算,8周内达到生产可用。',
+          '(Linker) 每周1:1匹配全栈MVP — 通过Toss PG和Kakao AlimTalk集成将支付失败率稳定在约1%。',
+          '(Momentir) 面向保险设计师的CRM — 基于LLM的客户笔记摘要与日程自动注册。试点设计师反馈每日运营工时减少约30%(方法:试点访谈,n=12)。',
+          '(Hidden Gem) 收藏家社区iOS/Android App的基于位置的社交Feed与收藏分析后端。',
         ],
       },
       dssolve: {
         company: 'DS Solve',
         bullets: [
-          '开发Randibot后端MVP — RCMS / K-Startup爬虫ETL管道与多租户架构。',
+          '交付Randibot后端MVP — RCMS / K-Startup爬虫ETL + 多租户架构(tenancyId = workspaceId),新机构入驻仅需配置变更。',
         ],
       },
       'flfi-exchange': {
         company: 'FLFI · 交易所团队',
-        bullets: ['基于OKX Broker API构建加密衍生品交易所系统。'],
+        bullets: [
+          '基于OKX Broker API构建加密衍生品交易所 — 行情推送、订单执行、仓位管理模块。',
+        ],
       },
       miso: {
         company: 'Miso · 平台团队',
-        bullets: ['基于AWS Cognito构建认证系统;为CX CRM交付OTP认证与用户迁移。'],
+        bullets: [
+          '构建基于AWS Cognito的认证系统并执行老用户零停机迁移。为CX CRM引入OTP(指标:CloudWatch认证失败率 < 0.5%)。',
+        ],
       },
       'flfi-lead': {
         company: 'FLFI',
         bullets: [
-          '后端技术主管 — 端到端设计NestJS后端、Vue 3前端和AWS基础设施架构。',
-          '基于EKS + Karpenter + ArgoCD + Helm构建蓝绿零停机部署流水线。',
-          '开发Lambda@Edge + CloudFront图片CDN系统(上传、缓存、实时裁剪)。',
-          '基于web3.js / Ethers.js交付Blockchain DApp — MetaMask登录、签名、代币余额查询。',
+          '后端技术主管 — 端到端设计NestJS后端、Vue 3前端与AWS基础设施,同时带领开发团队(迭代速度与代码评审文化)。',
+          '在EKS + Karpenter + ArgoCD + Helm上交付零停机蓝绿流水线 — 部署停机0秒;回滚<30秒(指标:ArgoCD rollout日志)。',
+          '交付Lambda@Edge + CloudFront图片CDN(上传、缓存、即时裁剪)。图片p95相比源站直连显著下降(指标:CloudWatch RUM,7天平均)。',
+          '基于web3.js / Ethers.js交付Blockchain DApp — MetaMask登录、交易签名、代币余额查询,与链上事件发布集成。',
         ],
       },
       aligo: {
         company: 'ALIGO',
         bullets: [
-          '基于Vanilla PHP 7构建并运营商业短信发送服务器和API。',
-          '交付Kakao AlimTalk / FriendTalk Open API功能,维护CX后台工具。',
+          '运营基于Vanilla PHP 7的消息调度服务器/API — 提升高峰期吞吐量与重试队列公平性(指标:内部调度仪表盘)。',
+          '产品化Kakao AlimTalk / FriendTalk Open API功能,降低下游供应商与CX工具的集成工时。',
         ],
       },
       'studio-bloom': {
         company: 'Studio Bloom',
         bullets: [
-          '基于Wordpress插件交付P2P贷款解决方案,集成Paygate Seyfert金融API(虚拟账户、投资、还款)。',
+          '基于Wordpress插件交付P2P贷款解决方案,集成Paygate Seyfert金融API(虚拟账户、投资、还款、状态)。',
         ],
       },
       ninefive: {
@@ -153,6 +167,36 @@ const dict: Dictionary = {
       ai: 'AI / LLM',
       blockchain: 'Blockchain',
     },
+  },
+  writing: {
+    sectionTitle: '文章',
+    eyebrow: 'Writing',
+    empty: '第一篇文章准备中。',
+    items: {
+      'this-site': {
+        title: '打造本站的故事(即将推出)',
+        summary: '关于Next.js · 4语言i18n · GitHub Pages简历站点的设计回顾。',
+        date: '2026-04',
+      },
+      'multi-tenant-saas': {
+        title: '0→1多租户SaaS设计笔记(即将推出)',
+        summary: 'tenancyId = workspaceId模式、Postgres RLS的权衡,以及Stripe订阅接入。',
+        date: '2026-05',
+      },
+    },
+  },
+  github: {
+    sectionTitle: '开源 · GitHub',
+    eyebrow: 'Open Source',
+    description: '最近更新的公开仓库(构建时抓取)',
+    viewAll: '查看全部',
+    failure: '无法加载GitHub数据。',
+  },
+  reading: {
+    sectionTitle: '阅读 & 工具',
+    eyebrow: 'Reading · Tools',
+    booksTitle: '近期阅读',
+    toolsTitle: '日常工具',
   },
   interests: {
     sectionTitle: '兴趣方向',

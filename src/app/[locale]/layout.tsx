@@ -4,6 +4,8 @@ import { locales, isLocale } from '@/lib/i18n';
 import { getDictionary } from '@/content/i18n';
 import { Nav } from '@/components/layout/Nav';
 import { Footer } from '@/components/layout/Footer';
+import { ThemeScript } from '@/components/layout/ThemeScript';
+import { JsonLdPerson } from '@/components/ui/JsonLd';
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -63,7 +65,9 @@ export default async function LocaleLayout({
 
   return (
     <>
+      <ThemeScript />
       <script dangerouslySetInnerHTML={{ __html: htmlLangScript }} />
+      <JsonLdPerson />
       <Nav locale={locale} dict={dict} />
       {children}
       <Footer dict={dict} buildTime={buildTime} />
