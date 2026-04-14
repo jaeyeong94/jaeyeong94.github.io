@@ -13,7 +13,7 @@ export function Skills({ dict }: Props) {
     <section
       id="skills"
       aria-labelledby="skills-heading"
-      className="relative w-full scroll-mt-24 px-6 py-24 md:px-10 md:py-32 lg:px-16 xl:px-24"
+      className="section-frame section-pad relative scroll-mt-24"
     >
       <Reveal>
         <div className="flex items-center gap-4">

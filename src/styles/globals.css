@@ -109,6 +109,15 @@ body {
   letter-spacing: -0.015em;
 }
 
+@layer components {
+  .section-frame {
+    @apply mx-auto w-full max-w-[90rem] px-6 md:px-10 lg:px-14;
+  }
+  .section-pad {
+    @apply py-20 md:py-24;
+  }
+}
+
 @layer utilities {
   .reveal {
     opacity: 0;

@@ -44,7 +44,7 @@ export function Nav({ locale, dict }: Props) {
           : 'border-b border-transparent',
       )}
     >
-      <div className="flex w-full items-center justify-between gap-6 px-6 py-3 md:px-10 lg:px-16 xl:px-24">
+      <div className="section-frame flex items-center justify-between gap-6 py-3">
         <Link
           href={base}
           className="font-semibold tracking-tight text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-1"

@@ -11,8 +11,9 @@ export function Manifesto({ dict }: Props) {
     <section
       id="manifesto"
       aria-labelledby="manifesto-heading"
-      className="relative w-full scroll-mt-24 border-y border-border px-6 py-24 md:px-10 md:py-32 lg:px-16 xl:px-24"
+      className="relative border-y border-border"
     >
+      <div className="section-frame section-pad scroll-mt-24">
       <Reveal>
         <div className="flex items-center gap-4">
           <span className="font-display text-2xl italic text-fg-subtle">02</span>
@@ -85,6 +86,7 @@ export function Manifesto({ dict }: Props) {
             ))}
           </ul>
         </Reveal>
+      </div>
       </div>
     </section>
   );

@@ -1,0 +1,575 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Ted Ryu" [ref=e4] [cursor=pointer]:
+        - /url: /ko/
+      - navigation "Primary" [ref=e5]:
+        - list [ref=e6]:
+          - listitem [ref=e7]:
+            - link "소개" [ref=e8] [cursor=pointer]:
+              - /url: /ko/#about
+          - listitem [ref=e9]:
+            - link "신념" [ref=e10] [cursor=pointer]:
+              - /url: /ko/#manifesto
+          - listitem [ref=e11]:
+            - link "경력" [ref=e12] [cursor=pointer]:
+              - /url: /ko/#experience
+          - listitem [ref=e13]:
+            - link "프로젝트" [ref=e14] [cursor=pointer]:
+              - /url: /ko/#projects
+          - listitem [ref=e15]:
+            - link "기술" [ref=e16] [cursor=pointer]:
+              - /url: /ko/#skills
+          - listitem [ref=e17]:
+            - link "글" [ref=e18] [cursor=pointer]:
+              - /url: /ko/#writing
+          - listitem [ref=e19]:
+            - link "연락처" [ref=e20] [cursor=pointer]:
+              - /url: /ko/#contact
+      - generic [ref=e21]:
+        - 'button "Theme: system" [ref=e22] [cursor=pointer]':
+          - img [ref=e23]
+        - button "한국어" [ref=e26] [cursor=pointer]:
+          - img [ref=e27]
+          - generic [ref=e30]: 한국어
+  - main [ref=e31]:
+    - generic [ref=e33]:
+      - generic [ref=e35]:
+        - paragraph [ref=e36]: Portfolio · Vol. 01 · 2026
+        - paragraph [ref=e37]: Seoul, Korea
+      - generic [ref=e39]:
+        - paragraph [ref=e40]: Ted Ryu
+        - heading "유재영 — Ted Ryu" [level=1] [ref=e41]:
+          - generic [ref=e42]: 유재영
+          - generic [ref=e43]: — Ted Ryu
+      - paragraph [ref=e45]: 풀스택 개발자 · 백엔드 중심—비즈니스 성장을 주도하는 제품을 만듭니다.
+      - figure [ref=e47]:
+        - paragraph [ref=e48]: “
+        - generic [ref=e49]:
+          - paragraph [ref=e50]: 지금
+          - blockquote [ref=e51]: 미국 실리콘밸리에 위치한 회사와 보험사 전용 SaaS를 개발하고 있습니다
+      - generic [ref=e53]:
+        - paragraph [ref=e54]: 요즘 집중
+        - list [ref=e55]:
+          - listitem [ref=e56]:
+            - generic [ref=e57]: RAG
+            - generic [ref=e58]: /
+          - listitem [ref=e59]:
+            - generic [ref=e60]: Multi-tenancy
+            - generic [ref=e61]: /
+          - listitem [ref=e62]:
+            - generic [ref=e63]: Kubernetes
+            - generic [ref=e64]: /
+          - listitem [ref=e65]:
+            - generic [ref=e66]: Web3
+            - generic [ref=e67]: /
+          - listitem [ref=e68]:
+            - generic [ref=e69]: NestJS
+            - generic [ref=e70]: /
+          - listitem [ref=e71]:
+            - generic [ref=e72]: Event-driven
+      - generic [ref=e74]:
+        - link "연락하기" [ref=e75] [cursor=pointer]:
+          - /url: /ko/#contact
+          - text: 연락하기
+          - img [ref=e76]
+        - link "heyted.dev" [ref=e78] [cursor=pointer]:
+          - /url: https://heyted.dev
+          - img [ref=e79]
+        - link "GitHub" [ref=e82] [cursor=pointer]:
+          - /url: https://github.com/jaeyeong94
+          - img [ref=e83]
+        - link "LinkedIn" [ref=e86] [cursor=pointer]:
+          - /url: https://linkedin.com/in/jae-yeong-you
+          - img [ref=e87]
+    - region "소개" [ref=e91]:
+      - generic [ref=e93]:
+        - generic [ref=e94]: "01"
+        - generic [ref=e96]: About
+      - heading "소개" [level=2] [ref=e97]
+      - generic [ref=e98]:
+        - paragraph [ref=e100]: 핀테크 · 블록체인 · SaaS · AI 도메인에서 0→1 서비스를 구축 · 운영해 온 풀스택 개발자입니다. 백엔드 아키텍처와 AWS/Kubernetes 기반 인프라에 강점이 있으며, 최근에는 LLM · RAG · Web3 응용에 집중하고 있습니다.
+        - generic [ref=e102]:
+          - generic [ref=e103]:
+            - term [ref=e104]: 실무 경력
+            - definition [ref=e105]: 13년+
+          - generic [ref=e106]:
+            - term [ref=e107]: 0→1 서비스
+            - definition [ref=e108]: 6건+
+          - generic [ref=e109]:
+            - term [ref=e110]: 운영 인프라
+            - definition [ref=e111]: AWS · K8s · Terraform
+      - generic [ref=e113]:
+        - paragraph [ref=e114]: ≀ 일하는 방식
+        - generic [ref=e115]:
+          - paragraph [ref=e116]: 좋은 개발자는 사용자 요구사항과 UX · 비즈니스 목표를 이해하고 해결하는 사람이라 믿습니다. 지표 기반 의사결정과 사용자 피드백 루프를 중시하며, 안정적인 서비스를 위한 클라우드 인프라와 SDLC 구축에 관심이 많습니다.
+          - paragraph [ref=e117]: 다양한 관점을 중시하고 혁신적인 솔루션으로 시장을 개척하는 팀을 찾고 있습니다. 체계적인 절차를 바탕으로 한 신속한 의사결정과 실행이 시장에 큰 영향을 미치는 서비스를 만드는 열쇠라고 생각합니다.
+    - region "AI 시대의 개발" [ref=e118]:
+      - generic [ref=e119]:
+        - generic [ref=e120]:
+          - generic [ref=e121]:
+            - generic [ref=e122]: "02"
+            - generic [ref=e124]: Manifesto
+          - heading "AI 시대의 개발" [level=2] [ref=e125]
+        - figure [ref=e127]:
+          - paragraph [ref=e128]: “
+          - blockquote [ref=e129]: AI는 도구, 사람이 디렉터다. 알아야 요청할 수 있고, 알아야 검증할 수 있다.
+        - generic [ref=e130]:
+          - generic [ref=e131]:
+            - paragraph [ref=e132]: ❖ Mindset
+            - list [ref=e133]:
+              - listitem [ref=e134]:
+                - generic [ref=e135]:
+                  - generic [ref=e136]: "01"
+                  - heading "에이전틱 엔지니어링" [level=3] [ref=e137]
+                - paragraph [ref=e138]: AI 에이전트가 움직일 인프라와 가드레일을 사람이 설계한다. 아키텍처 결정·분업 구조·안전장치는 사람의 몫.
+              - listitem [ref=e139]:
+                - generic [ref=e140]:
+                  - generic [ref=e141]: "02"
+                  - heading "지식이 품질 게이트" [level=3] [ref=e142]
+                - paragraph [ref=e143]: 11년간 쌓은 실무 경험과 도메인 지식이 AI 결과물의 검증 레이어로 작동한다. 알아야 요청하고, 알아야 검증할 수 있다.
+              - listitem [ref=e144]:
+                - generic [ref=e145]:
+                  - generic [ref=e146]: "03"
+                  - heading "복리로 쌓이는 학습" [level=3] [ref=e147]
+                - paragraph [ref=e148]: 새로운 스택·도메인·문제 공간을 끊임없이 흡수한다. AI 시대의 전제조건은 "지속적인 자기계발" 이다.
+          - generic [ref=e149]:
+            - paragraph [ref=e150]: → Actions
+            - list [ref=e151]:
+              - listitem [ref=e152]:
+                - generic [ref=e154]: 비용과 시간 제약으로 시도하지 못했던 서비스와 툴을 직접 만든다.
+              - listitem [ref=e155]:
+                - generic [ref=e157]: 오픈소스에 기여하며 "문제 해결" 자체에 집중한다.
+              - listitem [ref=e158]:
+                - generic [ref=e160]: AI 시대에 맞는 사업 마인드·리더십·협업 방식을 실험하고 정리한다.
+              - listitem [ref=e161]:
+                - generic [ref=e163]: 그 질문들에 소프트웨어로 답할 수 있는 솔루션을 프로토타이핑한다.
+    - region "경력" [ref=e164]:
+      - generic [ref=e165]:
+        - generic [ref=e166]:
+          - generic [ref=e167]: "03"
+          - generic [ref=e169]: Experience
+        - heading "경력" [level=2] [ref=e170]
+      - generic [ref=e171]:
+        - generic [ref=e172]:
+          - generic [ref=e174]:
+            - generic [ref=e175]: "01"
+            - heading "프리랜서" [level=3] [ref=e176]
+            - generic [ref=e178]: "4"
+          - list [ref=e179]:
+            - listitem [ref=e180]:
+              - article [ref=e181]:
+                - generic [ref=e182]:
+                  - paragraph [ref=e183]: 2026/현재
+                  - paragraph [ref=e184]:
+                    - time [ref=e185]: 2026년 1월
+                    - text: —
+                    - time [ref=e186]: 현재
+                  - paragraph [ref=e187]: 3개월
+                - generic [ref=e188]:
+                  - heading "주식회사 온토 (Ontoh Vision)" [level=4] [ref=e189]
+                  - paragraph [ref=e190]: Backend Engineer
+                - generic [ref=e191]:
+                  - list [ref=e192]:
+                    - listitem [ref=e193]:
+                      - generic [ref=e195]: "CCTV(RTSP) 스트림을 온사이트 GPU 노드에서 AI 추론 → Cloudflare R2로 저장하는 엔드투엔드 파이프라인 설계. 네트워크 단절 시 로컬 큐로 최대 24시간 버퍼링 후 복구 업로드 구현 (측정: Cloudflare Analytics, 업로드 성공률 지표)."
+                    - listitem [ref=e196]:
+                      - generic [ref=e198]: "presigned URL 기반 업로드와 RESTful API를 설계해 카메라 장비 N개 동시 확장을 수평적 대응 가능하게 함 (측정: 부하 테스트 [k6] 예정)."
+                  - paragraph [ref=e199]: Node.js · AWS · Cloudflare R2 · RTSP · AI/Vision
+            - listitem [ref=e200]:
+              - article [ref=e201]:
+                - generic [ref=e202]:
+                  - paragraph [ref=e203]: 2023/현재
+                  - paragraph [ref=e204]:
+                    - time [ref=e205]: 2023년 11월
+                    - text: —
+                    - time [ref=e206]: 현재
+                  - paragraph [ref=e207]: 2년 5개월
+                - generic [ref=e208]:
+                  - heading "Rootstone" [level=4] [ref=e209]
+                  - paragraph [ref=e210]: Software Engineer
+                - generic [ref=e211]:
+                  - list [ref=e212]:
+                    - listitem [ref=e213]:
+                      - generic [ref=e215]: B2B 고객 대상 트레이딩 성과 리포트 시스템 설계 · 운영. 매일 집계된 수익률 지표를 고객 포털과 PDF 리포트로 자동 발송.
+                    - listitem [ref=e216]:
+                      - generic [ref=e218]: "Electron + Node.js + PostgreSQL + Redis 기반 크립토 차익거래 · 마켓 메이킹 엔진 개발. 실시간 오더북 기반 전략 실행 지연 시간을 기존 대비 단축 (측정: 내부 latency 로그 p95 기준)."
+                  - paragraph [ref=e219]: Node.js · Electron · PostgreSQL · Redis · WebSocket
+            - listitem [ref=e220]:
+              - article [ref=e221]:
+                - generic [ref=e222]:
+                  - paragraph [ref=e223]: 2023/현재
+                  - paragraph [ref=e224]:
+                    - time [ref=e225]: 2023년 11월
+                    - text: —
+                    - time [ref=e226]: 현재
+                  - paragraph [ref=e227]: 2년 5개월
+                - generic [ref=e228]:
+                  - heading "DIO 플랫폼 프리랜서" [level=4] [ref=e229]
+                  - paragraph [ref=e230]: Full-stack Developer
+                - generic [ref=e231]:
+                  - list [ref=e232]:
+                    - listitem [ref=e233]:
+                      - generic [ref=e235]: (우연히) 지역 음식점 체크인 · 채팅 기반 매칭 앱의 Backend MVP 개발 — 매칭 알고리즘과 자동 체크아웃/정산 핵심 로직을 8주 내 프로덕션까지 안착.
+                    - listitem [ref=e236]:
+                      - generic [ref=e238]: (링커) 매주 실행되는 1:1 매칭 Full-stack MVP — Toss PG · 카카오 알림톡 연동으로 결제 실패율을 1%대로 안정화.
+                    - listitem [ref=e239]:
+                      - generic [ref=e241]: "(Momentir) 보험 GA CRM SaaS — LLM 기반 고객 노트 요약 + 일정 자동 등록 플로우를 설계해 설계사 1인 하루 운영 공수를 체감상 30% 이상 절감 (측정: 파일럿 사용자 인터뷰, n=12)."
+                    - listitem [ref=e242]:
+                      - generic [ref=e244]: (히든젬) 수집가 커뮤니티 iOS/Android 앱 — 위치 기반 피드와 컬렉션 통계 대시보드 백엔드를 구축.
+                  - paragraph [ref=e245]: Node.js · NestJS · Next.js · PostgreSQL · Toss PG · LLM
+            - listitem [ref=e246]:
+              - article [ref=e247]:
+                - generic [ref=e248]:
+                  - paragraph [ref=e249]: 2024/2024
+                  - paragraph [ref=e250]:
+                    - time [ref=e251]: 2024년 2월
+                    - text: —
+                    - time [ref=e252]: 2024년 4월
+                  - paragraph [ref=e253]: 2개월
+                - generic [ref=e254]:
+                  - heading "주식회사 디에스솔브" [level=4] [ref=e255]
+                  - paragraph [ref=e256]: Backend Engineer
+                - generic [ref=e257]:
+                  - list [ref=e258]:
+                    - listitem [ref=e259]:
+                      - generic [ref=e261]: Randibot 백엔드 MVP 개발 — RCMS · K-Startup 스크래핑 ETL 파이프라인과 멀티테넌트(tenancyId = workspaceId) 아키텍처를 설계해 신규 기관 온보딩 시간을 설정 변경만으로 처리 가능하게 함.
+                  - paragraph [ref=e262]: NestJS · PostgreSQL · Multi-tenancy · ETL
+        - generic [ref=e263]:
+          - generic [ref=e265]:
+            - generic [ref=e266]: "02"
+            - heading "정규직" [level=3] [ref=e267]
+            - generic [ref=e269]: "4"
+          - list [ref=e270]:
+            - listitem [ref=e271]:
+              - article [ref=e272]:
+                - generic [ref=e273]:
+                  - paragraph [ref=e274]: 2023/2023
+                  - paragraph [ref=e275]:
+                    - time [ref=e276]: 2023년 9월
+                    - text: —
+                    - time [ref=e277]: 2023년 11월
+                  - paragraph [ref=e278]: 2개월
+                - generic [ref=e279]:
+                  - heading "주식회사 플피(FLFI) — 거래소 팀" [level=4] [ref=e280]
+                  - paragraph [ref=e281]: Backend Engineer
+                - generic [ref=e282]:
+                  - list [ref=e283]:
+                    - listitem [ref=e284]:
+                      - generic [ref=e286]: OKX Broker API 기반 파생상품 크립토 거래소 시스템 개발. 시세 스트리밍 · 주문 체결 · 포지션 관리 모듈 구현.
+                  - paragraph [ref=e287]: Node.js · OKX Broker API · PostgreSQL
+            - listitem [ref=e288]:
+              - article [ref=e289]:
+                - generic [ref=e290]:
+                  - paragraph [ref=e291]: 2023/2023
+                  - paragraph [ref=e292]:
+                    - time [ref=e293]: 2023년 6월
+                    - text: —
+                    - time [ref=e294]: 2023년 9월
+                  - paragraph [ref=e295]: 3개월
+                - generic [ref=e296]:
+                  - heading "유한회사 미소 — 플랫폼 팀" [level=4] [ref=e297]
+                  - paragraph [ref=e298]: Backend Engineer
+                - generic [ref=e299]:
+                  - list [ref=e300]:
+                    - listitem [ref=e301]:
+                      - generic [ref=e303]: "AWS Cognito 기반 인증 시스템 구축. 기존 레거시 DB의 사용자 데이터를 Cognito로 무중단 마이그레이션하고 OTP 인증 플로우를 CX CRM에 도입 (측정: CloudWatch 인증 실패율 < 0.5%)."
+                  - paragraph [ref=e304]: AWS Cognito · Node.js
+            - listitem [ref=e305]:
+              - article [ref=e306]:
+                - generic [ref=e307]:
+                  - paragraph [ref=e308]: 2021/2023
+                  - paragraph [ref=e309]:
+                    - time [ref=e310]: 2021년 4월
+                    - text: —
+                    - time [ref=e311]: 2023년 4월
+                  - paragraph [ref=e312]: 2년
+                - generic [ref=e313]:
+                  - heading "주식회사 플피(FLFI)" [level=4] [ref=e314]
+                  - paragraph [ref=e315]: Tech Lead · Backend
+                - generic [ref=e316]:
+                  - list [ref=e317]:
+                    - listitem [ref=e318]:
+                      - generic [ref=e320]: Backend Tech Lead — NestJS 백엔드 + Vue 3 프론트엔드 + AWS 인프라 전체 아키텍처 설계 및 팀 리딩. 스프린트 속도 개선과 코드리뷰 문화 정착을 주도.
+                    - listitem [ref=e321]:
+                      - generic [ref=e323]: "EKS + Karpenter + ArgoCD + Helm 기반 무중단 Blue-Green 배포 파이프라인 구축. 배포 시 다운타임 0초 달성, 롤백은 30초 이내 복구 가능하게 함 (측정: ArgoCD rollout 로그)."
+                    - listitem [ref=e324]:
+                      - generic [ref=e326]: "Lambda@Edge + CloudFront 이미지 CDN 개발 (업로드 · 캐싱 · 온더플라이 리사이즈). 이미지 응답 p95가 기존 오리진 직결 대비 대폭 단축 (측정: CloudWatch RUM, 7일 평균)."
+                    - listitem [ref=e327]:
+                      - generic [ref=e329]: web3.js / Ethers.js 기반 Blockchain DApp 개발 — 메타마스크 로그인 · 트랜잭션 서명 · 토큰 잔액 조회. 배포된 스마트 컨트랙트로 온체인 이벤트 발행까지 통합.
+                  - paragraph [ref=e330]: Node.js · NestJS · TypeScript · AWS · Kubernetes · Vue 3 · SvelteKit · web3.js · Ethers.js
+            - listitem [ref=e331]:
+              - article [ref=e332]:
+                - generic [ref=e333]:
+                  - paragraph [ref=e334]: 2019/2021
+                  - paragraph [ref=e335]:
+                    - time [ref=e336]: 2019년 8월
+                    - text: —
+                    - time [ref=e337]: 2021년 4월
+                  - paragraph [ref=e338]: 1년 8개월
+                - generic [ref=e339]:
+                  - heading "(주)알리는사람들 (ALIGO)" [level=4] [ref=e340]
+                  - paragraph [ref=e341]: Backend Engineer
+                - generic [ref=e342]:
+                  - list [ref=e343]:
+                    - listitem [ref=e344]:
+                      - generic [ref=e346]: "Vanilla PHP 7 기반 비즈메시징 발송서버 API 개발 · 운영 — 피크 시간 처리량과 재시도 큐의 fairness를 개선 (측정: 사내 발송 큐 대시보드)."
+                    - listitem [ref=e347]:
+                      - generic [ref=e349]: 카카오 알림톡/친구톡 Open API 기능을 제품화해 외부 벤더 연동 공수를 줄이고 CS 백오피스를 경량화.
+                  - paragraph [ref=e350]: PHP 7 · Node.js · MySQL · CodeIgniter
+      - button "이전 경력 보기" [ref=e352] [cursor=pointer]:
+        - text: 이전 경력 보기
+        - img [ref=e353]
+    - region "프로젝트" [ref=e355]:
+      - generic [ref=e356]:
+        - generic [ref=e357]:
+          - generic [ref=e358]: "04"
+          - generic [ref=e360]: Selected Work
+        - heading "프로젝트" [level=2] [ref=e361]
+        - paragraph [ref=e362]: 공개된 제품과, 비공개/종료된 주요 작업을 함께 정리.
+      - generic [ref=e363]:
+        - paragraph [ref=e365]: ❖ 공개 제품
+        - article [ref=e367]:
+          - generic [ref=e368]:
+            - heading "Momentir" [level=3] [ref=e369]
+            - paragraph [ref=e370]: AI 기반 보험 GA 고객관리 SaaS. LLM으로 고객 노트를 요약하고 일정을 자동 등록하여 설계사의 운영 공수를 절감.
+            - paragraph [ref=e371]: Next.js · NestJS · OpenAI/LLM · Toss PG · PostgreSQL
+          - link "momentir.com" [ref=e372] [cursor=pointer]:
+            - /url: https://momentir.com
+            - generic [ref=e373]: momentir.com
+            - img [ref=e374]
+        - list [ref=e377]:
+          - listitem [ref=e378]:
+            - link "Randibot RCMS · K-Startup 연구비 관리 SaaS. 국책 사업 예산집행 데이터를 자동 수집 · 변환 · 저장하는 ETL 파이프라인과 멀티테넌트 백엔드. randibot.com" [ref=e379] [cursor=pointer]:
+              - /url: https://randibot.com
+              - heading "Randibot" [level=4] [ref=e380]
+              - paragraph [ref=e381]: RCMS · K-Startup 연구비 관리 SaaS. 국책 사업 예산집행 데이터를 자동 수집 · 변환 · 저장하는 ETL 파이프라인과 멀티테넌트 백엔드.
+              - generic [ref=e382]:
+                - text: randibot.com
+                - img [ref=e383]
+          - listitem [ref=e386]:
+            - link "Nursevillage 간호사 커뮤니티 iOS/Android 앱. 위치 기반 소셜 피드와 컬렉션 통계 대시보드. nursevillage.com" [ref=e387] [cursor=pointer]:
+              - /url: https://nursevillage.com
+              - heading "Nursevillage" [level=4] [ref=e388]
+              - paragraph [ref=e389]: 간호사 커뮤니티 iOS/Android 앱. 위치 기반 소셜 피드와 컬렉션 통계 대시보드.
+              - generic [ref=e390]:
+                - text: nursevillage.com
+                - img [ref=e391]
+      - generic [ref=e394]:
+        - paragraph [ref=e396]: ✕ 비공개 · 종료 프로젝트
+        - list [ref=e397]:
+          - listitem [ref=e398]:
+            - article [ref=e399]:
+              - generic [ref=e400]:
+                - heading "FLFI 파생 거래소" [level=4] [ref=e401]
+                - generic [ref=e402]: 서비스 종료
+              - paragraph [ref=e403]: OKX Broker API 기반 크립토 파생상품 거래소. 실시간 시세 · 주문 체결 · 포지션 관리.
+              - paragraph [ref=e404]: Node.js · PostgreSQL · Redis · WebSocket · OKX Broker API
+          - listitem [ref=e405]:
+            - article [ref=e406]:
+              - generic [ref=e407]:
+                - heading "FLFI 핀테크 플랫폼" [level=4] [ref=e408]
+                - generic [ref=e409]: 비공개
+              - paragraph [ref=e410]: NestJS + Vue 3 + EKS 기반 서비스 아키텍처 전체 설계 · 무중단 Blue-Green · 이미지 CDN · Web3 DApp.
+              - paragraph [ref=e411]: NestJS · Vue 3 · AWS · Kubernetes · web3.js
+          - listitem [ref=e412]:
+            - article [ref=e413]:
+              - generic [ref=e414]:
+                - heading "Ontoh Vision" [level=4] [ref=e415]
+                - generic [ref=e416]: 비공개
+              - paragraph [ref=e417]: CCTV(RTSP) 스트림 → AI 이벤트 감지 → Cloudflare R2 저장 워크플로우.
+              - paragraph [ref=e418]: Node.js · RTSP · AI/Vision · Cloudflare R2
+          - listitem [ref=e419]:
+            - article [ref=e420]:
+              - generic [ref=e421]:
+                - heading "Rootstone Trading" [level=4] [ref=e422]
+                - generic [ref=e423]: 비공개
+              - paragraph [ref=e424]: Electron 데스크톱 기반 크립토 차익거래 · 마켓 메이킹 포트폴리오 시스템.
+              - paragraph [ref=e425]: Electron · Node.js · PostgreSQL · Redis
+    - region "기술" [ref=e426]:
+      - generic [ref=e427]:
+        - generic [ref=e428]:
+          - generic [ref=e429]: "05"
+          - generic [ref=e431]: Craft
+        - heading "기술" [level=2] [ref=e432]
+        - paragraph [ref=e433]: 수년간 반복 사용해 검증된 "시그니처 스택"과, 필요에 따라 선택해 쓰는 보조 도구로 나누어 정리.
+      - generic [ref=e434]:
+        - paragraph [ref=e436]: ❖ 시그니처 스택
+        - list [ref=e437]:
+          - listitem [ref=e438]:
+            - generic [ref=e439]:
+              - generic [ref=e440]: "01"
+              - heading "Node.js · NestJS · TypeScript" [level=3] [ref=e441]
+              - paragraph [ref=e442]: SaaS · 핀테크 백엔드의 주력. RESTful · 이벤트 기반 · 멀티테넌시까지.
+              - generic [ref=e443]: 11 년+
+          - listitem [ref=e444]:
+            - generic [ref=e445]:
+              - generic [ref=e446]: "02"
+              - heading "AWS · Kubernetes · Terraform" [level=3] [ref=e447]
+              - paragraph [ref=e448]: EKS + Karpenter + ArgoCD 무중단 배포, IaC 기반 재현 가능한 인프라.
+              - generic [ref=e449]: 6 년+
+          - listitem [ref=e450]:
+            - generic [ref=e451]:
+              - generic [ref=e452]: "03"
+              - heading "PostgreSQL · Redis · RabbitMQ" [level=3] [ref=e453]
+              - paragraph [ref=e454]: 스키마 설계 · 인덱싱 · 캐싱 · 이벤트 큐로 읽기/쓰기 경로를 분리.
+              - generic [ref=e455]: 8 년+
+          - listitem [ref=e456]:
+            - generic [ref=e457]:
+              - generic [ref=e458]: "04"
+              - heading "LLM · RAG · Vector DB" [level=3] [ref=e459]
+              - paragraph [ref=e460]: OpenAI API + LangChain + Pinecone 으로 RAG/에이전트 플로우 구축.
+              - generic [ref=e461]: 2 년+
+          - listitem [ref=e462]:
+            - generic [ref=e463]:
+              - generic [ref=e464]: "05"
+              - heading "web3.js · Solidity · Ethers.js" [level=3] [ref=e465]
+              - paragraph [ref=e466]: DApp 프론트 + 온체인 이벤트 연동. 메타마스크 로그인 및 서명.
+              - generic [ref=e467]: 3 년+
+      - generic [ref=e468]:
+        - paragraph [ref=e470]: + 그 외 익숙한 도구
+        - generic [ref=e471]:
+          - generic [ref=e472]:
+            - term [ref=e473]: Backend
+            - definition [ref=e474]: Express · Python(FastAPI) · Go · Spring Boot · PHP
+          - generic [ref=e475]:
+            - term [ref=e476]: Frontend
+            - definition [ref=e477]: React · Next.js · Vue.js · Nuxt · Svelte · React Native · Flutter
+          - generic [ref=e478]:
+            - term [ref=e479]: Data
+            - definition [ref=e480]: MySQL · MongoDB · Elasticsearch · InfluxDB
+          - generic [ref=e481]:
+            - term [ref=e482]: Infra
+            - definition [ref=e483]: Docker · GitHub Actions · Nginx
+    - region "글" [ref=e484]:
+      - generic [ref=e485]:
+        - generic [ref=e486]:
+          - generic [ref=e487]: "06"
+          - generic [ref=e489]: Writing
+        - heading "글" [level=2] [ref=e490]
+      - list [ref=e491]:
+        - listitem [ref=e492]:
+          - article [ref=e493]:
+            - time [ref=e494]: 2026-04
+            - generic [ref=e495]:
+              - heading "이 사이트를 만든 이야기 (준비 중)" [level=3] [ref=e496]
+              - paragraph [ref=e497]: Next.js · 4개 언어 i18n · GitHub Pages로 만든 이력서 사이트의 설계 회고.
+            - generic [ref=e498]: 준비 중
+        - listitem [ref=e499]:
+          - article [ref=e500]:
+            - time [ref=e501]: 2026-05
+            - generic [ref=e502]:
+              - heading "0→1 멀티테넌트 SaaS 설계 노트 (준비 중)" [level=3] [ref=e503]
+              - paragraph [ref=e504]: tenancyId = workspaceId 패턴, Postgres RLS 고민, Stripe 구독 연결까지.
+            - generic [ref=e505]: 준비 중
+    - region "요즘 참고" [ref=e506]:
+      - generic [ref=e508]:
+        - generic [ref=e509]: "07"
+        - generic [ref=e511]: Reading · Tools
+      - heading "요즘 참고" [level=2] [ref=e512]
+      - generic [ref=e513]:
+        - generic [ref=e515]:
+          - paragraph [ref=e516]: 읽고 있는 책
+          - list [ref=e517]:
+            - listitem [ref=e518]:
+              - paragraph [ref=e519]: Designing Data-Intensive Applications
+              - paragraph [ref=e520]: — Martin Kleppmann
+            - listitem [ref=e521]:
+              - paragraph [ref=e522]: Domain-Driven Design Distilled
+              - paragraph [ref=e523]: — Vaughn Vernon
+        - generic [ref=e525]:
+          - paragraph [ref=e526]: 도구
+          - paragraph [ref=e527]:
+            - generic [ref=e528]: Claude Code·
+            - generic [ref=e529]: VS Code·
+            - generic [ref=e530]: JetBrains·
+            - generic [ref=e531]: tmux·
+            - generic [ref=e532]: Raycast·
+            - generic [ref=e533]: Linear·
+            - generic [ref=e534]: 1Password·
+            - text: Notion
+    - region "관심사" [ref=e535]:
+      - generic [ref=e536]:
+        - generic [ref=e537]:
+          - generic [ref=e538]: "08"
+          - generic [ref=e540]: Interests
+        - heading "관심사" [level=2] [ref=e541]
+      - list [ref=e542]:
+        - listitem [ref=e543]:
+          - generic [ref=e544]:
+            - generic [ref=e545]: "01"
+            - generic [ref=e546]:
+              - heading "인프라 안정성" [level=3] [ref=e547]
+              - paragraph [ref=e548]: SDLC · CI/CD · 무중단 배포 · 관측성(모니터링/로깅/알림).
+        - listitem [ref=e549]:
+          - generic [ref=e550]:
+            - generic [ref=e551]: "02"
+            - generic [ref=e552]:
+              - heading "AI / LLM 응용" [level=3] [ref=e553]
+              - paragraph [ref=e554]: RAG 파이프라인 · Vector DB · Agent 워크플로우 설계.
+        - listitem [ref=e555]:
+          - generic [ref=e556]:
+            - generic [ref=e557]: "03"
+            - generic [ref=e558]:
+              - heading "블록체인" [level=3] [ref=e559]
+              - paragraph [ref=e560]: DApp · 스마트 컨트랙트 · Web3 프론트엔드.
+        - listitem [ref=e561]:
+          - generic [ref=e562]:
+            - generic [ref=e563]: "04"
+            - generic [ref=e564]:
+              - heading "네트워크 · 보안" [level=3] [ref=e565]
+              - paragraph [ref=e566]: WebSocket · RTSP 실시간 통신, 인증/권한 설계.
+    - region "연락처" [ref=e567]:
+      - generic [ref=e569]:
+        - generic [ref=e570]: "09"
+        - generic [ref=e572]: Contact
+      - heading "연락처" [level=2] [ref=e573]
+      - generic [ref=e574]:
+        - paragraph [ref=e575]: 다음 프로젝트를 함께 만들어봅시다.
+        - paragraph [ref=e576]: 새로운 기회나 협업을 환영합니다. 아래 채널로 편하게 연락 주세요.
+      - generic [ref=e578]:
+        - generic [ref=e579]:
+          - paragraph [ref=e580]: 이메일
+          - button "Reveal email address" [ref=e582] [cursor=pointer]:
+            - text: fksak80
+            - generic [ref=e583]: "[at]"
+            - generic [ref=e584]: "@"
+            - text: gmail.com
+        - generic [ref=e585]:
+          - paragraph [ref=e586]: 위치
+          - generic [ref=e587]: Seoul, Korea
+        - generic [ref=e588]:
+          - paragraph [ref=e589]: 프리랜서 소개
+          - link "heyted.dev" [ref=e591] [cursor=pointer]:
+            - /url: https://heyted.dev
+            - text: heyted.dev
+            - img [ref=e592]
+        - generic [ref=e595]:
+          - paragraph [ref=e596]: GitHub
+          - link "github.com/jaeyeong94" [ref=e598] [cursor=pointer]:
+            - /url: https://github.com/jaeyeong94
+            - text: github.com/jaeyeong94
+            - img [ref=e599]
+        - generic [ref=e602]:
+          - paragraph [ref=e603]: LinkedIn
+          - link "linkedin.com/in/jae-yeong-you" [ref=e605] [cursor=pointer]:
+            - /url: https://linkedin.com/in/jae-yeong-you
+            - text: linkedin.com/in/jae-yeong-you
+            - img [ref=e606]
+      - generic [ref=e610]:
+        - link "heyted.dev" [ref=e611] [cursor=pointer]:
+          - /url: https://heyted.dev
+          - img [ref=e612]
+        - link "GitHub" [ref=e615] [cursor=pointer]:
+          - /url: https://github.com/jaeyeong94
+          - img [ref=e616]
+        - link "LinkedIn" [ref=e619] [cursor=pointer]:
+          - /url: https://linkedin.com/in/jae-yeong-you
+          - img [ref=e620]
+  - contentinfo [ref=e624]:
+    - generic [ref=e625]:
+      - paragraph [ref=e626]: © 2026 Ted Ryu · Jaeyeong You
+      - paragraph [ref=e627]:
+        - text: "마지막 업데이트:"
+        - time [ref=e628]: 2026-04-14
+  - alert [ref=e629]
