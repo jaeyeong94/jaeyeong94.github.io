@@ -42,6 +42,11 @@ const dict: Dictionary = {
     nowLabel: 'Now',
     nowValue: 'Crypto Market MakingシステムとB2B投資管理ダッシュボードを開発しています。',
     keywordsLabel: '最近の注力分野',
+    availability: {
+      open: 'フリーランス契約可 · 正社員オープン',
+      limited: '限定案件のみ',
+      closed: '新規のお問い合わせは受付停止中',
+    },
   },
   about: {
     sectionTitle: '紹介',
@@ -59,6 +64,15 @@ const dict: Dictionary = {
       '優れたエンジニアとは、ユーザーの要求とUX、ビジネス目標を理解して解決する人だと考えます。指標ベースの意思決定とフィードバックループを重視し、安定したサービスのためのクラウドインフラとSDLCの構築に関心があります。',
     philosophy2:
       '多様な視点を重視し、革新的なソリューションで市場を切り拓くチームを探しています。体系的なプロセスに基づく迅速な意思決定と実行こそ、市場に大きな影響を与えるプロダクトを作る鍵だと考えます。',
+    domainsTitle: 'ドメイン経験',
+    domains: {
+      fullstack: 'フルスタック / バックエンド',
+      fintech: 'フィンテック',
+      blockchain: 'ブロックチェーン',
+      saas: 'SaaS',
+      ai: 'AI / LLM',
+    },
+    yearsShort: '年+',
   },
   manifesto: {
     sectionTitle: 'AI時代の開発',
@@ -92,6 +106,13 @@ const dict: Dictionary = {
       'オープンソースに貢献し、問題解決そのものにフォーカスする。',
       'AI時代にふさわしい事業観・リーダーシップ・協働のパターンを試行し整理する。',
       'それらの問いに対してソフトウェアで答えを出すプロトタイプを作る。',
+    ],
+    lookingForTitle: '探しているチーム',
+    lookingFor: [
+      '多様な視点を歓迎するエンジニアリング文化',
+      '迅速な意思決定と実行を尊重する組織',
+      '指標ベースのフィードバックループ',
+      'AI時代の新市場を切り拓くプロダクト',
     ],
   },
   experience: {
@@ -149,7 +170,7 @@ const dict: Dictionary = {
       'flfi-lead': {
         company: 'FLFI',
         bullets: [
-          'バックエンドTech Lead — NestJSバックエンド、Vue 3フロントエンド、AWSインフラをドメイン境界に沿って再設計。スプリント速度とデプロイ頻度の向上を主導し、コードレビュー文化を定着(指標:Jiraサイクルタイム、GitOps履歴)。',
+          'バックエンドTech Lead — フルスタック開発チームをリードしジュニアエンジニアをメンタリングしつつ、NestJSバックエンド、Vue 3フロントエンド、AWSインフラをドメイン境界に沿って再設計。スプリント速度とデプロイ頻度の向上を主導し、コードレビュー文化を定着(指標:Jiraサイクルタイム、GitOps履歴)。',
           'EKS + Karpenter + ArgoCD + Helmで無停止Blue-Greenパイプラインを構築 — デプロイ停止0秒・ロールバック30秒以内を達成(指標:ArgoCD rolloutログ、全件監査)。',
           'Lambda@Edge + CloudFront画像CDNを設計。オンザフライリサイズ + リージョナルキャッシュでp95応答時間をオリジン直結比で大幅短縮(指標:CloudWatch RUM、7日平均)。',
           'ethers.jsベースのBlockchain DAppを一貫して構築 — MetaMaskログイン、トランザクション署名、トークン残高照会。ウォレット抽象化レイヤーとイベントインデクサーの分離により、ウォレット接続失敗率とオンチェーン同期遅延を安定化(指標:フロント側エラーログ、インデクサーlag)。',
@@ -307,6 +328,18 @@ const dict: Dictionary = {
           'tenancyId = workspaceIdパターン、Postgres RLSの検討、Stripe購読連携まで。',
         date: '2026-05',
       },
+      'agent-orchestration': {
+        title: 'LLMエージェント・オーケストレーション:HIL・監査・ロールバック(準備中)',
+        summary:
+          '保険ドメインをLLMエージェントに分解する過程で得た、可観測性と失敗設計のパターン。',
+        date: '2026-06',
+      },
+      'blue-green': {
+        title: '無停止Blue-Green:デプロイ停止0秒 · ロールバック30秒以内(準備中)',
+        summary:
+          'EKS + Karpenter + ArgoCD + Helmの組み合わせでの段階的デプロイと回帰安全網の設計。',
+        date: '2026-07',
+      },
     },
   },
   reading: {
@@ -346,6 +379,30 @@ const dict: Dictionary = {
     locationValue: 'ソウル, 韓国',
     emailLabel: 'メール',
     freelanceLabel: 'フリーランス紹介',
+    testimonials: '推薦状・リファレンスはご要望に応じてご提供します。',
+  },
+  credentials: {
+    sectionTitle: '学歴・資格',
+    eyebrow: 'Credentials',
+    educationTitle: '学歴',
+    certificationsTitle: '資格',
+    education: {
+      knou: {
+        school: '韓国放送通信大学',
+        degree: 'コンピュータサイエンス学科',
+      },
+      'cheonan-commercial': {
+        school: '天安商業高校',
+        degree: 'コンピュータソフトウェア',
+      },
+    },
+    certifications: {
+      'toss-study': 'Toss Study Club 1期',
+      'info-processing': '情報処理技能士(韓国)',
+      'computer-graphics': 'コンピュータグラフィックス運用技能士(韓国)',
+      'gtq-1': 'GTQ 1級',
+      'itq-master': 'ITQ Master',
+    },
   },
   footer: {
     updated: '最終更新',

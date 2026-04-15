@@ -56,6 +56,26 @@ export function About({ dict }: Props) {
         </Reveal>
       </div>
 
+      {/* Domain breakdown */}
+      <Reveal>
+        <div className="mt-14 border-t border-border pt-8">
+          <p className="mb-4 text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle">
+            ◈ {dict.about.domainsTitle}
+          </p>
+          <ul className="flex flex-wrap gap-x-5 gap-y-3 text-sm md:text-base">
+            {resume.domains.map((d) => (
+              <li key={d.id} className="inline-flex items-baseline gap-2">
+                <span className="font-semibold text-fg">{dict.about.domains[d.id]}</span>
+                <span className="font-mono tabular-nums text-fg-muted">
+                  {d.years}
+                  {dict.about.yearsShort}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </Reveal>
+
       {/* Philosophy */}
       <Reveal>
         <div className="mt-16 grid grid-cols-1 gap-8 border-t border-border pt-10 md:grid-cols-12 md:gap-12">

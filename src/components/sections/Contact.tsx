@@ -97,6 +97,10 @@ export function Contact({ dict }: Props) {
           </IconLink>
         </div>
       </Reveal>
+
+      <Reveal>
+        <p className="mt-8 text-xs text-fg-subtle">≀ {dict.contact.testimonials}</p>
+      </Reveal>
     </section>
   );
 }

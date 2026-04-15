@@ -55,6 +55,16 @@ export interface SkillCategory {
   items: string[];
 }
 
+export type AvailabilityStatus = 'open' | 'limited' | 'closed';
+
+export type DomainId = 'fullstack' | 'fintech' | 'blockchain' | 'saas' | 'ai';
+
+export type WritingId =
+  | 'this-site'
+  | 'multi-tenant-saas'
+  | 'agent-orchestration'
+  | 'blue-green';
+
 export interface ResumeData {
   profile: {
     emailUser: string;
@@ -65,14 +75,22 @@ export interface ResumeData {
     dio: string;
     freelanceSite: string;
   };
+  availability: AvailabilityStatus;
+  domains: Array<{ id: DomainId; years: number }>;
   keywords: string[];
   experiences: Experience[];
   projects: Project[];
   skills: SkillCategory[];
   interests: InterestId[];
-  writingIds: Array<'this-site' | 'multi-tenant-saas'>;
+  writingIds: WritingId[];
   books: Array<{ title: string; author: string }>;
   tools: string[];
+  education: Array<{
+    id: string;
+    start: DateString;
+    end: DateString | 'present';
+  }>;
+  certifications: Array<{ id: string; date: DateString | string }>;
 }
 
 export const resume: ResumeData = {
@@ -85,8 +103,27 @@ export const resume: ResumeData = {
     dio: 'https://crew.dio.so',
     freelanceSite: 'https://heyted.dev',
   },
+  availability: 'open',
+  domains: [
+    { id: 'fullstack', years: 11 },
+    { id: 'fintech', years: 6 },
+    { id: 'saas', years: 5 },
+    { id: 'blockchain', years: 3 },
+    { id: 'ai', years: 2 },
+  ],
   keywords: ['RAG', 'Multi-tenancy', 'Kubernetes', 'Web3', 'NestJS', 'Event-driven'],
-  writingIds: ['this-site', 'multi-tenant-saas'],
+  writingIds: ['this-site', 'multi-tenant-saas', 'agent-orchestration', 'blue-green'],
+  education: [
+    { id: 'knou', start: '2023-06', end: 'present' },
+    { id: 'cheonan-commercial', start: '2010-03', end: '2012-03' },
+  ],
+  certifications: [
+    { id: 'toss-study', date: '2023-04' },
+    { id: 'info-processing', date: '2009-08' },
+    { id: 'computer-graphics', date: '2010-06' },
+    { id: 'gtq-1', date: '2009' },
+    { id: 'itq-master', date: '2009' },
+  ],
   books: [
     { title: 'Designing Data-Intensive Applications', author: 'Martin Kleppmann' },
     { title: 'Domain-Driven Design Distilled', author: 'Vaughn Vernon' },

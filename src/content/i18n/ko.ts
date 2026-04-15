@@ -40,6 +40,11 @@ const dict = {
     nowLabel: '지금',
     nowValue: 'Crypto Market Making 시스템과 B2B 투자관리 대시보드를 만들고 있습니다',
     keywordsLabel: '요즘 집중',
+    availability: {
+      open: '프리랜서 계약 가능 · 정규직 이직 오픈',
+      limited: '한정 프로젝트만 가능',
+      closed: '현재 신규 문의 비공개',
+    },
   },
   about: {
     sectionTitle: '소개',
@@ -57,6 +62,15 @@ const dict = {
       '좋은 개발자는 사용자 요구사항과 UX · 비즈니스 목표를 이해하고 해결하는 사람이라 믿습니다. 지표 기반 의사결정과 사용자 피드백 루프를 중시하며, 안정적인 서비스를 위한 클라우드 인프라와 SDLC 구축에 관심이 많습니다.',
     philosophy2:
       '다양한 관점을 중시하고 혁신적인 솔루션으로 시장을 개척하는 팀을 찾고 있습니다. 체계적인 절차를 바탕으로 한 신속한 의사결정과 실행이 시장에 큰 영향을 미치는 서비스를 만드는 열쇠라고 생각합니다.',
+    domainsTitle: '도메인 연차',
+    domains: {
+      fullstack: '풀스택 / 백엔드',
+      fintech: '핀테크',
+      blockchain: '블록체인',
+      saas: 'SaaS',
+      ai: 'AI / LLM',
+    },
+    yearsShort: '년+',
   },
   manifesto: {
     sectionTitle: 'AI 시대의 개발',
@@ -90,6 +104,13 @@ const dict = {
       '오픈소스에 기여하며 "문제 해결" 자체에 집중한다.',
       'AI 시대에 맞는 사업 마인드·리더십·협업 방식을 실험하고 정리한다.',
       '그 질문들에 소프트웨어로 답할 수 있는 솔루션을 프로토타이핑한다.',
+    ],
+    lookingForTitle: '찾는 팀',
+    lookingFor: [
+      '다양한 관점을 환영하는 엔지니어링 문화',
+      '빠른 의사결정과 실행을 존중하는 조직',
+      '지표 기반의 피드백 루프',
+      'AI 시대의 새 시장을 개척하는 제품',
     ],
   },
   experience: {
@@ -147,7 +168,7 @@ const dict = {
       'flfi-lead': {
         company: '주식회사 플피(FLFI)',
         bullets: [
-          'Backend Tech Lead — NestJS 백엔드 + Vue 3 프론트엔드 + AWS 인프라를 일관된 도메인 경계로 재설계. 스프린트 속도와 배포 빈도 개선을 주도하며 코드리뷰 문화를 정착 (측정: Jira 사이클타임, GitOps 히스토리).',
+          'Backend Tech Lead — 풀스택 개발팀 리딩 및 주니어 엔지니어 멘토링. NestJS 백엔드 + Vue 3 프론트엔드 + AWS 인프라를 일관된 도메인 경계로 재설계하고 스프린트 속도와 배포 빈도 개선을 주도하며 코드리뷰 문화를 정착 (측정: Jira 사이클타임, GitOps 히스토리).',
           'EKS + Karpenter + ArgoCD + Helm 기반 무중단 Blue-Green 파이프라인 구축. 배포 다운타임 0초 · 롤백 30초 이내 달성 (측정: ArgoCD rollout 로그, 전수 조사).',
           'Lambda@Edge + CloudFront 이미지 CDN 설계. 온더플라이 리사이즈 + 지역 캐시로 p95 응답 시간을 오리진 직결 대비 대폭 단축 (측정: CloudWatch RUM, 7일 평균).',
           'ethers.js 기반 Blockchain DApp 통합 구축 — 메타마스크 로그인, 트랜잭션 서명, 토큰 잔액 조회. 월렛 추상화 레이어와 이벤트 인덱서 분리로 월렛 연결 실패율과 온체인 상태 동기화 지연을 안정화 (측정: 프론트 에러 로그, 인덱서 lag).',
@@ -302,6 +323,16 @@ const dict = {
         summary: 'tenancyId = workspaceId 패턴, Postgres RLS 고민, Stripe 구독 연결까지.',
         date: '2026-05',
       },
+      'agent-orchestration': {
+        title: 'LLM 에이전트 오케스트레이션: HIL·감사·롤백 (준비 중)',
+        summary: '보험 도메인을 LLM 에이전트로 분해하면서 얻은 관측성·실패 설계 패턴.',
+        date: '2026-06',
+      },
+      'blue-green': {
+        title: '무중단 Blue-Green: 0초 다운타임 · 30초 롤백 (준비 중)',
+        summary: 'EKS + Karpenter + ArgoCD + Helm 조합에서 배포 단계와 회귀 안전망 설계.',
+        date: '2026-07',
+      },
     },
   },
   reading: {
@@ -341,6 +372,30 @@ const dict = {
     locationValue: 'Seoul, Korea',
     emailLabel: '이메일',
     freelanceLabel: '프리랜서 소개',
+    testimonials: '추천사 · 레퍼런스는 요청 시 제공합니다.',
+  },
+  credentials: {
+    sectionTitle: '학력 · 자격',
+    eyebrow: 'Credentials',
+    educationTitle: '학력',
+    certificationsTitle: '자격',
+    education: {
+      knou: {
+        school: '한국방송통신대학교',
+        degree: '컴퓨터과학과',
+      },
+      'cheonan-commercial': {
+        school: '천안상업고등학교',
+        degree: '컴퓨터 소프트웨어',
+      },
+    },
+    certifications: {
+      'toss-study': 'Toss 스터디클럽 1기',
+      'info-processing': '정보처리기능사',
+      'computer-graphics': '컴퓨터그래픽스운용기능사',
+      'gtq-1': 'GTQ 1급',
+      'itq-master': 'ITQ Master',
+    },
   },
   footer: {
     updated: '마지막 업데이트',

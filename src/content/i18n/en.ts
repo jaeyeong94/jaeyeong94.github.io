@@ -42,6 +42,11 @@ const dict: Dictionary = {
     nowLabel: 'Now',
     nowValue: 'Building a Crypto Market Making system and a B2B investment management dashboard.',
     keywordsLabel: 'Currently focused on',
+    availability: {
+      open: 'Freelance available · Open to full-time roles',
+      limited: 'Selective engagements only',
+      closed: 'Not taking new inquiries',
+    },
   },
   about: {
     sectionTitle: 'About',
@@ -59,6 +64,15 @@ const dict: Dictionary = {
       'I believe great engineers understand user needs, UX, and business goals — and solve from there. I value metric-driven decisions and fast feedback loops, with a strong investment in resilient cloud infrastructure and SDLC.',
     philosophy2:
       'I look for teams that embrace diverse perspectives and open new markets with innovative solutions. Rapid decisions and disciplined execution are, to me, the keys to products that truly move the market.',
+    domainsTitle: 'Domains',
+    domains: {
+      fullstack: 'Fullstack / Backend',
+      fintech: 'Fintech',
+      blockchain: 'Blockchain',
+      saas: 'SaaS',
+      ai: 'AI / LLM',
+    },
+    yearsShort: 'yr+',
   },
   manifesto: {
     sectionTitle: 'Building in the AI era',
@@ -92,6 +106,13 @@ const dict: Dictionary = {
       'Contributing to open source, focused on problems over polish.',
       'Experimenting with business, leadership, and collaboration patterns fit for this era.',
       'Prototyping software that answers those questions.',
+    ],
+    lookingForTitle: 'What I look for',
+    lookingFor: [
+      'An engineering culture that welcomes diverse perspectives',
+      'An organization that respects rapid decisions and execution',
+      'Metric-driven feedback loops',
+      'Products that open new markets for the AI era',
     ],
   },
   experience: {
@@ -149,7 +170,7 @@ const dict: Dictionary = {
       'flfi-lead': {
         company: 'FLFI',
         bullets: [
-          'Backend Tech Lead — re-cut the NestJS backend, Vue 3 frontend, and AWS infra along coherent domain boundaries. Led sprint-velocity and deploy-frequency improvements alongside code-review culture (metric: Jira cycle time, GitOps history).',
+          'Backend Tech Lead — led the full-stack engineering team and mentored junior engineers while re-cutting the NestJS backend, Vue 3 frontend, and AWS infra along coherent domain boundaries. Drove sprint-velocity and deploy-frequency improvements alongside code-review culture (metric: Jira cycle time, GitOps history).',
           'Built a zero-downtime blue-green pipeline on EKS with Karpenter, ArgoCD, and Helm — 0s deploy downtime and rollbacks under 30s (metric: ArgoCD rollout logs, full audit).',
           'Designed a Lambda@Edge + CloudFront image CDN; on-the-fly resize plus regional caching dropped image p95 dramatically vs. origin-direct baseline (metric: CloudWatch RUM, 7-day avg).',
           'Delivered an end-to-end Blockchain DApp in ethers.js — MetaMask login, tx signing, token balance lookups. A wallet-abstraction layer and a dedicated event indexer keep wallet-connection failures and on-chain sync lag stable (metric: frontend error log, indexer lag).',
@@ -308,6 +329,18 @@ const dict: Dictionary = {
           'tenancyId = workspaceId, Postgres RLS considerations, and wiring Stripe subscriptions.',
         date: '2026-05',
       },
+      'agent-orchestration': {
+        title: 'LLM Agent Orchestration: HIL · Audit · Rollback (coming soon)',
+        summary:
+          'Lessons from decomposing an insurance domain into LLM agents — observability and failure design patterns.',
+        date: '2026-06',
+      },
+      'blue-green': {
+        title: 'Zero-Downtime Blue-Green: 0s downtime · 30s rollback (coming soon)',
+        summary:
+          'Deployment staging and regression safety nets on EKS + Karpenter + ArgoCD + Helm.',
+        date: '2026-07',
+      },
     },
   },
   reading: {
@@ -347,6 +380,30 @@ const dict: Dictionary = {
     locationValue: 'Seoul, Korea',
     emailLabel: 'Email',
     freelanceLabel: 'Freelance profile',
+    testimonials: 'References and testimonials available upon request.',
+  },
+  credentials: {
+    sectionTitle: 'Education & Certifications',
+    eyebrow: 'Credentials',
+    educationTitle: 'Education',
+    certificationsTitle: 'Certifications',
+    education: {
+      knou: {
+        school: 'Korea National Open University',
+        degree: 'Computer Science',
+      },
+      'cheonan-commercial': {
+        school: 'Cheonan Commercial High School',
+        degree: 'Computer Software',
+      },
+    },
+    certifications: {
+      'toss-study': 'Toss Study Club (Cohort 1)',
+      'info-processing': 'Information Processing Technician (KOR)',
+      'computer-graphics': 'Computer Graphics Operation Technician (KOR)',
+      'gtq-1': 'GTQ Level 1',
+      'itq-master': 'ITQ Master',
+    },
   },
   footer: {
     updated: 'Last updated',

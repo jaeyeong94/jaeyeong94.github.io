@@ -42,6 +42,11 @@ const dict: Dictionary = {
     nowLabel: '当前',
     nowValue: '正在开发Crypto Market Making系统和B2B投资管理仪表板。',
     keywordsLabel: '近期关注',
+    availability: {
+      open: '可接自由项目 · 对正式职位开放',
+      limited: '仅接有选择性的项目',
+      closed: '暂不接受新咨询',
+    },
   },
   about: {
     sectionTitle: '关于',
@@ -59,6 +64,15 @@ const dict: Dictionary = {
       '优秀的工程师能理解用户需求、UX与业务目标并据此解决问题。我重视基于指标的决策和快速的反馈循环,也持续投入稳定的云基础设施与SDLC。',
     philosophy2:
       '我寻找重视多元视角、以创新方案开拓市场的团队。基于体系化流程的快速决策与执行,是打造真正影响市场的产品的关键。',
+    domainsTitle: '领域经验',
+    domains: {
+      fullstack: '全栈 / 后端',
+      fintech: '金融科技',
+      blockchain: '区块链',
+      saas: 'SaaS',
+      ai: 'AI / LLM',
+    },
+    yearsShort: '年+',
   },
   manifesto: {
     sectionTitle: 'AI时代的开发',
@@ -90,6 +104,13 @@ const dict: Dictionary = {
       '参与开源,专注于问题本身。',
       '探索与实验符合AI时代的商业思维、领导力与协作方式。',
       '用软件对这些问题给出原型级答案。',
+    ],
+    lookingForTitle: '正在寻找的团队',
+    lookingFor: [
+      '欢迎多元视角的工程文化',
+      '尊重快速决策与执行的组织',
+      '基于指标的反馈闭环',
+      '开拓AI时代新市场的产品',
     ],
   },
   experience: {
@@ -147,7 +168,7 @@ const dict: Dictionary = {
       'flfi-lead': {
         company: 'FLFI',
         bullets: [
-          '后端Tech Lead — 围绕清晰的领域边界重新设计NestJS后端、Vue 3前端与AWS基础设施。推动迭代速度与部署频率提升,并落实代码评审文化(指标:Jira周期时间、GitOps历史)。',
+          '后端Tech Lead — 带领全栈开发团队并指导初级工程师,围绕清晰的领域边界重新设计NestJS后端、Vue 3前端与AWS基础设施,推动迭代速度与部署频率提升,并落实代码评审文化(指标:Jira周期时间、GitOps历史)。',
           '基于EKS + Karpenter + ArgoCD + Helm构建零停机蓝绿流水线 — 部署停机0秒,回滚30秒内完成(指标:ArgoCD rollout日志,全量)。',
           '设计Lambda@Edge + CloudFront图片CDN。即时裁剪 + 区域缓存将图片p95较源站直连显著缩短(指标:CloudWatch RUM,7天平均)。',
           '基于ethers.js交付Blockchain DApp — MetaMask登录、交易签名、代币余额查询。钱包抽象层与独立事件索引器使钱包连接失败率与链上同步延迟保持稳定(指标:前端错误日志、索引器延迟)。',
@@ -299,6 +320,16 @@ const dict: Dictionary = {
         summary: 'tenancyId = workspaceId模式、Postgres RLS的权衡,以及Stripe订阅接入。',
         date: '2026-05',
       },
+      'agent-orchestration': {
+        title: 'LLM代理编排:HIL · 审计 · 回滚(即将推出)',
+        summary: '将保险领域拆解为LLM代理过程中获得的可观测性与失败设计模式。',
+        date: '2026-06',
+      },
+      'blue-green': {
+        title: '零停机蓝绿部署:0秒停机 · 30秒回滚(即将推出)',
+        summary: '在EKS + Karpenter + ArgoCD + Helm组合上的部署阶段与回归安全网设计。',
+        date: '2026-07',
+      },
     },
   },
   reading: {
@@ -338,6 +369,30 @@ const dict: Dictionary = {
     locationValue: '首尔, 韩国',
     emailLabel: '邮箱',
     freelanceLabel: '自由职业主页',
+    testimonials: '推荐与参考人资料可应要求提供。',
+  },
+  credentials: {
+    sectionTitle: '学历与资格',
+    eyebrow: 'Credentials',
+    educationTitle: '学历',
+    certificationsTitle: '资格证书',
+    education: {
+      knou: {
+        school: '韩国广播通信大学',
+        degree: '计算机科学',
+      },
+      'cheonan-commercial': {
+        school: '天安商业高中',
+        degree: '计算机软件',
+      },
+    },
+    certifications: {
+      'toss-study': 'Toss 学习俱乐部 (第1期)',
+      'info-processing': '信息处理技能士(韩国)',
+      'computer-graphics': '计算机图形学应用技能士(韩国)',
+      'gtq-1': 'GTQ 1级',
+      'itq-master': 'ITQ Master',
+    },
   },
   footer: {
     updated: '最后更新',

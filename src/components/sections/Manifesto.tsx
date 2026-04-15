@@ -72,6 +72,28 @@ export function Manifesto({ dict }: Props) {
             </ul>
           </Reveal>
         </div>
+
+        {/* Looking For */}
+        <Reveal>
+          <div className="mt-14 border-t border-border pt-10">
+            <p className="mb-6 text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle">
+              ⌾ {m.lookingForTitle}
+            </p>
+            <ul className="grid grid-cols-1 gap-x-8 gap-y-3 md:grid-cols-2">
+              {m.lookingFor.map((item, i) => (
+                <li key={i} className="flex items-baseline gap-3">
+                  <span
+                    aria-hidden
+                    className="font-mono text-xs text-fg-subtle"
+                  >
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <span className="text-sm text-fg-muted md:text-base">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
