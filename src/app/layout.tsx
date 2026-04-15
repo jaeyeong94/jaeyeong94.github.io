@@ -1,14 +1,5 @@
 import type { Metadata } from 'next';
-import { Instrument_Serif } from 'next/font/google';
 import '@/styles/globals.css';
-
-const instrumentSerif = Instrument_Serif({
-  subsets: ['latin'],
-  weight: '400',
-  style: ['normal', 'italic'],
-  variable: '--font-instrument-serif',
-  display: 'swap',
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://jaeyeong94.github.io'),
@@ -18,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ko" suppressHydrationWarning className={instrumentSerif.variable}>
+    <html lang="ko" suppressHydrationWarning>
       <body>{children}</body>
     </html>
   );

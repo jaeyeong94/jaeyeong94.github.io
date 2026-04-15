@@ -13,8 +13,6 @@
   --accent-1: 50% 0.2 270;
   --accent-2: 66% 0.17 195;
   --accent-ring: 60% 0.17 260;
-  --display-serif: 'Instrument Serif', 'Cormorant Garamond', Georgia, 'Apple SD Gothic Neo',
-    'Noto Serif KR', serif;
 }
 
 :root[data-theme='dark'] {
@@ -100,13 +98,6 @@ body {
         transparent 60%
       );
   }
-}
-
-.font-display {
-  font-family: var(--display-serif);
-  font-weight: 400;
-  font-style: italic;
-  letter-spacing: -0.015em;
 }
 
 @layer components {

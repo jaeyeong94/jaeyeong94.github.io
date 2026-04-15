@@ -16,15 +16,6 @@ const config: Config = {
           'Noto Sans JP',
           'sans-serif',
         ],
-        serif: [
-          'var(--font-instrument-serif)',
-          'Instrument Serif',
-          'Cormorant Garamond',
-          'Georgia',
-          'Apple SD Gothic Neo',
-          'Noto Serif KR',
-          'serif',
-        ],
         mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
       },
       colors: {
