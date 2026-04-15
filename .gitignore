@@ -47,4 +47,4 @@ docs/
 
 # local-only QA artifacts
 .playwright-mcp/
-*.png
+/*.png
