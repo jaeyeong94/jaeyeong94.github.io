@@ -29,6 +29,8 @@ const config: Config = {
         accent: {
           1: 'oklch(var(--accent-1) / <alpha-value>)',
           2: 'oklch(var(--accent-2) / <alpha-value>)',
+          primary: 'oklch(var(--accent-1) / <alpha-value>)',
+          secondary: 'oklch(var(--accent-2) / <alpha-value>)',
         },
       },
       maxWidth: {

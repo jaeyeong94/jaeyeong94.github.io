@@ -57,7 +57,7 @@ export function Nav({ locale, dict }: Props) {
               <li key={it.href}>
                 <a
                   href={it.href}
-                  className="transition-colors hover:text-fg focus-visible:outline-none focus-visible:text-fg"
+                  className="rounded-sm px-1 py-0.5 transition-colors hover:text-fg focus-visible:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-1"
                 >
                   {it.label}
                 </a>

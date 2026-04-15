@@ -86,6 +86,7 @@ function LiveProjectCard({ project, dict }: { project: Project; dict: Dictionary
       className={cn(
         'group flex h-full flex-col rounded-2xl border border-border bg-surface p-6 transition-all',
         'hover:-translate-y-0.5 hover:border-accent-1/40 hover:shadow-md',
+        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-1 focus-visible:ring-offset-2 focus-visible:ring-offset-bg',
       )}
     >
       <div className="flex items-start justify-between gap-3">

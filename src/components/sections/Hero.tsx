@@ -46,7 +46,7 @@ export function Hero({ locale, dict }: Props) {
 
         {/* Role + tagline */}
         <Reveal>
-          <p className="mt-8 max-w-3xl text-base leading-relaxed text-fg md:mt-10 md:text-lg">
+          <p className="mt-8 max-w-2xl text-base leading-relaxed text-fg md:mt-10 md:text-lg">
             {dict.hero.role}
             <span className="mx-2 text-fg-subtle">—</span>
             <span className="text-fg-muted">{dict.hero.tagline}</span>
@@ -71,7 +71,7 @@ export function Hero({ locale, dict }: Props) {
             <p className="text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle">
               {dict.hero.keywordsLabel}
             </p>
-            <ul className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-fg-muted">
+            <ul role="list" className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-fg-muted">
               {resume.keywords.map((k, i) => (
                 <li key={k} className="inline-flex items-center gap-3">
                   <span className="font-mono">{k}</span>
@@ -133,7 +133,7 @@ function SocialIcon({
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className="inline-flex size-11 items-center justify-center rounded-full border border-border text-fg-muted transition-colors hover:border-fg hover:text-fg"
+      className="inline-flex size-11 items-center justify-center rounded-full border border-border text-fg-muted transition-colors hover:border-fg hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-1"
     >
       {children}
     </a>

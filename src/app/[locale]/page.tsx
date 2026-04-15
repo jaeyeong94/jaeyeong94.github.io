@@ -22,7 +22,7 @@ export default async function LocalePage({
   const dict = getDictionary(locale);
 
   return (
-    <main>
+    <main id="main-content">
       <Hero locale={locale} dict={dict} />
       <About locale={locale} dict={dict} />
       <Manifesto dict={dict} />

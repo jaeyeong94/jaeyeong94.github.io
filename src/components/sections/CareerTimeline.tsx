@@ -54,7 +54,6 @@ export function CareerTimeline({ dict }: Props) {
   });
   const laneCount = lanes.length;
 
-  // Year ticks every 2 years, plus final year
   const yearTicks: number[] = [];
   for (let y = startYear; y <= endYear; y += 2) yearTicks.push(y);
   if (yearTicks[yearTicks.length - 1] !== endYear) yearTicks.push(endYear);
@@ -63,19 +62,25 @@ export function CareerTimeline({ dict }: Props) {
   const rowGap = 4;
   const timelineHeight = laneCount * rowHeight + (laneCount - 1) * rowGap;
 
+  const mobileSorted = [...resume.experiences].sort((a, b) =>
+    a.start < b.start ? 1 : a.start > b.start ? -1 : 0,
+  );
+
   return (
     <Reveal>
-      <div className="mt-8 hidden md:block">
+      <div className="mt-8">
         <div className="mb-3 flex items-center justify-between">
           <p className="text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle">
             ⌯ Career Timeline
           </p>
           <div className="flex items-center gap-4 text-xs text-fg-subtle">
-            <LegendDot className="bg-accent-1/40" label={dict.employment.fulltime} />
-            <LegendDot className="bg-accent-2/40" label={dict.employment.freelance} />
+            <LegendDot variant="fulltime" label={dict.employment.fulltime} />
+            <LegendDot variant="freelance" label={dict.employment.freelance} />
           </div>
         </div>
-        <div className="rounded-xl border border-border bg-bg-subtle/30 px-4 pb-6 pt-4">
+
+        {/* Desktop: horizontal bar timeline */}
+        <div className="hidden rounded-xl border border-border bg-bg-subtle/30 px-4 pb-6 pt-4 md:block">
           <div className="relative" style={{ height: timelineHeight }}>
             {withLanes.map((item) => {
               const left = (item.startOffset / spanMonths) * 100;
@@ -95,10 +100,13 @@ export function CareerTimeline({ dict }: Props) {
                   className={cn(
                     'absolute flex items-center overflow-hidden rounded-md px-2 transition-colors',
                     isRemote
-                      ? 'bg-accent-2/25 text-accent-2 hover:bg-accent-2/35'
+                      ? 'border border-dashed border-accent-2/60 bg-accent-2/20 text-accent-2 hover:bg-accent-2/35'
                       : 'bg-accent-1/25 text-accent-1 hover:bg-accent-1/35',
                   )}
                 >
+                  <span aria-hidden className="mr-1 font-mono text-[0.6rem]">
+                    {isRemote ? '◇' : '◆'}
+                  </span>
                   <span className="truncate font-mono text-[0.65rem] font-medium tracking-wide">
                     {shortName}
                   </span>
@@ -113,7 +121,7 @@ export function CareerTimeline({ dict }: Props) {
               return (
                 <div key={y} className="absolute top-0" style={{ left: `${offset}%` }}>
                   <div className="h-1.5 w-px bg-border" />
-                  <span className="absolute top-2 -translate-x-1/2 font-mono text-[0.6rem] text-fg-subtle">
+                  <span className="absolute top-2 -translate-x-1/2 font-mono text-[0.6rem] tabular-nums text-fg-subtle">
                     &apos;{String(y).slice(2)}
                   </span>
                 </div>
@@ -121,15 +129,67 @@ export function CareerTimeline({ dict }: Props) {
             })}
           </div>
         </div>
+
+        {/* Mobile: compact vertical list */}
+        <ol className="space-y-2 md:hidden">
+          {mobileSorted.map((exp) => {
+            const isRemote = exp.type === 'freelance';
+            const end = exp.end === 'present' ? dict.common.present : exp.end;
+            return (
+              <li
+                key={exp.id}
+                className={cn(
+                  'flex items-center gap-3 rounded-lg border px-3 py-2',
+                  isRemote
+                    ? 'border-dashed border-accent-2/50 bg-accent-2/10'
+                    : 'border-border bg-accent-1/10',
+                )}
+              >
+                <span
+                  aria-hidden
+                  className={cn(
+                    'font-mono text-xs',
+                    isRemote ? 'text-accent-2' : 'text-accent-1',
+                  )}
+                >
+                  {isRemote ? '◇' : '◆'}
+                </span>
+                <span className="flex-1 truncate text-sm font-medium text-fg">
+                  {SHORT_NAMES[exp.id]}
+                </span>
+                <span className="font-mono text-[0.65rem] tabular-nums text-fg-subtle">
+                  {exp.start.slice(2)} — {end === dict.common.present ? dict.common.present : end.slice(2)}
+                </span>
+              </li>
+            );
+          })}
+        </ol>
       </div>
     </Reveal>
   );
 }
 
-function LegendDot({ className, label }: { className: string; label: string }) {
+function LegendDot({
+  variant,
+  label,
+}: {
+  variant: 'fulltime' | 'freelance';
+  label: string;
+}) {
+  const isRemote = variant === 'freelance';
   return (
     <span className="inline-flex items-center gap-1.5">
-      <span className={cn('size-2.5 rounded-sm', className)} />
+      <span
+        aria-hidden
+        className={cn(
+          'inline-flex size-3 items-center justify-center rounded-sm text-[8px]',
+          isRemote
+            ? 'border border-dashed border-accent-2/60 bg-accent-2/30 text-accent-2'
+            : 'bg-accent-1/40 text-accent-1',
+        )}
+      >
+        {isRemote ? '◇' : '◆'}
+      </span>
       <span>{label}</span>
     </span>
   );

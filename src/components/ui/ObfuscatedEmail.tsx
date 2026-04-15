@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import { cn } from '@/lib/utils';
 
 interface Props {
   user: string;
@@ -17,7 +18,10 @@ export function ObfuscatedEmail({ user, domain, className }: Props) {
       <button
         type="button"
         onClick={() => setRevealed(true)}
-        className={className}
+        className={cn(
+          className,
+          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-1 focus-visible:ring-offset-2 focus-visible:ring-offset-bg',
+        )}
         aria-label="Reveal email address"
       >
         {user}

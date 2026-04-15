@@ -42,7 +42,7 @@ export function Contact({ dict }: Props) {
             <ObfuscatedEmail
               user={resume.profile.emailUser}
               domain={resume.profile.emailDomain}
-              className="group inline-flex items-center gap-1 text-fg transition-colors hover:text-accent-1"
+              className="group inline-flex items-center gap-1 rounded-sm text-fg transition-colors hover:text-accent-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-1 focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
             />
           </ContactLine>
           <ContactLine label={dict.contact.locationLabel}>
@@ -53,7 +53,7 @@ export function Contact({ dict }: Props) {
               href={resume.profile.freelanceSite}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-1 text-fg transition-colors hover:text-accent-1"
+              className="group inline-flex items-center gap-1 rounded-sm text-fg transition-colors hover:text-accent-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-1 focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
             >
               heyted.dev
               <ArrowUpRight className="size-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden />
@@ -64,7 +64,7 @@ export function Contact({ dict }: Props) {
               href={resume.profile.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-1 text-fg transition-colors hover:text-accent-1"
+              className="group inline-flex items-center gap-1 rounded-sm text-fg transition-colors hover:text-accent-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-1 focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
             >
               github.com/jaeyeong94
               <ArrowUpRight className="size-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden />
@@ -75,7 +75,7 @@ export function Contact({ dict }: Props) {
               href={resume.profile.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-1 text-fg transition-colors hover:text-accent-1"
+              className="group inline-flex items-center gap-1 rounded-sm text-fg transition-colors hover:text-accent-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-1 focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
             >
               linkedin.com/in/jae-yeong-you
               <ArrowUpRight className="size-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden />
@@ -131,7 +131,7 @@ function IconLink({
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className="inline-flex size-10 items-center justify-center rounded-full border border-border text-fg-muted transition-colors hover:border-fg hover:text-fg"
+      className="inline-flex size-11 items-center justify-center rounded-full border border-border text-fg-muted transition-colors hover:border-fg hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-1"
     >
       {children}
     </a>

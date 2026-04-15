@@ -122,12 +122,12 @@ function ExperienceRow({
       <article className="group grid grid-cols-1 gap-x-8 gap-y-4 md:grid-cols-[7rem_1fr] lg:grid-cols-[8rem_1fr_minmax(0,32rem)]">
         {/* Left rail: year span */}
         <div className="md:pt-1">
-          <p className="font-mono text-sm text-fg-muted">
+          <p className="font-mono text-sm tabular-nums text-fg-muted">
             <span>{startYear}</span>
             <span className="mx-1.5 text-fg-subtle">—</span>
             <span>{endYear}</span>
           </p>
-          <p className="mt-2 text-[0.65rem] font-medium uppercase tracking-[0.25em] text-fg-subtle">
+          <p className="mt-2 text-[0.65rem] font-medium uppercase tracking-[0.25em] tabular-nums text-fg-subtle">
             <time dateTime={startIso}>
               {formatYearMonth(exp.start, locale, dict.common.present)}
             </time>
@@ -136,7 +136,7 @@ function ExperienceRow({
               {formatYearMonth(exp.end, locale, dict.common.present)}
             </time>
           </p>
-          <p className="mt-0.5 text-[0.65rem] font-medium uppercase tracking-[0.25em] text-fg-subtle/80">
+          <p className="mt-0.5 text-[0.65rem] font-medium uppercase tracking-[0.25em] tabular-nums text-fg-subtle/80">
             {formatDuration(months, locale, dict.common.years, dict.common.months)}
           </p>
         </div>
@@ -149,7 +149,7 @@ function ExperienceRow({
                 href={exp.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-baseline gap-1.5 text-fg transition-colors hover:text-accent-1"
+                className="inline-flex items-baseline gap-1.5 rounded-sm text-fg transition-colors hover:text-accent-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-1 focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
               >
                 {item.company}
                 <span aria-hidden className="text-sm text-fg-subtle">↗</span>
