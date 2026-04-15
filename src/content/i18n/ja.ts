@@ -309,13 +309,6 @@ const dict: Dictionary = {
       },
     },
   },
-  github: {
-    sectionTitle: 'オープンソース · GitHub',
-    eyebrow: 'Open Source',
-    description: '最近更新された公開リポジトリ(ビルド時取得)',
-    viewAll: 'すべて見る',
-    failure: 'GitHubデータを読み込めませんでした。',
-  },
   reading: {
     sectionTitle: 'Reading & Tools',
     eyebrow: 'Reading · Tools',

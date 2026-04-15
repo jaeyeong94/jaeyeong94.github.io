@@ -297,13 +297,6 @@ const dict: Dictionary = {
       },
     },
   },
-  github: {
-    sectionTitle: '开源 · GitHub',
-    eyebrow: 'Open Source',
-    description: '最近更新的公开仓库(构建时抓取)',
-    viewAll: '查看全部',
-    failure: '无法加载GitHub数据。',
-  },
   reading: {
     sectionTitle: '阅读 & 工具',
     eyebrow: 'Reading · Tools',

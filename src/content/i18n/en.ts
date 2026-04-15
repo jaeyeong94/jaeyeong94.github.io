@@ -308,13 +308,6 @@ const dict: Dictionary = {
       },
     },
   },
-  github: {
-    sectionTitle: 'Open Source · GitHub',
-    eyebrow: 'Open Source',
-    description: 'Recently updated public repositories (captured at build time)',
-    viewAll: 'View all',
-    failure: 'Unable to load GitHub data.',
-  },
   reading: {
     sectionTitle: 'Reading & Tools',
     eyebrow: 'Reading · Tools',

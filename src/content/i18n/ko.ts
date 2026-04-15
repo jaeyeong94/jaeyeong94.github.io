@@ -300,13 +300,6 @@ const dict = {
       },
     },
   },
-  github: {
-    sectionTitle: '오픈소스 · GitHub',
-    eyebrow: 'Open Source',
-    description: '최근 업데이트된 공개 저장소 (빌드 시점 기준)',
-    viewAll: '전체 보기',
-    failure: 'GitHub 데이터를 불러오지 못했습니다.',
-  },
   reading: {
     sectionTitle: '요즘 참고',
     eyebrow: 'Reading · Tools',

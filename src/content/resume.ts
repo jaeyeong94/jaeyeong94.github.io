@@ -61,7 +61,6 @@ export interface ResumeData {
     emailDomain: string;
     careerStart: DateString;
     github: string;
-    githubHandle: string;
     linkedin: string;
     dio: string;
     freelanceSite: string;
@@ -82,7 +81,6 @@ export const resume: ResumeData = {
     emailDomain: 'gmail.com',
     careerStart: '2012-12',
     github: 'https://github.com/jaeyeong94',
-    githubHandle: 'jaeyeong94',
     linkedin: 'https://linkedin.com/in/jae-yeong-you',
     dio: 'https://crew.dio.so',
     freelanceSite: 'https://heyted.dev',
@@ -117,7 +115,7 @@ export const resume: ResumeData = {
       id: 'masblue',
       type: 'freelance',
       role: 'Backend Engineer · AI Orchestration',
-      start: '2025-10',
+      start: '2026-02',
       end: 'present',
       stack: ['Node.js', 'TypeScript', 'AI Agents', 'LangChain', 'AWS', 'PostgreSQL'],
       url: 'https://www.masblue.studio/',
