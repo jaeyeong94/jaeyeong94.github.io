@@ -103,12 +103,12 @@ export const resume: ResumeData = {
   ],
   experiences: [
     {
-      id: 'onto',
+      id: 'dio',
       type: 'freelance',
-      role: 'Backend Engineer',
-      start: '2026-01',
-      end: '2026-02',
-      stack: ['Node.js', 'AWS', 'Cloudflare R2', 'RTSP', 'AI/Vision'],
+      role: 'Full-stack Developer',
+      start: '2023-11',
+      end: 'present',
+      stack: ['Node.js', 'NestJS', 'Next.js', 'PostgreSQL', 'Toss PG', 'LLM'],
     },
     {
       id: 'rootstone',
@@ -119,12 +119,12 @@ export const resume: ResumeData = {
       stack: ['Node.js', 'Electron', 'PostgreSQL', 'Redis', 'WebSocket'],
     },
     {
-      id: 'dio',
+      id: 'onto',
       type: 'freelance',
-      role: 'Full-stack Developer',
-      start: '2023-11',
-      end: 'present',
-      stack: ['Node.js', 'NestJS', 'Next.js', 'PostgreSQL', 'Toss PG', 'LLM'],
+      role: 'Backend Engineer',
+      start: '2026-01',
+      end: '2026-04',
+      stack: ['Node.js', 'AWS', 'Cloudflare R2', 'RTSP', 'AI/Vision'],
     },
     {
       id: 'dssolve',
