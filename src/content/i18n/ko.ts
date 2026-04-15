@@ -129,19 +129,19 @@ const dict = {
       dssolve: {
         company: '주식회사 디에스솔브',
         bullets: [
-          'Randibot 백엔드 MVP 개발 — RCMS · K-Startup 스크래핑 ETL 파이프라인과 멀티테넌트(tenancyId = workspaceId) 아키텍처를 설계해 신규 기관 온보딩 시간을 설정 변경만으로 처리 가능하게 함.',
+          'Randibot 백엔드 MVP 개발 — RCMS · K-Startup 스크래핑 ETL + 멀티테넌트(tenancyId = workspaceId) 아키텍처로 신규 기관 온보딩을 설정 변경만으로 처리. 코드 변경 없이 기관 확장 가능하게 함 (측정: 기관별 설정 관리 로그).',
         ],
       },
       'flfi-exchange': {
         company: '주식회사 플피(FLFI) — 거래소 팀',
         bullets: [
-          'OKX Broker API 기반 파생상품 크립토 거래소 시스템 개발. 시세 스트리밍 · 주문 체결 · 포지션 관리 모듈 구현.',
+          'OKX Broker API 기반 파생상품 크립토 거래소 시스템 개발. WebSocket 시세 스트림 + REST 주문 API + Redis 포지션 스냅샷을 분리해 체결 지연을 API RTT 수준으로 안정화 (측정: 내부 latency 로그).',
         ],
       },
       miso: {
         company: '유한회사 미소 — 플랫폼 팀',
         bullets: [
-          'AWS Cognito 기반 인증 시스템 구축. 기존 레거시 DB의 사용자 데이터를 Cognito로 무중단 마이그레이션하고 OTP 인증 플로우를 CX CRM에 도입 (측정: CloudWatch 인증 실패율 < 0.5%).',
+          'AWS Cognito 기반 인증 시스템 구축. Cognito Lambda Trigger로 레거시 유저를 무중단 마이그레이션하고 OTP 인증 플로우를 CX CRM에 도입. 인증 실패율 0.5% 이하 유지 (측정: CloudWatch).',
         ],
       },
       'flfi-lead': {
@@ -156,23 +156,27 @@ const dict = {
       aligo: {
         company: '(주)알리는사람들 (ALIGO)',
         bullets: [
-          'Vanilla PHP 7 기반 비즈메시징 발송서버 API 개발 · 운영 — 피크 시간 처리량과 재시도 큐의 fairness를 개선 (측정: 사내 발송 큐 대시보드).',
-          '카카오 알림톡/친구톡 Open API 기능을 제품화해 외부 벤더 연동 공수를 줄이고 CS 백오피스를 경량화.',
+          'Vanilla PHP 7 기반 비즈메시징 발송 API · 서버 개발·운영. 고객별 큐 분리와 가중 라운드 로빈으로 피크 시간 fairness를 개선, 재시도 지수 백오프로 queue 부담을 분산 (측정: 사내 발송 큐 대시보드).',
+          '카카오 알림톡 · 친구톡 Open API를 제품화. 공통 템플릿 · 승인 상태 통합 대시보드로 외부 벤더 연동 공수와 CS 운영 부담을 절감.',
         ],
       },
       'studio-bloom': {
         company: '주식회사 스튜디오블룸',
         bullets: [
-          'Wordpress Plugin 기반 P2P 대출 솔루션 · Paygate Seyfert Fintech API 연동(가상계좌 발급 · 투자 · 상환 · 상태 확인) 개발.',
+          'Wordpress Plugin 기반 P2P 대출 솔루션 · Paygate Seyfert Fintech API 연동(가상계좌 · 투자 · 상환 · 상태 확인) 개발. 트랜잭션 분리 + 멱등 응답 저장으로 금전 정합성 이슈 0건 운영 (측정: 일일 정합성 체크 배치).',
         ],
       },
       ninefive: {
         company: '나인파이브주식회사',
-        bullets: ['제품 프로모션 페이지 인터랙션 · 웹접근성(KWAH) 기반 프론트엔드 개발.'],
+        bullets: [
+          '제품 프로모션 페이지의 인터랙션을 prefers-reduced-motion 대응으로 구현하고 KWAH 기준 웹접근성 체크리스트를 병행. 체류 시간 · 스크롤 깊이 KPI와 접근성 기준을 동시에 충족.',
+        ],
       },
       '4depth': {
         company: '(주)포뎁스',
-        bullets: ['공공기관/지자체 웹사이트 퍼블리싱 · 웹접근성(WCAG) 대응 · 반응형 웹 구현.'],
+        bullets: [
+          '공공기관 · 지자체 웹사이트 퍼블리싱 · 웹접근성(WCAG) 대응 · 반응형 웹 구현. 의미론적 HTML과 ARIA 설계, 시안 단계의 접근성 체크리스트로 다수 프로젝트의 웹접근성 인증을 통과.',
+        ],
       },
     },
   },

@@ -99,80 +99,84 @@ const dict: Dictionary = {
       masblue: {
         company: 'Masblue (masblue.studio)',
         bullets: [
-          '为面向美国市场的保险SaaS设计与开发后端及AI代理编排(Orchestration)系统。',
-          '将保险领域工作流拆解为基于LLM的代理,构建包含人工审查节点与审计日志的流水线。',
+          '为美国保险公司的后台工作流设计基于LLM代理的编排后端。每个步骤嵌入领域防护栏、人工审核节点与审计日志,同步实现自动化与合规(指标:试点处理时间仪表盘)。',
+          '将每次LLM代理调用(输入、输出、中间状态、成本、延迟)以结构化事件持久化,并通过OpenTelemetry跟踪,支持失败场景的审计、复现与回滚,满足合规要求。',
         ],
       },
       onto: {
         company: 'Ontoh Vision',
         bullets: [
-          '设计CCTV(RTSP)→ 现场GPU推理 → Cloudflare R2的端到端管道。实现本地队列缓冲(最长24小时),断网时可优雅恢复上传(指标:Cloudflare Analytics上传成功率)。',
-          '实现基于presigned URL的上传API和REST接口,支持N台摄像头水平扩展且无需修改后端(基准:计划使用[k6])。',
+          '设计CCTV(RTSP) → 现场GPU推理 → Cloudflare R2的端到端管道。本地缓冲(最长24小时)+ 断网恢复补传,瞄准数据丢失0%(指标:Cloudflare Analytics,7天平均)。',
+          '基于Presigned URL + 回调的上传API设计,新增N台摄像头无需后端发布;节点仅凭密钥认证即可横向扩展(指标:内部部署日志)。',
         ],
       },
       rootstone: {
         company: 'Rootstone',
         bullets: [
-          '设计并运营面向B2B客户的交易业绩报告系统 — 每日汇总收益率通过门户和PDF报告交付。',
-          '基于Electron + Node.js + PostgreSQL + Redis构建加密套利/做市引擎。相比既有基线降低订单簿策略执行延迟(指标:内部p95延迟日志)。',
+          '设计并运营B2B交易业绩报告系统。独立报告账本 + 日/月快照批次 + 校验和PDF流水线同时保障准确性与审计性(指标:批次成功率 [CloudWatch])。',
+          '基于Electron + Node.js + PostgreSQL + Redis + WebSocket构建加密套利 / 做市引擎。拆分接收/策略/下单事件循环,将策略执行p95延迟较基线缩短(指标:内部延迟日志)。',
         ],
       },
       dio: {
         company: 'DIO 自由职业平台',
         bullets: [
-          '(Woo-Yeon-Hee) 交付基于位置的约见App后端MVP — 匹配逻辑与自动结算,8周内达到生产可用。',
-          '(Linker) 每周1:1匹配全栈MVP — 通过Toss PG和Kakao AlimTalk集成将支付失败率稳定在约1%。',
-          '(Momentir) 面向保险设计师的CRM — 基于LLM的客户笔记摘要与日程自动注册。试点设计师反馈每日运营工时减少约30%(方法:试点访谈,n=12)。',
-          '(Hidden Gem) 收藏家社区iOS/Android App的基于位置的社交Feed与收藏分析后端。',
+          '(Woo-Yeon-Hee) 将本地匹配App的匹配 · 结账 · 自动结算逻辑建模为状态机 + 事件溯源,8周内进入生产,关键流程上线时缺陷0件(指标:Sentry)。',
+          '(Linker) 通过Outbox模式整合Toss PG与Kakao AlimTalk,保障支付—通知一致性;重试 + DLQ流程将支付失败率稳定在约1%(指标:PG webhook日志,30天平均)。',
+          '(Momentir) 设计基于LLM的客户笔记摘要与日程自动抽取流水线。结构化结果交由设计师的审批UI,减少CRM遗漏;试点12人日均运营工时减少约30%(方法:用户访谈)。',
+          '(Hidden Gem) 基于PostGIS + Redis构建位置 / 类别Feed后端。索引与缓存策略将主Feed p95响应时间控制在目标以内(指标:APM p95,7天平均)。',
         ],
       },
       dssolve: {
         company: 'DS Solve',
         bullets: [
-          '交付Randibot后端MVP — RCMS / K-Startup爬虫ETL + 多租户架构(tenancyId = workspaceId),新机构入驻仅需配置变更。',
+          'Randibot后端MVP开发 — RCMS / K-Startup爬虫ETL + 多租户架构(tenancyId = workspaceId)使新机构入驻仅通过配置变更完成。扩展无需代码改动(指标:按机构配置管理日志)。',
         ],
       },
       'flfi-exchange': {
         company: 'FLFI · 交易所团队',
         bullets: [
-          '基于OKX Broker API构建加密衍生品交易所 — 行情推送、订单执行、仓位管理模块。',
+          '基于OKX Broker API构建加密衍生品交易所 — 拆分WebSocket行情流、REST下单API与Redis仓位快照,将成交延迟稳定在API RTT水平(指标:内部延迟日志)。',
         ],
       },
       miso: {
         company: 'Miso · 平台团队',
         bullets: [
-          '构建基于AWS Cognito的认证系统并执行老用户零停机迁移。为CX CRM引入OTP(指标:CloudWatch认证失败率 < 0.5%)。',
+          '基于AWS Cognito构建认证系统。通过Cognito Lambda Trigger实现老用户零停机迁移,并为CX CRM引入OTP;认证失败率维持在0.5%以下(指标:CloudWatch)。',
         ],
       },
       'flfi-lead': {
         company: 'FLFI',
         bullets: [
-          '后端技术主管 — 端到端设计NestJS后端、Vue 3前端与AWS基础设施,同时带领开发团队(迭代速度与代码评审文化)。',
-          '在EKS + Karpenter + ArgoCD + Helm上交付零停机蓝绿流水线 — 部署停机0秒;回滚<30秒(指标:ArgoCD rollout日志)。',
-          '交付Lambda@Edge + CloudFront图片CDN(上传、缓存、即时裁剪)。图片p95相比源站直连显著下降(指标:CloudWatch RUM,7天平均)。',
-          '基于web3.js / Ethers.js交付Blockchain DApp — MetaMask登录、交易签名、代币余额查询,与链上事件发布集成。',
+          '后端Tech Lead — 围绕清晰的领域边界重新设计NestJS后端、Vue 3前端与AWS基础设施。推动迭代速度与部署频率提升,并落实代码评审文化(指标:Jira周期时间、GitOps历史)。',
+          '基于EKS + Karpenter + ArgoCD + Helm构建零停机蓝绿流水线 — 部署停机0秒,回滚30秒内完成(指标:ArgoCD rollout日志,全量)。',
+          '设计Lambda@Edge + CloudFront图片CDN。即时裁剪 + 区域缓存将图片p95较源站直连显著缩短(指标:CloudWatch RUM,7天平均)。',
+          '基于ethers.js交付Blockchain DApp — MetaMask登录、交易签名、代币余额查询。钱包抽象层与独立事件索引器使钱包连接失败率与链上同步延迟保持稳定(指标:前端错误日志、索引器延迟)。',
         ],
       },
       aligo: {
         company: 'ALIGO',
         bullets: [
-          '运营基于Vanilla PHP 7的消息调度服务器/API — 提升高峰期吞吐量与重试队列公平性(指标:内部调度仪表盘)。',
-          '产品化Kakao AlimTalk / FriendTalk Open API功能,降低下游供应商与CX工具的集成工时。',
+          '运营Vanilla PHP 7的企业消息发送API和服务器。按客户拆分队列 + 加权轮询改善高峰期公平性;重试采用指数退避和隔离队列分散压力(指标:内部调度仪表盘)。',
+          '将Kakao AlimTalk / FriendTalk Open API产品化。统一模板与审批状态仪表盘减少下游供应商的集成工时和CX运维负担。',
         ],
       },
       'studio-bloom': {
         company: 'Studio Bloom',
         bullets: [
-          '基于Wordpress插件交付P2P贷款解决方案,集成Paygate Seyfert金融API(虚拟账户、投资、还款、状态)。',
+          '基于Wordpress插件交付P2P贷款解决方案,集成Paygate Seyfert金融API(虚拟账户 · 投资 · 还款 · 状态)。事务分离 + 幂等响应存储使运营期间金融一致性事件为0(指标:每日对账批次)。',
         ],
       },
       ninefive: {
         company: 'Ninefive',
-        bullets: ['开发产品推广页面交互及符合Web可访问性(KWAH)的前端。'],
+        bullets: [
+          '产品推广页面交互实现以prefers-reduced-motion响应,结合KWAH可访问性清单推进。停留时间 · 滚动深度KPI与可访问性合规同时达成。',
+        ],
       },
       '4depth': {
         company: '4depth',
-        bullets: ['交付公共机构网站的发布、WCAG可访问性支持和响应式Web实现。'],
+        bullets: [
+          '公共机构 · 地方政府网站发布 · WCAG可访问性支持 · 响应式Web实现。通过语义化HTML与ARIA设计、设计稿阶段的可访问性清单,多个项目顺利通过可访问性认证。',
+        ],
       },
     },
   },
