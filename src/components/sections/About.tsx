@@ -19,7 +19,7 @@ export function About({ dict }: Props) {
     >
       <Reveal>
         <div className="flex items-center gap-4">
-          <span className="font-display text-2xl italic text-fg-subtle">01</span>
+          <span className="font-mono text-sm text-fg-subtle">01</span>
           <span className="h-px flex-1 bg-border" />
           <span className="text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle">
             {dict.about.eyebrow}
@@ -31,21 +31,21 @@ export function About({ dict }: Props) {
         {dict.about.sectionTitle}
       </h2>
 
-      {/* Impact + stats — asymmetric full-wide split */}
-      <div className="mt-14 grid grid-cols-1 gap-12 lg:mt-20 lg:grid-cols-12 lg:gap-16">
+      {/* Impact + stats — 8/4 split */}
+      <div className="mt-10 grid grid-cols-1 gap-12 lg:mt-14 lg:grid-cols-12 lg:gap-16">
         <Reveal className="lg:col-span-8">
-          <p className="font-display text-3xl leading-[1.15] text-fg md:text-5xl lg:text-[3.5rem] xl:text-6xl">
+          <p className="max-w-3xl text-xl leading-relaxed text-fg md:text-2xl lg:text-3xl">
             {dict.about.impact}
           </p>
         </Reveal>
 
         <Reveal className="lg:col-span-4">
-          <dl className="flex flex-col gap-10 border-t border-border pt-10 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
+          <dl className="flex flex-col gap-8 border-t border-border pt-8 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
             <StatBlock
               kicker={dict.about.stat1Label}
               value={
                 <>
-                  <span className="font-display italic">{years}</span>
+                  <span>{years}</span>
                   <span className="ml-1 text-fg-muted">{dict.about.stat1Suffix}</span>
                 </>
               }
@@ -56,9 +56,9 @@ export function About({ dict }: Props) {
         </Reveal>
       </div>
 
-      {/* Philosophy — editorial footnote */}
+      {/* Philosophy */}
       <Reveal>
-        <div className="mt-24 grid grid-cols-1 gap-8 border-t border-border pt-12 md:grid-cols-12 md:gap-12">
+        <div className="mt-16 grid grid-cols-1 gap-8 border-t border-border pt-10 md:grid-cols-12 md:gap-12">
           <p className="text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle md:col-span-3">
             ≀ {dict.about.philosophyTitle}
           </p>
@@ -89,8 +89,8 @@ function StatBlock({
       <dd
         className={
           small
-            ? 'mt-3 font-sans text-lg font-semibold tracking-tight text-fg'
-            : 'mt-3 text-6xl font-bold tracking-tight text-fg md:text-7xl'
+            ? 'mt-3 text-base font-semibold text-fg'
+            : 'mt-2 text-4xl font-bold tracking-tight text-fg md:text-5xl'
         }
       >
         {value}

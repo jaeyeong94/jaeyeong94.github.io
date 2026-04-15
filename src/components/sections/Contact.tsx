@@ -17,7 +17,7 @@ export function Contact({ dict }: Props) {
     >
       <Reveal>
         <div className="flex items-center gap-4">
-          <span className="font-display text-2xl italic text-fg-subtle">09</span>
+          <span className="font-mono text-sm text-fg-subtle">09</span>
           <span className="h-px flex-1 bg-border" />
           <span className="text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle">
             {dict.contact.eyebrow}
@@ -30,14 +30,14 @@ export function Contact({ dict }: Props) {
       </h2>
 
       <Reveal>
-        <p className="mt-14 font-display text-4xl italic leading-[1.1] text-fg md:text-6xl">
+        <p className="mt-10 max-w-3xl text-2xl font-bold tracking-tight text-fg md:text-4xl">
           {dict.contact.headline}
         </p>
-        <p className="mt-6 max-w-2xl text-base text-fg-muted md:text-lg">{dict.contact.cta}</p>
+        <p className="mt-4 max-w-2xl text-base text-fg-muted md:text-lg">{dict.contact.cta}</p>
       </Reveal>
 
       <Reveal>
-        <address className="mt-16 grid grid-cols-1 gap-y-0 not-italic md:grid-cols-2">
+        <address className="mt-12 grid grid-cols-1 gap-y-0 not-italic md:grid-cols-2">
           <ContactLine label={dict.contact.emailLabel}>
             <ObfuscatedEmail
               user={resume.profile.emailUser}
@@ -84,9 +84,8 @@ export function Contact({ dict }: Props) {
         </address>
       </Reveal>
 
-      {/* Icon row — minimal */}
       <Reveal>
-        <div className="mt-12 flex flex-wrap items-center gap-3">
+        <div className="mt-10 flex flex-wrap items-center gap-3">
           <IconLink href={resume.profile.freelanceSite} label="heyted.dev">
             <Globe className="size-4" aria-hidden />
           </IconLink>
@@ -110,7 +109,7 @@ function ContactLine({
   children: React.ReactNode;
 }) {
   return (
-    <div className="grid grid-cols-[7rem_1fr] items-baseline gap-4 border-b border-border py-4 md:py-5">
+    <div className="grid grid-cols-[7rem_1fr] items-baseline gap-4 border-b border-border py-4">
       <p className="text-[0.65rem] font-medium uppercase tracking-[0.3em] text-fg-subtle">{label}</p>
       <div className="text-sm md:text-base">{children}</div>
     </div>

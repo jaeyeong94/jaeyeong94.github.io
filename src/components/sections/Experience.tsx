@@ -42,33 +42,36 @@ export function Experience({ locale, dict }: Props) {
     >
       <Reveal>
         <div className="flex items-center gap-4">
-          <span className="font-display text-2xl italic text-fg-subtle">03</span>
+          <span className="font-mono text-sm text-fg-subtle">03</span>
           <span className="h-px flex-1 bg-border" />
           <span className="text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle">
             {dict.experience.eyebrow}
           </span>
         </div>
-        <h2 id="experience-heading" className="mt-6 font-display text-4xl italic text-fg md:text-5xl">
+        <h2
+          id="experience-heading"
+          className="mt-5 text-3xl font-bold tracking-tight text-fg md:text-4xl"
+        >
           {dict.experience.sectionTitle}
         </h2>
       </Reveal>
 
-      <div className="mt-16 space-y-20">
+      <div className="mt-14 space-y-16">
         {groups.map((g, gi) => (
           <div key={g.type}>
             <Reveal>
-              <div className="mb-8 flex items-baseline gap-4">
-                <span className="font-display text-xl italic text-fg-subtle">
+              <div className="mb-6 flex items-baseline gap-4">
+                <span className="font-mono text-sm text-fg-subtle">
                   {String(gi + 1).padStart(2, '0')}
                 </span>
-                <h3 className="text-lg font-semibold uppercase tracking-[0.25em] text-fg">
+                <h3 className="text-sm font-semibold uppercase tracking-[0.25em] text-fg">
                   {dict.employment[g.type]}
                 </h3>
                 <span className="h-px flex-1 bg-border" />
-                <span className="text-xs text-fg-subtle">{g.items.length}</span>
+                <span className="font-mono text-xs text-fg-subtle">{g.items.length}</span>
               </div>
             </Reveal>
-            <ol reversed className="space-y-12">
+            <ol reversed className="space-y-10">
               {g.items.map((exp) => (
                 <ExperienceRow key={exp.id} exp={exp} locale={locale} dict={dict} />
               ))}
@@ -77,7 +80,7 @@ export function Experience({ locale, dict }: Props) {
         ))}
       </div>
 
-      <div className="mt-16 flex justify-center">
+      <div className="mt-14 flex justify-center">
         <button
           type="button"
           onClick={() => setShowLegacy((v) => !v)}
@@ -113,15 +116,15 @@ function ExperienceRow({
 
   return (
     <Reveal as="li">
-      <article className="group grid grid-cols-1 gap-x-8 gap-y-4 md:grid-cols-[11rem_1fr] lg:grid-cols-[14rem_1fr_minmax(0,28rem)] xl:grid-cols-[16rem_1fr_minmax(0,32rem)]">
-        {/* Left rail: giant year span */}
+      <article className="group grid grid-cols-1 gap-x-8 gap-y-4 md:grid-cols-[7rem_1fr] lg:grid-cols-[8rem_1fr_minmax(0,32rem)]">
+        {/* Left rail: year span */}
         <div className="md:pt-1">
-          <p className="font-display text-2xl italic leading-none text-fg-subtle md:text-3xl">
+          <p className="font-mono text-sm text-fg-muted">
             <span>{startYear}</span>
-            <span className="mx-2 text-fg-subtle/60">/</span>
+            <span className="mx-1.5 text-fg-subtle">—</span>
             <span>{endYear}</span>
           </p>
-          <p className="mt-2 text-[0.65rem] font-medium uppercase tracking-[0.3em] text-fg-subtle">
+          <p className="mt-2 text-[0.65rem] font-medium uppercase tracking-[0.25em] text-fg-subtle">
             <time dateTime={startIso}>
               {formatYearMonth(exp.start, locale, dict.common.present)}
             </time>
@@ -130,16 +133,16 @@ function ExperienceRow({
               {formatYearMonth(exp.end, locale, dict.common.present)}
             </time>
           </p>
-          <p className="mt-1 text-[0.65rem] font-medium uppercase tracking-[0.3em] text-fg-subtle/80">
+          <p className="mt-0.5 text-[0.65rem] font-medium uppercase tracking-[0.25em] text-fg-subtle/80">
             {formatDuration(months, locale, dict.common.years, dict.common.months)}
           </p>
         </div>
 
-        {/* Middle: content */}
+        {/* Middle: company + role */}
         <div className="border-l border-border pl-6 md:pl-8">
-          <h4 className="text-xl font-semibold text-fg md:text-2xl">{item.company}</h4>
+          <h4 className="text-lg font-semibold text-fg md:text-xl">{item.company}</h4>
           <p className="mt-1 text-sm text-fg-muted">{exp.role}</p>
-          <ul className="mt-5 space-y-2.5 text-sm leading-relaxed text-fg-muted md:text-[0.95rem] lg:hidden">
+          <ul className="mt-4 space-y-2 text-sm leading-relaxed text-fg-muted lg:hidden">
             {item.bullets.map((b, i) => (
               <li key={i} className="flex gap-3">
                 <span
@@ -151,15 +154,15 @@ function ExperienceRow({
             ))}
           </ul>
           {exp.stack.length > 0 && (
-            <p className="mt-5 font-mono text-xs text-fg-subtle lg:hidden">
+            <p className="mt-4 font-mono text-xs text-fg-subtle lg:hidden">
               {exp.stack.join(' · ')}
             </p>
           )}
         </div>
 
-        {/* Right: bullets + stack on large screens (uses full-wide real estate) */}
+        {/* Right: bullets + stack on large screens */}
         <div className="hidden lg:block">
-          <ul className="space-y-2.5 text-sm leading-relaxed text-fg-muted lg:text-[0.95rem]">
+          <ul className="space-y-2 text-sm leading-relaxed text-fg-muted">
             {item.bullets.map((b, i) => (
               <li key={i} className="flex gap-3">
                 <span aria-hidden className="mt-2 size-1 shrink-0 rounded-full bg-accent-1/60" />
@@ -168,7 +171,7 @@ function ExperienceRow({
             ))}
           </ul>
           {exp.stack.length > 0 && (
-            <p className="mt-5 font-mono text-xs text-fg-subtle">{exp.stack.join(' · ')}</p>
+            <p className="mt-4 font-mono text-xs text-fg-subtle">{exp.stack.join(' · ')}</p>
           )}
         </div>
       </article>

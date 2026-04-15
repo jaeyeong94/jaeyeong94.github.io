@@ -14,14 +14,14 @@ interface Props {
 export function Hero({ locale, dict }: Props) {
   return (
     <section className="relative isolate overflow-hidden">
-      <div className="section-frame pb-16 pt-24 md:pb-24 md:pt-32">
+      <div className="section-frame pb-16 pt-24 md:pb-20 md:pt-28">
         {/* Masthead rule */}
         <Reveal>
           <div className="flex items-end justify-between gap-6 border-b border-border pb-5">
-            <p className="text-[0.65rem] font-medium uppercase tracking-[0.4em] text-fg-subtle">
+            <p className="text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle">
               Portfolio · Vol. 01 · {new Date().getFullYear()}
             </p>
-            <p className="hidden text-[0.65rem] font-medium uppercase tracking-[0.4em] text-fg-subtle md:block">
+            <p className="hidden text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle md:block">
               {dict.contact.locationValue}
             </p>
           </div>
@@ -33,53 +33,45 @@ export function Hero({ locale, dict }: Props) {
             <p className="mb-3 text-xs font-medium uppercase tracking-[0.3em] text-fg-subtle">
               {dict.hero.altName}
             </p>
-            <h1 className="leading-[0.9] tracking-tight">
-              <span className="name-shimmer block text-[clamp(4rem,13vw,11rem)] font-bold">
+            <h1 className="leading-[1] tracking-tight">
+              <span className="name-shimmer block text-5xl font-bold md:text-6xl lg:text-7xl">
                 {dict.hero.name}
               </span>
-              <span className="mt-2 block text-[clamp(2.5rem,8vw,7rem)] font-display italic text-fg-muted">
-                — {dict.hero.altName}
+              <span className="mt-2 block text-2xl font-medium text-fg-muted md:text-3xl lg:text-4xl">
+                {dict.hero.altName}
               </span>
             </h1>
           </div>
         </Reveal>
 
-        {/* Role + tagline — single band */}
+        {/* Role + tagline */}
         <Reveal>
-          <p className="mt-10 max-w-4xl text-xl leading-relaxed text-fg md:mt-14 md:text-2xl">
+          <p className="mt-8 max-w-3xl text-base leading-relaxed text-fg md:mt-10 md:text-lg">
             {dict.hero.role}
-            <span className="mx-3 text-fg-subtle">—</span>
+            <span className="mx-2 text-fg-subtle">—</span>
             <span className="text-fg-muted">{dict.hero.tagline}</span>
           </p>
         </Reveal>
 
-        {/* Now — editorial pull-quote */}
+        {/* Now */}
         <Reveal>
-          <figure className="mt-16 grid grid-cols-[auto_1fr] items-start gap-5 border-t border-border pt-10 md:mt-20 md:gap-8">
-            <p
-              aria-hidden
-              className="font-display text-5xl italic leading-none text-accent-1 md:text-6xl"
-            >
-              “
+          <div className="mt-12 border-t border-border pt-8 md:mt-14">
+            <p className="text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle">
+              {dict.hero.nowLabel}
             </p>
-            <div className="max-w-4xl">
-              <p className="text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle">
-                {dict.hero.nowLabel}
-              </p>
-              <blockquote className="mt-2 font-display text-2xl italic leading-[1.25] text-fg md:text-4xl lg:text-5xl">
-                {dict.hero.nowValue}
-              </blockquote>
-            </div>
-          </figure>
+            <p className="mt-3 max-w-3xl text-lg font-medium leading-snug text-fg md:text-xl">
+              {dict.hero.nowValue}
+            </p>
+          </div>
         </Reveal>
 
-        {/* Keywords — slash-separated inline */}
+        {/* Keywords */}
         <Reveal>
-          <div className="mt-12 flex flex-col items-start gap-3 border-t border-border pt-6 md:flex-row md:items-center md:gap-6">
+          <div className="mt-10 flex flex-col items-start gap-3 border-t border-border pt-6 md:flex-row md:items-center md:gap-6">
             <p className="text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle">
               {dict.hero.keywordsLabel}
             </p>
-            <ul className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-fg-muted md:text-base">
+            <ul className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-fg-muted">
               {resume.keywords.map((k, i) => (
                 <li key={k} className="inline-flex items-center gap-3">
                   <span className="font-mono">{k}</span>
@@ -96,7 +88,7 @@ export function Hero({ locale, dict }: Props) {
 
         {/* CTA */}
         <Reveal>
-          <div className="mt-12 flex flex-wrap items-center gap-3">
+          <div className="mt-10 flex flex-wrap items-center gap-3">
             <Link
               href={`/${locale}/#contact`}
               className={cn(

@@ -17,36 +17,40 @@ export function Skills({ dict }: Props) {
     >
       <Reveal>
         <div className="flex items-center gap-4">
-          <span className="font-display text-2xl italic text-fg-subtle">05</span>
+          <span className="font-mono text-sm text-fg-subtle">05</span>
           <span className="h-px flex-1 bg-border" />
           <span className="text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle">
             {dict.skills.eyebrow}
           </span>
         </div>
-        <h2 id="skills-heading" className="mt-6 font-display text-4xl italic text-fg md:text-5xl">
+        <h2
+          id="skills-heading"
+          className="mt-5 text-3xl font-bold tracking-tight text-fg md:text-4xl"
+        >
           {dict.skills.sectionTitle}
         </h2>
-        <p className="mt-4 max-w-2xl text-base text-fg-muted">{dict.skills.description}</p>
+        <p className="mt-3 max-w-2xl text-sm text-fg-muted md:text-base">
+          {dict.skills.description}
+        </p>
       </Reveal>
 
-      {/* Signature stacks — editorial list */}
-      <div className="mt-14">
+      <div className="mt-12">
         <Reveal>
-          <p className="mb-6 text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle">
+          <p className="mb-5 text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle">
             ❖ {dict.skills.signaturesTitle}
           </p>
         </Reveal>
         <ol className="divide-y divide-border border-y border-border">
           {dict.skills.signatures.map((s, i) => (
             <Reveal key={s.key} as="li">
-              <div className="group grid grid-cols-[auto_1fr_auto] items-baseline gap-x-5 gap-y-2 py-6 md:grid-cols-[3rem_auto_1fr_auto] md:gap-x-8">
-                <span className="font-display text-xl italic text-fg-subtle md:text-2xl">
+              <div className="grid grid-cols-[2rem_1fr_auto] items-baseline gap-x-5 gap-y-2 py-5 md:grid-cols-[2.5rem_minmax(0,18rem)_1fr_auto] md:gap-x-8">
+                <span className="font-mono text-xs text-fg-subtle">
                   {String(i + 1).padStart(2, '0')}
                 </span>
-                <h3 className="col-span-2 text-xl font-semibold text-fg transition-colors group-hover:text-accent-1 md:col-span-1 md:text-2xl">
+                <h3 className="col-span-2 text-base font-semibold text-fg md:col-span-1 md:text-lg">
                   {s.title}
                 </h3>
-                <p className="col-span-3 text-sm leading-relaxed text-fg-muted md:col-span-1 md:text-[0.95rem]">
+                <p className="col-span-3 text-sm leading-relaxed text-fg-muted md:col-span-1">
                   {s.note}
                 </p>
                 <span className="col-span-3 text-right font-mono text-[0.65rem] uppercase tracking-widest text-fg-subtle md:col-span-1">
@@ -58,14 +62,13 @@ export function Skills({ dict }: Props) {
         </ol>
       </div>
 
-      {/* Others — compact rows */}
-      <div className="mt-16">
+      <div className="mt-12">
         <Reveal>
-          <p className="mb-6 text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle">
+          <p className="mb-5 text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle">
             + {dict.skills.othersTitle}
           </p>
         </Reveal>
-        <dl className="grid gap-y-4 md:grid-cols-[8rem_1fr] md:gap-x-6">
+        <dl className="grid gap-y-3 md:grid-cols-[8rem_1fr] md:gap-x-6">
           {(['backend', 'frontend', 'data', 'infra'] as const).map((key) => (
             <Reveal key={key} className="contents">
               <dt className="text-xs font-semibold uppercase tracking-widest text-fg-subtle">

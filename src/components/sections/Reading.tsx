@@ -15,7 +15,7 @@ export function Reading({ dict }: Props) {
     >
       <Reveal>
         <div className="flex items-center gap-4">
-          <span className="font-display text-2xl italic text-fg-subtle">07</span>
+          <span className="font-mono text-sm text-fg-subtle">07</span>
           <span className="h-px flex-1 bg-border" />
           <span className="text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle">
             {dict.reading.eyebrow}
@@ -27,7 +27,7 @@ export function Reading({ dict }: Props) {
         {dict.reading.sectionTitle}
       </h2>
 
-      <div className="mt-12 grid grid-cols-1 gap-16 md:grid-cols-2">
+      <div className="mt-10 grid grid-cols-1 gap-12 md:grid-cols-2">
         <Reveal>
           <div>
             <p className="text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle">
@@ -36,8 +36,8 @@ export function Reading({ dict }: Props) {
             <ul className="mt-4 space-y-3">
               {resume.books.map((b) => (
                 <li key={b.title} className="border-l border-border pl-4">
-                  <p className="font-display text-xl italic text-fg">{b.title}</p>
-                  <p className="mt-1 text-xs text-fg-subtle">— {b.author}</p>
+                  <p className="text-base font-semibold text-fg">{b.title}</p>
+                  <p className="mt-0.5 text-xs text-fg-subtle">— {b.author}</p>
                 </li>
               ))}
             </ul>

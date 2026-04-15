@@ -16,21 +16,24 @@ export function Writing({ dict }: Props) {
     >
       <Reveal>
         <div className="flex items-center gap-4">
-          <span className="font-display text-2xl italic text-fg-subtle">06</span>
+          <span className="font-mono text-sm text-fg-subtle">06</span>
           <span className="h-px flex-1 bg-border" />
           <span className="text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle">
             {dict.writing.eyebrow}
           </span>
         </div>
-        <h2 id="writing-heading" className="mt-6 font-display text-4xl italic text-fg md:text-5xl">
+        <h2
+          id="writing-heading"
+          className="mt-5 text-3xl font-bold tracking-tight text-fg md:text-4xl"
+        >
           {dict.writing.sectionTitle}
         </h2>
       </Reveal>
 
-      <ol className="mt-12 divide-y divide-border border-t border-border">
+      <ol className="mt-10 divide-y divide-border border-y border-border">
         {posts.map((p) => (
           <Reveal key={p.id} as="li">
-            <article className="grid grid-cols-1 gap-3 py-7 md:grid-cols-[8rem_1fr_auto] md:items-baseline md:gap-8">
+            <article className="grid grid-cols-1 gap-3 py-6 md:grid-cols-[7rem_1fr_auto] md:items-baseline md:gap-8">
               <time
                 dateTime={p.date}
                 className="font-mono text-xs uppercase tracking-widest text-fg-subtle"
@@ -38,8 +41,8 @@ export function Writing({ dict }: Props) {
                 {p.date}
               </time>
               <div>
-                <h3 className="font-display text-2xl italic leading-snug text-fg">{p.title}</h3>
-                <p className="mt-2 text-sm text-fg-muted md:text-base">{p.summary}</p>
+                <h3 className="text-lg font-semibold text-fg">{p.title}</h3>
+                <p className="mt-1.5 text-sm text-fg-muted">{p.summary}</p>
               </div>
               <span className="font-mono text-[0.65rem] uppercase tracking-widest text-fg-subtle md:justify-self-end">
                 {dict.common.comingSoon}
