@@ -107,7 +107,7 @@ export const resume: ResumeData = {
       type: 'freelance',
       role: 'Backend Engineer',
       start: '2026-01',
-      end: 'present',
+      end: '2026-02',
       stack: ['Node.js', 'AWS', 'Cloudflare R2', 'RTSP', 'AI/Vision'],
     },
     {
@@ -131,7 +131,7 @@ export const resume: ResumeData = {
       type: 'freelance',
       role: 'Backend Engineer',
       start: '2024-02',
-      end: '2024-04',
+      end: '2024-09',
       stack: ['NestJS', 'PostgreSQL', 'Multi-tenancy', 'ETL'],
     },
     {

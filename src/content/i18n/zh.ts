@@ -29,8 +29,8 @@ const dict: Dictionary = {
     themeSystem: '系统',
   },
   employment: {
-    fulltime: '全职',
-    freelance: '自由职业',
+    fulltime: '驻场',
+    freelance: '远程',
     contract: '合同',
   },
   hero: {

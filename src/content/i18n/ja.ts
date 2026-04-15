@@ -29,8 +29,8 @@ const dict: Dictionary = {
     themeSystem: 'システム',
   },
   employment: {
-    fulltime: '正社員',
-    freelance: 'フリーランス',
+    fulltime: '常駐',
+    freelance: 'リモート',
     contract: '契約',
   },
   hero: {
