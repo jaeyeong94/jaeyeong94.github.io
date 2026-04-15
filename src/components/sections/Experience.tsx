@@ -10,6 +10,7 @@ import {
   type EmploymentType,
 } from '@/content/resume';
 import { Reveal } from '@/components/ui/Reveal';
+import { CareerTimeline } from './CareerTimeline';
 import { formatYearMonth, formatDuration } from '@/lib/date';
 import { ChevronDown } from 'lucide-react';
 
@@ -55,6 +56,8 @@ export function Experience({ locale, dict }: Props) {
           {dict.experience.sectionTitle}
         </h2>
       </Reveal>
+
+      <CareerTimeline dict={dict} />
 
       <div className="mt-14 space-y-16">
         {groups.map((g, gi) => (

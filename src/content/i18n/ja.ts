@@ -40,7 +40,7 @@ const dict: Dictionary = {
     tagline: 'ビジネスの成長を牽引するプロダクトを作ります。',
     ctaContact: 'お問い合わせ',
     nowLabel: 'Now',
-    nowValue: '米国シリコンバレーの企業と、保険会社向けSaaSを開発しています。',
+    nowValue: 'Crypto Market MakingシステムとB2B投資管理ダッシュボードを開発しています。',
     keywordsLabel: '最近の注力分野',
   },
   about: {

@@ -38,7 +38,7 @@ const dict = {
     tagline: '비즈니스 성장을 주도하는 제품을 만듭니다.',
     ctaContact: '연락하기',
     nowLabel: '지금',
-    nowValue: '미국 실리콘밸리에 위치한 회사와 보험사 전용 SaaS를 개발하고 있습니다',
+    nowValue: 'Crypto Market Making 시스템과 B2B 투자관리 대시보드를 만들고 있습니다',
     keywordsLabel: '요즘 집중',
   },
   about: {

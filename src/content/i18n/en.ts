@@ -40,7 +40,7 @@ const dict: Dictionary = {
     tagline: 'I build products that drive business growth.',
     ctaContact: 'Get in touch',
     nowLabel: 'Now',
-    nowValue: 'Building an insurance-focused SaaS with a Silicon Valley company.',
+    nowValue: 'Building a Crypto Market Making system and a B2B investment management dashboard.',
     keywordsLabel: 'Currently focused on',
   },
   about: {
