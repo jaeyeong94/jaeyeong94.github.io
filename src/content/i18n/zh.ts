@@ -28,6 +28,11 @@ const dict: Dictionary = {
     themeDark: '深色',
     themeSystem: '系统',
     sameTeamLabel: '同一团队 · 与同一CEO/CTO延续合作',
+    commandPaletteOpen: '打开搜索',
+    commandPaletteTitle: '跳转至章节',
+    commandPaletteSearch: '搜索章节...',
+    commandPaletteEmpty: '未找到匹配的章节',
+    commandPaletteHeading: '导航',
   },
   employment: {
     fulltime: '全职',

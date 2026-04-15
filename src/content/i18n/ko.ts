@@ -26,6 +26,11 @@ const dict = {
     themeDark: '다크',
     themeSystem: '시스템',
     sameTeamLabel: '같은 팀 · CEO/CTO와 이어짐',
+    commandPaletteOpen: '섹션 검색 열기',
+    commandPaletteTitle: '섹션 이동',
+    commandPaletteSearch: '섹션 검색...',
+    commandPaletteEmpty: '일치하는 섹션이 없습니다',
+    commandPaletteHeading: '이동',
   },
   employment: {
     fulltime: '정규직',

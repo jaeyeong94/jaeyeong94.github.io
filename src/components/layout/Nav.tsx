@@ -6,6 +6,7 @@ import type { Locale } from '@/lib/i18n';
 import type { Dictionary } from '@/content/i18n';
 import { LocaleSwitcher } from './LocaleSwitcher';
 import { ThemeToggle } from './ThemeToggle';
+import { CommandPalette } from './CommandPalette';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
 
@@ -66,6 +67,7 @@ export function Nav({ locale, dict }: Props) {
           </ul>
         </nav>
         <div className="flex items-center gap-2">
+          <CommandPalette locale={locale} dict={dict} />
           <ThemeToggle />
           <LocaleSwitcher currentLocale={locale} />
           <button

@@ -28,6 +28,11 @@ const dict: Dictionary = {
     themeDark: 'Dark',
     themeSystem: 'System',
     sameTeamLabel: 'Same team · continued with the same CEO/CTO',
+    commandPaletteOpen: 'Open section search',
+    commandPaletteTitle: 'Jump to section',
+    commandPaletteSearch: 'Search sections...',
+    commandPaletteEmpty: 'No matching sections',
+    commandPaletteHeading: 'Navigate',
   },
   employment: {
     fulltime: 'Full-time',
