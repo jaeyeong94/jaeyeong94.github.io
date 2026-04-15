@@ -29,8 +29,8 @@ const dict: Dictionary = {
     themeSystem: 'System',
   },
   employment: {
-    fulltime: 'Onsite',
-    freelance: 'Remote',
+    fulltime: 'Full-time',
+    freelance: 'Freelance',
     contract: 'Contract',
   },
   hero: {

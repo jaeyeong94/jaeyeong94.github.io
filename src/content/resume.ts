@@ -111,6 +111,7 @@ export const resume: ResumeData = {
       start: '2023-11',
       end: 'present',
       stack: ['Node.js', 'NestJS', 'Next.js', 'PostgreSQL', 'Toss PG', 'LLM'],
+      url: 'https://dis.so',
     },
     {
       id: 'masblue',
@@ -128,6 +129,7 @@ export const resume: ResumeData = {
       start: '2023-11',
       end: 'present',
       stack: ['Node.js', 'Electron', 'PostgreSQL', 'Redis', 'WebSocket'],
+      url: 'https://rootstone.io',
     },
     {
       id: 'onto',
@@ -136,6 +138,7 @@ export const resume: ResumeData = {
       start: '2026-01',
       end: '2026-04',
       stack: ['Node.js', 'AWS', 'Cloudflare R2', 'RTSP', 'AI/Vision'],
+      url: 'https://ontoh.co.kr/',
     },
     {
       id: 'dssolve',
@@ -144,6 +147,7 @@ export const resume: ResumeData = {
       start: '2024-02',
       end: '2024-09',
       stack: ['NestJS', 'PostgreSQL', 'Multi-tenancy', 'ETL'],
+      url: 'https://randibot.com/',
     },
     {
       id: 'flfi-exchange',
@@ -160,6 +164,7 @@ export const resume: ResumeData = {
       start: '2023-06',
       end: '2023-09',
       stack: ['AWS Cognito', 'Node.js'],
+      url: 'https://miso.kr/',
     },
     {
       id: 'flfi-lead',
@@ -186,6 +191,7 @@ export const resume: ResumeData = {
       start: '2019-08',
       end: '2021-04',
       stack: ['PHP 7', 'Node.js', 'MySQL', 'CodeIgniter'],
+      url: 'https://smartsms.aligo.in/',
     },
     {
       id: 'studio-bloom',
@@ -203,6 +209,7 @@ export const resume: ResumeData = {
       start: '2016-09',
       end: '2016-11',
       stack: ['JavaScript', 'jQuery', 'HTML5', 'CSS3'],
+      url: 'https://www.ninefive.com/',
       legacy: true,
     },
     {
@@ -212,6 +219,7 @@ export const resume: ResumeData = {
       start: '2012-12',
       end: '2014-10',
       stack: ['JavaScript', 'jQuery', 'HTML5', 'CSS3', 'SCSS', 'PHP'],
+      url: 'https://4depth.com/',
       legacy: true,
     },
   ],

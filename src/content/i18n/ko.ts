@@ -27,8 +27,8 @@ const dict = {
     themeSystem: '시스템',
   },
   employment: {
-    fulltime: '상주근무',
-    freelance: '원격근무',
+    fulltime: '정규직',
+    freelance: '프리랜서',
     contract: '계약직',
   },
   hero: {
