@@ -4,6 +4,7 @@ import { Reveal } from '@/components/ui/Reveal';
 import { cn } from '@/lib/utils';
 
 const SHORT_NAMES: Record<ExperienceId, string> = {
+  masblue: 'Masblue',
   onto: 'Onto',
   rootstone: 'Rootstone',
   dio: 'DIO',

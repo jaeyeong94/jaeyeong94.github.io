@@ -96,6 +96,13 @@ const dict: Dictionary = {
     sectionTitle: '经历',
     eyebrow: 'Experience',
     items: {
+      masblue: {
+        company: 'Masblue (masblue.studio)',
+        bullets: [
+          '为面向美国市场的保险SaaS设计与开发后端及AI代理编排(Orchestration)系统。',
+          '将保险领域工作流拆解为基于LLM的代理,构建包含人工审查节点与审计日志的流水线。',
+        ],
+      },
       onto: {
         company: 'Ontoh Vision',
         bullets: [

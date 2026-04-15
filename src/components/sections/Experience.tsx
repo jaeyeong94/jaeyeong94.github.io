@@ -143,7 +143,21 @@ function ExperienceRow({
 
         {/* Middle: company + role */}
         <div className="border-l border-border pl-6 md:pl-8">
-          <h4 className="text-lg font-semibold text-fg md:text-xl">{item.company}</h4>
+          <h4 className="text-lg font-semibold text-fg md:text-xl">
+            {exp.url ? (
+              <a
+                href={exp.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-baseline gap-1.5 text-fg transition-colors hover:text-accent-1"
+              >
+                {item.company}
+                <span aria-hidden className="text-sm text-fg-subtle">↗</span>
+              </a>
+            ) : (
+              item.company
+            )}
+          </h4>
           <p className="mt-1 text-sm text-fg-muted">{exp.role}</p>
           <ul className="mt-4 space-y-2 text-sm leading-relaxed text-fg-muted lg:hidden">
             {item.bullets.map((b, i) => (

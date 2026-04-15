@@ -98,6 +98,13 @@ const dict: Dictionary = {
     sectionTitle: 'Experience',
     eyebrow: 'Experience',
     items: {
+      masblue: {
+        company: 'Masblue (masblue.studio)',
+        bullets: [
+          'Designing and building the backend and AI-agent orchestration layer for a US-market insurance SaaS.',
+          'Decomposing insurance workflows into LLM-driven agents with human-in-the-loop checkpoints and full audit logging.',
+        ],
+      },
       onto: {
         company: 'Ontoh Vision',
         bullets: [

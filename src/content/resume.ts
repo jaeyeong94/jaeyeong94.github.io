@@ -3,6 +3,7 @@ export type DateString = `${number}-${number}`;
 export type EmploymentType = 'fulltime' | 'freelance' | 'contract';
 
 export type ExperienceId =
+  | 'masblue'
   | 'onto'
   | 'rootstone'
   | 'dio'
@@ -37,6 +38,7 @@ export interface Experience {
   start: DateString;
   end: DateString | 'present';
   stack: string[];
+  url?: string;
   legacy?: boolean;
 }
 
@@ -109,6 +111,15 @@ export const resume: ResumeData = {
       start: '2023-11',
       end: 'present',
       stack: ['Node.js', 'NestJS', 'Next.js', 'PostgreSQL', 'Toss PG', 'LLM'],
+    },
+    {
+      id: 'masblue',
+      type: 'freelance',
+      role: 'Backend Engineer · AI Orchestration',
+      start: '2025-10',
+      end: 'present',
+      stack: ['Node.js', 'TypeScript', 'AI Agents', 'LangChain', 'AWS', 'PostgreSQL'],
+      url: 'https://www.masblue.studio/',
     },
     {
       id: 'rootstone',

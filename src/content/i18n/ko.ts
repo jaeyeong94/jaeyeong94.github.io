@@ -96,6 +96,13 @@ const dict = {
     sectionTitle: '경력',
     eyebrow: 'Experience',
     items: {
+      masblue: {
+        company: 'Masblue (masblue.studio)',
+        bullets: [
+          '미국 시장 타겟 보험 SaaS 백엔드와 AI 에이전트 오케스트레이션 시스템을 설계 · 개발 중.',
+          '보험 도메인 워크플로우를 LLM 기반 에이전트로 분해하고, 휴먼 인더루프 검증 포인트와 감사 로그를 포함한 파이프라인을 구축.',
+        ],
+      },
       onto: {
         company: '주식회사 온토 (Ontoh Vision)',
         bullets: [

@@ -98,6 +98,13 @@ const dict: Dictionary = {
     sectionTitle: '経歴',
     eyebrow: 'Experience',
     items: {
+      masblue: {
+        company: 'Masblue (masblue.studio)',
+        bullets: [
+          '米国市場向け保険SaaSのバックエンドとAIエージェント・オーケストレーションを設計・開発中。',
+          '保険ドメインのワークフローをLLMベースのエージェントに分解し、人間による検証ポイントと監査ログを含むパイプラインを構築。',
+        ],
+      },
       onto: {
         company: '株式会社オント (Ontoh Vision)',
         bullets: [
