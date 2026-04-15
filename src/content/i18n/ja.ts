@@ -382,29 +382,6 @@ const dict: Dictionary = {
     freelanceLabel: 'フリーランス紹介',
     testimonials: '推薦状・リファレンスはご要望に応じてご提供します。',
   },
-  credentials: {
-    sectionTitle: '学歴・資格',
-    eyebrow: 'Credentials',
-    educationTitle: '学歴',
-    certificationsTitle: '資格',
-    education: {
-      knou: {
-        school: '韓国放送通信大学',
-        degree: 'コンピュータサイエンス学科',
-      },
-      'cheonan-commercial': {
-        school: '天安商業高校',
-        degree: 'コンピュータソフトウェア',
-      },
-    },
-    certifications: {
-      'toss-study': 'Toss Study Club 1期',
-      'info-processing': '情報処理技能士(韓国)',
-      'computer-graphics': 'コンピュータグラフィックス運用技能士(韓国)',
-      'gtq-1': 'GTQ 1級',
-      'itq-master': 'ITQ Master',
-    },
-  },
   footer: {
     updated: '最終更新',
     builtWith: 'Built with Next.js',

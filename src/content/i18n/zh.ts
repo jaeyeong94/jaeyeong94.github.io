@@ -372,29 +372,6 @@ const dict: Dictionary = {
     freelanceLabel: '自由职业主页',
     testimonials: '推荐与参考人资料可应要求提供。',
   },
-  credentials: {
-    sectionTitle: '学历与资格',
-    eyebrow: 'Credentials',
-    educationTitle: '学历',
-    certificationsTitle: '资格证书',
-    education: {
-      knou: {
-        school: '韩国广播通信大学',
-        degree: '计算机科学',
-      },
-      'cheonan-commercial': {
-        school: '天安商业高中',
-        degree: '计算机软件',
-      },
-    },
-    certifications: {
-      'toss-study': 'Toss 学习俱乐部 (第1期)',
-      'info-processing': '信息处理技能士(韩国)',
-      'computer-graphics': '计算机图形学应用技能士(韩国)',
-      'gtq-1': 'GTQ 1级',
-      'itq-master': 'ITQ Master',
-    },
-  },
   footer: {
     updated: '最后更新',
     builtWith: 'Built with Next.js',

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { Dictionary } from '@/content/i18n';
 import type { Locale } from '@/lib/i18n';
 import {
@@ -22,8 +22,16 @@ interface Props {
 
 type Group = { type: EmploymentType; items: ExpType[] };
 
+const TEAM_KEY = 'flfi-rootstone';
+
 export function Experience({ locale, dict }: Props) {
   const [showLegacy, setShowLegacy] = useState(false);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const [connector, setConnector] = useState<{
+    top: number;
+    bottom: number;
+    height: number;
+  } | null>(null);
 
   const filtered = resume.experiences.filter((e) => (showLegacy ? true : !e.legacy));
 
@@ -35,6 +43,41 @@ export function Experience({ locale, dict }: Props) {
   if (freelance.length) groups.push({ type: 'freelance', items: freelance });
   if (fulltime.length) groups.push({ type: 'fulltime', items: fulltime });
   if (contract.length) groups.push({ type: 'contract', items: contract });
+
+  useEffect(() => {
+    function measure() {
+      const wrapper = wrapperRef.current;
+      if (!wrapper) return;
+      const wrapperRect = wrapper.getBoundingClientRect();
+      const nodes = Array.from(
+        wrapper.querySelectorAll<HTMLElement>(`[data-team-key="${TEAM_KEY}"]`),
+      );
+      if (nodes.length < 2) {
+        setConnector(null);
+        return;
+      }
+      const centers = nodes
+        .map((n) => {
+          const r = n.getBoundingClientRect();
+          return r.top - wrapperRect.top + 24;
+        })
+        .sort((a, b) => a - b);
+      const top = centers[0];
+      const bottom = centers[centers.length - 1];
+      setConnector({ top, bottom, height: bottom + 40 });
+    }
+    measure();
+    const wrapper = wrapperRef.current;
+    if (!wrapper) return;
+    const ro = new ResizeObserver(measure);
+    ro.observe(wrapper);
+    wrapper.querySelectorAll('article').forEach((a) => ro.observe(a));
+    window.addEventListener('resize', measure);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener('resize', measure);
+    };
+  }, [showLegacy]);
 
   return (
     <section
@@ -60,7 +103,52 @@ export function Experience({ locale, dict }: Props) {
 
       <CareerTimeline dict={dict} />
 
-      <div className="mt-14 space-y-16">
+      <div ref={wrapperRef} className="relative mt-14 space-y-16">
+        {connector && (
+          <svg
+            aria-label={dict.common.sameTeamLabel}
+            role="img"
+            className="pointer-events-none absolute hidden md:block"
+            style={{
+              left: '-1.5rem',
+              top: 0,
+              width: 24,
+              height: connector.height,
+            }}
+            overflow="visible"
+          >
+            <defs>
+              <marker
+                id="team-arrow"
+                markerWidth="7"
+                markerHeight="7"
+                refX="3.5"
+                refY="3.5"
+                orient="auto"
+              >
+                <path d="M 0 0 L 7 3.5 L 0 7 z" fill="oklch(var(--accent-1))" />
+              </marker>
+            </defs>
+            <line
+              x1={10}
+              y1={connector.bottom}
+              x2={10}
+              y2={connector.top + 8}
+              stroke="oklch(var(--accent-1))"
+              strokeOpacity={0.55}
+              strokeWidth={1.5}
+              strokeDasharray="4 4"
+              markerEnd="url(#team-arrow)"
+            />
+            <circle
+              cx={10}
+              cy={connector.bottom}
+              r={4}
+              fill="oklch(var(--accent-1))"
+            />
+          </svg>
+        )}
+
         {groups.map((g, gi) => (
           <div key={g.type}>
             <Reveal>
@@ -120,7 +208,10 @@ function ExperienceRow({
 
   return (
     <Reveal as="li">
-      <article className="group grid grid-cols-1 gap-x-8 gap-y-4 md:grid-cols-[7rem_1fr] lg:grid-cols-[8rem_1fr_minmax(0,32rem)]">
+      <article
+        data-team-key={exp.teamKey}
+        className="group grid grid-cols-1 gap-x-8 gap-y-4 md:grid-cols-[7rem_1fr] lg:grid-cols-[8rem_1fr_minmax(0,32rem)]"
+      >
         {/* Left rail: year span */}
         <div className="md:pt-1">
           <p className="font-mono text-sm tabular-nums text-fg-muted">
@@ -154,7 +245,9 @@ function ExperienceRow({
                   className="inline-flex items-baseline gap-1.5 rounded-sm text-fg transition-colors hover:text-accent-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-1 focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
                 >
                   {item.company}
-                  <span aria-hidden className="text-sm text-fg-subtle">↗</span>
+                  <span aria-hidden className="text-sm text-fg-subtle">
+                    ↗
+                  </span>
                 </a>
               </Tooltip>
             ) : (
@@ -162,15 +255,6 @@ function ExperienceRow({
             )}
           </h4>
           <p className="mt-1 text-sm text-fg-muted">{exp.role}</p>
-          {exp.teamKey && (
-            <p
-              className="mt-1.5 inline-flex items-center gap-1.5 rounded-full border border-accent-1/30 bg-accent-1/10 px-2 py-0.5 text-[0.65rem] font-medium text-accent-1"
-              title={dict.common.sameTeamLabel}
-            >
-              <span aria-hidden>⧖</span>
-              {dict.common.sameTeamLabel}
-            </p>
-          )}
           <ul className="mt-4 space-y-2 text-sm leading-relaxed text-fg-muted lg:hidden">
             {item.bullets.map((b, i) => (
               <li key={i} className="flex gap-3">

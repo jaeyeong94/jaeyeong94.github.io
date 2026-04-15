@@ -383,29 +383,6 @@ const dict: Dictionary = {
     freelanceLabel: 'Freelance profile',
     testimonials: 'References and testimonials available upon request.',
   },
-  credentials: {
-    sectionTitle: 'Education & Certifications',
-    eyebrow: 'Credentials',
-    educationTitle: 'Education',
-    certificationsTitle: 'Certifications',
-    education: {
-      knou: {
-        school: 'Korea National Open University',
-        degree: 'Computer Science',
-      },
-      'cheonan-commercial': {
-        school: 'Cheonan Commercial High School',
-        degree: 'Computer Software',
-      },
-    },
-    certifications: {
-      'toss-study': 'Toss Study Club (Cohort 1)',
-      'info-processing': 'Information Processing Technician (KOR)',
-      'computer-graphics': 'Computer Graphics Operation Technician (KOR)',
-      'gtq-1': 'GTQ Level 1',
-      'itq-master': 'ITQ Master',
-    },
-  },
   footer: {
     updated: 'Last updated',
     builtWith: 'Built with Next.js',

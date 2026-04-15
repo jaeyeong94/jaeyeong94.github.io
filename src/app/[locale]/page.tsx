@@ -10,7 +10,6 @@ import { Skills } from '@/components/sections/Skills';
 import { Writing } from '@/components/sections/Writing';
 import { Reading } from '@/components/sections/Reading';
 import { Interests } from '@/components/sections/Interests';
-import { Credentials } from '@/components/sections/Credentials';
 import { Contact } from '@/components/sections/Contact';
 
 export default async function LocalePage({
@@ -33,7 +32,6 @@ export default async function LocalePage({
       <Writing dict={dict} />
       <Reading dict={dict} />
       <Interests dict={dict} />
-      <Credentials dict={dict} />
       <Contact dict={dict} />
     </main>
   );

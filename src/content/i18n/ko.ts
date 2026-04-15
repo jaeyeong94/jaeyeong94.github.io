@@ -375,29 +375,6 @@ const dict = {
     freelanceLabel: '프리랜서 소개',
     testimonials: '추천사 · 레퍼런스는 요청 시 제공합니다.',
   },
-  credentials: {
-    sectionTitle: '학력 · 자격',
-    eyebrow: 'Credentials',
-    educationTitle: '학력',
-    certificationsTitle: '자격',
-    education: {
-      knou: {
-        school: '한국방송통신대학교',
-        degree: '컴퓨터과학과',
-      },
-      'cheonan-commercial': {
-        school: '천안상업고등학교',
-        degree: '컴퓨터 소프트웨어',
-      },
-    },
-    certifications: {
-      'toss-study': 'Toss 스터디클럽 1기',
-      'info-processing': '정보처리기능사',
-      'computer-graphics': '컴퓨터그래픽스운용기능사',
-      'gtq-1': 'GTQ 1급',
-      'itq-master': 'ITQ Master',
-    },
-  },
   footer: {
     updated: '마지막 업데이트',
     builtWith: 'Built with Next.js',
