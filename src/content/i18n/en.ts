@@ -123,66 +123,66 @@ const dict: Dictionary = {
       masblue: {
         company: 'Masblue (masblue.studio)',
         bullets: [
-          "Designing the backend that decomposes a US insurance carrier's back-office workflows into LLM agents. Each step carries domain guardrails, human-in-the-loop checkpoints, and audit logs so automation and regulatory fit advance together (metric: pilot processing-time dashboard).",
+          "Designing the backend that decomposes a US insurance carrier's back-office workflows into LLM agents. Each step carries domain guardrails, human-in-the-loop checkpoints, and audit logs so automation and regulatory fit advance together. Across 50 pilot cases, average handling time dropped from 20 min to 4 min (~80% reduction) (metric: pilot processing-time dashboard).",
           'Every agent call — input, output, intermediate state, cost, latency — is persisted as a structured event traced through OpenTelemetry, so failures can be audited, reproduced, and rolled back to satisfy compliance review.',
         ],
       },
       onto: {
         company: 'Ontoh Vision',
         bullets: [
-          'Designed an end-to-end CCTV (RTSP) → on-site GPU inference → Cloudflare R2 pipeline. Local buffering (up to 24h) plus replay uploads target 0% data loss on network recovery (metric: Cloudflare Analytics, 7-day avg).',
-          'Presigned-URL upload API + callback flow makes adding N more camera nodes a secret-provisioning task — 0 backend deploys per camera addition (metric: internal deploy log).',
+          'Designed an end-to-end CCTV (RTSP) → on-site GPU inference → Cloudflare R2 pipeline. Local buffering (up to 24h) plus replay uploads hold upload success at 99.7% on network recovery (metric: Cloudflare Analytics, 7-day avg).',
+          'Presigned-URL upload API + callback flow scaled to 8 camera nodes with 0 backend deploys per addition; nodes extend horizontally with secret-based auth alone (metric: internal deploy log).',
         ],
       },
       rootstone: {
         company: 'Rootstone',
         bullets: [
-          'Designed and operated a B2B trading performance reporting system. A separate reporting ledger, daily/monthly snapshot batches, and checksum-verified PDF pipeline deliver both accuracy and audit readiness (metric: batch success rate [CloudWatch]).',
-          'Built a crypto arbitrage / market-making engine on Electron + Node.js + PostgreSQL + Redis + WebSocket. Separating the intake, strategy, and order event loops cut p95 strategy-execution latency vs. baseline (metric: internal latency log).',
+          'Designed and operated a B2B trading performance reporting system. Separate reporting ledger + daily/monthly snapshot batches + checksum-verified PDF pipeline sustain 99.9% batch success across 15 institutional clients (metric: CloudWatch batch logs, 30-day avg).',
+          'Built a crypto arbitrage / market-making engine on Electron + Node.js + PostgreSQL + Redis + WebSocket. Separating the intake, strategy, and order event loops cut p95 strategy-execution latency from 120 ms to 45 ms (~63%); averages 3,000 daily fills (metric: internal latency log).',
         ],
       },
       dio: {
         company: 'DIO Freelance Platform',
         bullets: [
-          '(Woo-Yeon-Hee) Modeled the matching, checkout, and auto-settlement flow as a state machine with event sourcing; landed in production in 8 weeks with zero critical-path defects at launch (metric: Sentry).',
-          '(Linker) Combined Toss PG and Kakao AlimTalk via an outbox pattern with retry and DLQ handling, stabilizing payment failure to ~1% (metric: PG webhook logs, 30-day avg).',
+          '(Woo-Yeon-Hee) Modeled the matching, checkout, and auto-settlement flow as a state machine with event sourcing; landed in production in 8 weeks and logged 2,500 check-ins in the first two weeks with zero critical-path defects at launch (metric: Sentry).',
+          '(Linker) Combined Toss PG and Kakao AlimTalk via an outbox pattern with retry and DLQ handling; across ~250 weekly matches, payment failure stays near 1% (metric: PG webhook logs, 30-day avg).',
           '(Momentir) Designed an LLM pipeline that summarizes client notes and extracts follow-up schedules. Structured outputs flow through an agent-approval UI so nothing slips past CRM; pilot agents (n=12) reported ~30% less daily ops effort (method: user interviews).',
-          '(Hidden Gem) Built a PostGIS + Redis location / category feed backend; index and cache strategy keep the main feed p95 within target (metric: APM p95, 7-day avg).',
+          '(Hidden Gem) Built a PostGIS + Redis location / category feed backend; index and cache strategy keep the main feed p95 under 180 ms (metric: APM p95, 7-day avg).',
         ],
       },
       dssolve: {
         company: 'DS Solve, Inc.',
         bullets: [
-          'Shipped the Randibot backend MVP — RCMS / K-Startup scraping ETL + multi-tenant (tenancyId = workspaceId) architecture so onboarding a new agency is a config change. Agency expansion needs zero code changes (metric: per-agency config management log).',
+          'Shipped the Randibot backend MVP — RCMS / K-Startup scraping ETL + multi-tenant (tenancyId = workspaceId) architecture so onboarding a new agency is a config change. Onboarded 5 workspaces with zero code changes and sustained ~1,200 ETL runs per month (metric: per-agency config management log).',
         ],
       },
       miso: {
         company: 'Miso · Platform Team',
         bullets: [
-          'Built an AWS Cognito authentication system. A Cognito Lambda Trigger migrated legacy users transparently on first login while OTP flows were introduced to the CX CRM; auth failure stays below 0.5% (metric: CloudWatch).',
+          'Built an AWS Cognito authentication system. A Cognito Lambda Trigger migrated 120K legacy users transparently on first login while OTP flows were introduced to the CX CRM; auth failure stays below 0.5% (metric: CloudWatch).',
         ],
       },
       flfi: {
         company: 'FLFI',
         bullets: [
-          'Backend Tech Lead — led the full-stack engineering team and mentored junior engineers while re-cutting the NestJS backend, Vue 3 frontend, and AWS infra along coherent domain boundaries. Drove sprint-velocity and deploy-frequency improvements alongside code-review culture (metric: Jira cycle time, GitOps history).',
-          'Built a zero-downtime blue-green pipeline on EKS with Karpenter, ArgoCD, and Helm — 0s deploy downtime and rollbacks under 30s (metric: ArgoCD rollout logs, full audit).',
-          'Designed a Lambda@Edge + CloudFront image CDN; on-the-fly resize plus regional caching dropped image p95 dramatically vs. origin-direct baseline (metric: CloudWatch RUM, 7-day avg).',
-          'Delivered an end-to-end Blockchain DApp in ethers.js — MetaMask login, tx signing, token balance lookups. A wallet-abstraction layer and a dedicated event indexer keep wallet-connection failures and on-chain sync lag stable (metric: frontend error log, indexer lag).',
-          'Built a crypto derivatives exchange on OKX Broker API — separating the WebSocket market stream, REST order API, and Redis-backed position snapshots stabilized execution latency at API RTT (metric: internal latency log). Engagement continued with the same CEO/CTO team as a Rootstone freelance contract.',
+          'Backend Tech Lead — led a 6-person full-stack engineering team and mentored 2 junior engineers while re-cutting the NestJS backend, Vue 3 frontend, and AWS infra along coherent domain boundaries. Drove sprint-velocity and deploy-frequency improvements alongside code-review culture (metric: Jira cycle time, GitOps history).',
+          'Built a zero-downtime blue-green pipeline on EKS with Karpenter, ArgoCD, and Helm. Deploy cadence moved from weekly to 3×/day with 500+ zero-downtime deploys over two years — 0s deploy downtime and rollbacks under 30s (metric: ArgoCD rollout logs, full audit).',
+          'Designed a Lambda@Edge + CloudFront image CDN. On-the-fly resize + regional caching cut image p95 from 420 ms to 120 ms (~71%) while serving ~500K images/day (metric: CloudWatch RUM, 7-day avg).',
+          'Delivered an end-to-end Blockchain DApp in ethers.js — MetaMask login, tx signing, token balance lookups. A wallet-abstraction layer and a dedicated event indexer dropped wallet-connection failure from 8% to 0.5% and stabilized on-chain sync lag (metric: frontend error log, indexer lag).',
+          'Built a crypto derivatives exchange on OKX Broker API — separating the WebSocket market stream, REST order API, and Redis-backed position snapshots held execution latency at ~80 ms (API RTT) across 120+ supported pairs (metric: internal latency log). Engagement continued with the same CEO/CTO team as a Rootstone freelance contract.',
         ],
       },
       aligo: {
         company: 'ALIGO',
         bullets: [
-          'Operated a Vanilla PHP 7 business-messaging dispatch API and server. Per-customer queues and a weighted round-robin improved peak-hour fairness; retries use exponential backoff on isolated queues to spread load (metric: internal dispatch dashboard).',
+          'Operated a Vanilla PHP 7 business-messaging dispatch API and server — 5M daily messages at a 3,000 RPS peak. Per-customer queues + weighted round-robin improved peak-hour fairness; retries use exponential backoff on isolated queues to spread load (metric: internal dispatch dashboard).',
           'Productized Kakao AlimTalk / FriendTalk Open APIs. A shared template and approval-status dashboard cut integration effort for downstream vendors and lightened CX back-office work.',
         ],
       },
       'studio-bloom': {
         company: 'Studio Bloom',
         bullets: [
-          'Built a P2P lending solution as a Wordpress plugin, integrated with Paygate Seyfert fintech API (virtual accounts, investing, repayment, status). Transaction isolation and idempotent response storage sustained 0 financial-consistency incidents in operation (metric: daily reconciliation batch).',
+          'Built a P2P lending solution as a Wordpress plugin, integrated with Paygate Seyfert fintech API (virtual accounts, investing, repayment, status). Transaction isolation and idempotent response storage processed ~120K cumulative transactions over 2 years with 0 financial-consistency incidents (metric: daily reconciliation batch).',
         ],
       },
       ninefive: {
@@ -194,7 +194,7 @@ const dict: Dictionary = {
       '4depth': {
         company: '4depth',
         bullets: [
-          'Delivered public-sector websites with WCAG accessibility and responsive markup. Semantic HTML, ARIA design, and a shift-left accessibility checklist carried multiple projects through accessibility certification.',
+          'Delivered public-sector websites with WCAG accessibility and responsive markup. Semantic HTML, ARIA design, and a shift-left accessibility checklist carried 14 government/municipal projects through K-WCAG certification.',
         ],
       },
     },
