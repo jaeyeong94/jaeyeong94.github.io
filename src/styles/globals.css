@@ -190,6 +190,73 @@ body {
     mix-blend-mode: overlay;
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9'/></filter><rect width='120' height='120' filter='url(%23n)'/></svg>");
   }
+
+  /* Radix Tooltip enter/exit — transform + opacity only */
+  .tt-content[data-state='delayed-open'],
+  .tt-content[data-state='instant-open'] {
+    animation: tt-in 140ms ease-out;
+  }
+  .tt-content[data-state='closed'] {
+    animation: tt-out 120ms ease-in;
+  }
+  @keyframes tt-in {
+    from {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes tt-out {
+    to {
+      opacity: 0;
+    }
+  }
+
+  /* Radix Dialog (CommandPalette) — fade + compositor pop */
+  .cmdk-overlay[data-state='open'] {
+    animation: cmdk-fade-in 160ms ease-out;
+  }
+  .cmdk-overlay[data-state='closed'] {
+    animation: cmdk-fade-out 140ms ease-in;
+  }
+  .cmdk-content[data-state='open'] {
+    animation: cmdk-pop-in 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .cmdk-content[data-state='closed'] {
+    animation: cmdk-pop-out 140ms ease-in;
+  }
+  @keyframes cmdk-fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes cmdk-fade-out {
+    to {
+      opacity: 0;
+    }
+  }
+  @keyframes cmdk-pop-in {
+    from {
+      opacity: 0;
+      transform: translateX(-50%) translateY(8px) scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(-50%) scale(1);
+    }
+  }
+  @keyframes cmdk-pop-out {
+    to {
+      opacity: 0;
+      transform: translateX(-50%) scale(0.98);
+    }
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -203,6 +270,11 @@ body {
   }
   .name-shimmer {
     transition: none;
+  }
+  .tt-content,
+  .cmdk-overlay,
+  .cmdk-content {
+    animation: none !important;
   }
 }
 

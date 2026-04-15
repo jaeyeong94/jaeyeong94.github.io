@@ -20,8 +20,7 @@ export function Tooltip({ children, content, side = 'top', delayMs = 180 }: Prop
             side={side}
             sideOffset={8}
             className={cn(
-              'z-50 rounded-md border border-border bg-surface px-2.5 py-1 font-mono text-xs text-fg shadow-md',
-              'data-[state=delayed-open]:animate-in data-[state=closed]:animate-out',
+              'tt-content z-50 rounded-md border border-border bg-surface px-2.5 py-1 font-mono text-xs text-fg shadow-md',
             )}
           >
             {content}

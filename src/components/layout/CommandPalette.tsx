@@ -58,9 +58,9 @@ export function CommandPalette({ locale, dict }: Props) {
       </button>
       <Dialog.Root open={open} onOpenChange={setOpen}>
         <Dialog.Portal>
-          <Dialog.Overlay className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm" />
+          <Dialog.Overlay className="cmdk-overlay fixed inset-0 z-50 bg-black/50 backdrop-blur-sm" />
           <Dialog.Content
-            className="fixed left-1/2 top-[20vh] z-50 w-[92vw] max-w-lg -translate-x-1/2 rounded-xl border border-border bg-surface p-2 shadow-2xl"
+            className="cmdk-content fixed left-1/2 top-[20vh] z-50 w-[92vw] max-w-lg -translate-x-1/2 rounded-xl border border-border bg-surface p-2 shadow-2xl"
             onOpenAutoFocus={(e) => {
               const input = (e.currentTarget as HTMLElement).querySelector('input');
               if (input) {
