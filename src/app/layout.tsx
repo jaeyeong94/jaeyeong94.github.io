@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://jaeyeong94.github.io'),
   title: 'Ted Ryu · 유재영',
   description: 'Full-stack Developer — Portfolio',
+  icons: {
+    icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
