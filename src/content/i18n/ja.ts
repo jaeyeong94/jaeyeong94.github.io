@@ -27,6 +27,7 @@ const dict: Dictionary = {
     themeLight: 'ライト',
     themeDark: 'ダーク',
     themeSystem: 'システム',
+    sameTeamLabel: '同じチーム · 同一のCEO/CTOと継続',
   },
   employment: {
     fulltime: '正社員',
@@ -155,25 +156,20 @@ const dict: Dictionary = {
           'RandibotバックエンドMVPを開発 — RCMS / K-StartupスクレイピングETL + マルチテナント(tenancyId = workspaceId)アーキテクチャで新規機関のオンボーディングを設定変更のみで完了可能に。拡張時のコード変更は0件(指標:機関別設定管理ログ)。',
         ],
       },
-      'flfi-exchange': {
-        company: 'FLFI · 取引所チーム',
-        bullets: [
-          'OKX Broker APIベースで暗号資産デリバティブ取引所を構築。WebSocket市場ストリーム + REST注文API + Redisポジションスナップショットを分離し、約定レイテンシをAPI RTTレベルに安定化(指標:内部レイテンシログ)。',
-        ],
-      },
       miso: {
         company: 'Miso · プラットフォームチーム',
         bullets: [
           'AWS Cognitoベースの認証システムを構築。Cognito Lambda Triggerでレガシーユーザーを無停止移行し、CX CRMにOTP認証フローを導入。認証失敗率は0.5%以下を維持(指標:CloudWatch)。',
         ],
       },
-      'flfi-lead': {
+      flfi: {
         company: 'FLFI',
         bullets: [
           'バックエンドTech Lead — フルスタック開発チームをリードしジュニアエンジニアをメンタリングしつつ、NestJSバックエンド、Vue 3フロントエンド、AWSインフラをドメイン境界に沿って再設計。スプリント速度とデプロイ頻度の向上を主導し、コードレビュー文化を定着(指標:Jiraサイクルタイム、GitOps履歴)。',
           'EKS + Karpenter + ArgoCD + Helmで無停止Blue-Greenパイプラインを構築 — デプロイ停止0秒・ロールバック30秒以内を達成(指標:ArgoCD rolloutログ、全件監査)。',
           'Lambda@Edge + CloudFront画像CDNを設計。オンザフライリサイズ + リージョナルキャッシュでp95応答時間をオリジン直結比で大幅短縮(指標:CloudWatch RUM、7日平均)。',
           'ethers.jsベースのBlockchain DAppを一貫して構築 — MetaMaskログイン、トランザクション署名、トークン残高照会。ウォレット抽象化レイヤーとイベントインデクサーの分離により、ウォレット接続失敗率とオンチェーン同期遅延を安定化(指標:フロント側エラーログ、インデクサーlag)。',
+          'OKX Broker APIベースで暗号資産デリバティブ取引所を構築 — WebSocket市場ストリーム + REST注文API + Redisポジションスナップショットを分離し、約定レイテンシをAPI RTTレベルに安定化(指標:内部レイテンシログ)。その後、同じCEO/CTOチームとRootstoneのフリーランス契約として継続。',
         ],
       },
       aligo: {

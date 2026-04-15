@@ -27,6 +27,7 @@ const dict: Dictionary = {
     themeLight: 'Light',
     themeDark: 'Dark',
     themeSystem: 'System',
+    sameTeamLabel: 'Same team · continued with the same CEO/CTO',
   },
   employment: {
     fulltime: 'Full-time',
@@ -155,25 +156,20 @@ const dict: Dictionary = {
           'Shipped the Randibot backend MVP — RCMS / K-Startup scraping ETL + multi-tenant (tenancyId = workspaceId) architecture so onboarding a new agency is a config change. Agency expansion needs zero code changes (metric: per-agency config management log).',
         ],
       },
-      'flfi-exchange': {
-        company: 'FLFI · Exchange Team',
-        bullets: [
-          'Built a crypto derivatives exchange on OKX Broker API. Separating the WebSocket market stream, REST order API, and Redis-backed position snapshots stabilized execution latency at API RTT (metric: internal latency log).',
-        ],
-      },
       miso: {
         company: 'Miso · Platform Team',
         bullets: [
           'Built an AWS Cognito authentication system. A Cognito Lambda Trigger migrated legacy users transparently on first login while OTP flows were introduced to the CX CRM; auth failure stays below 0.5% (metric: CloudWatch).',
         ],
       },
-      'flfi-lead': {
+      flfi: {
         company: 'FLFI',
         bullets: [
           'Backend Tech Lead — led the full-stack engineering team and mentored junior engineers while re-cutting the NestJS backend, Vue 3 frontend, and AWS infra along coherent domain boundaries. Drove sprint-velocity and deploy-frequency improvements alongside code-review culture (metric: Jira cycle time, GitOps history).',
           'Built a zero-downtime blue-green pipeline on EKS with Karpenter, ArgoCD, and Helm — 0s deploy downtime and rollbacks under 30s (metric: ArgoCD rollout logs, full audit).',
           'Designed a Lambda@Edge + CloudFront image CDN; on-the-fly resize plus regional caching dropped image p95 dramatically vs. origin-direct baseline (metric: CloudWatch RUM, 7-day avg).',
           'Delivered an end-to-end Blockchain DApp in ethers.js — MetaMask login, tx signing, token balance lookups. A wallet-abstraction layer and a dedicated event indexer keep wallet-connection failures and on-chain sync lag stable (metric: frontend error log, indexer lag).',
+          'Built a crypto derivatives exchange on OKX Broker API — separating the WebSocket market stream, REST order API, and Redis-backed position snapshots stabilized execution latency at API RTT (metric: internal latency log). Engagement continued with the same CEO/CTO team as a Rootstone freelance contract.',
         ],
       },
       aligo: {

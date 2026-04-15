@@ -8,9 +8,8 @@ export type ExperienceId =
   | 'rootstone'
   | 'dio'
   | 'dssolve'
-  | 'flfi-exchange'
   | 'miso'
-  | 'flfi-lead'
+  | 'flfi'
   | 'aligo'
   | 'studio-bloom'
   | 'ninefive'
@@ -39,6 +38,7 @@ export interface Experience {
   end: DateString | 'present';
   stack: string[];
   url?: string;
+  teamKey?: string;
   legacy?: boolean;
 }
 
@@ -146,7 +146,7 @@ export const resume: ResumeData = {
       start: '2023-11',
       end: 'present',
       stack: ['Node.js', 'NestJS', 'Next.js', 'PostgreSQL', 'Toss PG', 'LLM'],
-      url: 'https://dis.so',
+      url: 'https://dio.so',
     },
     {
       id: 'masblue',
@@ -165,6 +165,7 @@ export const resume: ResumeData = {
       end: 'present',
       stack: ['Node.js', 'Electron', 'PostgreSQL', 'Redis', 'WebSocket'],
       url: 'https://rootstone.io',
+      teamKey: 'flfi-rootstone',
     },
     {
       id: 'onto',
@@ -185,14 +186,6 @@ export const resume: ResumeData = {
       url: 'https://randibot.com/',
     },
     {
-      id: 'flfi-exchange',
-      type: 'fulltime',
-      role: 'Backend Engineer',
-      start: '2023-09',
-      end: '2023-11',
-      stack: ['Node.js', 'OKX Broker API', 'PostgreSQL'],
-    },
-    {
       id: 'miso',
       type: 'fulltime',
       role: 'Backend Engineer',
@@ -202,11 +195,11 @@ export const resume: ResumeData = {
       url: 'https://miso.kr/',
     },
     {
-      id: 'flfi-lead',
+      id: 'flfi',
       type: 'fulltime',
       role: 'Tech Lead · Backend',
       start: '2021-04',
-      end: '2023-04',
+      end: '2023-11',
       stack: [
         'Node.js',
         'NestJS',
@@ -217,7 +210,9 @@ export const resume: ResumeData = {
         'SvelteKit',
         'web3.js',
         'Ethers.js',
+        'OKX Broker API',
       ],
+      teamKey: 'flfi-rootstone',
     },
     {
       id: 'aligo',

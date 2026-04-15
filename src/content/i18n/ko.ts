@@ -25,6 +25,7 @@ const dict = {
     themeLight: '라이트',
     themeDark: '다크',
     themeSystem: '시스템',
+    sameTeamLabel: '같은 팀 · CEO/CTO와 이어짐',
   },
   employment: {
     fulltime: '정규직',
@@ -153,25 +154,20 @@ const dict = {
           'Randibot 백엔드 MVP 개발 — RCMS · K-Startup 스크래핑 ETL + 멀티테넌트(tenancyId = workspaceId) 아키텍처로 신규 기관 온보딩을 설정 변경만으로 처리. 코드 변경 없이 기관 확장 가능하게 함 (측정: 기관별 설정 관리 로그).',
         ],
       },
-      'flfi-exchange': {
-        company: '주식회사 플피(FLFI) — 거래소 팀',
-        bullets: [
-          'OKX Broker API 기반 파생상품 크립토 거래소 시스템 개발. WebSocket 시세 스트림 + REST 주문 API + Redis 포지션 스냅샷을 분리해 체결 지연을 API RTT 수준으로 안정화 (측정: 내부 latency 로그).',
-        ],
-      },
       miso: {
         company: '유한회사 미소 — 플랫폼 팀',
         bullets: [
           'AWS Cognito 기반 인증 시스템 구축. Cognito Lambda Trigger로 레거시 유저를 무중단 마이그레이션하고 OTP 인증 플로우를 CX CRM에 도입. 인증 실패율 0.5% 이하 유지 (측정: CloudWatch).',
         ],
       },
-      'flfi-lead': {
-        company: '주식회사 플피(FLFI)',
+      flfi: {
+        company: '주식회사 플피 (FLFI)',
         bullets: [
           'Backend Tech Lead — 풀스택 개발팀 리딩 및 주니어 엔지니어 멘토링. NestJS 백엔드 + Vue 3 프론트엔드 + AWS 인프라를 일관된 도메인 경계로 재설계하고 스프린트 속도와 배포 빈도 개선을 주도하며 코드리뷰 문화를 정착 (측정: Jira 사이클타임, GitOps 히스토리).',
           'EKS + Karpenter + ArgoCD + Helm 기반 무중단 Blue-Green 파이프라인 구축. 배포 다운타임 0초 · 롤백 30초 이내 달성 (측정: ArgoCD rollout 로그, 전수 조사).',
           'Lambda@Edge + CloudFront 이미지 CDN 설계. 온더플라이 리사이즈 + 지역 캐시로 p95 응답 시간을 오리진 직결 대비 대폭 단축 (측정: CloudWatch RUM, 7일 평균).',
           'ethers.js 기반 Blockchain DApp 통합 구축 — 메타마스크 로그인, 트랜잭션 서명, 토큰 잔액 조회. 월렛 추상화 레이어와 이벤트 인덱서 분리로 월렛 연결 실패율과 온체인 상태 동기화 지연을 안정화 (측정: 프론트 에러 로그, 인덱서 lag).',
+          'OKX Broker API 기반 파생상품 크립토 거래소 시스템 구축 — WebSocket 시세 스트림 + REST 주문 API + Redis 포지션 스냅샷 분리로 체결 지연을 API RTT 수준으로 안정화 (측정: 내부 latency 로그). 이후 동일 팀(CEO/CTO)과 Rootstone 프리랜서 계약으로 이어짐.',
         ],
       },
       aligo: {

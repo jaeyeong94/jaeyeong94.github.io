@@ -9,9 +9,8 @@ const SHORT_NAMES: Record<ExperienceId, string> = {
   rootstone: 'Rootstone',
   dio: 'DIO',
   dssolve: 'DS Solve',
-  'flfi-exchange': 'FLFI·Ex',
   miso: 'Miso',
-  'flfi-lead': 'FLFI·Lead',
+  flfi: 'FLFI',
   aligo: 'ALIGO',
   'studio-bloom': 'Studio Bloom',
   ninefive: 'Ninefive',
@@ -110,6 +109,15 @@ export function CareerTimeline({ dict }: Props) {
                   <span className="truncate font-mono text-[0.65rem] font-medium tracking-wide">
                     {shortName}
                   </span>
+                  {item.teamKey && (
+                    <span
+                      aria-hidden
+                      title="Same team"
+                      className="ml-1 font-mono text-[0.6rem] text-fg"
+                    >
+                      ⧖
+                    </span>
+                  )}
                 </div>
               );
             })}

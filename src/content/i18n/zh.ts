@@ -27,6 +27,7 @@ const dict: Dictionary = {
     themeLight: '浅色',
     themeDark: '深色',
     themeSystem: '系统',
+    sameTeamLabel: '同一团队 · 与同一CEO/CTO延续合作',
   },
   employment: {
     fulltime: '全职',
@@ -153,25 +154,20 @@ const dict: Dictionary = {
           'Randibot后端MVP开发 — RCMS / K-Startup爬虫ETL + 多租户架构(tenancyId = workspaceId)使新机构入驻仅通过配置变更完成。扩展无需代码改动(指标:按机构配置管理日志)。',
         ],
       },
-      'flfi-exchange': {
-        company: 'FLFI · 交易所团队',
-        bullets: [
-          '基于OKX Broker API构建加密衍生品交易所 — 拆分WebSocket行情流、REST下单API与Redis仓位快照,将成交延迟稳定在API RTT水平(指标:内部延迟日志)。',
-        ],
-      },
       miso: {
         company: 'Miso · 平台团队',
         bullets: [
           '基于AWS Cognito构建认证系统。通过Cognito Lambda Trigger实现老用户零停机迁移,并为CX CRM引入OTP;认证失败率维持在0.5%以下(指标:CloudWatch)。',
         ],
       },
-      'flfi-lead': {
+      flfi: {
         company: 'FLFI',
         bullets: [
           '后端Tech Lead — 带领全栈开发团队并指导初级工程师,围绕清晰的领域边界重新设计NestJS后端、Vue 3前端与AWS基础设施,推动迭代速度与部署频率提升,并落实代码评审文化(指标:Jira周期时间、GitOps历史)。',
           '基于EKS + Karpenter + ArgoCD + Helm构建零停机蓝绿流水线 — 部署停机0秒,回滚30秒内完成(指标:ArgoCD rollout日志,全量)。',
           '设计Lambda@Edge + CloudFront图片CDN。即时裁剪 + 区域缓存将图片p95较源站直连显著缩短(指标:CloudWatch RUM,7天平均)。',
           '基于ethers.js交付Blockchain DApp — MetaMask登录、交易签名、代币余额查询。钱包抽象层与独立事件索引器使钱包连接失败率与链上同步延迟保持稳定(指标:前端错误日志、索引器延迟)。',
+          '基于OKX Broker API构建加密衍生品交易所 — 拆分WebSocket行情流、REST下单API与Redis仓位快照,将成交延迟稳定在API RTT水平(指标:内部延迟日志)。此后与同一CEO/CTO团队延续合作,以Rootstone自由职业合同形式继续协作。',
         ],
       },
       aligo: {
