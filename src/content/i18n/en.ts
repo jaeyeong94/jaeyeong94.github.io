@@ -213,6 +213,7 @@ const dict: Dictionary = {
     description: 'A curated mix of shipped public products and closed or internal work.',
     viewSite: 'Open site',
     publicGroup: 'Live products',
+    publicGroupDesc: 'Services delivered through freelance engagements',
     internalGroup: 'Closed & internal work',
     status: {
       live: 'Live',
@@ -322,25 +323,25 @@ const dict: Dictionary = {
     empty: 'First posts are being drafted.',
     items: {
       'this-site': {
-        title: 'Building this site (coming soon)',
+        title: 'Building this site',
         summary:
           'A retrospective on designing a Next.js · 4-locale · GitHub Pages résumé from scratch.',
         date: '2026-04',
       },
       'multi-tenant-saas': {
-        title: 'Notes on 0→1 multi-tenant SaaS (coming soon)',
+        title: 'Notes on 0→1 multi-tenant SaaS',
         summary:
           'tenancyId = workspaceId, Postgres RLS considerations, and wiring Stripe subscriptions.',
         date: '2026-05',
       },
       'agent-orchestration': {
-        title: 'LLM Agent Orchestration: HIL · Audit · Rollback (coming soon)',
+        title: 'LLM Agent Orchestration: HIL · Audit · Rollback',
         summary:
           'Lessons from decomposing an insurance domain into LLM agents — observability and failure design patterns.',
         date: '2026-06',
       },
       'blue-green': {
-        title: 'Zero-Downtime Blue-Green: 0s downtime · 30s rollback (coming soon)',
+        title: 'Zero-Downtime Blue-Green: 0s downtime · 30s rollback',
         summary:
           'Deployment staging and regression safety nets on EKS + Karpenter + ArgoCD + Helm.',
         date: '2026-07',

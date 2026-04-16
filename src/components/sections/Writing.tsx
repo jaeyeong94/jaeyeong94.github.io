@@ -1,12 +1,15 @@
+import Link from 'next/link';
 import type { Dictionary } from '@/content/i18n';
+import type { Locale } from '@/lib/i18n';
 import { resume } from '@/content/resume';
 import { Reveal } from '@/components/ui/Reveal';
 
 interface Props {
   dict: Dictionary;
+  locale: Locale;
 }
 
-export function Writing({ dict }: Props) {
+export function Writing({ dict, locale }: Props) {
   const posts = resume.writingIds.map((id) => ({ id, ...dict.writing.items[id] }));
   return (
     <section
@@ -33,21 +36,31 @@ export function Writing({ dict }: Props) {
       <ol className="mt-10 divide-y divide-border border-y border-border">
         {posts.map((p) => (
           <Reveal key={p.id} as="li">
-            <article className="grid grid-cols-1 gap-3 py-6 md:grid-cols-[7rem_1fr_auto] md:items-baseline md:gap-8">
-              <time
-                dateTime={p.date}
-                className="font-mono text-xs uppercase tracking-widest text-fg-subtle"
-              >
-                {p.date}
-              </time>
-              <div>
-                <h3 className="text-lg font-semibold text-fg">{p.title}</h3>
-                <p className="mt-1.5 text-sm text-fg-muted">{p.summary}</p>
-              </div>
-              <span className="font-mono text-[0.65rem] uppercase tracking-widest text-fg-subtle md:justify-self-end">
-                {dict.common.comingSoon}
-              </span>
-            </article>
+            <Link
+              href={`/${locale}/writing/${p.id}/`}
+              className="group block transition-colors hover:bg-bg-subtle/40"
+            >
+              <article className="grid grid-cols-1 gap-3 py-6 md:grid-cols-[7rem_1fr_auto] md:items-baseline md:gap-8">
+                <time
+                  dateTime={p.date}
+                  className="font-mono text-xs uppercase tracking-widest text-fg-subtle"
+                >
+                  {p.date}
+                </time>
+                <div>
+                  <h3 className="text-lg font-semibold text-fg group-hover:text-accent-1">
+                    {p.title}
+                  </h3>
+                  <p className="mt-1.5 text-sm text-fg-muted">{p.summary}</p>
+                </div>
+                <span
+                  aria-hidden
+                  className="font-mono text-sm text-fg-subtle transition-transform group-hover:translate-x-1 group-hover:text-accent-1 md:justify-self-end"
+                >
+                  →
+                </span>
+              </article>
+            </Link>
           </Reveal>
         ))}
       </ol>

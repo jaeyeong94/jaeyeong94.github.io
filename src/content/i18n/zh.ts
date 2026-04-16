@@ -211,6 +211,7 @@ const dict: Dictionary = {
     description: '公开产品与已下线或内部项目的精选组合。',
     viewSite: '打开网站',
     publicGroup: '公开产品',
+    publicGroupDesc: '以自由职业身份交付的服务',
     internalGroup: '内部 / 已下线项目',
     status: {
       live: '运营中',
@@ -315,22 +316,22 @@ const dict: Dictionary = {
     empty: '第一篇文章准备中。',
     items: {
       'this-site': {
-        title: '打造本站的故事(即将推出)',
+        title: '打造本站的故事',
         summary: '关于Next.js · 4语言i18n · GitHub Pages简历站点的设计回顾。',
         date: '2026-04',
       },
       'multi-tenant-saas': {
-        title: '0→1多租户SaaS设计笔记(即将推出)',
+        title: '0→1多租户SaaS设计笔记',
         summary: 'tenancyId = workspaceId模式、Postgres RLS的权衡,以及Stripe订阅接入。',
         date: '2026-05',
       },
       'agent-orchestration': {
-        title: 'LLM代理编排:HIL · 审计 · 回滚(即将推出)',
+        title: 'LLM代理编排:HIL · 审计 · 回滚',
         summary: '将保险领域拆解为LLM代理过程中获得的可观测性与失败设计模式。',
         date: '2026-06',
       },
       'blue-green': {
-        title: '零停机蓝绿部署:0秒停机 · 30秒回滚(即将推出)',
+        title: '零停机蓝绿部署:0秒停机 · 30秒回滚',
         summary: '在EKS + Karpenter + ArgoCD + Helm组合上的部署阶段与回归安全网设计。',
         date: '2026-07',
       },

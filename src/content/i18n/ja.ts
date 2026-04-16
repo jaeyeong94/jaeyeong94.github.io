@@ -213,6 +213,7 @@ const dict: Dictionary = {
     description: '公開中のプロダクトと、クローズ/社内向けの主要業務をまとめて。',
     viewSite: 'サイトを開く',
     publicGroup: '公開プロダクト',
+    publicGroupDesc: 'フリーランス契約で手がけたサービス',
     internalGroup: '非公開・終了案件',
     status: {
       live: '稼働中',
@@ -322,24 +323,24 @@ const dict: Dictionary = {
     empty: '最初の記事を準備中です。',
     items: {
       'this-site': {
-        title: 'このサイトを作った話(準備中)',
+        title: 'このサイトを作った話',
         summary: 'Next.js · 4言語i18n · GitHub Pagesで作った履歴書サイトの設計振り返り。',
         date: '2026-04',
       },
       'multi-tenant-saas': {
-        title: '0→1マルチテナントSaaS設計ノート(準備中)',
+        title: '0→1マルチテナントSaaS設計ノート',
         summary:
           'tenancyId = workspaceIdパターン、Postgres RLSの検討、Stripe購読連携まで。',
         date: '2026-05',
       },
       'agent-orchestration': {
-        title: 'LLMエージェント・オーケストレーション:HIL・監査・ロールバック(準備中)',
+        title: 'LLMエージェント・オーケストレーション:HIL・監査・ロールバック',
         summary:
           '保険ドメインをLLMエージェントに分解する過程で得た、可観測性と失敗設計のパターン。',
         date: '2026-06',
       },
       'blue-green': {
-        title: '無停止Blue-Green:デプロイ停止0秒 · ロールバック30秒以内(準備中)',
+        title: '無停止Blue-Green:デプロイ停止0秒 · ロールバック30秒以内',
         summary:
           'EKS + Karpenter + ArgoCD + Helmの組み合わせでの段階的デプロイと回帰安全網の設計。',
         date: '2026-07',

@@ -211,6 +211,7 @@ const dict = {
     description: '공개된 제품과, 비공개/종료된 주요 작업을 함께 정리.',
     viewSite: '사이트 열기',
     publicGroup: '공개 제품',
+    publicGroupDesc: '프리랜서 포지션으로 작업한 서비스',
     internalGroup: '비공개 · 종료 프로젝트',
     status: {
       live: '운영 중',
@@ -318,22 +319,22 @@ const dict = {
     empty: '첫 글을 준비 중입니다.',
     items: {
       'this-site': {
-        title: '이 사이트를 만든 이야기 (준비 중)',
+        title: '이 사이트를 만든 이야기',
         summary: 'Next.js · 4개 언어 i18n · GitHub Pages로 만든 이력서 사이트의 설계 회고.',
         date: '2026-04',
       },
       'multi-tenant-saas': {
-        title: '0→1 멀티테넌트 SaaS 설계 노트 (준비 중)',
+        title: '0→1 멀티테넌트 SaaS 설계 노트',
         summary: 'tenancyId = workspaceId 패턴, Postgres RLS 고민, Stripe 구독 연결까지.',
         date: '2026-05',
       },
       'agent-orchestration': {
-        title: 'LLM 에이전트 오케스트레이션: HIL·감사·롤백 (준비 중)',
+        title: 'LLM 에이전트 오케스트레이션: HIL·감사·롤백',
         summary: '보험 도메인을 LLM 에이전트로 분해하면서 얻은 관측성·실패 설계 패턴.',
         date: '2026-06',
       },
       'blue-green': {
-        title: '무중단 Blue-Green: 0초 다운타임 · 30초 롤백 (준비 중)',
+        title: '무중단 Blue-Green: 0초 다운타임 · 30초 롤백',
         summary: 'EKS + Karpenter + ArgoCD + Helm 조합에서 배포 단계와 회귀 안전망 설계.',
         date: '2026-07',
       },
