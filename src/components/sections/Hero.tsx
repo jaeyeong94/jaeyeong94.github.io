@@ -44,19 +44,14 @@ export function Hero({ locale, dict }: Props) {
           </div>
         </Reveal>
 
-        {/* Availability chip */}
+        {/* Availability — editorial byline */}
         <Reveal>
-          <div className="mt-6">
-            <span
-              className="inline-flex items-center gap-2 rounded-full border border-accent-1/40 bg-accent-1/10 px-3 py-1 text-xs font-medium text-accent-1"
-              role="status"
-            >
-              <span className="relative inline-flex size-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-1 opacity-60" />
-                <span className="relative inline-flex size-2 rounded-full bg-accent-1" />
-              </span>
-              {dict.hero.availability.open}
+          <div className="mt-6 flex items-center gap-3 text-sm" role="status">
+            <span className="font-mono text-[0.65rem] font-medium uppercase tracking-[0.35em] text-accent-1">
+              Open
             </span>
+            <span aria-hidden className="h-px w-8 bg-accent-1/40" />
+            <span className="text-fg">{dict.hero.availability.open}</span>
           </div>
         </Reveal>
 

@@ -59,7 +59,6 @@ export default async function LocaleLayout({
   if (!isLocale(locale)) notFound();
 
   const dict = getDictionary(locale);
-  const buildTime = process.env.BUILD_TIME ?? new Date().toISOString();
 
   const htmlLangScript = `document.documentElement.lang=${JSON.stringify(locale)}`;
 
@@ -70,7 +69,7 @@ export default async function LocaleLayout({
       <JsonLdPerson />
       <Nav locale={locale} dict={dict} />
       {children}
-      <Footer dict={dict} buildTime={buildTime} />
+      <Footer />
     </>
   );
 }

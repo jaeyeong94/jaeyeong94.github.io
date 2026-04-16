@@ -40,9 +40,14 @@ export function Projects({ dict }: Props) {
       {/* Live — equal grid */}
       <div className="mt-12">
         <Reveal>
-          <p className="mb-5 text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle">
-            ❖ {dict.projects.publicGroup}
-          </p>
+          <div className="mb-5">
+            <p className="text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle">
+              ❖ {dict.projects.publicGroup}
+            </p>
+            <p className="mt-1.5 text-sm text-fg-muted">
+              {dict.projects.publicGroupDesc}
+            </p>
+          </div>
         </Reveal>
         <ul className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {live.map((p) => (
