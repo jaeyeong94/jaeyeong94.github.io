@@ -46,7 +46,10 @@ const dict: Dictionary = {
     tagline: 'ビジネスの成長を牽引するプロダクトを作ります。',
     ctaContact: 'お問い合わせ',
     nowLabel: 'Now',
-    nowValue: 'Crypto Market Making · B2B投資管理ダッシュボードを構築しつつ、米国保険会社向けAIオーケストレーションSaaSバックエンドを設計しています。',
+    nowItems: [
+      'Crypto Market Making · B2B投資管理ダッシュボードを構築',
+      '米国保険会社向けAIオーケストレーションSaaSバックエンドを設計',
+    ],
     keywordsLabel: '最近の注力分野',
     availability: {
       open: 'フリーランス契約可 · 正社員オープン',

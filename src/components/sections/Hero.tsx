@@ -75,9 +75,19 @@ export function Hero({ locale, dict }: Props) {
             <p className="text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle">
               {dict.hero.nowLabel}
             </p>
-            <p className="mt-3 max-w-3xl text-lg font-medium leading-snug text-fg md:text-xl">
-              {dict.hero.nowValue}
-            </p>
+            <ul className="mt-3 max-w-3xl space-y-2">
+              {dict.hero.nowItems.map((item, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <span
+                    aria-hidden
+                    className="mt-2.5 size-1.5 shrink-0 rounded-full bg-accent-1"
+                  />
+                  <span className="text-lg font-medium leading-snug text-fg md:text-xl">
+                    {item}
+                  </span>
+                </li>
+              ))}
+            </ul>
           </div>
         </Reveal>
 

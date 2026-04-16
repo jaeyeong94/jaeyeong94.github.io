@@ -46,7 +46,10 @@ const dict: Dictionary = {
     tagline: 'I build products that drive business growth.',
     ctaContact: 'Get in touch',
     nowLabel: 'Now',
-    nowValue: 'Building a Crypto Market Making system and a B2B investment dashboard, while architecting an AI-orchestration SaaS backend for US insurance carriers.',
+    nowItems: [
+      'Building a Crypto Market Making system and a B2B investment dashboard',
+      'Architecting an AI-orchestration SaaS backend for US insurance carriers',
+    ],
     keywordsLabel: 'Currently focused on',
     availability: {
       open: 'Freelance available · Open to full-time roles',
