@@ -46,7 +46,7 @@ const dict: Dictionary = {
     tagline: '打造驱动业务增长的产品。',
     ctaContact: '联系我',
     nowLabel: '当前',
-    nowValue: '正在开发Crypto Market Making系统和B2B投资管理仪表板。',
+    nowValue: '正在开发Crypto Market Making系统和B2B投资管理仪表板,同时为美国保险公司设计AI编排SaaS后端。',
     keywordsLabel: '近期关注',
     availability: {
       open: '可接自由项目 · 对正式职位开放',

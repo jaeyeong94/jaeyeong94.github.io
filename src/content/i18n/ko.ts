@@ -44,7 +44,7 @@ const dict = {
     tagline: '비즈니스 성장을 주도하는 제품을 만듭니다.',
     ctaContact: '연락하기',
     nowLabel: '지금',
-    nowValue: 'Crypto Market Making 시스템과 B2B 투자관리 대시보드를 만들고 있습니다',
+    nowValue: 'Crypto Market Making · B2B 투자관리 대시보드를 구축하며, 미국 보험사를 위한 AI 오케스트레이션 SaaS 백엔드를 설계하고 있습니다',
     keywordsLabel: '요즘 집중',
     availability: {
       open: '프리랜서 계약 가능 · 정규직 이직 오픈',
