@@ -44,6 +44,9 @@ jobs:
           NEXT_PUBLIC_SITE_URL: https://jaeyeong94.github.io
         run: pnpm build
 
+      - name: Bundle budget check
+        run: pnpm check:bundle
+
       - name: Smoke test export
         run: pnpm test:smoke
 
