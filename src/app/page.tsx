@@ -1,9 +1,9 @@
 'use client';
 
 import { useEffect } from 'react';
-import { defaultLocale, isLocale } from '@/lib/i18n';
+import { defaultLocale, isLocale, type Locale } from '@/lib/i18n';
 
-function detectLocale(): string {
+function detectLocale(): Locale {
   if (typeof navigator === 'undefined') return defaultLocale;
   const candidates = navigator.languages ?? [navigator.language];
   for (const lang of candidates) {
@@ -15,7 +15,8 @@ function detectLocale(): string {
 
 export default function RootPage() {
   useEffect(() => {
-    const target = `/${detectLocale()}/`;
+    const detectedLocale = detectLocale();
+    const target = `/${detectedLocale}/`;
     if (window.location.pathname !== target) {
       window.location.replace(target);
     }
@@ -27,7 +28,10 @@ export default function RootPage() {
         <meta httpEquiv="refresh" content={`0; url=/${defaultLocale}/`} />
       </noscript>
       <main className="flex min-h-screen items-center justify-center">
-        <p className="text-fg-muted">Redirecting…</p>
+        <span
+          aria-hidden
+          className="size-8 animate-spin rounded-full border-2 border-border border-t-accent-1"
+        />
       </main>
     </>
   );

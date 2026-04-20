@@ -1,6 +1,7 @@
 const dict = {
   meta: {
     title: '유재영 · Ted Ryu — 풀스택 개발자',
+    siteName: 'Ted Ryu · 포트폴리오',
     description:
       '핀테크 · 블록체인 · SaaS · AI 도메인에서 0→1 서비스를 구축해 온 11년차 풀스택 개발자.',
   },
@@ -25,6 +26,16 @@ const dict = {
     themeLight: '라이트',
     themeDark: '다크',
     themeSystem: '시스템',
+    skipToContent: '본문으로 건너뛰기',
+    redirecting: '이동 중...',
+    openMenu: '메뉴 열기',
+    closeMenu: '메뉴 닫기',
+    primaryNavigation: '주요 메뉴',
+    mobileNavigation: '모바일 메뉴',
+    notFoundTitle: '페이지를 찾을 수 없습니다',
+    notFoundDescription: '요청한 주소가 없거나 이동되었습니다.',
+    backHome: '홈으로 이동',
+    revealEmail: '이메일 주소 보기',
     sameTeamLabel: '같은 팀 · CEO/CTO와 이어짐',
     commandPaletteOpen: '섹션 검색 열기',
     commandPaletteTitle: '섹션 이동',
@@ -41,6 +52,7 @@ const dict = {
     name: '유재영',
     altName: 'Ted Ryu',
     role: '풀스택 개발자 · 백엔드 중심',
+    mastheadLabel: '포트폴리오 · Vol. 01',
     tagline: '비즈니스 성장을 주도하는 제품을 만듭니다.',
     ctaContact: '연락하기',
     nowLabel: '지금',
@@ -53,6 +65,11 @@ const dict = {
       open: '프리랜서 계약 가능 · 정규직 이직 오픈',
       limited: '한정 프로젝트만 가능',
       closed: '현재 신규 문의 비공개',
+    },
+    availabilityBadge: {
+      open: '가능',
+      limited: '한정',
+      closed: '마감',
     },
   },
   about: {
@@ -125,6 +142,9 @@ const dict = {
   experience: {
     sectionTitle: '경력',
     eyebrow: 'Experience',
+    timelineLabel: '커리어 타임라인',
+    timelineAriaLabel: '커리어 타임라인',
+    earlyCareerLabel: '초기 경력 · {n}곳',
     items: {
       masblue: {
         company: 'Masblue (masblue.studio)',
@@ -163,7 +183,7 @@ const dict = {
         ],
       },
       miso: {
-        company: '유한회사 미소 — 플랫폼 팀',
+        company: 'Miso Inc.',
         bullets: [
           'AWS Cognito 기반 인증 시스템 구축. Cognito Lambda Trigger로 레거시 유저 12만명을 무중단 마이그레이션하고 OTP 인증 플로우를 CX CRM에 도입. 인증 실패율 0.5% 이하 유지 (측정: CloudWatch).',
         ],
@@ -317,6 +337,8 @@ const dict = {
     sectionTitle: '글',
     eyebrow: 'Writing',
     empty: '첫 글을 준비 중입니다.',
+    backToList: '목록으로',
+    readTime: '{n}분 읽기',
     items: {
       'this-site': {
         title: '이 사이트를 만든 이야기',

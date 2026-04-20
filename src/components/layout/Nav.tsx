@@ -52,7 +52,7 @@ export function Nav({ locale, dict }: Props) {
         >
           Ted Ryu
         </Link>
-        <nav className="hidden md:block" aria-label="Primary">
+        <nav className="hidden md:block" aria-label={dict.common.primaryNavigation}>
           <ul className="flex items-center gap-6 text-sm text-fg-muted">
             {items.map((it) => (
               <li key={it.href}>
@@ -68,13 +68,20 @@ export function Nav({ locale, dict }: Props) {
         </nav>
         <div className="flex items-center gap-2">
           <CommandPalette locale={locale} dict={dict} />
-          <ThemeToggle />
+          <ThemeToggle
+            labels={{
+              theme: dict.common.theme,
+              light: dict.common.themeLight,
+              dark: dict.common.themeDark,
+              system: dict.common.themeSystem,
+            }}
+          />
           <LocaleSwitcher currentLocale={locale} />
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
             className="inline-flex size-9 items-center justify-center rounded-full border border-border text-fg-muted md:hidden"
-            aria-label={open ? 'Close menu' : 'Open menu'}
+            aria-label={open ? dict.common.closeMenu : dict.common.openMenu}
             aria-expanded={open}
           >
             {open ? <X className="size-4" /> : <Menu className="size-4" />}
@@ -82,7 +89,7 @@ export function Nav({ locale, dict }: Props) {
         </div>
       </div>
       {open && (
-        <nav className="md:hidden" aria-label="Mobile">
+        <nav className="md:hidden" aria-label={dict.common.mobileNavigation}>
           <ul className="space-y-1 border-t border-border bg-surface px-6 py-4">
             {items.map((it) => (
               <li key={it.href}>

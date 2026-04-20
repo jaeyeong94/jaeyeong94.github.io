@@ -3,6 +3,7 @@ import type { Dictionary } from './ko';
 const dict: Dictionary = {
   meta: {
     title: 'Ted Ryu — フルスタック開発者',
+    siteName: 'Ted Ryu · ポートフォリオ',
     description:
       'フィンテック・ブロックチェーン・SaaS・AI領域で0→1サービスを構築してきた11年目のフルスタック開発者。',
   },
@@ -27,6 +28,16 @@ const dict: Dictionary = {
     themeLight: 'ライト',
     themeDark: 'ダーク',
     themeSystem: 'システム',
+    skipToContent: '本文へスキップ',
+    redirecting: '移動中...',
+    openMenu: 'メニューを開く',
+    closeMenu: 'メニューを閉じる',
+    primaryNavigation: 'メインナビゲーション',
+    mobileNavigation: 'モバイルナビゲーション',
+    notFoundTitle: 'ページが見つかりません',
+    notFoundDescription: '指定されたページは存在しないか、移動されました。',
+    backHome: 'ホームへ戻る',
+    revealEmail: 'メールアドレスを表示',
     sameTeamLabel: '同じチーム · 同一のCEO/CTOと継続',
     commandPaletteOpen: 'セクション検索を開く',
     commandPaletteTitle: 'セクションへ移動',
@@ -43,6 +54,7 @@ const dict: Dictionary = {
     name: 'Ted Ryu',
     altName: 'ユ・ジェヨン',
     role: 'フルスタック開発者 · バックエンド中心',
+    mastheadLabel: 'ポートフォリオ · Vol. 01',
     tagline: 'ビジネスの成長を牽引するプロダクトを作ります。',
     ctaContact: 'お問い合わせ',
     nowLabel: 'Now',
@@ -55,6 +67,11 @@ const dict: Dictionary = {
       open: 'フリーランス契約可 · 正社員オープン',
       limited: '限定案件のみ',
       closed: '新規のお問い合わせは受付停止中',
+    },
+    availabilityBadge: {
+      open: '受付中',
+      limited: '限定',
+      closed: '停止',
     },
   },
   about: {
@@ -127,6 +144,9 @@ const dict: Dictionary = {
   experience: {
     sectionTitle: '経歴',
     eyebrow: 'Experience',
+    timelineLabel: 'キャリアタイムライン',
+    timelineAriaLabel: 'キャリアタイムライン',
+    earlyCareerLabel: '初期キャリア · {n} 社',
     items: {
       masblue: {
         company: 'Masblue (masblue.studio)',
@@ -165,7 +185,7 @@ const dict: Dictionary = {
         ],
       },
       miso: {
-        company: 'Miso · プラットフォームチーム',
+        company: 'Miso Inc.',
         bullets: [
           'AWS Cognitoベースの認証システムを構築。Cognito Lambda Triggerでレガシーユーザー12万人を無停止移行し、CX CRMにOTP認証フローを導入。認証失敗率は0.5%以下を維持(指標:CloudWatch)。',
         ],
@@ -321,6 +341,8 @@ const dict: Dictionary = {
     sectionTitle: '記事',
     eyebrow: 'Writing',
     empty: '最初の記事を準備中です。',
+    backToList: '記事一覧',
+    readTime: '{n}分で読めます',
     items: {
       'this-site': {
         title: 'このサイトを作った話',

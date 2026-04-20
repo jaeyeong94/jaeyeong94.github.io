@@ -1,5 +1,6 @@
 import type { Locale } from '@/lib/i18n';
 import { PostLayout } from '@/components/writing/PostLayout';
+import { getDictionary } from '@/content/i18n';
 
 export const meta = {
   slug: 'agent-orchestration',
@@ -8,10 +9,13 @@ export const meta = {
 };
 
 export default function AgentOrchestrationPost({ locale }: { locale: Locale }) {
+  const dict = getDictionary(locale);
+
   return (
     <PostLayout
       locale={locale}
-      title="LLM 에이전트 오케스트레이션: HIL · 감사 · 롤백"
+      dict={dict}
+      title={dict.writing.items['agent-orchestration'].title}
       date={meta.date}
       readTimeMin={meta.readTimeMin}
     >

@@ -1,5 +1,6 @@
 import type { Locale } from '@/lib/i18n';
 import { PostLayout } from '@/components/writing/PostLayout';
+import { getDictionary } from '@/content/i18n';
 
 export const meta = {
   slug: 'this-site',
@@ -8,10 +9,13 @@ export const meta = {
 };
 
 export default function ThisSitePost({ locale }: { locale: Locale }) {
+  const dict = getDictionary(locale);
+
   return (
     <PostLayout
       locale={locale}
-      title="이 사이트를 만든 이야기"
+      dict={dict}
+      title={dict.writing.items['this-site'].title}
       date={meta.date}
       readTimeMin={meta.readTimeMin}
     >

@@ -42,6 +42,7 @@ export function Contact({ dict }: Props) {
             <ObfuscatedEmail
               user={resume.profile.emailUser}
               domain={resume.profile.emailDomain}
+              revealLabel={dict.common.revealEmail}
               className="group inline-flex items-center gap-1 rounded-sm text-fg transition-colors hover:text-accent-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-1 focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
             />
           </ContactLine>

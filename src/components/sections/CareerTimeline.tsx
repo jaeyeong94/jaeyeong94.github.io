@@ -1,22 +1,42 @@
-import { resume } from '@/content/resume';
+import { resume, type EmploymentType, type ExperienceId } from '@/content/resume';
 import type { Dictionary } from '@/content/i18n';
 import { Reveal } from '@/components/ui/Reveal';
+import { TimelineScroller } from '@/components/sections/TimelineScroller';
 import { cn } from '@/lib/utils';
 
 interface Props {
   dict: Dictionary;
+  showLegacy?: boolean;
 }
 
 const INLINE_LABEL_MIN_PERCENT = 5;
+const LEGACY_AGGREGATE_ID = 'legacy-era';
+const RECENT_EMPHASIS_MONTHS = 24;
 
-export function CareerTimeline({ dict }: Props) {
+type BarItem = {
+  id: string;
+  type: EmploymentType;
+  start: string;
+  end: string;
+  teamKey?: string;
+  startOffset: number;
+  duration: number;
+  isAggregate: boolean;
+  aggregatedCompanies?: string[];
+};
+
+export function CareerTimeline({ dict, showLegacy = false }: Props) {
   const now = new Date();
   const startYear = 2012;
   const endYear = now.getFullYear();
   const endMonth = now.getMonth() + 1;
   const spanMonths = (endYear - startYear) * 12 + endMonth;
 
-  const items = resume.experiences.map((exp) => {
+  const visibleExps = showLegacy
+    ? resume.experiences
+    : resume.experiences.filter((e) => !e.legacy);
+
+  const items: BarItem[] = visibleExps.map((exp) => {
     const [sy, sm] = exp.start.split('-').map(Number);
     const startOffset = (sy - startYear) * 12 + (sm - 1);
     let duration: number;
@@ -26,10 +46,48 @@ export function CareerTimeline({ dict }: Props) {
       const [ey, em] = exp.end.split('-').map(Number);
       duration = (ey - startYear) * 12 + em - startOffset;
     }
-    return { ...exp, startOffset, duration: Math.max(duration, 1) };
+    return {
+      id: exp.id,
+      type: exp.type,
+      start: exp.start,
+      end: exp.end,
+      teamKey: exp.teamKey,
+      startOffset,
+      duration: Math.max(duration, 1),
+      isAggregate: false,
+    };
   });
 
-  // Greedy lane assignment
+  if (!showLegacy) {
+    const legacyExps = resume.experiences.filter((e) => e.legacy);
+    if (legacyExps.length > 0) {
+      const legacyStartOffsets = legacyExps.map((e) => {
+        const [y, m] = e.start.split('-').map(Number);
+        return (y - startYear) * 12 + (m - 1);
+      });
+      const legacyEndOffsets = legacyExps.map((e) => {
+        if (e.end === 'present') return spanMonths;
+        const [y, m] = e.end.split('-').map(Number);
+        return (y - startYear) * 12 + m;
+      });
+      const legacyStart = Math.min(...legacyStartOffsets);
+      const legacyEnd = Math.max(...legacyEndOffsets);
+      const earliestStart = legacyExps.reduce((a, b) => (a.start < b.start ? a : b)).start;
+      const latestEnd = legacyExps.reduce((a, b) => (a.end > b.end ? a : b)).end;
+      items.push({
+        id: LEGACY_AGGREGATE_ID,
+        type: 'fulltime',
+        start: earliestStart,
+        end: latestEnd,
+        startOffset: legacyStart,
+        duration: Math.max(legacyEnd - legacyStart, 1),
+        isAggregate: true,
+        aggregatedCompanies: legacyExps.map((e) => dict.experience.items[e.id].company),
+      });
+    }
+  }
+
+  // Greedy lane packing: no overlap between bars in a lane.
   const sorted = [...items].sort((a, b) => a.startOffset - b.startOffset);
   const lanes: number[] = [];
   const withLanes = sorted.map((item) => {
@@ -41,22 +99,6 @@ export function CareerTimeline({ dict }: Props) {
   });
   const laneCount = lanes.length;
 
-  // For each item, determine how far its label can extend (until next item in same lane)
-  const nextStartByItem = new Map<string, number>();
-  const byLane = new Map<number, typeof withLanes>();
-  for (const w of withLanes) {
-    const arr = byLane.get(w.lane) ?? [];
-    arr.push(w);
-    byLane.set(w.lane, arr);
-  }
-  for (const arr of byLane.values()) {
-    arr.sort((a, b) => a.startOffset - b.startOffset);
-    for (let i = 0; i < arr.length; i++) {
-      const next = arr[i + 1];
-      nextStartByItem.set(arr[i].id, next ? next.startOffset : spanMonths);
-    }
-  }
-
   const yearTicks: number[] = [];
   for (let y = startYear; y <= endYear; y += 2) yearTicks.push(y);
   if (yearTicks[yearTicks.length - 1] !== endYear) yearTicks.push(endYear);
@@ -65,7 +107,7 @@ export function CareerTimeline({ dict }: Props) {
   const rowGap = 4;
   const timelineHeight = laneCount * rowHeight + (laneCount - 1) * rowGap;
 
-  const mobileSorted = [...resume.experiences].sort((a, b) =>
+  const mobileSorted = [...visibleExps].sort((a, b) =>
     a.start < b.start ? 1 : a.start > b.start ? -1 : 0,
   );
 
@@ -74,7 +116,7 @@ export function CareerTimeline({ dict }: Props) {
       <div>
         <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
           <p className="text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle">
-            ⌯ Career Timeline
+            ⌯ {dict.experience.timelineLabel}
           </p>
           <div className="flex flex-wrap items-center gap-4 text-xs text-fg-subtle">
             <LegendDot variant="fulltime" label={dict.employment.fulltime} />
@@ -85,28 +127,43 @@ export function CareerTimeline({ dict }: Props) {
 
         {/* Desktop: full-viewport-width timeline with horizontal scroll */}
         <div className="relative left-1/2 hidden w-screen -translate-x-1/2 border-y border-border bg-bg-subtle/30 md:block">
-          <div className="overflow-x-auto">
-            <div className="min-w-[1024px] px-6 pb-6 pt-4 md:px-10 lg:px-14">
+          <TimelineScroller ariaLabel={dict.experience.timelineAriaLabel}>
+            <div className="min-w-[1600px] px-6 pb-6 pt-4 md:px-10 lg:px-14">
               <div className="relative" style={{ height: timelineHeight }}>
+                {/* Subtle tint on recent 2 years to draw the eye to current work */}
+                <div
+                  aria-hidden
+                  className="absolute inset-y-0 rounded-sm bg-accent-1/[0.05]"
+                  style={{
+                    left: `${((spanMonths - RECENT_EMPHASIS_MONTHS) / spanMonths) * 100}%`,
+                    right: 0,
+                  }}
+                />
                 {withLanes.map((item) => {
                   const left = (item.startOffset / spanMonths) * 100;
                   const width = Math.max((item.duration / spanMonths) * 100, 2.8);
                   const top = item.lane * (rowHeight + rowGap);
                   const isRemote = item.type === 'freelance';
                   const isPresent = item.end === 'present';
-                  const fullName = dict.experience.items[item.id].company;
+                  const isAggregate = item.isAggregate;
+                  const fullName = isAggregate
+                    ? dict.experience.earlyCareerLabel.replace(
+                        '{n}',
+                        String(item.aggregatedCompanies?.length ?? 0),
+                      )
+                    : dict.experience.items[item.id as ExperienceId].company;
                   const inlineLabel = width >= INLINE_LABEL_MIN_PERCENT;
-                  const barEnd = left + width;
-                  const nextStartPercent =
-                    ((nextStartByItem.get(item.id) ?? spanMonths) / spanMonths) * 100;
-                  const labelMaxWidth = Math.max(nextStartPercent - barEnd, 0);
                   const rangeLabel = isPresent
                     ? `${item.start} — ${dict.common.present}`
                     : `${item.start} — ${item.end}`;
                   return (
                     <div key={item.id}>
                       <div
-                        title={`${fullName} · ${rangeLabel}`}
+                        title={
+                          isAggregate
+                            ? `${fullName} · ${item.aggregatedCompanies?.join(', ') ?? ''} · ${rangeLabel}`
+                            : `${fullName} · ${rangeLabel}`
+                        }
                         style={{
                           left: `${left}%`,
                           width: `${width}%`,
@@ -115,25 +172,32 @@ export function CareerTimeline({ dict }: Props) {
                         }}
                         className={cn(
                           'absolute flex items-center overflow-hidden rounded-md px-2 transition-colors',
-                          isPresent
-                            ? 'bg-fg text-bg shadow-[0_0_0_1px_oklch(var(--accent-1))]'
-                            : isRemote
-                              ? 'border border-dashed border-accent-2/60 bg-accent-2/20 text-accent-2 hover:bg-accent-2/35'
-                              : 'bg-accent-1/25 text-accent-1 hover:bg-accent-1/35',
+                          isAggregate
+                            ? 'border border-dashed border-fg-subtle/40 bg-bg-subtle/60 text-fg-muted'
+                            : isPresent
+                              ? 'bg-fg text-bg shadow-[0_0_0_1px_oklch(var(--accent-1)),0_0_14px_-2px_oklch(var(--accent-1)/0.55)]'
+                              : isRemote
+                                ? 'border border-dashed border-accent-2/60 bg-accent-2/20 text-accent-2 hover:bg-accent-2/35'
+                                : 'bg-accent-1/25 text-accent-1 hover:bg-accent-1/35',
                         )}
                       >
                         <span aria-hidden className="mr-1 font-mono text-[0.6rem]">
-                          {isRemote ? '◇' : '◆'}
+                          {isAggregate ? '⋯' : isRemote ? '◇' : '◆'}
                         </span>
                         {inlineLabel && (
-                          <span className="truncate font-mono text-[0.65rem] font-medium tracking-wide">
+                          <span
+                            className={cn(
+                              'truncate font-mono text-[0.65rem] tracking-wide',
+                              isPresent ? 'font-semibold' : 'font-medium',
+                            )}
+                          >
                             {fullName}
                           </span>
                         )}
                         {item.teamKey && (
                           <span
                             aria-hidden
-                            title="Same team"
+                            title={dict.common.sameTeamLabel}
                             className={cn(
                               'ml-1 font-mono text-[0.6rem]',
                               isPresent ? 'text-bg/70' : 'text-fg',
@@ -151,27 +215,6 @@ export function CareerTimeline({ dict }: Props) {
                           </span>
                         )}
                       </div>
-                      {!inlineLabel && (
-                        <div
-                          style={{
-                            left: `${barEnd}%`,
-                            top,
-                            height: rowHeight,
-                            maxWidth: `${labelMaxWidth}%`,
-                          }}
-                          className={cn(
-                            'pointer-events-none absolute flex items-center overflow-hidden pl-1.5',
-                            'font-mono text-[0.65rem] font-medium tracking-wide',
-                            isPresent
-                              ? 'text-fg'
-                              : isRemote
-                                ? 'text-accent-2'
-                                : 'text-accent-1',
-                          )}
-                        >
-                          <span className="truncate">{fullName}</span>
-                        </div>
-                      )}
                     </div>
                   );
                 })}
@@ -191,7 +234,7 @@ export function CareerTimeline({ dict }: Props) {
                 })}
               </div>
             </div>
-          </div>
+          </TimelineScroller>
         </div>
 
         {/* Mobile: compact vertical list */}

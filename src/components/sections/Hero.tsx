@@ -12,6 +12,8 @@ interface Props {
 }
 
 export function Hero({ locale, dict }: Props) {
+  const availability = resume.availability;
+
   return (
     <section className="relative isolate overflow-hidden">
       <div className="section-frame pb-16 pt-24 md:pb-20 md:pt-28">
@@ -19,7 +21,7 @@ export function Hero({ locale, dict }: Props) {
         <Reveal>
           <div className="flex items-end justify-between gap-6 border-b border-border pb-5">
             <p className="text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle">
-              Portfolio · Vol. 01 · {new Date().getFullYear()}
+              {dict.hero.mastheadLabel} · {new Date().getFullYear()}
             </p>
             <p className="hidden text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle md:block">
               {dict.contact.locationValue}
@@ -48,10 +50,10 @@ export function Hero({ locale, dict }: Props) {
         <Reveal>
           <div className="mt-6 flex items-center gap-3 text-sm" role="status">
             <span className="font-mono text-[0.65rem] font-medium uppercase tracking-[0.35em] text-accent-1">
-              Open
+              {dict.hero.availabilityBadge[availability]}
             </span>
             <span aria-hidden className="h-px w-8 bg-accent-1/40" />
-            <span className="text-fg">{dict.hero.availability.open}</span>
+            <span className="text-fg">{dict.hero.availability[availability]}</span>
           </div>
         </Reveal>
 

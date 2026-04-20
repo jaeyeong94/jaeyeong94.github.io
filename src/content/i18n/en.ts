@@ -3,6 +3,7 @@ import type { Dictionary } from './ko';
 const dict: Dictionary = {
   meta: {
     title: 'Ted Ryu — Full-stack Developer',
+    siteName: 'Ted Ryu · Portfolio',
     description:
       'A full-stack developer with 11+ years shipping 0→1 products across fintech, blockchain, SaaS, and AI.',
   },
@@ -27,6 +28,16 @@ const dict: Dictionary = {
     themeLight: 'Light',
     themeDark: 'Dark',
     themeSystem: 'System',
+    skipToContent: 'Skip to content',
+    redirecting: 'Redirecting...',
+    openMenu: 'Open menu',
+    closeMenu: 'Close menu',
+    primaryNavigation: 'Primary navigation',
+    mobileNavigation: 'Mobile navigation',
+    notFoundTitle: 'Page not found',
+    notFoundDescription: 'The page you requested does not exist or has moved.',
+    backHome: 'Go home',
+    revealEmail: 'Reveal email address',
     sameTeamLabel: 'Same team · continued with the same CEO/CTO',
     commandPaletteOpen: 'Open section search',
     commandPaletteTitle: 'Jump to section',
@@ -43,6 +54,7 @@ const dict: Dictionary = {
     name: 'Ted Ryu',
     altName: 'Jaeyeong You',
     role: 'Full-stack Developer · Backend-focused',
+    mastheadLabel: 'Portfolio · Vol. 01',
     tagline: 'I build products that drive business growth.',
     ctaContact: 'Get in touch',
     nowLabel: 'Now',
@@ -55,6 +67,11 @@ const dict: Dictionary = {
       open: 'Freelance available · Open to full-time roles',
       limited: 'Selective engagements only',
       closed: 'Not taking new inquiries',
+    },
+    availabilityBadge: {
+      open: 'Open',
+      limited: 'Limited',
+      closed: 'Closed',
     },
   },
   about: {
@@ -127,6 +144,9 @@ const dict: Dictionary = {
   experience: {
     sectionTitle: 'Experience',
     eyebrow: 'Experience',
+    timelineLabel: 'Career Timeline',
+    timelineAriaLabel: 'Career timeline',
+    earlyCareerLabel: 'Early career · {n} roles',
     items: {
       masblue: {
         company: 'Masblue (masblue.studio)',
@@ -165,7 +185,7 @@ const dict: Dictionary = {
         ],
       },
       miso: {
-        company: 'Miso · Platform Team',
+        company: 'Miso Inc.',
         bullets: [
           'Built an AWS Cognito authentication system. A Cognito Lambda Trigger migrated 120K legacy users transparently on first login while OTP flows were introduced to the CX CRM; auth failure stays below 0.5% (metric: CloudWatch).',
         ],
@@ -321,6 +341,8 @@ const dict: Dictionary = {
     sectionTitle: 'Writing',
     eyebrow: 'Writing',
     empty: 'First posts are being drafted.',
+    backToList: 'All writing',
+    readTime: '{n} min read',
     items: {
       'this-site': {
         title: 'Building this site',

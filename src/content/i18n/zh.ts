@@ -3,6 +3,7 @@ import type { Dictionary } from './ko';
 const dict: Dictionary = {
   meta: {
     title: 'Ted Ryu — 全栈开发者',
+    siteName: 'Ted Ryu · 作品集',
     description:
       '11年经验的全栈开发者,专注于金融科技、区块链、SaaS和AI领域的0→1产品构建。',
   },
@@ -27,6 +28,16 @@ const dict: Dictionary = {
     themeLight: '浅色',
     themeDark: '深色',
     themeSystem: '系统',
+    skipToContent: '跳转到正文',
+    redirecting: '正在跳转...',
+    openMenu: '打开菜单',
+    closeMenu: '关闭菜单',
+    primaryNavigation: '主导航',
+    mobileNavigation: '移动端导航',
+    notFoundTitle: '页面未找到',
+    notFoundDescription: '请求的页面不存在或已被移动。',
+    backHome: '返回首页',
+    revealEmail: '显示邮箱地址',
     sameTeamLabel: '同一团队 · 与同一CEO/CTO延续合作',
     commandPaletteOpen: '打开搜索',
     commandPaletteTitle: '跳转至章节',
@@ -43,6 +54,7 @@ const dict: Dictionary = {
     name: 'Ted Ryu',
     altName: '刘在荣',
     role: '全栈开发者 · 后端主导',
+    mastheadLabel: '作品集 · Vol. 01',
     tagline: '打造驱动业务增长的产品。',
     ctaContact: '联系我',
     nowLabel: '当前',
@@ -55,6 +67,11 @@ const dict: Dictionary = {
       open: '可接自由项目 · 对正式职位开放',
       limited: '仅接有选择性的项目',
       closed: '暂不接受新咨询',
+    },
+    availabilityBadge: {
+      open: '开放',
+      limited: '有限',
+      closed: '关闭',
     },
   },
   about: {
@@ -125,6 +142,9 @@ const dict: Dictionary = {
   experience: {
     sectionTitle: '经历',
     eyebrow: 'Experience',
+    timelineLabel: '职业时间线',
+    timelineAriaLabel: '职业时间线',
+    earlyCareerLabel: '早期经历 · {n} 个角色',
     items: {
       masblue: {
         company: 'Masblue (masblue.studio)',
@@ -163,7 +183,7 @@ const dict: Dictionary = {
         ],
       },
       miso: {
-        company: 'Miso · 平台团队',
+        company: 'Miso Inc.',
         bullets: [
           '基于AWS Cognito构建认证系统。通过Cognito Lambda Trigger实现12万老用户零停机迁移,并为CX CRM引入OTP;认证失败率维持在0.5%以下(指标:CloudWatch)。',
         ],
@@ -314,6 +334,8 @@ const dict: Dictionary = {
     sectionTitle: '文章',
     eyebrow: 'Writing',
     empty: '第一篇文章准备中。',
+    backToList: '文章列表',
+    readTime: '约 {n} 分钟',
     items: {
       'this-site': {
         title: '打造本站的故事',

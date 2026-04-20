@@ -1,5 +1,6 @@
 import type { Locale } from '@/lib/i18n';
 import { PostLayout } from '@/components/writing/PostLayout';
+import { getDictionary } from '@/content/i18n';
 
 export const meta = {
   slug: 'multi-tenant-saas',
@@ -8,10 +9,13 @@ export const meta = {
 };
 
 export default function MultiTenantSaasPost({ locale }: { locale: Locale }) {
+  const dict = getDictionary(locale);
+
   return (
     <PostLayout
       locale={locale}
-      title="0→1 멀티테넌트 SaaS 설계 노트"
+      dict={dict}
+      title={dict.writing.items['multi-tenant-saas'].title}
       date={meta.date}
       readTimeMin={meta.readTimeMin}
     >

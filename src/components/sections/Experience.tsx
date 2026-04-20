@@ -10,7 +10,6 @@ import {
   type EmploymentType,
 } from '@/content/resume';
 import { Reveal } from '@/components/ui/Reveal';
-import { Tooltip } from '@/components/ui/Tooltip';
 import { CareerTimeline } from './CareerTimeline';
 import { formatYearMonth, formatDuration } from '@/lib/date';
 import { ChevronDown } from 'lucide-react';
@@ -101,7 +100,7 @@ export function Experience({ locale, dict }: Props) {
         </h2>
       </Reveal>
 
-      <CareerTimeline dict={dict} />
+      <CareerTimeline dict={dict} showLegacy={showLegacy} />
 
       <div ref={wrapperRef} className="relative mt-14 space-y-16">
         {connector && (
@@ -237,19 +236,18 @@ function ExperienceRow({
         <div className="border-l border-border pl-6 md:pl-8">
           <h4 className="text-lg font-semibold text-fg md:text-xl">
             {exp.url ? (
-              <Tooltip content={new URL(exp.url).host.replace(/^www\./, '')}>
-                <a
-                  href={exp.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-baseline gap-1.5 rounded-sm text-fg transition-colors hover:text-accent-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-1 focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
-                >
-                  {item.company}
-                  <span aria-hidden className="text-sm text-fg-subtle">
-                    ↗
-                  </span>
-                </a>
-              </Tooltip>
+              <a
+                href={exp.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={new URL(exp.url).host.replace(/^www\./, '')}
+                className="inline-flex items-baseline gap-1.5 rounded-sm text-fg transition-colors hover:text-accent-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-1 focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+              >
+                {item.company}
+                <span aria-hidden className="text-sm text-fg-subtle">
+                  ↗
+                </span>
+              </a>
             ) : (
               item.company
             )}

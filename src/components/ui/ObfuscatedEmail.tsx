@@ -6,10 +6,11 @@ import { cn } from '@/lib/utils';
 interface Props {
   user: string;
   domain: string;
+  revealLabel: string;
   className?: string;
 }
 
-export function ObfuscatedEmail({ user, domain, className }: Props) {
+export function ObfuscatedEmail({ user, domain, revealLabel, className }: Props) {
   const [revealed, setRevealed] = useState(false);
   const addr = useMemo(() => `${user}@${domain}`, [user, domain]);
 
@@ -22,7 +23,7 @@ export function ObfuscatedEmail({ user, domain, className }: Props) {
           className,
           'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-1 focus-visible:ring-offset-2 focus-visible:ring-offset-bg',
         )}
-        aria-label="Reveal email address"
+        aria-label={revealLabel}
       >
         {user}
         <span aria-hidden> [at] </span>

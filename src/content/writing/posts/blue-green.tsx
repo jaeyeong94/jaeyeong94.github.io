@@ -1,5 +1,6 @@
 import type { Locale } from '@/lib/i18n';
 import { PostLayout } from '@/components/writing/PostLayout';
+import { getDictionary } from '@/content/i18n';
 
 export const meta = {
   slug: 'blue-green',
@@ -8,10 +9,13 @@ export const meta = {
 };
 
 export default function BlueGreenPost({ locale }: { locale: Locale }) {
+  const dict = getDictionary(locale);
+
   return (
     <PostLayout
       locale={locale}
-      title="무중단 Blue-Green: 0초 다운타임 · 30초 롤백"
+      dict={dict}
+      title={dict.writing.items['blue-green'].title}
       date={meta.date}
       readTimeMin={meta.readTimeMin}
     >

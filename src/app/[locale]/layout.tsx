@@ -36,7 +36,7 @@ export async function generateMetadata({
       title: dict.meta.title,
       description: dict.meta.description,
       url: `/${locale}/`,
-      siteName: 'Ted Ryu · Portfolio',
+      siteName: dict.meta.siteName,
       locale,
       type: 'profile',
       images: ['/og-image.png'],
@@ -67,6 +67,9 @@ export default async function LocaleLayout({
       <ThemeScript />
       <script dangerouslySetInnerHTML={{ __html: htmlLangScript }} />
       <JsonLdPerson />
+      <a href="#main-content" className="skip-link">
+        {dict.common.skipToContent}
+      </a>
       <Nav locale={locale} dict={dict} />
       {children}
       <Footer />
