@@ -41,7 +41,7 @@ jobs:
 
       - name: Build
         env:
-          NEXT_PUBLIC_SITE_URL: https://jaeyeong94.github.io
+          NEXT_PUBLIC_SITE_URL: https://jaeyeong.me
         run: pnpm build
 
       - name: Bundle budget check

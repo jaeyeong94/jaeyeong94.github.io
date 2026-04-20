@@ -41,7 +41,23 @@ function collectMetadata(html: string) {
   };
 }
 
+function extractHtmlLang(html: string) {
+  return extract(html, /<html[^>]*lang="([^"]+)"/, 'html lang');
+}
+
 describe('static export smoke', () => {
+  it('renders locale pages with a server-side html lang attribute', () => {
+    const html = readExportedHtml('en/index.html');
+
+    expect(extractHtmlLang(html)).toBe('en');
+  });
+
+  it('marks the redirect root page as noindex', () => {
+    const html = readExportedHtml('index.html');
+
+    expect(html).toContain('<meta name="robots" content="noindex, follow"/>');
+  });
+
   it('renders localized navigation affordances on the Korean homepage', () => {
     const html = readExportedHtml('ko/index.html');
 
@@ -49,6 +65,19 @@ describe('static export smoke', () => {
     expect(html).toContain('섹션 검색 열기');
     expect(html).toContain('포트폴리오 · Vol. 01');
     expect(html).toContain('커리어 타임라인');
+    expect(html).toContain('선별된 성과');
+    expect(html).toContain('500+ 무중단 배포');
+    expect(html).toContain('주요 작업 보기');
+    expect(html).toContain('작업 방식');
+    expect(html.indexOf('id="skills"')).toBeLessThan(html.indexOf('id="writing"'));
+    expect(html.indexOf('id="writing"')).toBeLessThan(html.indexOf('id="manifesto"'));
+  });
+
+  it('emits refreshed homepage metadata for the English locale', () => {
+    const html = readExportedHtml('en/index.html');
+
+    expect(html).toContain('<meta name="description" content="Full-stack developer designing and operating 0→1 SaaS, AI orchestration, and fintech systems with strengths in backend architecture and AWS/Kubernetes infrastructure."/>');
+    expect(html).toContain('<meta property="og:description" content="Full-stack developer designing and operating 0→1 SaaS, AI orchestration, and fintech systems with strengths in backend architecture and AWS/Kubernetes infrastructure."/>');
   });
 
   it('emits localized metadata for English writing detail pages', () => {
@@ -57,7 +86,7 @@ describe('static export smoke', () => {
     expect(collectMetadata(html)).toMatchInlineSnapshot(`
       {
         "articlePublishedTime": "2026-04-15",
-        "canonical": "https://jaeyeong94.github.io/en/writing/this-site/",
+        "canonical": "https://jaeyeong.me/en/writing/this-site/",
         "description": "A retrospective on designing a Next.js · 4-locale · GitHub Pages résumé from scratch.",
         "ogDescription": "A retrospective on designing a Next.js · 4-locale · GitHub Pages résumé from scratch.",
         "ogTitle": "Building this site",

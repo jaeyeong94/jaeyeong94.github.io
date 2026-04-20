@@ -6,11 +6,11 @@ const dict: Dictionary = {
     title: 'Ted Ryu — 全栈开发者',
     siteName: 'Ted Ryu · 作品集',
     description:
-      '11年经验的全栈开发者,专注于金融科技、区块链、SaaS和AI领域的0→1产品构建。',
+      '设计并运营0→1 SaaS、AI编排与金融科技系统的全栈开发者,擅长后端架构与AWS/Kubernetes基础设施。',
   },
   nav: {
     about: '关于',
-    manifesto: '宣言',
+    manifesto: '方式',
     experience: '经历',
     projects: '项目',
     skills: '技术栈',
@@ -39,6 +39,7 @@ const dict: Dictionary = {
     notFoundDescription: '请求的页面不存在或已被移动。',
     backHome: '返回首页',
     revealEmail: '显示邮箱地址',
+    printPage: '打印 / PDF',
     sameTeamLabel: '同一团队 · 与同一CEO/CTO延续合作',
     commandPaletteOpen: '打开搜索',
     commandPaletteTitle: '跳转至章节',
@@ -54,15 +55,16 @@ const dict: Dictionary = {
   hero: {
     name: 'Ted Ryu',
     altName: '刘在荣',
-    role: '专注SaaS、AI编排与金融科技后端的全栈开发者',
+    role: '打造0→1 SaaS、AI编排与金融科技系统的全栈开发者',
     mastheadLabel: '作品集 · Vol. 01',
     tagline: '我把0→1产品从初始架构推进到可稳定运营的系统。',
     proofLabel: '核心依据',
+    ctaProjects: '查看代表项目',
     ctaContact: '联系我',
     nowLabel: '当前',
     nowItems: [
-      '正在开发Crypto Market Making系统和B2B投资管理仪表板',
-      '为美国保险公司设计AI编排SaaS后端',
+      '加密做市系统与 B2B 投资管理面板',
+      '面向美国保险公司的 AI 编排后端',
     ],
     keywordsLabel: '近期关注',
     availability: {
@@ -80,7 +82,7 @@ const dict: Dictionary = {
     sectionTitle: '关于',
     eyebrow: 'About',
     impact:
-      '专注于金融科技、区块链、SaaS、AI领域的0→1产品构建与运营的全栈开发者。擅长后端架构和基于AWS/Kubernetes的基础设施,最近专注于LLM · RAG · Web3应用。',
+      '在金融科技、区块链、SaaS、AI领域持续交付和运营0→1产品的全栈开发者。以后端架构与AWS/Kubernetes基础设施为主,最近更聚焦LLM · RAG应用。',
     stat1Label: '工作经验',
     stat1Suffix: '年+',
     stat2Label: '0→1产品',
@@ -89,9 +91,9 @@ const dict: Dictionary = {
     stat3Value: 'AWS · K8s · Terraform',
     philosophyTitle: '工作方式',
     philosophy1:
-      '优秀的工程师能理解用户需求、UX与业务目标并据此解决问题。我重视基于指标的决策和快速的反馈循环,也持续投入稳定的云基础设施与SDLC。',
+      '我会先理解用户问题与业务目标,再据此设计系统结构与运营方式。',
     philosophy2:
-      '我寻找重视多元视角、以创新方案开拓市场的团队。基于体系化流程的快速决策与执行,是打造真正影响市场的产品的关键。',
+      '我用指标和反馈闭环决定下一步优先级,也更适合执行节奏快且判断明确的团队。',
     domainsTitle: '领域经验',
     domains: {
       fullstack: '全栈 / 后端',
@@ -100,11 +102,32 @@ const dict: Dictionary = {
       saas: 'SaaS',
       ai: 'AI / LLM',
     },
+    outcomesTitle: '代表性成果',
+    outcomes: [
+      {
+        label: '部署可靠性',
+        value: '500+ 次无停机部署',
+        note:
+          '基于 EKS 与 ArgoCD 的 Blue-Green 流水线实现 0 秒停机、30 秒内回滚。',
+      },
+      {
+        label: '生产规模',
+        value: '每日 500 万条消息',
+        note:
+          '在峰值 3,000 RPS 环境下运营企业消息 API,稳定队列公平性与重试策略。',
+      },
+      {
+        label: '运维效率',
+        value: '20 分钟 → 4 分钟',
+        note:
+          '通过 LLM 编排将美国保险试点后台处理平均耗时降低约 80%。',
+      },
+    ],
     yearsShort: '年+',
   },
   manifesto: {
-    sectionTitle: '我如何与AI协作',
-    eyebrow: 'How I Build',
+    sectionTitle: '与 AI 协作的方式',
+    eyebrow: 'Approach',
     thesis: '我会用AI提升速度,但结构设计、防护栏和最终验证必须由人负责。',
     mindsetTitle: 'Principles',
     actionsTitle: 'In practice',
@@ -240,23 +263,23 @@ const dict: Dictionary = {
       randibot: {
         title: 'Randibot',
         desc: 'RCMS · K-Startup研究经费管理SaaS。面向国策项目预算执行的ETL管道与多租户后端。',
-        proof: '已接入5个工作区 · 月均约1,200次ETL稳定运行',
+        proof: '5个机构工作区 · 月均约1,200次ETL',
       },
       momentir: {
         title: 'Momentir',
         desc:
           '面向保险设计师的AI CRM。通过LLM自动摘要客户笔记并注册日程,降低运营工时。',
-        proof: '12名保险顾问试点 · 日常运营工时下降约30%',
+        proof: '12名保险顾问试点 · 运营工时下降约30%',
       },
       nursevillage: {
         title: 'Nursevillage',
         desc: '面向护士的iOS/Android社区App — 基于位置的社交Feed与收藏统计仪表盘。',
-        proof: '基于Next.js与React Native交付的社区产品',
+        proof: '已上线的护士社区 App',
       },
       'flfi-exchange': {
         title: 'FLFI 衍生品交易所',
         desc: '基于OKX Broker API的加密衍生品交易所 — 实时行情、撮合与仓位管理。',
-        proof: '支持120+交易对 · 成交延迟稳定在约80ms',
+        proof: '120+ 交易对 · 成交延迟约 80ms',
       },
       'flfi-lending': {
         title: 'FLFI 金融科技平台',
@@ -267,12 +290,12 @@ const dict: Dictionary = {
       'ontoh-vision': {
         title: 'Ontoh Vision',
         desc: 'CCTV(RTSP)→ 现场AI事件检测 → Cloudflare R2存储工作流。',
-        proof: '上传成功率99.7% · 摄像头扩容时后端零发布',
+        proof: '上传成功率99.7% · 摄像头扩容时后端无需发布',
       },
       'rootstone-trading': {
         title: 'Rootstone Trading',
         desc: '基于Electron桌面端的加密套利与做市投资组合系统。',
-        proof: '策略执行p95从120ms降至45ms · 日均约3,000笔成交',
+        proof: '策略执行 p95 120ms → 45ms · 日均约3,000笔成交',
       },
     },
   },

@@ -34,7 +34,7 @@ export function About({ dict }: Props) {
       {/* Impact + stats — 8/4 split */}
       <div className="mt-10 grid grid-cols-1 gap-12 lg:mt-14 lg:grid-cols-12 lg:gap-16">
         <Reveal className="lg:col-span-8">
-          <p className="max-w-3xl text-xl leading-relaxed text-fg md:text-2xl lg:text-3xl">
+          <p className="max-w-3xl text-lg leading-relaxed text-fg md:text-xl lg:text-2xl">
             {dict.about.impact}
           </p>
         </Reveal>
@@ -76,16 +76,42 @@ export function About({ dict }: Props) {
         </div>
       </Reveal>
 
+      <Reveal>
+        <div className="mt-16 grid grid-cols-1 gap-8 border-t border-border pt-10 md:grid-cols-12 md:gap-12">
+          <p className="text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle md:col-span-3">
+            ⟡ {dict.about.outcomesTitle}
+          </p>
+          <dl className="grid gap-4 md:col-span-9 lg:grid-cols-3">
+            {dict.about.outcomes.map((item) => (
+              <div key={item.label} className="rounded-2xl border border-border bg-surface p-5">
+                <dt className="text-[0.65rem] font-medium uppercase tracking-[0.28em] text-fg-subtle">
+                  {item.label}
+                </dt>
+                <dd className="mt-3 text-lg font-semibold tracking-tight text-fg">{item.value}</dd>
+                <p className="mt-3 text-sm leading-relaxed text-fg-muted">{item.note}</p>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </Reveal>
+
       {/* Philosophy */}
       <Reveal>
         <div className="mt-16 grid grid-cols-1 gap-8 border-t border-border pt-10 md:grid-cols-12 md:gap-12">
           <p className="text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle md:col-span-3">
             ≀ {dict.about.philosophyTitle}
           </p>
-          <div className="max-w-readable space-y-5 text-base leading-relaxed text-fg-muted md:col-span-9 md:text-lg">
-            <p>{dict.about.philosophy1}</p>
-            <p>{dict.about.philosophy2}</p>
-          </div>
+          <ul className="max-w-readable space-y-4 md:col-span-9">
+            {[dict.about.philosophy1, dict.about.philosophy2].map((item) => (
+              <li key={item} className="flex items-start gap-3">
+                <span
+                  aria-hidden
+                  className="mt-2 size-1.5 shrink-0 rounded-full bg-accent-1"
+                />
+                <p className="text-base leading-relaxed text-fg-muted md:text-lg">{item}</p>
+              </li>
+            ))}
+          </ul>
         </div>
       </Reveal>
     </section>

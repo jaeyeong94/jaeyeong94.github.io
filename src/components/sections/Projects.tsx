@@ -127,7 +127,7 @@ function LiveProjectCard({
         ) : null}
       </div>
       <p className="mt-3 flex-1 text-sm leading-relaxed text-fg-muted">{item.desc}</p>
-      <p className="mt-4 text-sm font-medium leading-relaxed text-fg">{item.proof}</p>
+      <p className="mt-4 text-sm leading-relaxed text-fg">{item.proof}</p>
       <p className="mt-5 font-mono text-xs text-fg-subtle">{project.stack.join(' · ')}</p>
       {host && (
         <p className="mt-4 border-t border-border pt-3 font-mono text-xs text-fg-subtle">
@@ -175,7 +175,7 @@ function InternalProjectCard({ project, dict }: { project: Project; dict: Dictio
         </span>
       </div>
       <p className="mt-3 text-sm leading-relaxed text-fg-muted">{item.desc}</p>
-      <p className="mt-4 text-sm font-medium leading-relaxed text-fg">{item.proof}</p>
+      <p className="mt-4 text-sm leading-relaxed text-fg">{item.proof}</p>
       <p className="mt-4 font-mono text-xs text-fg-subtle">{project.stack.join(' · ')}</p>
     </article>
   );

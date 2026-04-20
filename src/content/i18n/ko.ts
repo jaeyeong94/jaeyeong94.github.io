@@ -4,11 +4,11 @@ const dict = {
     title: '유재영 · Ted Ryu — 풀스택 개발자',
     siteName: 'Ted Ryu · 포트폴리오',
     description:
-      '핀테크 · 블록체인 · SaaS · AI 도메인에서 0→1 서비스를 구축해 온 11년차 풀스택 개발자.',
+      '0→1 SaaS · AI 오케스트레이션 · 핀테크 시스템을 설계·운영하는 풀스택 개발자. 백엔드 아키텍처와 AWS/Kubernetes 인프라에 강점이 있습니다.',
   },
   nav: {
     about: '소개',
-    manifesto: '신념',
+    manifesto: '작업 방식',
     experience: '경력',
     projects: '프로젝트',
     skills: '기술',
@@ -37,6 +37,7 @@ const dict = {
     notFoundDescription: '요청한 주소가 없거나 이동되었습니다.',
     backHome: '홈으로 이동',
     revealEmail: '이메일 주소 보기',
+    printPage: '인쇄 / PDF',
     sameTeamLabel: '같은 팀 · CEO/CTO와 이어짐',
     commandPaletteOpen: '섹션 검색 열기',
     commandPaletteTitle: '섹션 이동',
@@ -52,15 +53,16 @@ const dict = {
   hero: {
     name: '유재영',
     altName: 'Ted Ryu',
-    role: 'SaaS · AI 오케스트레이션 · 핀테크 백엔드를 설계하는 풀스택 개발자',
+    role: '0→1 SaaS · AI 오케스트레이션 · 핀테크 시스템을 만드는 풀스택 개발자',
     mastheadLabel: '포트폴리오 · Vol. 01',
     tagline: '0→1 제품을 빠르게 만들고, 운영 가능한 시스템으로 다듬습니다.',
     proofLabel: '핵심 근거',
+    ctaProjects: '주요 작업 보기',
     ctaContact: '연락하기',
     nowLabel: '지금',
     nowItems: [
-      'Crypto Market Making · B2B 투자관리 대시보드 구축',
-      '미국 보험사를 위한 AI 오케스트레이션 SaaS 백엔드 설계',
+      '크립토 마켓메이킹 시스템 · B2B 투자 대시보드',
+      '미국 보험사향 AI 오케스트레이션 백엔드',
     ],
     keywordsLabel: '요즘 집중',
     availability: {
@@ -78,7 +80,7 @@ const dict = {
     sectionTitle: '소개',
     eyebrow: 'About',
     impact:
-      '핀테크 · 블록체인 · SaaS · AI 도메인에서 0→1 서비스를 구축 · 운영해 온 풀스택 개발자입니다. 백엔드 아키텍처와 AWS/Kubernetes 기반 인프라에 강점이 있으며, 최근에는 LLM · RAG · Web3 응용에 집중하고 있습니다.',
+      '핀테크 · 블록체인 · SaaS · AI에서 0→1 제품을 만들고 운영해 온 풀스택 개발자입니다. 백엔드 아키텍처와 AWS/Kubernetes 인프라를 중심으로, 최근에는 LLM · RAG 응용에 집중하고 있습니다.',
     stat1Label: '실무 경력',
     stat1Suffix: '년+',
     stat2Label: '0→1 서비스',
@@ -87,9 +89,9 @@ const dict = {
     stat3Value: 'AWS · K8s · Terraform',
     philosophyTitle: '일하는 방식',
     philosophy1:
-      '좋은 개발자는 사용자 요구사항과 UX · 비즈니스 목표를 이해하고 해결하는 사람이라 믿습니다. 지표 기반 의사결정과 사용자 피드백 루프를 중시하며, 안정적인 서비스를 위한 클라우드 인프라와 SDLC 구축에 관심이 많습니다.',
+      '사용자 문제와 비즈니스 목표를 먼저 이해한 뒤, 구조와 운영 방식을 설계합니다.',
     philosophy2:
-      '다양한 관점을 중시하고 혁신적인 솔루션으로 시장을 개척하는 팀을 찾고 있습니다. 체계적인 절차를 바탕으로 한 신속한 의사결정과 실행이 시장에 큰 영향을 미치는 서비스를 만드는 열쇠라고 생각합니다.',
+      '지표와 피드백 루프로 다음 우선순위를 정하고, 빠르게 실행하는 팀을 선호합니다.',
     domainsTitle: '도메인 연차',
     domains: {
       fullstack: '풀스택 / 백엔드',
@@ -98,11 +100,32 @@ const dict = {
       saas: 'SaaS',
       ai: 'AI / LLM',
     },
+    outcomesTitle: '선별된 성과',
+    outcomes: [
+      {
+        label: '배포 신뢰성',
+        value: '500+ 무중단 배포',
+        note:
+          'EKS · ArgoCD 기반 Blue-Green 파이프라인으로 0초 다운타임, 30초 이내 롤백을 유지했습니다.',
+      },
+      {
+        label: '실서비스 트래픽',
+        value: '일 500만 건 메시징',
+        note:
+          '비즈메시징 API를 피크 3,000 RPS 환경에서 운영하며 큐 공정성과 재시도 전략을 안정화했습니다.',
+      },
+      {
+        label: '운영 자동화',
+        value: '20분 → 4분',
+        note:
+          '미국 보험사 파일럿에서 LLM 오케스트레이션으로 평균 처리시간을 약 80% 줄였습니다.',
+      },
+    ],
     yearsShort: '년+',
   },
   manifesto: {
-    sectionTitle: 'AI와 일하는 방식',
-    eyebrow: 'How I Build',
+    sectionTitle: 'AI 작업 방식',
+    eyebrow: 'Approach',
     thesis:
       'AI로 속도를 높이되, 구조와 가드레일, 최종 검증은 사람이 책임져야 한다고 믿습니다.',
     mindsetTitle: 'Principles',
@@ -240,24 +263,24 @@ const dict = {
         title: 'Randibot',
         desc:
           'RCMS · K-Startup 연구비 관리 SaaS. 국책 사업 예산집행 데이터를 자동 수집 · 변환 · 저장하는 ETL 파이프라인과 멀티테넌트 백엔드.',
-        proof: '5개 워크스페이스 온보딩 · 월 1,200건 ETL 안정 운영',
+        proof: '5개 기관 워크스페이스 · 월 1,200건 ETL',
       },
       momentir: {
         title: 'Momentir',
         desc:
           'AI 기반 보험 GA 고객관리 SaaS. LLM으로 고객 노트를 요약하고 일정을 자동 등록하여 설계사의 운영 공수를 절감.',
-        proof: '보험 설계사 파일럿 12명 · 일일 운영 공수 약 30% 절감',
+        proof: '보험 설계사 파일럿 12명 · 운영 공수 약 30% 절감',
       },
       nursevillage: {
         title: 'Nursevillage',
         desc:
           '간호사 커뮤니티 iOS/Android 앱. 위치 기반 소셜 피드와 컬렉션 통계 대시보드.',
-        proof: 'Next.js · React Native 기반 커뮤니티 제품 운영',
+        proof: '간호사 커뮤니티 앱 운영',
       },
       'flfi-exchange': {
         title: 'FLFI 파생 거래소',
         desc: 'OKX Broker API 기반 크립토 파생상품 거래소. 실시간 시세 · 주문 체결 · 포지션 관리.',
-        proof: '120+ 페어 지원 · 체결 지연 약 80ms 유지',
+        proof: '120+ 페어 · 체결 지연 약 80ms',
       },
       'flfi-lending': {
         title: 'FLFI 핀테크 플랫폼',
@@ -268,12 +291,12 @@ const dict = {
       'ontoh-vision': {
         title: 'Ontoh Vision',
         desc: 'CCTV(RTSP) 스트림 → AI 이벤트 감지 → Cloudflare R2 저장 워크플로우.',
-        proof: '업로드 성공률 99.7% · 카메라 증설 시 백엔드 배포 0건',
+        proof: '업로드 성공률 99.7% · 카메라 확장 시 백엔드 배포 없음',
       },
       'rootstone-trading': {
         title: 'Rootstone Trading',
         desc: 'Electron 데스크톱 기반 크립토 차익거래 · 마켓 메이킹 포트폴리오 시스템.',
-        proof: '전략 실행 p95 120ms → 45ms · 일평균 3,000건 체결',
+        proof: '전략 p95 120ms → 45ms · 일평균 3,000건 체결',
       },
     },
   },

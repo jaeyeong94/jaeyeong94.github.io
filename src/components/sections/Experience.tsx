@@ -253,6 +253,11 @@ function ExperienceRow({
             )}
           </h4>
           <p className="mt-1 text-sm text-fg-muted">{exp.role}</p>
+          {exp.teamKey && (
+            <p className="mt-2 inline-flex items-center rounded-full border border-accent-1/20 bg-accent-1/10 px-3 py-1 text-[0.7rem] text-accent-1">
+              {dict.common.sameTeamLabel}
+            </p>
+          )}
           <ul className="mt-4 space-y-2 text-sm leading-relaxed text-fg-muted lg:hidden">
             {item.bullets.map((b, i) => (
               <li key={i} className="flex gap-3">

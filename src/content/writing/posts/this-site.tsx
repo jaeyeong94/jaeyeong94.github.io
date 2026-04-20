@@ -16,6 +16,7 @@ export default function ThisSitePost({ locale }: { locale: Locale }) {
       locale={locale}
       dict={dict}
       title={dict.writing.items['this-site'].title}
+      summary={dict.writing.items['this-site'].summary}
       date={meta.date}
       readTimeMin={meta.readTimeMin}
     >

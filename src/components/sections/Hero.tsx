@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRight, Github, Linkedin, Globe } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Github, Linkedin, Globe } from 'lucide-react';
 import type { Dictionary } from '@/content/i18n';
 import type { Locale } from '@/lib/i18n';
 import { resume, totalCareerMonths, yearsFromMonths } from '@/content/resume';
@@ -75,9 +75,8 @@ export function Hero({ locale, dict }: Props) {
         {/* Role + tagline */}
         <Reveal>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-fg md:mt-8 md:text-lg">
-            {dict.hero.role}
-            <span className="mx-2 text-fg-subtle">—</span>
-            <span className="text-fg-muted">{dict.hero.tagline}</span>
+            <span className="block">{dict.hero.role}</span>
+            <span className="mt-1.5 block text-fg-muted">{dict.hero.tagline}</span>
           </p>
         </Reveal>
 
@@ -150,27 +149,41 @@ export function Hero({ locale, dict }: Props) {
         <Reveal>
           <div className="mt-10 flex flex-wrap items-center gap-3">
             <Link
-              href={`/${locale}/#contact`}
+              href={`/${locale}/#projects`}
               className={cn(
                 'group inline-flex items-center gap-2 rounded-full bg-fg px-6 py-3 text-sm font-medium text-bg',
                 'transition-transform hover:-translate-y-0.5',
               )}
             >
-              {dict.hero.ctaContact}
+              {dict.hero.ctaProjects}
               <ArrowRight
                 className="size-4 transition-transform group-hover:translate-x-1"
                 aria-hidden
               />
             </Link>
-            <SocialIcon href={resume.profile.freelanceSite} label="heyted.dev">
+            <Link
+              href={`/${locale}/#contact`}
+              className={cn(
+                'inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-medium text-fg',
+                'transition-colors hover:border-accent-1 hover:text-accent-1',
+              )}
+            >
+              {dict.hero.ctaContact}
+            </Link>
+          </div>
+        </Reveal>
+
+        <Reveal>
+          <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-fg-muted">
+            <QuickLink href={resume.profile.freelanceSite} label="heyted.dev">
               <Globe className="size-4" aria-hidden />
-            </SocialIcon>
-            <SocialIcon href={resume.profile.github} label="GitHub">
+            </QuickLink>
+            <QuickLink href={resume.profile.github} label="GitHub">
               <Github className="size-4" aria-hidden />
-            </SocialIcon>
-            <SocialIcon href={resume.profile.linkedin} label="LinkedIn">
+            </QuickLink>
+            <QuickLink href={resume.profile.linkedin} label="LinkedIn">
               <Linkedin className="size-4" aria-hidden />
-            </SocialIcon>
+            </QuickLink>
           </div>
         </Reveal>
       </div>
@@ -178,7 +191,7 @@ export function Hero({ locale, dict }: Props) {
   );
 }
 
-function SocialIcon({
+function QuickLink({
   href,
   label,
   children,
@@ -192,10 +205,11 @@ function SocialIcon({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label={label}
-      className="inline-flex size-11 items-center justify-center rounded-full border border-border text-fg-muted transition-colors hover:border-fg hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-1"
+      className="inline-flex items-center gap-1.5 rounded-sm text-fg-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-1"
     >
       {children}
+      <span>{label}</span>
+      <ArrowUpRight className="size-3.5" aria-hidden />
     </a>
   );
 }

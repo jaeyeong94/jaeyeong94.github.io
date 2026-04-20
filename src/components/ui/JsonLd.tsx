@@ -2,6 +2,7 @@ import type { Locale } from '@/lib/i18n';
 import { resume } from '@/content/resume';
 import {
   absoluteUrl,
+  getAbsoluteOgImageUrl,
   getPublisher,
   personAlternateNames,
   personJobTitle,
@@ -57,6 +58,72 @@ export function JsonLdWebsite({
   return <JsonLdScript data={data} />;
 }
 
+export function JsonLdBreadcrumbList({
+  items,
+}: {
+  items: Array<{ name: string; url: string }>;
+}) {
+  const data = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  };
+
+  return <JsonLdScript data={data} />;
+}
+
+export function JsonLdArticle({
+  locale,
+  path,
+  title,
+  description,
+  datePublished,
+  dateModified,
+  siteName,
+  keywords,
+  articleSection,
+}: {
+  locale: Locale;
+  path: string;
+  title: string;
+  description: string;
+  datePublished: string;
+  dateModified?: string;
+  siteName: string;
+  keywords: string[];
+  articleSection?: string;
+}) {
+  const url = absoluteUrl(path);
+  const data = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description,
+    datePublished,
+    dateModified: dateModified ?? datePublished,
+    inLanguage: locale,
+    mainEntityOfPage: url,
+    url,
+    keywords,
+    articleSection,
+    image: getAbsoluteOgImageUrl(),
+    author: getPublisher(),
+    publisher: getPublisher(),
+    isPartOf: {
+      '@type': 'WebSite',
+      url: absoluteUrl(`/${locale}/`),
+      name: siteName,
+    },
+  };
+
+  return <JsonLdScript data={data} />;
+}
+
 export function JsonLdBlogPosting({
   locale,
   slug,
@@ -86,6 +153,7 @@ export function JsonLdBlogPosting({
     mainEntityOfPage: url,
     url,
     keywords,
+    image: getAbsoluteOgImageUrl(),
     author: getPublisher(),
     publisher: getPublisher(),
     isPartOf: {

@@ -1,7 +1,9 @@
 import { resume } from '@/content/resume';
 import type { Locale } from '@/lib/i18n';
 
-export const siteUrl = 'https://jaeyeong94.github.io';
+const configuredSiteUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '');
+
+export const siteUrl = configuredSiteUrl || 'https://jaeyeong.me';
 export const personName = 'Jaeyeong You';
 export const personAlternateNames = ['유재영', 'Ted Ryu'] as const;
 export const personJobTitle = 'Full-stack Developer';
@@ -27,6 +29,10 @@ export function absoluteUrl(path: string) {
 
 export function getOgImage(alt: string) {
   return [{ ...sharedOgImage, alt }];
+}
+
+export function getAbsoluteOgImageUrl() {
+  return absoluteUrl(sharedOgImage.url);
 }
 
 export function getPublisher() {

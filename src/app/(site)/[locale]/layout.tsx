@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import '@/styles/globals.css';
 import { notFound } from 'next/navigation';
 import { locales, isLocale } from '@/lib/i18n';
 import { getDictionary } from '@/content/i18n';
@@ -12,6 +13,7 @@ import {
   openGraphLocaleMap,
   personName,
   publisherName,
+  siteUrl,
 } from '@/lib/seo';
 
 export function generateStaticParams() {
@@ -28,9 +30,13 @@ export async function generateMetadata({
   const dict = getDictionary(locale);
   const openGraphImageAlt = `${dict.meta.siteName} — ${dict.meta.description}`;
   return {
+    metadataBase: new URL(siteUrl),
     title: dict.meta.title,
     description: dict.meta.description,
     applicationName: dict.meta.siteName,
+    icons: {
+      icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
+    },
     keywords: resume.keywords,
     authors: [{ name: personName }],
     creator: personName,
@@ -78,20 +84,23 @@ export default async function LocaleLayout({
 
   const dict = getDictionary(locale);
 
-  const htmlLangScript = `document.documentElement.lang=${JSON.stringify(locale)}`;
-
   return (
-    <>
-      <ThemeScript />
-      <script dangerouslySetInnerHTML={{ __html: htmlLangScript }} />
-      <JsonLdPerson description={dict.meta.description} />
-      <JsonLdWebsite locale={locale} name={dict.meta.siteName} description={dict.meta.description} />
-      <a href="#main-content" className="skip-link">
-        {dict.common.skipToContent}
-      </a>
-      <Nav locale={locale} dict={dict} />
-      {children}
-      <Footer dict={dict} />
-    </>
+    <html lang={locale} suppressHydrationWarning>
+      <body>
+        <ThemeScript />
+        <JsonLdPerson description={dict.meta.description} />
+        <JsonLdWebsite
+          locale={locale}
+          name={dict.meta.siteName}
+          description={dict.meta.description}
+        />
+        <a href="#main-content" className="skip-link">
+          {dict.common.skipToContent}
+        </a>
+        <Nav locale={locale} dict={dict} />
+        {children}
+        <Footer dict={dict} />
+      </body>
+    </html>
   );
 }

@@ -6,6 +6,9 @@ const withBundleAnalyzer = createBundleAnalyzer({
 });
 
 const nextConfig: NextConfig = {
+  experimental: {
+    globalNotFound: true,
+  },
   output: 'export',
   trailingSlash: true,
   images: { unoptimized: true },

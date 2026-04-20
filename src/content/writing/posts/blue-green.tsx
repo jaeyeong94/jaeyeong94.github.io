@@ -16,6 +16,7 @@ export default function BlueGreenPost({ locale }: { locale: Locale }) {
       locale={locale}
       dict={dict}
       title={dict.writing.items['blue-green'].title}
+      summary={dict.writing.items['blue-green'].summary}
       date={meta.date}
       readTimeMin={meta.readTimeMin}
     >

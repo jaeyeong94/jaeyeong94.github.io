@@ -13,7 +13,7 @@ function detectLocale(): Locale {
   return defaultLocale;
 }
 
-export default function RootPage() {
+export function LocaleRedirect() {
   useEffect(() => {
     const detectedLocale = detectLocale();
     const target = `/${detectedLocale}/`;
@@ -23,16 +23,11 @@ export default function RootPage() {
   }, []);
 
   return (
-    <>
-      <noscript>
-        <meta httpEquiv="refresh" content={`0; url=/${defaultLocale}/`} />
-      </noscript>
-      <main className="flex min-h-screen items-center justify-center">
-        <span
-          aria-hidden
-          className="size-8 animate-spin rounded-full border-2 border-border border-t-accent-1"
-        />
-      </main>
-    </>
+    <main className="flex min-h-screen items-center justify-center">
+      <span
+        aria-hidden
+        className="size-8 animate-spin rounded-full border-2 border-border border-t-accent-1"
+      />
+    </main>
   );
 }

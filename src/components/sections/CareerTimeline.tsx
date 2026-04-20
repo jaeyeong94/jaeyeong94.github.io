@@ -156,22 +156,28 @@ export function CareerTimeline({ dict, showLegacy = false }: Props) {
                   const rangeLabel = isPresent
                     ? `${item.start} — ${dict.common.present}`
                     : `${item.start} — ${item.end}`;
+                  const tooltipDescription = isAggregate
+                    ? item.aggregatedCompanies?.join(' · ') ?? ''
+                    : `${rangeLabel}${item.teamKey ? ` · ${dict.common.sameTeamLabel}` : ''}`;
                   return (
-                    <div key={item.id}>
+                    <div
+                      key={item.id}
+                      className="group/bar absolute"
+                      style={{
+                        left: `${left}%`,
+                        width: `${width}%`,
+                        top,
+                        height: rowHeight,
+                      }}
+                    >
                       <div
                         title={
                           isAggregate
                             ? `${fullName} · ${item.aggregatedCompanies?.join(', ') ?? ''} · ${rangeLabel}`
                             : `${fullName} · ${rangeLabel}`
                         }
-                        style={{
-                          left: `${left}%`,
-                          width: `${width}%`,
-                          top,
-                          height: rowHeight,
-                        }}
                         className={cn(
-                          'absolute flex items-center overflow-hidden rounded-md px-2 transition-colors',
+                          'flex h-full items-center overflow-hidden rounded-md px-2 transition-colors',
                           isAggregate
                             ? 'border border-dashed border-fg-subtle/40 bg-bg-subtle/60 text-fg-muted'
                             : isPresent
@@ -187,7 +193,7 @@ export function CareerTimeline({ dict, showLegacy = false }: Props) {
                         {inlineLabel && (
                           <span
                             className={cn(
-                              'truncate font-mono text-[0.65rem] tracking-wide',
+                              'min-w-0 truncate font-mono text-[0.65rem] tracking-wide',
                               isPresent ? 'font-semibold' : 'font-medium',
                             )}
                           >
@@ -214,6 +220,21 @@ export function CareerTimeline({ dict, showLegacy = false }: Props) {
                             →
                           </span>
                         )}
+                      </div>
+                      <div
+                        aria-hidden
+                        className={cn(
+                          'pointer-events-none absolute bottom-[calc(100%+0.55rem)] left-1/2 z-20 w-max max-w-[18rem] -translate-x-1/2 transition-all duration-150',
+                          'opacity-0 translate-y-1 group-hover/bar:translate-y-0 group-hover/bar:opacity-100',
+                        )}
+                      >
+                        <div className="rounded-xl border border-border bg-surface/95 px-3 py-2 shadow-lg backdrop-blur-sm">
+                          <p className="text-xs font-semibold text-fg">{fullName}</p>
+                          <p className="mt-1 text-[0.7rem] leading-relaxed text-fg-muted">
+                            {tooltipDescription}
+                          </p>
+                        </div>
+                        <div className="absolute left-1/2 top-full size-2 -translate-x-1/2 -translate-y-1/2 rotate-45 border-b border-r border-border bg-surface/95" />
                       </div>
                     </div>
                   );

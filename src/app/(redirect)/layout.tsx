@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import '@/styles/globals.css';
-import { getDictionary } from '@/content/i18n';
 import { defaultLocale } from '@/lib/i18n';
+import { getDictionary } from '@/content/i18n';
 import { siteUrl } from '@/lib/seo';
 
 const defaultDict = getDictionary(defaultLocale);
@@ -15,9 +15,9 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RedirectLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ko" suppressHydrationWarning>
+    <html lang={defaultLocale} suppressHydrationWarning>
       <body>{children}</body>
     </html>
   );

@@ -6,11 +6,11 @@ const dict: Dictionary = {
     title: 'Ted Ryu — フルスタック開発者',
     siteName: 'Ted Ryu · ポートフォリオ',
     description:
-      'フィンテック・ブロックチェーン・SaaS・AI領域で0→1サービスを構築してきた11年目のフルスタック開発者。',
+      '0→1のSaaS・AIオーケストレーション・フィンテックシステムを設計・運用するフルスタック開発者。バックエンドアーキテクチャとAWS/Kubernetes基盤に強みがあります。',
   },
   nav: {
     about: '紹介',
-    manifesto: 'マニフェスト',
+    manifesto: '進め方',
     experience: '経歴',
     projects: 'プロジェクト',
     skills: 'スキル',
@@ -39,6 +39,7 @@ const dict: Dictionary = {
     notFoundDescription: '指定されたページは存在しないか、移動されました。',
     backHome: 'ホームへ戻る',
     revealEmail: 'メールアドレスを表示',
+    printPage: '印刷 / PDF',
     sameTeamLabel: '同じチーム · 同一のCEO/CTOと継続',
     commandPaletteOpen: 'セクション検索を開く',
     commandPaletteTitle: 'セクションへ移動',
@@ -54,15 +55,16 @@ const dict: Dictionary = {
   hero: {
     name: 'Ted Ryu',
     altName: 'ユ・ジェヨン',
-    role: 'SaaS・AIオーケストレーション・フィンテックのバックエンドを設計するフルスタック開発者',
+    role: '0→1のSaaS・AIオーケストレーション・フィンテックシステムを作るフルスタック開発者',
     mastheadLabel: 'ポートフォリオ · Vol. 01',
     tagline: '0→1の立ち上げを素早く進め、運用に耐えるシステムまで仕上げます。',
     proofLabel: '実績の要点',
+    ctaProjects: '主な仕事を見る',
     ctaContact: 'お問い合わせ',
     nowLabel: 'Now',
     nowItems: [
-      'Crypto Market Making · B2B投資管理ダッシュボードを構築',
-      '米国保険会社向けAIオーケストレーションSaaSバックエンドを設計',
+      'クリプトのマーケットメイキング基盤とB2B投資ダッシュボード',
+      '米国保険会社向けAIオーケストレーションバックエンド',
     ],
     keywordsLabel: '最近の注力分野',
     availability: {
@@ -80,7 +82,7 @@ const dict: Dictionary = {
     sectionTitle: '紹介',
     eyebrow: 'About',
     impact:
-      'フィンテック・ブロックチェーン・SaaS・AI領域で0→1サービスを構築・運営してきたフルスタック開発者です。バックエンドアーキテクチャとAWS/Kubernetesベースのインフラに強みがあり、最近はLLM・RAG・Web3の応用に注力しています。',
+      'フィンテック・ブロックチェーン・SaaS・AI領域で0→1プロダクトを作り運用してきたフルスタック開発者です。バックエンドアーキテクチャとAWS/Kubernetes基盤を軸に、最近はLLM・RAG応用に注力しています。',
     stat1Label: '実務経験',
     stat1Suffix: '年+',
     stat2Label: '0→1サービス',
@@ -89,9 +91,9 @@ const dict: Dictionary = {
     stat3Value: 'AWS · K8s · Terraform',
     philosophyTitle: '働き方',
     philosophy1:
-      '優れたエンジニアとは、ユーザーの要求とUX、ビジネス目標を理解して解決する人だと考えます。指標ベースの意思決定とフィードバックループを重視し、安定したサービスのためのクラウドインフラとSDLCの構築に関心があります。',
+      'まずユーザー課題とビジネス目標を理解し、その上で構造と運用方法を設計します。',
     philosophy2:
-      '多様な視点を重視し、革新的なソリューションで市場を切り拓くチームを探しています。体系的なプロセスに基づく迅速な意思決定と実行こそ、市場に大きな影響を与えるプロダクトを作る鍵だと考えます。',
+      '指標とフィードバックループで次の優先順位を決め、速く着実に進むチームを好みます。',
     domainsTitle: 'ドメイン経験',
     domains: {
       fullstack: 'フルスタック / バックエンド',
@@ -100,11 +102,32 @@ const dict: Dictionary = {
       saas: 'SaaS',
       ai: 'AI / LLM',
     },
+    outcomesTitle: '主な成果',
+    outcomes: [
+      {
+        label: 'デプロイの信頼性',
+        value: '500回以上の無停止デプロイ',
+        note:
+          'EKS・ArgoCDベースのBlue-Greenパイプラインで、停止0秒・30秒以内のロールバックを維持しました。',
+      },
+      {
+        label: '本番スケール',
+        value: '1日500万件のメッセージ配信',
+        note:
+          'ピーク3,000 RPSのビジネスメッセージAPIを運用し、キューの公平性とリトライ戦略を安定化しました。',
+      },
+      {
+        label: '運用効率',
+        value: '20分 → 4分',
+        note:
+          '米国保険会社のパイロットで、LLMオーケストレーションにより平均処理時間を約80%短縮しました。',
+      },
+    ],
     yearsShort: '年+',
   },
   manifesto: {
-    sectionTitle: 'AIと働くときの考え方',
-    eyebrow: 'How I Build',
+    sectionTitle: 'AIとの進め方',
+    eyebrow: 'Approach',
     thesis:
       'AIでスピードは上げる一方、構造設計・ガードレール・最終検証は人が担うべきだと考えています。',
     mindsetTitle: 'Principles',
@@ -242,25 +265,25 @@ const dict: Dictionary = {
         title: 'Randibot',
         desc:
           'RCMS · K-Startup研究費管理SaaS。国策事業の予算執行データを自動収集・変換・保存するETLパイプラインとマルチテナントバックエンド。',
-        proof: '5ワークスペースをオンボーディング · 月1,200件のETLを安定運用',
+        proof: '5機関のワークスペース · 月1,200件のETL',
       },
       momentir: {
         title: 'Momentir',
         desc:
           '保険エージェント向けAI CRM。LLMで顧客ノートを要約しスケジュールを自動登録、運用工数を削減。',
-        proof: '保険設計士12名のパイロットで日次工数を約30%削減',
+        proof: '保険設計士12名のパイロット · 工数を約30%削減',
       },
       nursevillage: {
         title: 'Nursevillage',
         desc:
           '看護師向けiOS/Androidコミュニティアプリ — 位置ベースのソーシャルフィードとコレクション統計ダッシュボード。',
-        proof: 'Next.js と React Native で運用したコミュニティプロダクト',
+        proof: '看護師コミュニティアプリを運用',
       },
       'flfi-exchange': {
         title: 'FLFI デリバティブ取引所',
         desc:
           'OKX Broker APIベースの暗号資産デリバティブ取引所 — 配信・約定・ポジション管理。',
-        proof: '120超のペアに対応 · 約定レイテンシは約80msを維持',
+        proof: '120超のペア · 約定レイテンシは約80ms',
       },
       'flfi-lending': {
         title: 'FLFI フィンテックプラットフォーム',
@@ -271,13 +294,13 @@ const dict: Dictionary = {
       'ontoh-vision': {
         title: 'Ontoh Vision',
         desc: 'CCTV(RTSP)→ オンサイトAIイベント検知 → Cloudflare R2保存のワークフロー。',
-        proof: 'アップロード成功率99.7% · カメラ増設時のバックエンドデプロイ0件',
+        proof: 'アップロード成功率99.7% · カメラ増設時もバックエンドデプロイ不要',
       },
       'rootstone-trading': {
         title: 'Rootstone Trading',
         desc:
           'Electronデスクトップベースの暗号資産アービトラージ/マーケットメイキングポートフォリオシステム。',
-        proof: '戦略実行p95を120msから45msへ短縮 · 1日平均3,000件約定',
+        proof: '戦略実行p95 120ms → 45ms · 1日平均3,000件約定',
       },
     },
   },

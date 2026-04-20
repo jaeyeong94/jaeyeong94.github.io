@@ -7,6 +7,7 @@ import type { Dictionary } from '@/content/i18n';
 import { LocaleSwitcher } from './LocaleSwitcher';
 import { ThemeToggle } from './ThemeToggle';
 import { CommandPalette } from './CommandPalette';
+import { PrintButton } from './PrintButton';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
 
@@ -23,9 +24,9 @@ export function Nav({ locale, dict }: Props) {
     { href: `${base}#about`, label: dict.nav.about },
     { href: `${base}#experience`, label: dict.nav.experience },
     { href: `${base}#projects`, label: dict.nav.projects },
-    { href: `${base}#manifesto`, label: dict.nav.manifesto },
     { href: `${base}#skills`, label: dict.nav.skills },
     { href: `${base}#writing`, label: dict.nav.writing },
+    { href: `${base}#manifesto`, label: dict.nav.manifesto },
     { href: `${base}#contact`, label: dict.nav.contact },
   ];
 
@@ -67,6 +68,7 @@ export function Nav({ locale, dict }: Props) {
           </ul>
         </nav>
         <div className="flex items-center gap-2">
+          <PrintButton label={dict.common.printPage} />
           <LocaleSwitcher currentLocale={locale} />
           <CommandPalette locale={locale} dict={dict} />
           <ThemeToggle

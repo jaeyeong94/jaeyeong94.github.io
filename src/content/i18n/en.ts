@@ -6,11 +6,11 @@ const dict: Dictionary = {
     title: 'Ted Ryu — Full-stack Developer',
     siteName: 'Ted Ryu · Portfolio',
     description:
-      'A full-stack developer with 11+ years shipping 0→1 products across fintech, blockchain, SaaS, and AI.',
+      'Full-stack developer designing and operating 0→1 SaaS, AI orchestration, and fintech systems with strengths in backend architecture and AWS/Kubernetes infrastructure.',
   },
   nav: {
     about: 'About',
-    manifesto: 'Manifesto',
+    manifesto: 'Approach',
     experience: 'Experience',
     projects: 'Projects',
     skills: 'Skills',
@@ -39,6 +39,7 @@ const dict: Dictionary = {
     notFoundDescription: 'The page you requested does not exist or has moved.',
     backHome: 'Go home',
     revealEmail: 'Reveal email address',
+    printPage: 'Print / PDF',
     sameTeamLabel: 'Same team · continued with the same CEO/CTO',
     commandPaletteOpen: 'Open section search',
     commandPaletteTitle: 'Jump to section',
@@ -54,15 +55,16 @@ const dict: Dictionary = {
   hero: {
     name: 'Ted Ryu',
     altName: 'Jaeyeong You',
-    role: 'Full-stack developer focused on SaaS, AI orchestration, and fintech backends',
+    role: 'Full-stack developer building 0→1 SaaS, AI orchestration, and fintech systems',
     mastheadLabel: 'Portfolio · Vol. 01',
     tagline: 'I take 0→1 products from first architecture to production-grade operations.',
     proofLabel: 'Quick proof',
+    ctaProjects: 'View selected work',
     ctaContact: 'Get in touch',
     nowLabel: 'Now',
     nowItems: [
-      'Building a Crypto Market Making system and a B2B investment dashboard',
-      'Architecting an AI-orchestration SaaS backend for US insurance carriers',
+      'Crypto market-making system and B2B investment dashboard',
+      'AI orchestration backend for US insurance carriers',
     ],
     keywordsLabel: 'Currently focused on',
     availability: {
@@ -80,7 +82,7 @@ const dict: Dictionary = {
     sectionTitle: 'About',
     eyebrow: 'About',
     impact:
-      'Full-stack developer shipping and operating 0→1 products across fintech, blockchain, SaaS, and AI. Strong in backend architecture and AWS/Kubernetes infrastructure, with recent focus on LLM · RAG · Web3 applications.',
+      'Full-stack developer shipping and operating 0→1 products across fintech, blockchain, SaaS, and AI. Strong in backend architecture and AWS/Kubernetes infrastructure, with a recent focus on LLM · RAG applications.',
     stat1Label: 'Years of experience',
     stat1Suffix: 'yr+',
     stat2Label: '0→1 products',
@@ -89,9 +91,9 @@ const dict: Dictionary = {
     stat3Value: 'AWS · K8s · Terraform',
     philosophyTitle: 'How I work',
     philosophy1:
-      'I believe great engineers understand user needs, UX, and business goals — and solve from there. I value metric-driven decisions and fast feedback loops, with a strong investment in resilient cloud infrastructure and SDLC.',
+      'I start by understanding the user problem and business goal, then design the system and operating model around them.',
     philosophy2:
-      'I look for teams that embrace diverse perspectives and open new markets with innovative solutions. Rapid decisions and disciplined execution are, to me, the keys to products that truly move the market.',
+      'I use metrics and feedback loops to set the next priority, and I work best with teams that move quickly and deliberately.',
     domainsTitle: 'Domains',
     domains: {
       fullstack: 'Fullstack / Backend',
@@ -100,11 +102,32 @@ const dict: Dictionary = {
       saas: 'SaaS',
       ai: 'AI / LLM',
     },
+    outcomesTitle: 'Selected outcomes',
+    outcomes: [
+      {
+        label: 'Deployment reliability',
+        value: '500+ zero-downtime deploys',
+        note:
+          'Built EKS + ArgoCD blue-green pipelines with 0s deploy downtime and rollbacks under 30s.',
+      },
+      {
+        label: 'Production scale',
+        value: '5M messages/day',
+        note:
+          'Ran business-messaging APIs at a 3,000 RPS peak, stabilizing queue fairness and retry behavior.',
+      },
+      {
+        label: 'Ops efficiency',
+        value: '20 min → 4 min',
+        note:
+          'Cut pilot insurance back-office handling time by about 80% through LLM orchestration.',
+      },
+    ],
     yearsShort: 'yr+',
   },
   manifesto: {
-    sectionTitle: 'How I build with AI',
-    eyebrow: 'How I Build',
+    sectionTitle: 'Working with AI',
+    eyebrow: 'Approach',
     thesis:
       'I move fast with AI, but I keep architecture, guardrails, and final verification in human hands.',
     mindsetTitle: 'Principles',
@@ -242,25 +265,25 @@ const dict: Dictionary = {
         title: 'Randibot',
         desc:
           'RCMS · K-Startup research budget management SaaS. ETL pipeline and multi-tenant backend for public-funded project operations.',
-        proof: '5 workspaces onboarded · ~1,200 ETL runs/month in steady operation',
+        proof: '5 agency workspaces · ~1,200 ETL runs/month',
       },
       momentir: {
         title: 'Momentir',
         desc:
           'AI-powered CRM for insurance agents. Uses LLMs to summarize client notes and auto-schedule follow-ups, saving operational effort.',
-        proof: '12-agent pilot · ~30% less daily ops effort',
+        proof: '12-agent pilot · ~30% less ops effort',
       },
       nursevillage: {
         title: 'Nursevillage',
         desc:
           'iOS/Android community app for nurses — location-based social feed with collection analytics dashboards.',
-        proof: 'Community product shipped with Next.js and React Native',
+        proof: 'Community app in production',
       },
       'flfi-exchange': {
         title: 'FLFI Derivatives Exchange',
         desc:
           'Crypto derivatives exchange on OKX Broker API — real-time streaming, matching, and position management.',
-        proof: '120+ pairs supported · execution latency held near 80 ms',
+        proof: '120+ pairs · execution latency near 80 ms',
       },
       'flfi-lending': {
         title: 'FLFI Fintech Platform',
@@ -271,13 +294,13 @@ const dict: Dictionary = {
       'ontoh-vision': {
         title: 'Ontoh Vision',
         desc: 'CCTV (RTSP) → on-site AI event detection → Cloudflare R2 workflow.',
-        proof: '99.7% upload success · 0 backend deploys when scaling camera nodes',
+        proof: '99.7% upload success · 0 backend deploys for camera expansion',
       },
       'rootstone-trading': {
         title: 'Rootstone Trading',
         desc:
           'Electron desktop system for crypto arbitrage and market-making portfolios.',
-        proof: 'Strategy p95 cut from 120 ms to 45 ms · ~3,000 daily fills',
+        proof: 'Strategy p95 120 ms → 45 ms · ~3,000 daily fills',
       },
     },
   },

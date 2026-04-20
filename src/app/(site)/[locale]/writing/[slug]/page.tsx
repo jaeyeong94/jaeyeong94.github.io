@@ -3,9 +3,10 @@ import type { Metadata } from 'next';
 import { locales, isLocale } from '@/lib/i18n';
 import { resume } from '@/content/resume';
 import { getDictionary } from '@/content/i18n';
-import { JsonLdBlogPosting } from '@/components/ui/JsonLd';
+import { JsonLdBlogPosting, JsonLdBreadcrumbList } from '@/components/ui/JsonLd';
 import { isWritingSlug, writingPosts } from '@/content/writing';
 import {
+  absoluteUrl,
   getOgImage,
   openGraphLocaleMap,
   personName,
@@ -97,6 +98,12 @@ export default async function WritingPostPage({
         datePublished={writingPosts[slug].meta.date}
         siteName={dict.meta.siteName}
         keywords={[item.title, ...resume.keywords]}
+      />
+      <JsonLdBreadcrumbList
+        items={[
+          { name: dict.meta.brandName, url: absoluteUrl(`/${locale}/`) },
+          { name: item.title, url: absoluteUrl(`/${locale}/writing/${slug}/`) },
+        ]}
       />
       <main id="main-content">
         <Component locale={locale} />

@@ -16,6 +16,7 @@ export default function MultiTenantSaasPost({ locale }: { locale: Locale }) {
       locale={locale}
       dict={dict}
       title={dict.writing.items['multi-tenant-saas'].title}
+      summary={dict.writing.items['multi-tenant-saas'].summary}
       date={meta.date}
       readTimeMin={meta.readTimeMin}
     >

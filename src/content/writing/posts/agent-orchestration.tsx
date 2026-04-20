@@ -16,6 +16,7 @@ export default function AgentOrchestrationPost({ locale }: { locale: Locale }) {
       locale={locale}
       dict={dict}
       title={dict.writing.items['agent-orchestration'].title}
+      summary={dict.writing.items['agent-orchestration'].summary}
       date={meta.date}
       readTimeMin={meta.readTimeMin}
     >
