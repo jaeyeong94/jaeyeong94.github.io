@@ -56,29 +56,29 @@ export function Contact({ dict }: Props) {
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-1 rounded-sm text-fg transition-colors hover:text-accent-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-1 focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
             >
-              heyted.dev
+              {dict.contact.freelanceValue}
               <ArrowUpRight className="size-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden />
             </a>
           </ContactLine>
-          <ContactLine label="GitHub">
+          <ContactLine label={dict.contact.githubLabel}>
             <a
               href={resume.profile.github}
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-1 rounded-sm text-fg transition-colors hover:text-accent-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-1 focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
             >
-              github.com/jaeyeong94
+              {dict.contact.githubValue}
               <ArrowUpRight className="size-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden />
             </a>
           </ContactLine>
-          <ContactLine label="LinkedIn">
+          <ContactLine label={dict.contact.linkedinLabel}>
             <a
               href={resume.profile.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-1 rounded-sm text-fg transition-colors hover:text-accent-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-1 focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
             >
-              linkedin.com/in/jae-yeong-you
+              {dict.contact.linkedinValue}
               <ArrowUpRight className="size-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden />
             </a>
           </ContactLine>
@@ -87,13 +87,13 @@ export function Contact({ dict }: Props) {
 
       <Reveal>
         <div className="mt-10 flex flex-wrap items-center gap-3">
-          <IconLink href={resume.profile.freelanceSite} label="heyted.dev">
+          <IconLink href={resume.profile.freelanceSite} label={dict.contact.freelanceValue}>
             <Globe className="size-4" aria-hidden />
           </IconLink>
-          <IconLink href={resume.profile.github} label="GitHub">
+          <IconLink href={resume.profile.github} label={dict.contact.githubLabel}>
             <Github className="size-4" aria-hidden />
           </IconLink>
-          <IconLink href={resume.profile.linkedin} label="LinkedIn">
+          <IconLink href={resume.profile.linkedin} label={dict.contact.linkedinLabel}>
             <Linkedin className="size-4" aria-hidden />
           </IconLink>
         </div>

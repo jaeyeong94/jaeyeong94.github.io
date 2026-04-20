@@ -50,7 +50,7 @@ export function Nav({ locale, dict }: Props) {
           href={base}
           className="font-semibold tracking-tight text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-1"
         >
-          Ted Ryu
+          {dict.meta.brandName}
         </Link>
         <nav className="hidden md:block" aria-label={dict.common.primaryNavigation}>
           <ul className="flex items-center gap-6 text-sm text-fg-muted">

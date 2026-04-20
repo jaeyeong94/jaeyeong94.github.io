@@ -1,10 +1,15 @@
 import type { Metadata } from 'next';
 import '@/styles/globals.css';
+import { getDictionary } from '@/content/i18n';
+import { defaultLocale } from '@/lib/i18n';
+import { siteUrl } from '@/lib/seo';
+
+const defaultDict = getDictionary(defaultLocale);
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://jaeyeong94.github.io'),
-  title: 'Ted Ryu · 유재영',
-  description: 'Full-stack Developer — Portfolio',
+  metadataBase: new URL(siteUrl),
+  title: defaultDict.meta.title,
+  description: defaultDict.meta.description,
   icons: {
     icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
   },

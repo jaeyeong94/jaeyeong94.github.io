@@ -91,7 +91,7 @@ export default async function LocaleLayout({
       </a>
       <Nav locale={locale} dict={dict} />
       {children}
-      <Footer />
+      <Footer dict={dict} />
     </>
   );
 }

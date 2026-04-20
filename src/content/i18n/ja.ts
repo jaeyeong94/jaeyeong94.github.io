@@ -2,6 +2,7 @@ import type { Dictionary } from './ko';
 
 const dict: Dictionary = {
   meta: {
+    brandName: 'Ted Ryu',
     title: 'Ted Ryu — フルスタック開発者',
     siteName: 'Ted Ryu · ポートフォリオ',
     description:
@@ -406,9 +407,15 @@ const dict: Dictionary = {
     locationValue: 'ソウル, 韓国',
     emailLabel: 'メール',
     freelanceLabel: 'フリーランス紹介',
+    freelanceValue: 'heyted.dev',
+    githubLabel: 'GitHub',
+    githubValue: 'github.com/jaeyeong94',
+    linkedinLabel: 'LinkedIn',
+    linkedinValue: 'linkedin.com/in/jae-yeong-you',
     testimonials: '推薦状・リファレンスはご要望に応じてご提供します。',
   },
   footer: {
+    credit: 'Ted Ryu · Jaeyeong You',
     updated: '最終更新',
     builtWith: 'Built with Next.js',
   },

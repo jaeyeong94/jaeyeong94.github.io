@@ -36,6 +36,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Quality checks
+        run: pnpm lint && pnpm typecheck && pnpm check:i18n
+
       - name: Build
         env:
           NEXT_PUBLIC_SITE_URL: https://jaeyeong94.github.io

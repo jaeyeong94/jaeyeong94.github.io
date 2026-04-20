@@ -12,6 +12,7 @@
     "test": "pnpm build && pnpm test:smoke",
     "test:e2e": "playwright test",
     "test:smoke": "vitest run",
+    "check:i18n": "node scripts/check-i18n-literals.mjs",
     "lint": "eslint .",
     "typecheck": "next typegen && tsc --noEmit",
     "format": "prettier --write ."

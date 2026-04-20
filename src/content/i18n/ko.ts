@@ -1,5 +1,6 @@
 const dict = {
   meta: {
+    brandName: 'Ted Ryu',
     title: '유재영 · Ted Ryu — 풀스택 개발자',
     siteName: 'Ted Ryu · 포트폴리오',
     description:
@@ -399,9 +400,15 @@ const dict = {
     locationValue: 'Seoul, Korea',
     emailLabel: '이메일',
     freelanceLabel: '프리랜서 소개',
+    freelanceValue: 'heyted.dev',
+    githubLabel: 'GitHub',
+    githubValue: 'github.com/jaeyeong94',
+    linkedinLabel: 'LinkedIn',
+    linkedinValue: 'linkedin.com/in/jae-yeong-you',
     testimonials: '추천사 · 레퍼런스는 요청 시 제공합니다.',
   },
   footer: {
+    credit: 'Ted Ryu · Jaeyeong You',
     updated: '마지막 업데이트',
     builtWith: 'Built with Next.js',
   },
