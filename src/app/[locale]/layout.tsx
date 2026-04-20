@@ -5,7 +5,14 @@ import { getDictionary } from '@/content/i18n';
 import { Nav } from '@/components/layout/Nav';
 import { Footer } from '@/components/layout/Footer';
 import { ThemeScript } from '@/components/layout/ThemeScript';
-import { JsonLdPerson } from '@/components/ui/JsonLd';
+import { resume } from '@/content/resume';
+import { JsonLdPerson, JsonLdWebsite } from '@/components/ui/JsonLd';
+import {
+  getOgImage,
+  openGraphLocaleMap,
+  personName,
+  publisherName,
+} from '@/lib/seo';
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -19,9 +26,15 @@ export async function generateMetadata({
   const { locale } = await params;
   if (!isLocale(locale)) return {};
   const dict = getDictionary(locale);
+  const openGraphImageAlt = `${dict.meta.siteName} — ${dict.meta.description}`;
   return {
     title: dict.meta.title,
     description: dict.meta.description,
+    applicationName: dict.meta.siteName,
+    keywords: resume.keywords,
+    authors: [{ name: personName }],
+    creator: personName,
+    publisher: publisherName,
     alternates: {
       canonical: `/${locale}/`,
       languages: {
@@ -37,12 +50,17 @@ export async function generateMetadata({
       description: dict.meta.description,
       url: `/${locale}/`,
       siteName: dict.meta.siteName,
-      locale,
+      locale: openGraphLocaleMap[locale],
+      alternateLocale: locales
+        .filter((lang) => lang !== locale)
+        .map((lang) => openGraphLocaleMap[lang]),
       type: 'profile',
-      images: ['/og-image.png'],
+      images: getOgImage(openGraphImageAlt),
     },
     twitter: {
       card: 'summary_large_image',
+      title: dict.meta.title,
+      description: dict.meta.description,
       images: ['/og-image.png'],
     },
   };
@@ -66,7 +84,8 @@ export default async function LocaleLayout({
     <>
       <ThemeScript />
       <script dangerouslySetInnerHTML={{ __html: htmlLangScript }} />
-      <JsonLdPerson />
+      <JsonLdPerson description={dict.meta.description} />
+      <JsonLdWebsite locale={locale} name={dict.meta.siteName} description={dict.meta.description} />
       <a href="#main-content" className="skip-link">
         {dict.common.skipToContent}
       </a>

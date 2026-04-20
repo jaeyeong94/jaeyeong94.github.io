@@ -3,7 +3,14 @@ import type { Metadata } from 'next';
 import { locales, isLocale } from '@/lib/i18n';
 import { resume } from '@/content/resume';
 import { getDictionary } from '@/content/i18n';
+import { JsonLdBlogPosting } from '@/components/ui/JsonLd';
 import { isWritingSlug, writingPosts } from '@/content/writing';
+import {
+  getOgImage,
+  openGraphLocaleMap,
+  personName,
+  publisherName,
+} from '@/lib/seo';
 
 export function generateStaticParams() {
   const params: Array<{ locale: string; slug: string }> = [];
@@ -30,10 +37,15 @@ export async function generateMetadata({
   const languageAlternates = Object.fromEntries(
     locales.map((lang) => [lang, `/${lang}/writing/${slug}/`]),
   );
+  const openGraphImageAlt = `${item.title} — ${dict.meta.siteName}`;
 
   return {
     title: item.title,
     description: item.summary,
+    keywords: [item.title, ...resume.keywords],
+    authors: [{ name: personName }],
+    creator: personName,
+    publisher: publisherName,
     alternates: {
       canonical: url,
       languages: {
@@ -46,10 +58,14 @@ export async function generateMetadata({
       description: item.summary,
       url,
       siteName: dict.meta.siteName,
-      locale,
+      locale: openGraphLocaleMap[locale],
+      alternateLocale: locales
+        .filter((lang) => lang !== locale)
+        .map((lang) => openGraphLocaleMap[lang]),
       type: 'article',
       publishedTime: post.meta.date,
-      images: ['/og-image.png'],
+      authors: [personName],
+      images: getOgImage(openGraphImageAlt),
     },
     twitter: {
       card: 'summary_large_image',
@@ -69,9 +85,22 @@ export default async function WritingPostPage({
   if (!isLocale(locale)) notFound();
   if (!isWritingSlug(slug)) notFound();
   const { Component } = writingPosts[slug];
+  const dict = getDictionary(locale);
+  const item = dict.writing.items[slug];
   return (
-    <main id="main-content">
-      <Component locale={locale} />
-    </main>
+    <>
+      <JsonLdBlogPosting
+        locale={locale}
+        slug={slug}
+        title={item.title}
+        description={item.summary}
+        datePublished={writingPosts[slug].meta.date}
+        siteName={dict.meta.siteName}
+        keywords={[item.title, ...resume.keywords]}
+      />
+      <main id="main-content">
+        <Component locale={locale} />
+      </main>
+    </>
   );
 }
