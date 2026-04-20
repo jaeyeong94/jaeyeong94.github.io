@@ -44,6 +44,12 @@ jobs:
       - name: Smoke test export
         run: pnpm test:smoke
 
+      - name: Install Playwright browser
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: E2E smoke test
+        run: pnpm test:e2e
+
       - name: Ensure .nojekyll
         run: touch out/.nojekyll
 

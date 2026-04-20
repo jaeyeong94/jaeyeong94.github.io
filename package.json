@@ -7,8 +7,10 @@
     "dev": "next dev",
     "build": "next build --webpack",
     "build:turbopack": "next build",
+    "preview:out": "serve out -l 4173 --no-clipboard",
     "start": "next start",
     "test": "pnpm build && pnpm test:smoke",
+    "test:e2e": "playwright test",
     "test:smoke": "vitest run",
     "lint": "eslint .",
     "typecheck": "next typegen && tsc --noEmit",
@@ -26,6 +28,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
+    "@playwright/test": "^1.59.1",
     "@types/node": "^22.9.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
@@ -35,6 +38,7 @@
     "postcss": "^8.4.49",
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.8",
+    "serve": "^14.2.6",
     "tailwindcss": "^3.4.14",
     "typescript": "^5.6.3",
     "vitest": "^4.1.4"
