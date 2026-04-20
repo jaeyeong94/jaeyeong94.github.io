@@ -1,11 +1,12 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useSyncExternalStore } from 'react';
 import { Sun, Moon, Monitor } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 type Theme = 'light' | 'dark' | 'system';
 const STORAGE_KEY = 'ted-ryu-theme';
+const THEME_CHANGE_EVENT = 'ted-ryu-theme-change';
 
 interface Props {
   labels: {
@@ -25,22 +26,49 @@ function applyTheme(theme: Theme) {
   }
 }
 
+function getStoredTheme(): Theme {
+  if (typeof window === 'undefined') return 'system';
+
+  const stored = window.localStorage.getItem(STORAGE_KEY);
+  if (stored === 'light' || stored === 'dark' || stored === 'system') {
+    return stored;
+  }
+
+  return 'system';
+}
+
+function subscribeToTheme(callback: () => void) {
+  if (typeof window === 'undefined') return () => {};
+
+  const handleStorage = (event: StorageEvent) => {
+    if (event.key === STORAGE_KEY) callback();
+  };
+  const handleThemeChange = () => callback();
+
+  window.addEventListener('storage', handleStorage);
+  window.addEventListener(THEME_CHANGE_EVENT, handleThemeChange);
+
+  return () => {
+    window.removeEventListener('storage', handleStorage);
+    window.removeEventListener(THEME_CHANGE_EVENT, handleThemeChange);
+  };
+}
+
+function setStoredTheme(theme: Theme) {
+  window.localStorage.setItem(STORAGE_KEY, theme);
+  window.dispatchEvent(new Event(THEME_CHANGE_EVENT));
+}
+
 export function ThemeToggle({ labels }: Props) {
-  const [theme, setTheme] = useState<Theme>('system');
-  const [mounted, setMounted] = useState(false);
+  const theme = useSyncExternalStore<Theme>(subscribeToTheme, getStoredTheme, () => 'system');
 
   useEffect(() => {
-    const stored = (localStorage.getItem(STORAGE_KEY) as Theme | null) ?? 'system';
-    setTheme(stored);
-    applyTheme(stored);
-    setMounted(true);
-  }, []);
+    applyTheme(theme);
+  }, [theme]);
 
   function cycle() {
     const next: Theme = theme === 'system' ? 'light' : theme === 'light' ? 'dark' : 'system';
-    setTheme(next);
-    localStorage.setItem(STORAGE_KEY, next);
-    applyTheme(next);
+    setStoredTheme(next);
   }
 
   const Icon = theme === 'light' ? Sun : theme === 'dark' ? Moon : Monitor;
@@ -59,7 +87,7 @@ export function ThemeToggle({ labels }: Props) {
         'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-1',
       )}
     >
-      {mounted && <Icon className="size-4" aria-hidden />}
+      <Icon className="size-4" aria-hidden />
     </button>
   );
 }
