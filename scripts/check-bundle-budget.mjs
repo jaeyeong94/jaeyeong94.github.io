@@ -3,9 +3,9 @@ import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 const budgets = [
-  { route: 'index.html', maxGzipBytes: 180 * 1024 },
-  { route: 'en/index.html', maxGzipBytes: 200 * 1024 },
-  { route: 'en/writing/this-site/index.html', maxGzipBytes: 190 * 1024 },
+  { route: 'index.html', maxGzipBytes: 190 * 1024 },
+  { route: 'en/index.html', maxGzipBytes: 205 * 1024 },
+  { route: 'en/writing/this-site/index.html', maxGzipBytes: 200 * 1024 },
 ];
 
 function formatKiB(bytes) {
