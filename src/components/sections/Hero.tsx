@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { ArrowRight, Github, Linkedin, Globe } from 'lucide-react';
 import type { Dictionary } from '@/content/i18n';
 import type { Locale } from '@/lib/i18n';
-import { resume } from '@/content/resume';
+import { resume, totalCareerMonths, yearsFromMonths } from '@/content/resume';
 import { Reveal } from '@/components/ui/Reveal';
 import { cn } from '@/lib/utils';
 
@@ -13,6 +13,21 @@ interface Props {
 
 export function Hero({ locale, dict }: Props) {
   const availability = resume.availability;
+  const years = yearsFromMonths(totalCareerMonths(resume.profile.careerStart));
+  const proofItems = [
+    {
+      label: dict.about.stat1Label,
+      value: `${years} ${dict.about.stat1Suffix}`,
+    },
+    {
+      label: dict.about.stat2Label,
+      value: dict.about.stat2Value,
+    },
+    {
+      label: dict.about.stat3Label,
+      value: dict.about.stat3Value,
+    },
+  ];
 
   return (
     <section className="relative isolate overflow-hidden">
@@ -64,6 +79,28 @@ export function Hero({ locale, dict }: Props) {
             <span className="mx-2 text-fg-subtle">—</span>
             <span className="text-fg-muted">{dict.hero.tagline}</span>
           </p>
+        </Reveal>
+
+        <Reveal>
+          <div className="mt-10 border-y border-border py-6 md:mt-12">
+            <div className="flex flex-col gap-5 md:flex-row md:items-start md:gap-8">
+              <p className="text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle">
+                {dict.hero.proofLabel}
+              </p>
+              <dl className="grid flex-1 gap-4 sm:grid-cols-3">
+                {proofItems.map((item) => (
+                  <div key={item.label} className="rounded-2xl border border-border bg-surface px-4 py-4">
+                    <dt className="text-[0.65rem] font-medium uppercase tracking-[0.28em] text-fg-subtle">
+                      {item.label}
+                    </dt>
+                    <dd className="mt-2 text-base font-semibold text-fg md:text-lg">
+                      {item.value}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </div>
         </Reveal>
 
         {/* Now */}

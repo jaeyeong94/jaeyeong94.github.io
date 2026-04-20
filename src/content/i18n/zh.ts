@@ -54,9 +54,10 @@ const dict: Dictionary = {
   hero: {
     name: 'Ted Ryu',
     altName: '刘在荣',
-    role: '全栈开发者 · 后端主导',
+    role: '专注SaaS、AI编排与金融科技后端的全栈开发者',
     mastheadLabel: '作品集 · Vol. 01',
-    tagline: '打造驱动业务增长的产品。',
+    tagline: '我把0→1产品从初始架构推进到可稳定运营的系统。',
+    proofLabel: '核心依据',
     ctaContact: '联系我',
     nowLabel: '当前',
     nowItems: [
@@ -102,35 +103,29 @@ const dict: Dictionary = {
     yearsShort: '年+',
   },
   manifesto: {
-    sectionTitle: 'AI时代的开发',
-    eyebrow: 'Manifesto',
-    thesis: 'AI是工具,人是导演。只有理解才能提问,只有理解才能验证。',
-    mindsetTitle: 'Mindset',
-    actionsTitle: 'Actions',
+    sectionTitle: '我如何与AI协作',
+    eyebrow: 'How I Build',
+    thesis: '我会用AI提升速度,但结构设计、防护栏和最终验证必须由人负责。',
+    mindsetTitle: 'Principles',
+    actionsTitle: 'In practice',
     mindset: [
       {
-        key: 'agentic',
-        title: 'Agentic Engineering',
+        key: 'structure',
+        title: '先设计结构',
         note:
-          'AI代理运行的基础设施与护栏由人来设计。架构决策、分工与安全边界依然是人的责任。',
+          '面对代理系统和自动化,我会先处理架构、防护栏与可审计性,再优化提示与流程。',
       },
       {
         key: 'verify',
-        title: '知识即质量门禁',
+        title: '用领域知识做验证',
         note:
-          '11年的生产经验与领域知识成为AI产出的验证层。只有理解才能提问,只有理解才能验证。',
-      },
-      {
-        key: 'learn',
-        title: '复利式学习',
-        note: '持续吸收新的技术栈、领域与问题空间。AI时代的前提条件是"持续的自我教育"。',
+          '对领域理解越深,提问就越准确,筛掉低质量结果的速度也越快。',
       },
     ],
     actions: [
-      '把过去因成本与时间限制无法尝试的服务与工具亲自做出来。',
-      '参与开源,专注于问题本身。',
-      '探索与实验符合AI时代的商业思维、领导力与协作方式。',
-      '用软件对这些问题给出原型级答案。',
+      '把重复工作和运维瓶颈改造成可自动化的工作流。',
+      '先做小型原型,再让指标和用户反馈决定下一步。',
+      '快速吸收新工具,但对生产质量设更高标准。',
     ],
     lookingForTitle: '正在寻找的团队',
     lookingFor: [
@@ -245,32 +240,39 @@ const dict: Dictionary = {
       randibot: {
         title: 'Randibot',
         desc: 'RCMS · K-Startup研究经费管理SaaS。面向国策项目预算执行的ETL管道与多租户后端。',
+        proof: '已接入5个工作区 · 月均约1,200次ETL稳定运行',
       },
       momentir: {
         title: 'Momentir',
         desc:
           '面向保险设计师的AI CRM。通过LLM自动摘要客户笔记并注册日程,降低运营工时。',
+        proof: '12名保险顾问试点 · 日常运营工时下降约30%',
       },
       nursevillage: {
         title: 'Nursevillage',
         desc: '面向护士的iOS/Android社区App — 基于位置的社交Feed与收藏统计仪表盘。',
+        proof: '基于Next.js与React Native交付的社区产品',
       },
       'flfi-exchange': {
         title: 'FLFI 衍生品交易所',
         desc: '基于OKX Broker API的加密衍生品交易所 — 实时行情、撮合与仓位管理。',
+        proof: '支持120+交易对 · 成交延迟稳定在约80ms',
       },
       'flfi-lending': {
         title: 'FLFI 金融科技平台',
         desc:
           'NestJS + Vue 3 + EKS端到端架构,蓝绿部署,图片CDN,Web3 DApp。',
+        proof: '500+次零停机部署 · 图片p95从420ms降至120ms',
       },
       'ontoh-vision': {
         title: 'Ontoh Vision',
         desc: 'CCTV(RTSP)→ 现场AI事件检测 → Cloudflare R2存储工作流。',
+        proof: '上传成功率99.7% · 摄像头扩容时后端零发布',
       },
       'rootstone-trading': {
         title: 'Rootstone Trading',
         desc: '基于Electron桌面端的加密套利与做市投资组合系统。',
+        proof: '策略执行p95从120ms降至45ms · 日均约3,000笔成交',
       },
     },
   },

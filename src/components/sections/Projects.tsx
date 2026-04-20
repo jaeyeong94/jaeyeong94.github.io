@@ -24,7 +24,7 @@ export function Projects({ dict, locale }: Props) {
     >
       <Reveal>
         <div className="flex items-center gap-4">
-          <span className="font-mono text-sm text-fg-subtle">04</span>
+          <span className="font-mono text-sm text-fg-subtle">03</span>
           <span className="h-px flex-1 bg-border" />
           <span className="text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle">
             {dict.projects.eyebrow}
@@ -127,6 +127,7 @@ function LiveProjectCard({
         ) : null}
       </div>
       <p className="mt-3 flex-1 text-sm leading-relaxed text-fg-muted">{item.desc}</p>
+      <p className="mt-4 text-sm font-medium leading-relaxed text-fg">{item.proof}</p>
       <p className="mt-5 font-mono text-xs text-fg-subtle">{project.stack.join(' · ')}</p>
       {host && (
         <p className="mt-4 border-t border-border pt-3 font-mono text-xs text-fg-subtle">
@@ -174,6 +175,7 @@ function InternalProjectCard({ project, dict }: { project: Project; dict: Dictio
         </span>
       </div>
       <p className="mt-3 text-sm leading-relaxed text-fg-muted">{item.desc}</p>
+      <p className="mt-4 text-sm font-medium leading-relaxed text-fg">{item.proof}</p>
       <p className="mt-4 font-mono text-xs text-fg-subtle">{project.stack.join(' · ')}</p>
     </article>
   );

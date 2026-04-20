@@ -39,9 +39,9 @@ export function CommandPalette({ locale, dict }: Props) {
   const base = `/${locale}/`;
   const items: Array<{ href: string; label: string }> = [
     { href: `${base}#about`, label: dict.nav.about },
-    { href: `${base}#manifesto`, label: dict.nav.manifesto },
     { href: `${base}#experience`, label: dict.nav.experience },
     { href: `${base}#projects`, label: dict.nav.projects },
+    { href: `${base}#manifesto`, label: dict.nav.manifesto },
     { href: `${base}#skills`, label: dict.nav.skills },
     { href: `${base}#writing`, label: dict.nav.writing },
     { href: `${base}#contact`, label: dict.nav.contact },

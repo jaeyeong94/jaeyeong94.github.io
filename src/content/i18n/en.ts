@@ -54,9 +54,10 @@ const dict: Dictionary = {
   hero: {
     name: 'Ted Ryu',
     altName: 'Jaeyeong You',
-    role: 'Full-stack Developer · Backend-focused',
+    role: 'Full-stack developer focused on SaaS, AI orchestration, and fintech backends',
     mastheadLabel: 'Portfolio · Vol. 01',
-    tagline: 'I build products that drive business growth.',
+    tagline: 'I take 0→1 products from first architecture to production-grade operations.',
+    proofLabel: 'Quick proof',
     ctaContact: 'Get in touch',
     nowLabel: 'Now',
     nowItems: [
@@ -102,37 +103,30 @@ const dict: Dictionary = {
     yearsShort: 'yr+',
   },
   manifesto: {
-    sectionTitle: 'Building in the AI era',
-    eyebrow: 'Manifesto',
+    sectionTitle: 'How I build with AI',
+    eyebrow: 'How I Build',
     thesis:
-      'AI is the tool; a human directs. You can only ask what you understand — and only verify what you know.',
-    mindsetTitle: 'Mindset',
-    actionsTitle: 'Actions',
+      'I move fast with AI, but I keep architecture, guardrails, and final verification in human hands.',
+    mindsetTitle: 'Principles',
+    actionsTitle: 'In practice',
     mindset: [
       {
-        key: 'agentic',
-        title: 'Agentic engineering',
+        key: 'structure',
+        title: 'I design the structure first',
         note:
-          'I architect the infrastructure and guardrails that AI agents run inside. Architecture, division of labor, and safety controls remain a human responsibility.',
+          'For agentic systems and automation, architecture, guardrails, and auditability come before prompt iteration.',
       },
       {
         key: 'verify',
-        title: 'Knowledge as the quality gate',
+        title: 'I verify through domain knowledge',
         note:
-          'Eleven years of production and domain knowledge become the verification layer for AI output. You can only ask what you know — and only validate what you understand.',
-      },
-      {
-        key: 'learn',
-        title: 'Compound learning',
-        note:
-          'New stacks, new domains, new problem spaces — absorbed continuously. In the AI era, relentless self-education is the prerequisite, not a bonus.',
+          'The more I understand the domain, the better I can ask, review, and reject low-quality output.',
       },
     ],
     actions: [
-      'Shipping services and tools that cost/time constraints had previously blocked.',
-      'Contributing to open source, focused on problems over polish.',
-      'Experimenting with business, leadership, and collaboration patterns fit for this era.',
-      'Prototyping software that answers those questions.',
+      'I turn repetitive work and ops bottlenecks into automatable workflows.',
+      'I prototype small, then let metrics and user feedback decide the next move.',
+      'I adopt new tools quickly, but I hold production quality to a stricter bar.',
     ],
     lookingForTitle: 'What I look for',
     lookingFor: [
@@ -248,35 +242,42 @@ const dict: Dictionary = {
         title: 'Randibot',
         desc:
           'RCMS · K-Startup research budget management SaaS. ETL pipeline and multi-tenant backend for public-funded project operations.',
+        proof: '5 workspaces onboarded · ~1,200 ETL runs/month in steady operation',
       },
       momentir: {
         title: 'Momentir',
         desc:
           'AI-powered CRM for insurance agents. Uses LLMs to summarize client notes and auto-schedule follow-ups, saving operational effort.',
+        proof: '12-agent pilot · ~30% less daily ops effort',
       },
       nursevillage: {
         title: 'Nursevillage',
         desc:
           'iOS/Android community app for nurses — location-based social feed with collection analytics dashboards.',
+        proof: 'Community product shipped with Next.js and React Native',
       },
       'flfi-exchange': {
         title: 'FLFI Derivatives Exchange',
         desc:
           'Crypto derivatives exchange on OKX Broker API — real-time streaming, matching, and position management.',
+        proof: '120+ pairs supported · execution latency held near 80 ms',
       },
       'flfi-lending': {
         title: 'FLFI Fintech Platform',
         desc:
           'NestJS + Vue 3 + EKS end-to-end architecture, blue-green delivery, image CDN, and Web3 DApp.',
+        proof: '500+ zero-downtime deploys · image p95 cut from 420 ms to 120 ms',
       },
       'ontoh-vision': {
         title: 'Ontoh Vision',
         desc: 'CCTV (RTSP) → on-site AI event detection → Cloudflare R2 workflow.',
+        proof: '99.7% upload success · 0 backend deploys when scaling camera nodes',
       },
       'rootstone-trading': {
         title: 'Rootstone Trading',
         desc:
           'Electron desktop system for crypto arbitrage and market-making portfolios.',
+        proof: 'Strategy p95 cut from 120 ms to 45 ms · ~3,000 daily fills',
       },
     },
   },

@@ -16,7 +16,7 @@ export function Manifesto({ dict }: Props) {
       <div className="section-frame section-pad scroll-mt-24">
         <Reveal>
           <div className="flex items-center gap-4">
-            <span className="font-mono text-sm text-fg-subtle">02</span>
+            <span className="font-mono text-sm text-fg-subtle">04</span>
             <span className="h-px flex-1 bg-border" />
             <span className="text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle">
               {m.eyebrow}
@@ -32,20 +32,20 @@ export function Manifesto({ dict }: Props) {
 
         {/* Thesis */}
         <Reveal>
-          <p className="mt-10 max-w-5xl text-xl leading-snug text-fg md:mt-12 md:text-2xl lg:text-3xl">
+          <p className="mt-8 max-w-4xl text-lg leading-relaxed text-fg md:mt-10 md:text-xl lg:text-2xl">
             {m.thesis}
           </p>
         </Reveal>
 
         {/* Mindset / Actions */}
-        <div className="mt-14 grid grid-cols-1 gap-14 border-t border-border pt-12 lg:grid-cols-2 lg:gap-16">
+        <div className="mt-10 grid grid-cols-1 gap-8 border-t border-border pt-8 lg:grid-cols-2 lg:gap-10">
           <Reveal>
-            <p className="mb-6 text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle">
+            <p className="mb-4 text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle">
               ❖ {m.mindsetTitle}
             </p>
-            <ol className="divide-y divide-border border-y border-border">
+            <ol className="divide-y divide-border rounded-2xl border border-border bg-surface">
               {m.mindset.map((it, i) => (
-                <li key={it.key} className="py-6">
+                <li key={it.key} className="px-5 py-5">
                   <div className="flex items-baseline gap-4">
                     <span className="font-mono text-xs text-fg-subtle">
                       {String(i + 1).padStart(2, '0')}
@@ -59,10 +59,10 @@ export function Manifesto({ dict }: Props) {
           </Reveal>
 
           <Reveal>
-            <p className="mb-6 text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle">
+            <p className="mb-4 text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle">
               → {m.actionsTitle}
             </p>
-            <ul className="space-y-4">
+            <ul className="space-y-3 rounded-2xl border border-border bg-surface p-5">
               {m.actions.map((a, i) => (
                 <li key={i} className="flex items-start gap-4">
                   <span aria-hidden className="mt-3 h-px w-6 shrink-0 bg-accent-1/70" />
@@ -72,28 +72,6 @@ export function Manifesto({ dict }: Props) {
             </ul>
           </Reveal>
         </div>
-
-        {/* Looking For */}
-        <Reveal>
-          <div className="mt-14 border-t border-border pt-10">
-            <p className="mb-6 text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle">
-              ⌾ {m.lookingForTitle}
-            </p>
-            <ul className="grid grid-cols-1 gap-x-8 gap-y-3 md:grid-cols-2">
-              {m.lookingFor.map((item, i) => (
-                <li key={i} className="flex items-baseline gap-3">
-                  <span
-                    aria-hidden
-                    className="font-mono text-xs text-fg-subtle"
-                  >
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
-                  <span className="text-sm text-fg-muted md:text-base">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </Reveal>
       </div>
     </section>
   );

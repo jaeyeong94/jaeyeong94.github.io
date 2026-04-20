@@ -54,9 +54,10 @@ const dict: Dictionary = {
   hero: {
     name: 'Ted Ryu',
     altName: 'ユ・ジェヨン',
-    role: 'フルスタック開発者 · バックエンド中心',
+    role: 'SaaS・AIオーケストレーション・フィンテックのバックエンドを設計するフルスタック開発者',
     mastheadLabel: 'ポートフォリオ · Vol. 01',
-    tagline: 'ビジネスの成長を牽引するプロダクトを作ります。',
+    tagline: '0→1の立ち上げを素早く進め、運用に耐えるシステムまで仕上げます。',
+    proofLabel: '実績の要点',
     ctaContact: 'お問い合わせ',
     nowLabel: 'Now',
     nowItems: [
@@ -102,37 +103,30 @@ const dict: Dictionary = {
     yearsShort: '年+',
   },
   manifesto: {
-    sectionTitle: 'AI時代の開発',
-    eyebrow: 'Manifesto',
+    sectionTitle: 'AIと働くときの考え方',
+    eyebrow: 'How I Build',
     thesis:
-      'AIはツール、人がディレクター。理解しているからこそ依頼でき、理解しているからこそ検証できる。',
-    mindsetTitle: 'Mindset',
-    actionsTitle: 'Actions',
+      'AIでスピードは上げる一方、構造設計・ガードレール・最終検証は人が担うべきだと考えています。',
+    mindsetTitle: 'Principles',
+    actionsTitle: 'In practice',
     mindset: [
       {
-        key: 'agentic',
-        title: 'エージェンティック・エンジニアリング',
+        key: 'structure',
+        title: 'まず構造を設計する',
         note:
-          'AIエージェントが動くインフラとガードレールを人が設計する。アーキテクチャの意思決定・分業・安全策は人の責任。',
+          'エージェントや自動化では、プロンプト調整より先にアーキテクチャ、ガードレール、監査可能性を整えます。',
       },
       {
         key: 'verify',
-        title: '知識こそ品質ゲート',
+        title: 'ドメイン知識で検証する',
         note:
-          '11年間の実務経験とドメイン知識が、AI出力の検証レイヤーとして機能する。理解しているからこそ依頼でき、理解しているからこそ検証できる。',
-      },
-      {
-        key: 'learn',
-        title: '複利で積み上がる学習',
-        note:
-          '新しいスタック・ドメイン・問題空間を絶え間なく吸収する。AI時代の前提条件は"継続的な自己研鑽"だ。',
+          '理解している領域ほど、依頼の精度もレビューの速度も上げられると考えています。',
       },
     ],
     actions: [
-      'コストと時間の制約で手が出せなかったサービスとツールを自ら作る。',
-      'オープンソースに貢献し、問題解決そのものにフォーカスする。',
-      'AI時代にふさわしい事業観・リーダーシップ・協働のパターンを試行し整理する。',
-      'それらの問いに対してソフトウェアで答えを出すプロトタイプを作る。',
+      '反復作業や運用上のボトルネックを、自動化できるワークフローに置き換えます。',
+      '小さくプロトタイプを作り、指標とユーザーフィードバックで次を決めます。',
+      '新しい道具は素早く取り入れますが、本番品質の基準はより厳しく見ます。',
     ],
     lookingForTitle: '探しているチーム',
     lookingFor: [
@@ -248,35 +242,42 @@ const dict: Dictionary = {
         title: 'Randibot',
         desc:
           'RCMS · K-Startup研究費管理SaaS。国策事業の予算執行データを自動収集・変換・保存するETLパイプラインとマルチテナントバックエンド。',
+        proof: '5ワークスペースをオンボーディング · 月1,200件のETLを安定運用',
       },
       momentir: {
         title: 'Momentir',
         desc:
           '保険エージェント向けAI CRM。LLMで顧客ノートを要約しスケジュールを自動登録、運用工数を削減。',
+        proof: '保険設計士12名のパイロットで日次工数を約30%削減',
       },
       nursevillage: {
         title: 'Nursevillage',
         desc:
           '看護師向けiOS/Androidコミュニティアプリ — 位置ベースのソーシャルフィードとコレクション統計ダッシュボード。',
+        proof: 'Next.js と React Native で運用したコミュニティプロダクト',
       },
       'flfi-exchange': {
         title: 'FLFI デリバティブ取引所',
         desc:
           'OKX Broker APIベースの暗号資産デリバティブ取引所 — 配信・約定・ポジション管理。',
+        proof: '120超のペアに対応 · 約定レイテンシは約80msを維持',
       },
       'flfi-lending': {
         title: 'FLFI フィンテックプラットフォーム',
         desc:
           'NestJS + Vue 3 + EKSによる一貫アーキテクチャ、Blue-Greenデプロイ、画像CDN、Web3 DApp。',
+        proof: '500回超の無停止デプロイ · 画像p95を420msから120msへ短縮',
       },
       'ontoh-vision': {
         title: 'Ontoh Vision',
         desc: 'CCTV(RTSP)→ オンサイトAIイベント検知 → Cloudflare R2保存のワークフロー。',
+        proof: 'アップロード成功率99.7% · カメラ増設時のバックエンドデプロイ0件',
       },
       'rootstone-trading': {
         title: 'Rootstone Trading',
         desc:
           'Electronデスクトップベースの暗号資産アービトラージ/マーケットメイキングポートフォリオシステム。',
+        proof: '戦略実行p95を120msから45msへ短縮 · 1日平均3,000件約定',
       },
     },
   },

@@ -52,9 +52,10 @@ const dict = {
   hero: {
     name: '유재영',
     altName: 'Ted Ryu',
-    role: '풀스택 개발자 · 백엔드 중심',
+    role: 'SaaS · AI 오케스트레이션 · 핀테크 백엔드를 설계하는 풀스택 개발자',
     mastheadLabel: '포트폴리오 · Vol. 01',
-    tagline: '비즈니스 성장을 주도하는 제품을 만듭니다.',
+    tagline: '0→1 제품을 빠르게 만들고, 운영 가능한 시스템으로 다듬습니다.',
+    proofLabel: '핵심 근거',
     ctaContact: '연락하기',
     nowLabel: '지금',
     nowItems: [
@@ -100,37 +101,30 @@ const dict = {
     yearsShort: '년+',
   },
   manifesto: {
-    sectionTitle: 'AI 시대의 개발',
-    eyebrow: 'Manifesto',
+    sectionTitle: 'AI와 일하는 방식',
+    eyebrow: 'How I Build',
     thesis:
-      'AI는 도구, 사람이 디렉터다. 알아야 요청할 수 있고, 알아야 검증할 수 있다.',
-    mindsetTitle: 'Mindset',
-    actionsTitle: 'Actions',
+      'AI로 속도를 높이되, 구조와 가드레일, 최종 검증은 사람이 책임져야 한다고 믿습니다.',
+    mindsetTitle: 'Principles',
+    actionsTitle: 'In practice',
     mindset: [
       {
-        key: 'agentic',
-        title: '에이전틱 엔지니어링',
+        key: 'structure',
+        title: '구조를 먼저 설계합니다',
         note:
-          'AI 에이전트가 움직일 인프라와 가드레일을 사람이 설계한다. 아키텍처 결정·분업 구조·안전장치는 사람의 몫.',
+          '에이전트와 자동화는 프롬프트보다 아키텍처, 가드레일, 감사 가능성이 먼저라고 봅니다.',
       },
       {
         key: 'verify',
-        title: '지식이 품질 게이트',
+        title: '도메인 지식으로 검증합니다',
         note:
-          '11년간 쌓은 실무 경험과 도메인 지식이 AI 결과물의 검증 레이어로 작동한다. 알아야 요청하고, 알아야 검증할 수 있다.',
-      },
-      {
-        key: 'learn',
-        title: '복리로 쌓이는 학습',
-        note:
-          '새로운 스택·도메인·문제 공간을 끊임없이 흡수한다. AI 시대의 전제조건은 "지속적인 자기계발" 이다.',
+          '알고 있는 만큼 더 정확히 요청할 수 있고, 더 빨리 결과를 걸러낼 수 있습니다.',
       },
     ],
     actions: [
-      '비용과 시간 제약으로 시도하지 못했던 서비스와 툴을 직접 만든다.',
-      '오픈소스에 기여하며 "문제 해결" 자체에 집중한다.',
-      'AI 시대에 맞는 사업 마인드·리더십·협업 방식을 실험하고 정리한다.',
-      '그 질문들에 소프트웨어로 답할 수 있는 솔루션을 프로토타이핑한다.',
+      '반복 업무와 운영 병목을 자동화 가능한 워크플로우로 바꿉니다.',
+      '작게 프로토타이핑하고, 지표와 사용자 피드백으로 다음 단계를 정합니다.',
+      '새 도구는 빠르게 흡수하되, 프로덕션 품질 기준은 더 엄격하게 봅니다.',
     ],
     lookingForTitle: '찾는 팀',
     lookingFor: [
@@ -246,33 +240,40 @@ const dict = {
         title: 'Randibot',
         desc:
           'RCMS · K-Startup 연구비 관리 SaaS. 국책 사업 예산집행 데이터를 자동 수집 · 변환 · 저장하는 ETL 파이프라인과 멀티테넌트 백엔드.',
+        proof: '5개 워크스페이스 온보딩 · 월 1,200건 ETL 안정 운영',
       },
       momentir: {
         title: 'Momentir',
         desc:
           'AI 기반 보험 GA 고객관리 SaaS. LLM으로 고객 노트를 요약하고 일정을 자동 등록하여 설계사의 운영 공수를 절감.',
+        proof: '보험 설계사 파일럿 12명 · 일일 운영 공수 약 30% 절감',
       },
       nursevillage: {
         title: 'Nursevillage',
         desc:
           '간호사 커뮤니티 iOS/Android 앱. 위치 기반 소셜 피드와 컬렉션 통계 대시보드.',
+        proof: 'Next.js · React Native 기반 커뮤니티 제품 운영',
       },
       'flfi-exchange': {
         title: 'FLFI 파생 거래소',
         desc: 'OKX Broker API 기반 크립토 파생상품 거래소. 실시간 시세 · 주문 체결 · 포지션 관리.',
+        proof: '120+ 페어 지원 · 체결 지연 약 80ms 유지',
       },
       'flfi-lending': {
         title: 'FLFI 핀테크 플랫폼',
         desc:
           'NestJS + Vue 3 + EKS 기반 서비스 아키텍처 전체 설계 · 무중단 Blue-Green · 이미지 CDN · Web3 DApp.',
+        proof: '500+ 무중단 배포 · 이미지 p95 420ms → 120ms',
       },
       'ontoh-vision': {
         title: 'Ontoh Vision',
         desc: 'CCTV(RTSP) 스트림 → AI 이벤트 감지 → Cloudflare R2 저장 워크플로우.',
+        proof: '업로드 성공률 99.7% · 카메라 증설 시 백엔드 배포 0건',
       },
       'rootstone-trading': {
         title: 'Rootstone Trading',
         desc: 'Electron 데스크톱 기반 크립토 차익거래 · 마켓 메이킹 포트폴리오 시스템.',
+        proof: '전략 실행 p95 120ms → 45ms · 일평균 3,000건 체결',
       },
     },
   },
