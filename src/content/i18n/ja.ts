@@ -233,6 +233,8 @@ const dict: Dictionary = {
     eyebrow: 'Selected Work',
     description: '公開中のプロダクトと、クローズ/社内向けの主要業務をまとめて。',
     viewSite: 'サイトを開く',
+    viewCaseStudy: '詳細を見る',
+    backToProjects: 'プロジェクトへ戻る',
     publicGroup: '公開プロダクト',
     publicGroupDesc: 'フリーランス契約で手がけたサービス',
     internalGroup: '非公開・終了案件',

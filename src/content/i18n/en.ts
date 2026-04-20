@@ -233,6 +233,8 @@ const dict: Dictionary = {
     eyebrow: 'Selected Work',
     description: 'A curated mix of shipped public products and closed or internal work.',
     viewSite: 'Open site',
+    viewCaseStudy: 'Case study',
+    backToProjects: 'Back to projects',
     publicGroup: 'Live products',
     publicGroupDesc: 'Services delivered through freelance engagements',
     internalGroup: 'Closed & internal work',

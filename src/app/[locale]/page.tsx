@@ -31,7 +31,7 @@ export default async function LocalePage({
       <About locale={locale} dict={dict} />
       <Manifesto dict={dict} />
       <Experience locale={locale} dict={dict} />
-      <Projects dict={dict} />
+      <Projects dict={dict} locale={locale} />
       <Skills dict={dict} />
       <Writing dict={dict} locale={locale} />
       <Reading dict={dict} />

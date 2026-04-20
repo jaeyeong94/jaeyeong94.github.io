@@ -1,14 +1,18 @@
+import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import type { Dictionary } from '@/content/i18n';
+import { hasProjectCaseStudy } from '@/content/projects';
 import { resume, type Project } from '@/content/resume';
+import type { Locale } from '@/lib/i18n';
 import { Reveal } from '@/components/ui/Reveal';
 import { cn } from '@/lib/utils';
 
 interface Props {
   dict: Dictionary;
+  locale: Locale;
 }
 
-export function Projects({ dict }: Props) {
+export function Projects({ dict, locale }: Props) {
   const live = resume.projects.filter((p) => p.status === 'live');
   const others = resume.projects.filter((p) => p.status !== 'live');
 
@@ -52,7 +56,7 @@ export function Projects({ dict }: Props) {
         <ul className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {live.map((p) => (
             <Reveal key={p.id} as="li">
-              <LiveProjectCard project={p} dict={dict} />
+              <LiveProjectCard project={p} dict={dict} locale={locale} />
             </Reveal>
           ))}
         </ul>
@@ -79,29 +83,48 @@ export function Projects({ dict }: Props) {
   );
 }
 
-function LiveProjectCard({ project, dict }: { project: Project; dict: Dictionary }) {
+function LiveProjectCard({
+  project,
+  dict,
+  locale,
+}: {
+  project: Project;
+  dict: Dictionary;
+  locale: Locale;
+}) {
   const item = dict.projects.items[project.id];
   const host = project.url ? new URL(project.url).host.replace(/^www\./, '') : null;
+  const caseStudyHref = hasProjectCaseStudy(project.id) ? `/${locale}/projects/${project.id}/` : null;
 
   return (
-    <a
-      href={project.url}
-      target="_blank"
-      rel="noopener noreferrer"
+    <article
       className={cn(
         'group flex h-full flex-col rounded-2xl border border-border bg-surface p-6 transition-all',
         'hover:-translate-y-0.5 hover:border-accent-1/40 hover:shadow-md',
-        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-1 focus-visible:ring-offset-2 focus-visible:ring-offset-bg',
       )}
     >
       <div className="flex items-start justify-between gap-3">
-        <h3 className="text-lg font-semibold text-fg group-hover:text-accent-1">
-          {item.title}
-        </h3>
-        <ArrowUpRight
-          className="size-4 shrink-0 text-fg-subtle transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-fg"
-          aria-hidden
-        />
+        {caseStudyHref ? (
+          <Link
+            href={caseStudyHref}
+            className="text-lg font-semibold text-fg transition-colors hover:text-accent-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-1"
+          >
+            {item.title}
+          </Link>
+        ) : (
+          <h3 className="text-lg font-semibold text-fg">{item.title}</h3>
+        )}
+        {project.url ? (
+          <a
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${item.title} ${dict.projects.viewSite}`}
+            className="rounded-sm text-fg-subtle transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-1"
+          >
+            <ArrowUpRight className="size-4 shrink-0" aria-hidden />
+          </a>
+        ) : null}
       </div>
       <p className="mt-3 flex-1 text-sm leading-relaxed text-fg-muted">{item.desc}</p>
       <p className="mt-5 font-mono text-xs text-fg-subtle">{project.stack.join(' · ')}</p>
@@ -110,7 +133,27 @@ function LiveProjectCard({ project, dict }: { project: Project; dict: Dictionary
           {host}
         </p>
       )}
-    </a>
+      <div className="mt-4 flex flex-wrap gap-2">
+        {caseStudyHref ? (
+          <Link
+            href={caseStudyHref}
+            className="inline-flex items-center rounded-full border border-border px-3 py-1.5 text-xs text-fg transition-colors hover:border-accent-1 hover:text-accent-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-1"
+          >
+            {dict.projects.viewCaseStudy}
+          </Link>
+        ) : null}
+        {project.url ? (
+          <a
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center rounded-full border border-border px-3 py-1.5 text-xs text-fg transition-colors hover:border-accent-1 hover:text-accent-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-1"
+          >
+            {dict.projects.viewSite}
+          </a>
+        ) : null}
+      </div>
+    </article>
   );
 }
 

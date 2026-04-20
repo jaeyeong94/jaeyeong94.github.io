@@ -231,6 +231,8 @@ const dict = {
     eyebrow: 'Selected Work',
     description: '공개된 제품과, 비공개/종료된 주요 작업을 함께 정리.',
     viewSite: '사이트 열기',
+    viewCaseStudy: '상세 보기',
+    backToProjects: '프로젝트로 돌아가기',
     publicGroup: '공개 제품',
     publicGroupDesc: '프리랜서 포지션으로 작업한 서비스',
     internalGroup: '비공개 · 종료 프로젝트',

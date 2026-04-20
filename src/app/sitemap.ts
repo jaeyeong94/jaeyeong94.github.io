@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next';
+import { projectCaseStudies } from '@/content/projects';
 import { resume } from '@/content/resume';
 import { writingPosts } from '@/content/writing';
 import { locales } from '@/lib/i18n';
@@ -24,5 +25,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   );
 
-  return [...pages, ...writings];
+  const projectDetails = locales.flatMap((locale) =>
+    Object.keys(projectCaseStudies).map((slug) => ({
+      url: `https://jaeyeong94.github.io/${locale}/projects/${slug}/`,
+      lastModified: toIsoDate(projectCaseStudies[slug as keyof typeof projectCaseStudies].updatedAt),
+      changeFrequency: 'monthly' as const,
+      priority: 0.75,
+    })),
+  );
+
+  return [...pages, ...writings, ...projectDetails];
 }

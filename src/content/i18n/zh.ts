@@ -231,6 +231,8 @@ const dict: Dictionary = {
     eyebrow: 'Selected Work',
     description: '公开产品与已下线或内部项目的精选组合。',
     viewSite: '打开网站',
+    viewCaseStudy: '查看详情',
+    backToProjects: '返回项目',
     publicGroup: '公开产品',
     publicGroupDesc: '以自由职业身份交付的服务',
     internalGroup: '内部 / 已下线项目',

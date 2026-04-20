@@ -34,6 +34,18 @@ test('emits article metadata and structured data for writing detail pages', asyn
   ).toBe(true);
 });
 
+test('renders the Randibot case study page', async ({ page }) => {
+  await page.goto('/en/projects/randibot/');
+
+  await expect(page.getByRole('heading', { name: 'Randibot' })).toBeVisible();
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+    'href',
+    'https://jaeyeong94.github.io/en/projects/randibot/',
+  );
+  await expect(page.getByText('5 workspaces onboarded')).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Open site' })).toBeVisible();
+});
+
 test('serves the exported not-found page', async ({ page }) => {
   await page.goto('/404/');
 
