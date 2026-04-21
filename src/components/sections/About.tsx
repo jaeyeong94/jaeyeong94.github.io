@@ -57,7 +57,7 @@ export function About({ dict }: Props) {
       </div>
 
       {/* Domain breakdown */}
-      <Reveal>
+      <Reveal className="resume-print-hidden">
         <div className="mt-14 border-t border-border pt-8">
           <p className="mb-4 text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle">
             ◈ {dict.about.domainsTitle}
@@ -76,7 +76,7 @@ export function About({ dict }: Props) {
         </div>
       </Reveal>
 
-      <Reveal>
+      <Reveal className="resume-print-hidden">
         <div className="mt-16 grid grid-cols-1 gap-8 border-t border-border pt-10 md:grid-cols-12 md:gap-12">
           <p className="text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle md:col-span-3">
             ⟡ {dict.about.outcomesTitle}

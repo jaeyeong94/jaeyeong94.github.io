@@ -181,7 +181,7 @@ export function JsonLdArticle({
     url,
     keywords,
     articleSection,
-    image: getAbsoluteOgImageUrl(),
+    image: absoluteUrl(`${path}opengraph-image`),
     author: getPublisher(),
     publisher: getPublisher(),
     isPartOf: {
@@ -223,7 +223,7 @@ export function JsonLdBlogPosting({
     mainEntityOfPage: url,
     url,
     keywords,
-    image: getAbsoluteOgImageUrl(),
+    image: absoluteUrl(`/${locale}/writing/${slug}/opengraph-image`),
     author: getPublisher(),
     publisher: getPublisher(),
     isPartOf: {

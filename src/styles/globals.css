@@ -269,6 +269,9 @@ body {
   .resume-print-hidden {
     display: none !important;
   }
+  .resume-print-trim {
+    display: none !important;
+  }
   .resume-print-only {
     display: block !important;
   }

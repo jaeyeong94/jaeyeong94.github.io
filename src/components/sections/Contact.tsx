@@ -29,7 +29,7 @@ export function Contact({ dict }: Props) {
         {dict.contact.sectionTitle}
       </h2>
 
-      <Reveal>
+      <Reveal className="resume-print-hidden">
         <p className="mt-10 max-w-3xl text-2xl font-bold tracking-tight text-fg md:text-4xl">
           {dict.contact.headline}
         </p>

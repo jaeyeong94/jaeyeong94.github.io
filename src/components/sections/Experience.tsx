@@ -211,7 +211,7 @@ function ExperienceRow({
     <Reveal as="li">
       <article
         data-team-key={exp.teamKey}
-        className="resume-print-keep group grid grid-cols-1 gap-x-8 gap-y-4 md:grid-cols-[7rem_1fr] lg:grid-cols-[8rem_1fr_minmax(0,32rem)]"
+        className={`resume-print-keep ${exp.id === 'miso' || exp.id === 'aligo' ? 'resume-print-trim' : ''} group grid grid-cols-1 gap-x-8 gap-y-4 md:grid-cols-[7rem_1fr] lg:grid-cols-[8rem_1fr_minmax(0,32rem)]`}
       >
         {/* Left rail: year span */}
         <div className="md:pt-1">

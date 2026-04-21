@@ -54,7 +54,7 @@ jobs:
         run: pnpm exec playwright install --with-deps chromium
 
       - name: E2E smoke test
-        run: pnpm test:e2e
+        run: pnpm test:e2e:smoke
 
       - name: Ensure .nojekyll
         run: touch out/.nojekyll

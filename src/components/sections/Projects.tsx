@@ -20,7 +20,7 @@ export function Projects({ dict, locale }: Props) {
     <section
       id="projects"
       aria-labelledby="projects-heading"
-      className="section-frame section-pad relative scroll-mt-24"
+      className="resume-print-hidden section-frame section-pad relative scroll-mt-24"
     >
       <Reveal>
         <div className="flex items-center gap-4">

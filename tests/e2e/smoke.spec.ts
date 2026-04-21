@@ -63,7 +63,10 @@ test('emits article metadata and structured data for writing detail pages', asyn
   const jsonLdEntries = await page.locator('script[type="application/ld+json"]').allTextContents();
   expect(
     jsonLdEntries.some(
-      (entry) => entry.includes('"@type":"BlogPosting"') && entry.includes('"headline":"Building this site"'),
+      (entry) =>
+        entry.includes('"@type":"BlogPosting"') &&
+        entry.includes('"headline":"Building this site"') &&
+        entry.includes('/en/writing/this-site/opengraph-image'),
     ),
   ).toBe(true);
 });
@@ -109,7 +112,10 @@ test('renders the Momentir case study page', async ({ page }) => {
   const jsonLdEntries = await page.locator('script[type="application/ld+json"]').allTextContents();
   expect(
     jsonLdEntries.some(
-      (entry) => entry.includes('"@type":"Article"') && entry.includes('"headline":"Momentir"'),
+      (entry) =>
+        entry.includes('"@type":"Article"') &&
+        entry.includes('"headline":"Momentir"') &&
+        entry.includes('/en/projects/momentir/opengraph-image'),
     ),
   ).toBe(true);
 });

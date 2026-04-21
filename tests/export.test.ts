@@ -104,6 +104,7 @@ describe('static export smoke', () => {
     `);
     expect(html).toMatch(/\/en\/writing\/this-site\/opengraph-image-[^"?]+/);
     expect(html).toMatch(/\/en\/writing\/this-site\/twitter-image-[^"?]+/);
+    expect(html).toContain('/en/writing/this-site/opengraph-image"');
   });
 
   it('exports the Momentir case study page', () => {
@@ -114,6 +115,7 @@ describe('static export smoke', () => {
     expect(html).toContain('https://jaeyeong.me/en/projects/momentir/');
     expect(html).toMatch(/\/en\/projects\/momentir\/opengraph-image-[^"?]+/);
     expect(html).toMatch(/\/en\/projects\/momentir\/twitter-image-[^"?]+/);
+    expect(html).toContain('/en/projects/momentir/opengraph-image"');
   });
 
   it('exports the FLFI fintech platform case study page', () => {
@@ -122,5 +124,12 @@ describe('static export smoke', () => {
     expect(html).toContain('FLFI Fintech Platform');
     expect(html).toContain('500+ zero-downtime deploys');
     expect(html).toContain('https://jaeyeong.me/en/projects/flfi-lending/');
+  });
+
+  it('copies stable metadata image routes after build', () => {
+    expect(existsSync(resolve(outDir, 'en/projects/momentir/opengraph-image'))).toBe(true);
+    expect(existsSync(resolve(outDir, 'en/projects/momentir/twitter-image'))).toBe(true);
+    expect(existsSync(resolve(outDir, 'en/writing/this-site/opengraph-image'))).toBe(true);
+    expect(existsSync(resolve(outDir, 'en/writing/this-site/twitter-image'))).toBe(true);
   });
 });

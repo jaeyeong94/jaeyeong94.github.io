@@ -62,7 +62,7 @@ export function Skills({ dict }: Props) {
         </ol>
       </div>
 
-      <div className="mt-12">
+      <div className="resume-print-hidden mt-12">
         <Reveal>
           <p className="mb-5 text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle">
             + {dict.skills.othersTitle}
