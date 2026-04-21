@@ -54,7 +54,7 @@ export function Hero({ locale, dict }: Props) {
     <section className="relative isolate overflow-hidden">
       <div className="section-frame pb-16 pt-24 md:pb-20 md:pt-28">
         {/* Masthead rule */}
-        <Reveal>
+        <Reveal className="resume-print-hidden">
           <div className="flex items-end justify-between gap-6 border-b border-border pb-5">
             <p className="text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle">
               {dict.hero.mastheadLabel} · {new Date().getFullYear()}
@@ -72,7 +72,7 @@ export function Hero({ locale, dict }: Props) {
               {dict.hero.altName}
             </p>
             <h1 className="leading-[1] tracking-tight">
-              <span className="name-shimmer block text-5xl font-bold md:text-6xl lg:text-7xl">
+              <span className="block text-5xl font-bold md:text-6xl lg:text-7xl">
                 {dict.hero.name}
               </span>
               <span className="mt-2 block text-2xl font-medium text-fg-muted md:text-3xl lg:text-4xl">
@@ -83,7 +83,7 @@ export function Hero({ locale, dict }: Props) {
         </Reveal>
 
         {/* Availability — editorial byline */}
-        <Reveal>
+        <Reveal className="resume-print-hidden">
           <div className="mt-6 flex items-center gap-3 text-sm" role="status">
             <span className="font-mono text-[0.65rem] font-medium uppercase tracking-[0.35em] text-accent-1">
               {dict.hero.availabilityBadge[availability]}
@@ -117,7 +117,7 @@ export function Hero({ locale, dict }: Props) {
           </ul>
         </div>
 
-        <Reveal>
+        <Reveal className="resume-print-hidden">
           <div className="mt-10 border-y border-border py-6 md:mt-12">
             <div className="flex flex-col gap-5 md:flex-row md:items-start md:gap-8">
               <p className="text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle">

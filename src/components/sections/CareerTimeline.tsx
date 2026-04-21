@@ -12,6 +12,7 @@ interface Props {
 const INLINE_LABEL_MIN_PERCENT = 5;
 const LEGACY_AGGREGATE_ID = 'legacy-era';
 const RECENT_EMPHASIS_MONTHS = 24;
+const TOOLTIP_CLEARANCE_CLASS = 'pt-14';
 
 type BarItem = {
   id: string;
@@ -128,7 +129,7 @@ export function CareerTimeline({ dict, showLegacy = false }: Props) {
         {/* Desktop: full-viewport-width timeline with horizontal scroll */}
         <div className="relative left-1/2 hidden w-screen -translate-x-1/2 border-y border-border bg-bg-subtle/30 md:block">
           <TimelineScroller ariaLabel={dict.experience.timelineAriaLabel}>
-            <div className="min-w-[1600px] px-6 pb-6 pt-4 md:px-10 lg:px-14">
+            <div className={`min-w-[1600px] ${TOOLTIP_CLEARANCE_CLASS} px-6 pb-6 md:px-10 lg:px-14`}>
               <div className="relative" style={{ height: timelineHeight }}>
                 {/* Subtle tint on recent 2 years to draw the eye to current work */}
                 <div
@@ -162,6 +163,7 @@ export function CareerTimeline({ dict, showLegacy = false }: Props) {
                   return (
                     <div
                       key={item.id}
+                      data-bar-id={item.id}
                       className="group/bar absolute"
                       style={{
                         left: `${left}%`,
@@ -224,9 +226,10 @@ export function CareerTimeline({ dict, showLegacy = false }: Props) {
                       <div
                         aria-hidden
                         className={cn(
-                          'pointer-events-none absolute bottom-[calc(100%+0.55rem)] left-1/2 z-20 w-max max-w-[18rem] -translate-x-1/2 transition-all duration-150',
+                          'pointer-events-none absolute bottom-[calc(100%+0.55rem)] left-1/2 z-30 w-max max-w-[18rem] -translate-x-1/2 transition-all duration-150',
                           'opacity-0 translate-y-1 group-hover/bar:translate-y-0 group-hover/bar:opacity-100',
                         )}
+                        data-tooltip-id={item.id}
                       >
                         <div className="rounded-xl border border-border bg-surface/95 px-3 py-2 shadow-lg backdrop-blur-sm">
                           <p className="text-xs font-semibold text-fg">{fullName}</p>

@@ -13,7 +13,7 @@ export function Contact({ dict }: Props) {
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="section-frame section-pad relative scroll-mt-24"
+      className="resume-print-hidden section-frame section-pad relative scroll-mt-24"
     >
       <Reveal>
         <div className="flex items-center gap-4">

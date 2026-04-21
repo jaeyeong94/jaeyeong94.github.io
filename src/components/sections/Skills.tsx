@@ -29,7 +29,7 @@ export function Skills({ dict }: Props) {
         >
           {dict.skills.sectionTitle}
         </h2>
-        <p className="mt-3 max-w-2xl text-sm text-fg-muted md:text-base">
+        <p className="resume-print-hidden mt-3 max-w-2xl text-sm text-fg-muted md:text-base">
           {dict.skills.description}
         </p>
       </Reveal>
@@ -43,7 +43,7 @@ export function Skills({ dict }: Props) {
         <ol className="divide-y divide-border border-y border-border">
           {dict.skills.signatures.map((s, i) => (
             <Reveal key={s.key} as="li">
-              <div className="grid grid-cols-[2rem_1fr_auto] items-baseline gap-x-5 gap-y-2 py-5 md:grid-cols-[2.5rem_minmax(0,18rem)_1fr_auto] md:gap-x-8">
+              <div className="resume-skill-row grid grid-cols-[2rem_1fr_auto] items-baseline gap-x-5 gap-y-2 py-5 md:grid-cols-[2.5rem_minmax(0,18rem)_1fr_auto] md:gap-x-8">
                 <span className="font-mono text-xs text-fg-subtle">
                   {String(i + 1).padStart(2, '0')}
                 </span>

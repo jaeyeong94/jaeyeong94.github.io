@@ -38,8 +38,31 @@ test('renders a print-friendly resume view on the Korean homepage', async ({ pag
     page.locator('.resume-print-only').getByRole('link', { name: 'github.com/jaeyeong94' }),
   ).toBeVisible();
   await expect(page.getByText('보험 백오피스를 에이전트 오케스트레이션 흐름으로 재구성')).toBeVisible();
+  await expect(page.getByText('핵심 근거')).toBeHidden();
   await expect(page.getByRole('link', { name: '주요 작업 보기' })).toBeHidden();
+  await expect(page.getByRole('heading', { name: '연락처' })).toBeHidden();
   await expect(page.getByRole('heading', { name: 'AI 작업 방식' })).toBeHidden();
+});
+
+test('shows a full custom tooltip above the career timeline without clipping', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 1200 });
+  await page.goto('/ko/');
+
+  const bar = page.locator('[data-bar-id="rootstone"]');
+  await expect(bar).toBeVisible();
+  await bar.hover();
+
+  const tooltip = page.locator('[data-tooltip-id="rootstone"]');
+  await expect(tooltip).toBeVisible();
+  await expect(tooltip).toContainText('Rootstone');
+  await expect(tooltip).toContainText('같은 팀');
+
+  const barBox = await bar.boundingBox();
+  const tooltipBox = await tooltip.boundingBox();
+
+  expect(barBox).not.toBeNull();
+  expect(tooltipBox).not.toBeNull();
+  expect(tooltipBox!.y + tooltipBox!.height).toBeLessThan(barBox!.y + barBox!.height);
 });
 
 test('emits article metadata and structured data for writing detail pages', async ({ page }) => {

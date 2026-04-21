@@ -10,6 +10,7 @@ interface Props {
 
 export function About({ dict }: Props) {
   const years = yearsFromMonths(totalCareerMonths(resume.profile.careerStart));
+  const printSummary = `${dict.about.stat1Label} ${years}${dict.about.stat1Suffix} · ${dict.about.stat3Value}`;
 
   return (
     <section
@@ -37,9 +38,12 @@ export function About({ dict }: Props) {
           <p className="max-w-3xl text-lg leading-relaxed text-fg md:text-xl lg:text-2xl">
             {dict.about.impact}
           </p>
+          <p className="resume-print-only mt-3 text-sm leading-relaxed text-fg-muted">
+            {printSummary}
+          </p>
         </Reveal>
 
-        <Reveal className="lg:col-span-4">
+        <Reveal className="resume-print-hidden lg:col-span-4">
           <dl className="flex flex-col gap-8 border-t border-border pt-8 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
             <StatBlock
               kicker={dict.about.stat1Label}

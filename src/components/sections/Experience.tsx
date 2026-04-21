@@ -211,7 +211,7 @@ function ExperienceRow({
     <Reveal as="li">
       <article
         data-team-key={exp.teamKey}
-        className={`resume-print-keep ${exp.id === 'miso' || exp.id === 'aligo' ? 'resume-print-trim' : ''} group grid grid-cols-1 gap-x-8 gap-y-4 md:grid-cols-[7rem_1fr] lg:grid-cols-[8rem_1fr_minmax(0,32rem)]`}
+        className={`resume-experience-row resume-print-keep ${exp.id === 'miso' || exp.id === 'aligo' ? 'resume-print-trim' : ''} group grid grid-cols-1 gap-x-8 gap-y-4 md:grid-cols-[7rem_1fr] lg:grid-cols-[8rem_1fr_minmax(0,32rem)]`}
       >
         {/* Left rail: year span */}
         <div className="md:pt-1">
@@ -235,7 +235,7 @@ function ExperienceRow({
         </div>
 
         {/* Middle: company + role */}
-        <div className="border-l border-border pl-6 md:pl-8">
+        <div className="resume-experience-main border-l border-border pl-6 md:pl-8">
           <h4 className="text-lg font-semibold text-fg md:text-xl">
             {exp.url ? (
               <a
@@ -257,14 +257,14 @@ function ExperienceRow({
           <p className="mt-1 text-sm text-fg-muted">{exp.role}</p>
           <div className="mt-2 flex flex-wrap items-center gap-2">
             {exp.teamKey && (
-              <p className="inline-flex items-center rounded-full border border-accent-1/20 bg-accent-1/10 px-3 py-1 text-[0.7rem] text-accent-1">
+              <p className="resume-print-hidden inline-flex items-center rounded-full border border-accent-1/20 bg-accent-1/10 px-3 py-1 text-[0.7rem] text-accent-1">
                 {dict.common.sameTeamLabel}
               </p>
             )}
           </div>
-          <div className="mt-4 rounded-2xl border border-border bg-bg-subtle/40 px-4 py-4">
+          <div className="resume-experience-summary mt-4 rounded-2xl border border-border bg-bg-subtle/40 px-4 py-4">
             <p className="text-sm font-medium leading-relaxed text-fg">{item.summary}</p>
-            <p className="mt-2 font-mono text-[0.65rem] uppercase tracking-[0.25em] text-accent-1">
+            <p className="resume-experience-metric mt-2 font-mono text-[0.65rem] uppercase tracking-[0.25em] text-accent-1">
               {item.metric}
             </p>
           </div>
