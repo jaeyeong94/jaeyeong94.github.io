@@ -33,6 +33,9 @@ export function Experience({ locale, dict }: Props) {
   } | null>(null);
 
   const filtered = resume.experiences.filter((e) => (showLegacy ? true : !e.legacy));
+  const printExperiences = [...resume.experiences].sort((a, b) =>
+    a.start < b.start ? 1 : a.start > b.start ? -1 : 0,
+  );
 
   const freelance = filtered.filter((e) => e.type === 'freelance');
   const fulltime = filtered.filter((e) => e.type === 'fulltime');
@@ -104,7 +107,15 @@ export function Experience({ locale, dict }: Props) {
         <CareerTimeline dict={dict} showLegacy={showLegacy} />
       </div>
 
-      <div ref={wrapperRef} className="relative mt-14 space-y-16">
+      <div data-print-experience-list className="resume-print-only mt-10">
+        <ol className="space-y-4">
+          {printExperiences.map((exp) => (
+            <PrintExperienceRow key={exp.id} exp={exp} locale={locale} dict={dict} />
+          ))}
+        </ol>
+      </div>
+
+      <div ref={wrapperRef} className="relative mt-14 space-y-16 resume-print-hidden">
         {connector && (
           <svg
             aria-label={dict.common.sameTeamLabel}
@@ -188,6 +199,49 @@ export function Experience({ locale, dict }: Props) {
         </button>
       </div>
     </section>
+  );
+}
+
+function PrintExperienceRow({
+  exp,
+  locale,
+  dict,
+}: {
+  exp: ExpType;
+  locale: Locale;
+  dict: Dictionary;
+}) {
+  const item = dict.experience.items[exp.id];
+  const endIso = exp.end === 'present' ? new Date().toISOString().slice(0, 7) : exp.end;
+  const months = monthsBetween(exp.start, exp.end);
+
+  return (
+    <li className="border-t border-border pt-4 first:border-t-0 first:pt-0">
+      <div className="grid grid-cols-[5.5rem_1fr] gap-x-4 gap-y-1">
+        <div>
+          <p className="font-mono text-[0.68rem] tabular-nums text-fg-subtle">
+            <time dateTime={exp.start}>
+              {formatYearMonth(exp.start, locale, dict.common.present)}
+            </time>
+            <span className="mx-1">—</span>
+            <time dateTime={endIso}>
+              {formatYearMonth(exp.end, locale, dict.common.present)}
+            </time>
+          </p>
+          <p className="mt-1 font-mono text-[0.65rem] uppercase tracking-[0.04em] text-fg-subtle/80">
+            {formatDuration(months, locale, dict.common.years, dict.common.months)}
+          </p>
+        </div>
+        <div>
+          <p className="text-sm font-semibold text-fg">{item.company}</p>
+          <p className="text-[0.72rem] text-fg-muted">{exp.role}</p>
+          <p className="mt-1 text-[0.82rem] leading-relaxed text-fg">{item.summary}</p>
+          <p className="mt-1 font-mono text-[0.65rem] uppercase tracking-[0.04em] text-fg-muted">
+            {item.metric}
+          </p>
+        </div>
+      </div>
+    </li>
   );
 }
 

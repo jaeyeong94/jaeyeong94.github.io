@@ -1,3 +1,6 @@
+'use client';
+
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { resume, type EmploymentType, type ExperienceId } from '@/content/resume';
 import type { Dictionary } from '@/content/i18n';
 import { Reveal } from '@/components/ui/Reveal';
@@ -12,7 +15,6 @@ interface Props {
 const INLINE_LABEL_MIN_PERCENT = 5;
 const LEGACY_AGGREGATE_ID = 'legacy-era';
 const RECENT_EMPHASIS_MONTHS = 24;
-const TOOLTIP_CLEARANCE_CLASS = 'pt-14';
 
 type BarItem = {
   id: string;
@@ -26,7 +28,17 @@ type BarItem = {
   aggregatedCompanies?: string[];
 };
 
+type ActiveTooltip = {
+  id: string;
+  fullName: string;
+  description: string;
+  left: number;
+  top: number;
+};
+
 export function CareerTimeline({ dict, showLegacy = false }: Props) {
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const [activeTooltip, setActiveTooltip] = useState<ActiveTooltip | null>(null);
   const now = new Date();
   const startYear = 2012;
   const endYear = now.getFullYear();
@@ -112,9 +124,77 @@ export function CareerTimeline({ dict, showLegacy = false }: Props) {
     a.start < b.start ? 1 : a.start > b.start ? -1 : 0,
   );
 
+  const showTooltip = useCallback(
+    ({
+      id,
+      fullName,
+      description,
+      target,
+    }: {
+      id: string;
+      fullName: string;
+      description: string;
+      target: HTMLElement;
+    }) => {
+      const wrapper = wrapperRef.current;
+      if (!wrapper) return;
+      const wrapperRect = wrapper.getBoundingClientRect();
+      const targetRect = target.getBoundingClientRect();
+      setActiveTooltip({
+        id,
+        fullName,
+        description,
+        left: targetRect.left - wrapperRect.left + targetRect.width / 2,
+        top: targetRect.top - wrapperRect.top - 32,
+      });
+    },
+    [],
+  );
+
+  const hideTooltip = useCallback((id: string) => {
+    setActiveTooltip((current) => (current?.id === id ? null : current));
+  }, []);
+
+  useEffect(() => {
+    if (!activeTooltip) return;
+    const wrapper = wrapperRef.current;
+    const scroller = wrapper?.querySelector<HTMLElement>('[data-timeline-scroller]');
+    if (!wrapper || !scroller) return;
+
+    const update = () => {
+      const target = wrapper.querySelector<HTMLElement>(
+        `[data-bar-id="${activeTooltip.id}"] [data-bar-trigger="true"]`,
+      );
+      if (!target) return;
+      const wrapperRect = wrapper.getBoundingClientRect();
+      const targetRect = target.getBoundingClientRect();
+      setActiveTooltip((current) =>
+        current && current.id === activeTooltip.id
+          ? {
+              ...current,
+              left: targetRect.left - wrapperRect.left + targetRect.width / 2,
+              top: targetRect.top - wrapperRect.top - 32,
+            }
+          : current,
+      );
+    };
+
+    update();
+    scroller.addEventListener('scroll', update, { passive: true });
+    const ro = new ResizeObserver(update);
+    ro.observe(wrapper);
+    ro.observe(scroller);
+    window.addEventListener('resize', update);
+    return () => {
+      scroller.removeEventListener('scroll', update);
+      ro.disconnect();
+      window.removeEventListener('resize', update);
+    };
+  }, [activeTooltip]);
+
   return (
     <Reveal>
-      <div>
+      <div ref={wrapperRef}>
         <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
           <p className="text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle">
             ⌯ {dict.experience.timelineLabel}
@@ -127,9 +207,28 @@ export function CareerTimeline({ dict, showLegacy = false }: Props) {
         </div>
 
         {/* Desktop: full-viewport-width timeline with horizontal scroll */}
-        <div className="relative left-1/2 hidden w-screen -translate-x-1/2 border-y border-border bg-bg-subtle/30 md:block">
+        <div className="relative hidden pt-20 md:block">
+          {activeTooltip && (
+            <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 z-40 h-0 overflow-visible">
+              <div
+                data-tooltip-id={activeTooltip.id}
+                className="absolute w-max max-w-[18rem] -translate-x-1/2 -translate-y-full"
+                style={{ left: activeTooltip.left, top: activeTooltip.top }}
+              >
+                <div className="rounded-xl border border-border bg-surface/95 px-3 py-2 shadow-lg backdrop-blur-sm">
+                  <p className="text-xs font-semibold text-fg">{activeTooltip.fullName}</p>
+                  <p className="mt-1 text-[0.7rem] leading-relaxed text-fg-muted">
+                    {activeTooltip.description}
+                  </p>
+                </div>
+                <div className="absolute left-1/2 top-full size-2 -translate-x-1/2 -translate-y-1/2 rotate-45 border-b border-r border-border bg-surface/95" />
+              </div>
+            </div>
+          )}
+
+          <div className="relative left-1/2 w-screen -translate-x-1/2 border-y border-border bg-bg-subtle/30">
           <TimelineScroller ariaLabel={dict.experience.timelineAriaLabel}>
-            <div className={`min-w-[1600px] ${TOOLTIP_CLEARANCE_CLASS} px-6 pb-6 md:px-10 lg:px-14`}>
+            <div className="min-w-[1600px] px-6 pb-6 pt-4 md:px-10 lg:px-14">
               <div className="relative" style={{ height: timelineHeight }}>
                 {/* Subtle tint on recent 2 years to draw the eye to current work */}
                 <div
@@ -178,8 +277,28 @@ export function CareerTimeline({ dict, showLegacy = false }: Props) {
                             ? `${fullName} · ${item.aggregatedCompanies?.join(', ') ?? ''} · ${rangeLabel}`
                             : `${fullName} · ${rangeLabel}`
                         }
+                        data-bar-trigger="true"
+                        tabIndex={0}
+                        onPointerEnter={(event) =>
+                          showTooltip({
+                            id: item.id,
+                            fullName,
+                            description: tooltipDescription,
+                            target: event.currentTarget,
+                          })
+                        }
+                        onPointerLeave={() => hideTooltip(item.id)}
+                        onFocus={(event) =>
+                          showTooltip({
+                            id: item.id,
+                            fullName,
+                            description: tooltipDescription,
+                            target: event.currentTarget,
+                          })
+                        }
+                        onBlur={() => hideTooltip(item.id)}
                         className={cn(
-                          'flex h-full items-center overflow-hidden rounded-md px-2 transition-colors',
+                          'flex h-full items-center overflow-hidden rounded-md px-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-1',
                           isAggregate
                             ? 'border border-dashed border-fg-subtle/40 bg-bg-subtle/60 text-fg-muted'
                             : isPresent
@@ -223,22 +342,6 @@ export function CareerTimeline({ dict, showLegacy = false }: Props) {
                           </span>
                         )}
                       </div>
-                      <div
-                        aria-hidden
-                        className={cn(
-                          'pointer-events-none absolute bottom-[calc(100%+0.55rem)] left-1/2 z-30 w-max max-w-[18rem] -translate-x-1/2 transition-all duration-150',
-                          'opacity-0 translate-y-1 group-hover/bar:translate-y-0 group-hover/bar:opacity-100',
-                        )}
-                        data-tooltip-id={item.id}
-                      >
-                        <div className="rounded-xl border border-border bg-surface/95 px-3 py-2 shadow-lg backdrop-blur-sm">
-                          <p className="text-xs font-semibold text-fg">{fullName}</p>
-                          <p className="mt-1 text-[0.7rem] leading-relaxed text-fg-muted">
-                            {tooltipDescription}
-                          </p>
-                        </div>
-                        <div className="absolute left-1/2 top-full size-2 -translate-x-1/2 -translate-y-1/2 rotate-45 border-b border-r border-border bg-surface/95" />
-                      </div>
                     </div>
                   );
                 })}
@@ -259,6 +362,7 @@ export function CareerTimeline({ dict, showLegacy = false }: Props) {
               </div>
             </div>
           </TimelineScroller>
+          </div>
         </div>
 
         {/* Mobile: compact vertical list */}

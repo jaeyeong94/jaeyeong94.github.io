@@ -76,6 +76,7 @@ describe('static export smoke', () => {
     expect(html).toContain('/ko/projects/flfi-lending/');
     expect(html).toContain('보험 백오피스를 에이전트 오케스트레이션 흐름으로 재구성');
     expect(html).toContain('github.com/jaeyeong94');
+    expect(html).toContain('나인파이브주식회사');
     expect(html.indexOf('id="skills"')).toBeLessThan(html.indexOf('id="writing"'));
     expect(html.indexOf('id="writing"')).toBeLessThan(html.indexOf('id="manifesto"'));
   });

@@ -35,6 +35,7 @@ export function TimelineScroller({ children, ariaLabel }: Props) {
     <div className="relative">
       <div
         ref={scrollRef}
+        data-timeline-scroller
         role="region"
         aria-label={ariaLabel}
         tabIndex={0}
