@@ -5,13 +5,7 @@ import { resume } from '@/content/resume';
 import { getDictionary } from '@/content/i18n';
 import { JsonLdBlogPosting, JsonLdBreadcrumbList } from '@/components/ui/JsonLd';
 import { isWritingSlug, writingPosts } from '@/content/writing';
-import {
-  absoluteUrl,
-  getOgImage,
-  openGraphLocaleMap,
-  personName,
-  publisherName,
-} from '@/lib/seo';
+import { absoluteUrl, openGraphLocaleMap, personName, publisherName } from '@/lib/seo';
 
 export function generateStaticParams() {
   const params: Array<{ locale: string; slug: string }> = [];
@@ -38,8 +32,6 @@ export async function generateMetadata({
   const languageAlternates = Object.fromEntries(
     locales.map((lang) => [lang, `/${lang}/writing/${slug}/`]),
   );
-  const openGraphImageAlt = `${item.title} — ${dict.meta.siteName}`;
-
   return {
     title: item.title,
     description: item.summary,
@@ -66,13 +58,11 @@ export async function generateMetadata({
       type: 'article',
       publishedTime: post.meta.date,
       authors: [personName],
-      images: getOgImage(openGraphImageAlt),
     },
     twitter: {
       card: 'summary_large_image',
       title: item.title,
       description: item.summary,
-      images: ['/og-image.png'],
     },
   };
 }

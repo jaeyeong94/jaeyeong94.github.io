@@ -182,6 +182,10 @@ body {
     );
   }
 
+  .resume-print-only {
+    display: none;
+  }
+
   .grain::before {
     content: '';
     position: absolute;
@@ -255,17 +259,96 @@ body {
 }
 
 @media print {
+  @page {
+    margin: 12mm;
+  }
+
   .no-print {
     display: none !important;
+  }
+  .resume-print-hidden {
+    display: none !important;
+  }
+  .resume-print-only {
+    display: block !important;
+  }
+  html {
+    overflow: visible;
   }
   body {
     background: white;
     color: black;
     background-image: none;
+    font-size: 10.5pt;
+    line-height: 1.4;
   }
-  a::after {
-    content: ' (' attr(href) ')';
-    font-size: 0.8em;
-    color: #555;
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .name-shimmer {
+    background: none !important;
+    color: #000 !important;
+    -webkit-text-fill-color: currentColor;
+  }
+  .section-frame {
+    max-width: none !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .section-pad {
+    padding-top: 1rem !important;
+    padding-bottom: 0 !important;
+  }
+  #main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  #main-content > section:first-child .section-frame {
+    padding-top: 0 !important;
+    padding-bottom: 0.5rem !important;
+  }
+  #main-content > section:first-child h1 .name-shimmer {
+    font-size: 24pt !important;
+  }
+  #main-content > section:first-child h1 > span:last-child {
+    font-size: 14pt !important;
+  }
+  #main-content > section:first-child dl {
+    gap: 0.75rem !important;
+  }
+  #main-content > section:first-child dl > div {
+    padding: 0.75rem !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  #about .mt-10,
+  #about .mt-14,
+  #about .mt-16,
+  #projects .mt-12,
+  #projects .mt-16,
+  #contact .mt-10,
+  #contact .mt-12 {
+    margin-top: 1rem !important;
+  }
+  #experience article {
+    grid-template-columns: 5.5rem minmax(0, 1fr) !important;
+    gap: 0.75rem 1rem !important;
+  }
+  #projects ul.grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+  #contact address {
+    grid-template-columns: 1fr !important;
+  }
+  .resume-print-keep,
+  article,
+  li,
+  dd,
+  dt {
+    break-inside: avoid;
+    page-break-inside: avoid;
   }
 }

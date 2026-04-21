@@ -166,6 +166,8 @@ const dict = {
     items: {
       masblue: {
         company: 'Masblue (masblue.studio)',
+        summary: '보험 백오피스를 에이전트 오케스트레이션 흐름으로 재구성',
+        metric: '파일럿 50건 · 20분 → 4분',
         bullets: [
           '미국 보험사의 백오피스 워크플로우를 LLM 에이전트로 분해·오케스트레이션하는 백엔드 설계. 각 스텝에 도메인 가드레일과 Human-in-the-loop 체크포인트, 감사 로그를 삽입해 자동화와 규제 대응을 동시에 충족. 파일럿 50건 기준 평균 처리시간 20분 → 4분(약 80% 절감) 달성 (측정: 파일럿 처리시간 대시보드).',
           'LLM 에이전트 호출 전과정(입력·출력·중간 상태·비용·레이턴시)을 구조화 이벤트로 저장하고 OpenTelemetry로 추적. 실패 케이스의 감사·재현·롤백을 가능케 하여 규제 요구에 대응.',
@@ -173,6 +175,8 @@ const dict = {
       },
       onto: {
         company: '주식회사 온토 (Ontoh Vision)',
+        summary: '온사이트 추론과 R2 업로드를 잇는 비전 파이프라인 설계',
+        metric: '업로드 성공률 99.7% · 카메라 8대',
         bullets: [
           'CCTV(RTSP) → 온사이트 GPU AI 추론 → Cloudflare R2 업로드 엔드투엔드 파이프라인 설계. 네트워크 단절 시 최대 24시간 로컬 버퍼링과 재업로드로 업로드 성공률 99.7% 유지 (측정: Cloudflare Analytics, 7일 평균).',
           'Presigned URL + 콜백 기반 업로드 API 설계로 카메라 8대 동시 증설 시 백엔드 배포 0건 달성. 카메라 노드는 시크릿 기반 인증만으로 수평 확장 가능 (측정: 내부 배포 로그).',
@@ -180,6 +184,8 @@ const dict = {
       },
       rootstone: {
         company: 'Rootstone',
+        summary: '기관 고객용 트레이딩 리포트와 차익거래 엔진 운영',
+        metric: '배치 성공률 99.9% · 일평균 3,000건',
         bullets: [
           'B2B 트레이딩 성과 리포트 시스템 설계·운영. 원장 분리 + 일/월 스냅샷 배치 + 검증체크섬 기반 PDF 파이프라인으로 15개 기관 고객 대상 배치 성공률 99.9% 유지 (측정: CloudWatch 배치 로그, 30일 평균).',
           'Electron + Node.js + PostgreSQL + Redis + WebSocket 기반 크립토 차익거래 · 마켓 메이킹 엔진 구축. 수신/전략/주문 이벤트 루프를 분리해 전략 실행 p95 레이턴시를 120ms → 45ms(약 63% 단축), 일평균 3,000건 체결 처리 (측정: 내부 latency 로그).',
@@ -187,6 +193,8 @@ const dict = {
       },
       dio: {
         company: 'DIO 플랫폼 프리랜서',
+        summary: '여러 0→1 서비스에서 결제·정산·LLM 워크플로우 구현',
+        metric: '8주 런칭 · 체크인 2,500건 · 파일럿 12명',
         bullets: [
           '(우연히) 지역 매칭 앱의 매칭 · 체크아웃 · 자동 정산 로직을 상태머신 + 이벤트 소싱으로 모델링해 8주 내 프로덕션 안착, 출시 2주 내 체크인 2,500건 기록 · 핵심 플로우 결함 0건으로 런칭 (측정: Sentry 로그).',
           '(링커) Toss PG · 카카오 알림톡을 Outbox 패턴으로 결합해 결제–알림 정합성을 확보. 재시도·DLQ 플로우로 주간 250건 매칭에서 결제 실패율 약 1%로 안정화 (측정: PG 웹훅 로그, 30일 평균).',
@@ -196,18 +204,24 @@ const dict = {
       },
       dssolve: {
         company: '주식회사 디에스솔브',
+        summary: '설정 기반으로 확장되는 Randibot 멀티테넌트 백엔드 구축',
+        metric: '5개 워크스페이스 · 월 1,200건 ETL',
         bullets: [
           'Randibot 백엔드 MVP 개발 — RCMS · K-Startup 스크래핑 ETL + 멀티테넌트(tenancyId = workspaceId) 아키텍처로 신규 기관 온보딩을 설정 변경만으로 처리. 5개 워크스페이스를 코드 변경 없이 온보딩, 월 1,200건 ETL 파이프라인 안정 운영 (측정: 기관별 설정 관리 로그).',
         ],
       },
       miso: {
         company: 'Miso Inc.',
+        summary: '레거시 이전을 포함한 Cognito 인증 체계 구축',
+        metric: '12만 사용자 이전 · 실패율 0.5% 이하',
         bullets: [
           'AWS Cognito 기반 인증 시스템 구축. Cognito Lambda Trigger로 레거시 유저 12만명을 무중단 마이그레이션하고 OTP 인증 플로우를 CX CRM에 도입. 인증 실패율 0.5% 이하 유지 (측정: CloudWatch).',
         ],
       },
       flfi: {
         company: '주식회사 플피 (FLFI)',
+        summary: '핀테크 플랫폼 백엔드와 배포 체계를 팀 단위로 재설계',
+        metric: '500+ 무중단 배포 · 일 3회 배포',
         bullets: [
           'Backend Tech Lead — 풀스택 개발자 6명 팀 리딩 및 주니어 엔지니어 2명 멘토링. NestJS 백엔드 + Vue 3 프론트엔드 + AWS 인프라를 일관된 도메인 경계로 재설계하고 스프린트 속도와 배포 빈도 개선을 주도하며 코드리뷰 문화를 정착 (측정: Jira 사이클타임, GitOps 히스토리).',
           'EKS + Karpenter + ArgoCD + Helm 기반 무중단 Blue-Green 파이프라인 구축. 배포 빈도를 주 1회 → 일 3회로 개선, 2년간 500+ 회 무중단 배포, 다운타임 0초 · 롤백 30초 이내 달성 (측정: ArgoCD rollout 로그, 전수 조사).',
@@ -218,6 +232,8 @@ const dict = {
       },
       aligo: {
         company: '(주)알리는사람들 (ALIGO)',
+        summary: '대규모 비즈메시징 API와 발송 큐 인프라 운영',
+        metric: '일 500만 건 · 피크 3,000 RPS',
         bullets: [
           'Vanilla PHP 7 기반 비즈메시징 발송 API · 서버 개발·운영. 일 발송 500만 건 · 피크 3,000 RPS 환경에서 고객별 큐 분리와 가중 라운드 로빈으로 fairness를 개선, 재시도 지수 백오프로 queue 부담을 분산 (측정: 사내 발송 큐 대시보드).',
           '카카오 알림톡 · 친구톡 Open API를 제품화. 공통 템플릿 · 승인 상태 통합 대시보드로 외부 벤더 연동 공수와 CS 운영 부담을 절감.',
@@ -225,18 +241,24 @@ const dict = {
       },
       'studio-bloom': {
         company: '주식회사 스튜디오블룸',
+        summary: 'P2P 대출 솔루션과 핀테크 정산 연동 개발',
+        metric: '누적 12만 건 거래 · 정합성 사고 0건',
         bullets: [
           'Wordpress Plugin 기반 P2P 대출 솔루션 · Paygate Seyfert Fintech API 연동(가상계좌 · 투자 · 상환 · 상태 확인) 개발. 트랜잭션 분리 + 멱등 응답 저장으로 2년간 누적 12만 건 거래 처리, 금전 정합성 사고 0건 운영 (측정: 일일 정합성 체크 배치).',
         ],
       },
       ninefive: {
         company: '나인파이브주식회사',
+        summary: '프로모션 인터랙션과 접근성 기준을 함께 구현',
+        metric: '체류·스크롤 KPI · 접근성 기준 충족',
         bullets: [
           '제품 프로모션 페이지의 인터랙션을 prefers-reduced-motion 대응으로 구현하고 KWAH 기준 웹접근성 체크리스트를 병행. 체류 시간 · 스크롤 깊이 KPI와 접근성 기준을 동시에 충족.',
         ],
       },
       '4depth': {
         company: '(주)포뎁스',
+        summary: '공공 웹사이트 퍼블리싱과 웹접근성 대응',
+        metric: '공공 프로젝트 14건 · K-WCAG 인증',
         bullets: [
           '공공기관 · 지자체 웹사이트 퍼블리싱 · 웹접근성(WCAG) 대응 · 반응형 웹 구현. 의미론적 HTML과 ARIA 설계, 시안 단계의 접근성 체크리스트로 14건의 공공기관 프로젝트 웹접근성 인증(K-WCAG)을 통과.',
         ],

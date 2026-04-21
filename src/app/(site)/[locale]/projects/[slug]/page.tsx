@@ -7,13 +7,7 @@ import { getDictionary } from '@/content/i18n';
 import { projectCaseStudies, isProjectCaseStudySlug } from '@/content/projects';
 import { resume } from '@/content/resume';
 import { locales, isLocale } from '@/lib/i18n';
-import {
-  absoluteUrl,
-  getOgImage,
-  openGraphLocaleMap,
-  personName,
-  publisherName,
-} from '@/lib/seo';
+import { absoluteUrl, openGraphLocaleMap, personName, publisherName } from '@/lib/seo';
 
 export function generateStaticParams() {
   return locales.flatMap((locale) =>
@@ -36,7 +30,6 @@ export async function generateMetadata({
   const languageAlternates = Object.fromEntries(
     locales.map((lang) => [lang, `/${lang}/projects/${slug}/`]),
   );
-  const openGraphImageAlt = `${item.title} — ${dict.meta.siteName}`;
   const project = resume.projects.find((projectItem) => projectItem.id === slug);
   if (!project) return {};
 
@@ -67,13 +60,11 @@ export async function generateMetadata({
       publishedTime: projectCaseStudies[slug].updatedAt,
       modifiedTime: projectCaseStudies[slug].updatedAt,
       authors: [personName],
-      images: getOgImage(openGraphImageAlt),
     },
     twitter: {
       card: 'summary_large_image',
       title: item.title,
       description: content.summary,
-      images: ['/og-image.png'],
     },
   };
 }

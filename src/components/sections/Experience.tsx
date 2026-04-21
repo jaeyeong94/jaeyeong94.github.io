@@ -100,7 +100,9 @@ export function Experience({ locale, dict }: Props) {
         </h2>
       </Reveal>
 
-      <CareerTimeline dict={dict} showLegacy={showLegacy} />
+      <div className="resume-print-hidden">
+        <CareerTimeline dict={dict} showLegacy={showLegacy} />
+      </div>
 
       <div ref={wrapperRef} className="relative mt-14 space-y-16">
         {connector && (
@@ -171,7 +173,7 @@ export function Experience({ locale, dict }: Props) {
         ))}
       </div>
 
-      <div className="mt-14 flex justify-center">
+      <div className="resume-print-hidden mt-14 flex justify-center">
         <button
           type="button"
           onClick={() => setShowLegacy((v) => !v)}
@@ -209,7 +211,7 @@ function ExperienceRow({
     <Reveal as="li">
       <article
         data-team-key={exp.teamKey}
-        className="group grid grid-cols-1 gap-x-8 gap-y-4 md:grid-cols-[7rem_1fr] lg:grid-cols-[8rem_1fr_minmax(0,32rem)]"
+        className="resume-print-keep group grid grid-cols-1 gap-x-8 gap-y-4 md:grid-cols-[7rem_1fr] lg:grid-cols-[8rem_1fr_minmax(0,32rem)]"
       >
         {/* Left rail: year span */}
         <div className="md:pt-1">
@@ -253,12 +255,20 @@ function ExperienceRow({
             )}
           </h4>
           <p className="mt-1 text-sm text-fg-muted">{exp.role}</p>
-          {exp.teamKey && (
-            <p className="mt-2 inline-flex items-center rounded-full border border-accent-1/20 bg-accent-1/10 px-3 py-1 text-[0.7rem] text-accent-1">
-              {dict.common.sameTeamLabel}
+          <div className="mt-2 flex flex-wrap items-center gap-2">
+            {exp.teamKey && (
+              <p className="inline-flex items-center rounded-full border border-accent-1/20 bg-accent-1/10 px-3 py-1 text-[0.7rem] text-accent-1">
+                {dict.common.sameTeamLabel}
+              </p>
+            )}
+          </div>
+          <div className="mt-4 rounded-2xl border border-border bg-bg-subtle/40 px-4 py-4">
+            <p className="text-sm font-medium leading-relaxed text-fg">{item.summary}</p>
+            <p className="mt-2 font-mono text-[0.65rem] uppercase tracking-[0.25em] text-accent-1">
+              {item.metric}
             </p>
-          )}
-          <ul className="mt-4 space-y-2 text-sm leading-relaxed text-fg-muted lg:hidden">
+          </div>
+          <ul className="resume-print-hidden mt-4 space-y-2 text-sm leading-relaxed text-fg-muted lg:hidden">
             {item.bullets.map((b, i) => (
               <li key={i} className="flex gap-3">
                 <span
@@ -270,14 +280,14 @@ function ExperienceRow({
             ))}
           </ul>
           {exp.stack.length > 0 && (
-            <p className="mt-4 font-mono text-xs text-fg-subtle lg:hidden">
+            <p className="resume-print-hidden mt-4 font-mono text-xs text-fg-subtle lg:hidden">
               {exp.stack.join(' · ')}
             </p>
           )}
         </div>
 
         {/* Right: bullets + stack on large screens */}
-        <div className="hidden lg:block">
+        <div className="resume-print-hidden hidden lg:block">
           <ul className="space-y-2 text-sm leading-relaxed text-fg-muted">
             {item.bullets.map((b, i) => (
               <li key={i} className="flex gap-3">

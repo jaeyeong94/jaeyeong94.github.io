@@ -167,6 +167,8 @@ const dict: Dictionary = {
     items: {
       masblue: {
         company: 'Masblue (masblue.studio)',
+        summary: '把保险后台流程重构为代理编排型工作流',
+        metric: '50 个试点案例 · 20 分钟 → 4 分钟',
         bullets: [
           '为美国保险公司的后台工作流设计基于LLM代理的编排后端。每个步骤嵌入领域防护栏、人工审核节点与审计日志,同步实现自动化与合规。试点50单平均处理时间由20分钟降至4分钟(约80%下降)(指标:试点处理时间仪表盘)。',
           '将每次LLM代理调用(输入、输出、中间状态、成本、延迟)以结构化事件持久化,并通过OpenTelemetry跟踪,支持失败场景的审计、复现与回滚,满足合规要求。',
@@ -174,6 +176,8 @@ const dict: Dictionary = {
       },
       onto: {
         company: 'Ontoh Vision',
+        summary: '设计连接现场推理与 R2 上传的视觉管线',
+        metric: '上传成功率 99.7% · 8 台摄像头',
         bullets: [
           '设计CCTV(RTSP) → 现场GPU推理 → Cloudflare R2的端到端管道。本地缓冲(最长24小时)+ 断网恢复补传,上传成功率维持在99.7%(指标:Cloudflare Analytics,7天平均)。',
           '基于Presigned URL + 回调的上传API设计,8台摄像头同时扩容时后端零发布;节点仅凭密钥认证即可横向扩展(指标:内部部署日志)。',
@@ -181,6 +185,8 @@ const dict: Dictionary = {
       },
       rootstone: {
         company: 'Rootstone',
+        summary: '为机构客户运营交易报表与做市引擎基础设施',
+        metric: '批处理成功率 99.9% · 日均约 3,000 笔',
         bullets: [
           '设计并运营B2B交易业绩报告系统。独立报告账本 + 日/月快照批次 + 校验和PDF流水线在15家机构客户上维持99.9%的批次成功率(指标:CloudWatch批次日志,30天平均)。',
           '基于Electron + Node.js + PostgreSQL + Redis + WebSocket构建加密套利 / 做市引擎。拆分接收/策略/下单事件循环,将策略执行p95延迟由120ms降至45ms(约63%下降),日均处理3,000单成交(指标:内部延迟日志)。',
@@ -188,6 +194,8 @@ const dict: Dictionary = {
       },
       dio: {
         company: 'DIO 自由职业平台',
+        summary: '在多个 0→1 产品里实现支付、结算与 LLM 工作流',
+        metric: '8 周上线 · 2,500 次签到 · 12 人试点',
         bullets: [
           '(Woo-Yeon-Hee) 将本地匹配App的匹配 · 结账 · 自动结算逻辑建模为状态机 + 事件溯源,8周内进入生产,上线两周内记录2,500次签到,关键流程缺陷0件(指标:Sentry)。',
           '(Linker) 通过Outbox模式整合Toss PG与Kakao AlimTalk,保障支付—通知一致性;在每周约250单匹配量下,重试 + DLQ流程将支付失败率稳定在约1%(指标:PG webhook日志,30天平均)。',
@@ -197,18 +205,24 @@ const dict: Dictionary = {
       },
       dssolve: {
         company: 'DS Solve',
+        summary: '构建可通过配置扩展的 Randibot 多租户后端',
+        metric: '5 个工作区 · 月均约 1,200 次 ETL',
         bullets: [
           'Randibot后端MVP开发 — RCMS / K-Startup爬虫ETL + 多租户架构(tenancyId = workspaceId)使新机构入驻仅通过配置变更完成。5个工作区零代码改动完成接入,月均1,200次ETL稳定运行(指标:按机构配置管理日志)。',
         ],
       },
       miso: {
         company: 'Miso Inc.',
+        summary: '构建包含老用户迁移的 Cognito 认证体系',
+        metric: '迁移 12 万用户 · 失败率低于 0.5%',
         bullets: [
           '基于AWS Cognito构建认证系统。通过Cognito Lambda Trigger实现12万老用户零停机迁移,并为CX CRM引入OTP;认证失败率维持在0.5%以下(指标:CloudWatch)。',
         ],
       },
       flfi: {
         company: 'FLFI',
+        summary: '主导金融科技平台后端与部署体系重构',
+        metric: '500+ 次零停机部署 · 每日 3 次发布',
         bullets: [
           '后端Tech Lead — 带领6人全栈开发团队并指导2名初级工程师,围绕清晰的领域边界重新设计NestJS后端、Vue 3前端与AWS基础设施,推动迭代速度与部署频率提升,并落实代码评审文化(指标:Jira周期时间、GitOps历史)。',
           '基于EKS + Karpenter + ArgoCD + Helm构建零停机蓝绿流水线。部署节奏从每周1次提升到每日3次,两年内完成500+次零停机部署,部署停机0秒,回滚30秒内完成(指标:ArgoCD rollout日志,全量)。',
@@ -219,6 +233,8 @@ const dict: Dictionary = {
       },
       aligo: {
         company: 'ALIGO',
+        summary: '运营大规模企业消息 API 与队列基础设施',
+        metric: '日发送 500 万条 · 峰值 3,000 RPS',
         bullets: [
           '运营Vanilla PHP 7的企业消息发送API和服务器 — 日发送500万条、高峰3,000 RPS环境下,按客户拆分队列 + 加权轮询改善高峰期公平性;重试采用指数退避和隔离队列分散压力(指标:内部调度仪表盘)。',
           '将Kakao AlimTalk / FriendTalk Open API产品化。统一模板与审批状态仪表盘减少下游供应商的集成工时和CX运维负担。',
@@ -226,18 +242,24 @@ const dict: Dictionary = {
       },
       'studio-bloom': {
         company: 'Studio Bloom',
+        summary: '开发 P2P 借贷产品与金融对账流程',
+        metric: '累计约 12 万笔交易 · 一致性事故 0 起',
         bullets: [
           '基于Wordpress插件交付P2P贷款解决方案,集成Paygate Seyfert金融API(虚拟账户 · 投资 · 还款 · 状态)。事务分离 + 幂等响应存储在两年累计约12万笔交易中维持金融一致性事件0件(指标:每日对账批次)。',
         ],
       },
       ninefive: {
         company: 'Ninefive',
+        summary: '在宣传页动效与可访问性之间保持平衡',
+        metric: '停留/滚动 KPI · 可访问性合规',
         bullets: [
           '产品推广页面交互实现以prefers-reduced-motion响应,结合KWAH可访问性清单推进。停留时间 · 滚动深度KPI与可访问性合规同时达成。',
         ],
       },
       '4depth': {
         company: '4depth',
+        summary: '负责公共网站前端发布与可访问性实现',
+        metric: '14 个公共项目 · K-WCAG 认证',
         bullets: [
           '公共机构 · 地方政府网站发布 · WCAG可访问性支持 · 响应式Web实现。通过语义化HTML与ARIA设计、设计稿阶段的可访问性清单,14个政府项目顺利通过K-WCAG认证。',
         ],

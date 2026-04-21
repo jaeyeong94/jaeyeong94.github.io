@@ -168,6 +168,8 @@ const dict: Dictionary = {
     items: {
       masblue: {
         company: 'Masblue (masblue.studio)',
+        summary: 'Reframed insurance back-office work into an agent orchestration flow',
+        metric: '50 pilot cases · 20 min → 4 min',
         bullets: [
           "Designing the backend that decomposes a US insurance carrier's back-office workflows into LLM agents. Each step carries domain guardrails, human-in-the-loop checkpoints, and audit logs so automation and regulatory fit advance together. Across 50 pilot cases, average handling time dropped from 20 min to 4 min (~80% reduction) (metric: pilot processing-time dashboard).",
           'Every agent call — input, output, intermediate state, cost, latency — is persisted as a structured event traced through OpenTelemetry, so failures can be audited, reproduced, and rolled back to satisfy compliance review.',
@@ -175,6 +177,8 @@ const dict: Dictionary = {
       },
       onto: {
         company: 'Ontoh Vision',
+        summary: 'Designed the vision pipeline from on-site inference to cloud delivery',
+        metric: '99.7% upload success · 8 camera nodes',
         bullets: [
           'Designed an end-to-end CCTV (RTSP) → on-site GPU inference → Cloudflare R2 pipeline. Local buffering (up to 24h) plus replay uploads hold upload success at 99.7% on network recovery (metric: Cloudflare Analytics, 7-day avg).',
           'Presigned-URL upload API + callback flow scaled to 8 camera nodes with 0 backend deploys per addition; nodes extend horizontally with secret-based auth alone (metric: internal deploy log).',
@@ -182,6 +186,8 @@ const dict: Dictionary = {
       },
       rootstone: {
         company: 'Rootstone',
+        summary: 'Ran trading reporting and market-making infrastructure for institutional clients',
+        metric: '99.9% batch success · ~3,000 daily fills',
         bullets: [
           'Designed and operated a B2B trading performance reporting system. Separate reporting ledger + daily/monthly snapshot batches + checksum-verified PDF pipeline sustain 99.9% batch success across 15 institutional clients (metric: CloudWatch batch logs, 30-day avg).',
           'Built a crypto arbitrage / market-making engine on Electron + Node.js + PostgreSQL + Redis + WebSocket. Separating the intake, strategy, and order event loops cut p95 strategy-execution latency from 120 ms to 45 ms (~63%); averages 3,000 daily fills (metric: internal latency log).',
@@ -189,6 +195,8 @@ const dict: Dictionary = {
       },
       dio: {
         company: 'DIO Freelance Platform',
+        summary: 'Built payment, settlement, and LLM workflows across several 0→1 products',
+        metric: '8-week launch · 2,500 check-ins · 12-agent pilot',
         bullets: [
           '(Woo-Yeon-Hee) Modeled the matching, checkout, and auto-settlement flow as a state machine with event sourcing; landed in production in 8 weeks and logged 2,500 check-ins in the first two weeks with zero critical-path defects at launch (metric: Sentry).',
           '(Linker) Combined Toss PG and Kakao AlimTalk via an outbox pattern with retry and DLQ handling; across ~250 weekly matches, payment failure stays near 1% (metric: PG webhook logs, 30-day avg).',
@@ -198,18 +206,24 @@ const dict: Dictionary = {
       },
       dssolve: {
         company: 'DS Solve, Inc.',
+        summary: "Built Randibot's multi-tenant backend around configuration-driven onboarding",
+        metric: '5 workspaces · ~1,200 ETL runs/month',
         bullets: [
           'Shipped the Randibot backend MVP — RCMS / K-Startup scraping ETL + multi-tenant (tenancyId = workspaceId) architecture so onboarding a new agency is a config change. Onboarded 5 workspaces with zero code changes and sustained ~1,200 ETL runs per month (metric: per-agency config management log).',
         ],
       },
       miso: {
         company: 'Miso Inc.',
+        summary: 'Built Cognito auth with seamless legacy-user migration',
+        metric: '120K migrated users · auth failures <0.5%',
         bullets: [
           'Built an AWS Cognito authentication system. A Cognito Lambda Trigger migrated 120K legacy users transparently on first login while OTP flows were introduced to the CX CRM; auth failure stays below 0.5% (metric: CloudWatch).',
         ],
       },
       flfi: {
         company: 'FLFI',
+        summary: 'Led the backend and deployment redesign of a fintech platform',
+        metric: '500+ zero-downtime deploys · 3 deploys/day',
         bullets: [
           'Backend Tech Lead — led a 6-person full-stack engineering team and mentored 2 junior engineers while re-cutting the NestJS backend, Vue 3 frontend, and AWS infra along coherent domain boundaries. Drove sprint-velocity and deploy-frequency improvements alongside code-review culture (metric: Jira cycle time, GitOps history).',
           'Built a zero-downtime blue-green pipeline on EKS with Karpenter, ArgoCD, and Helm. Deploy cadence moved from weekly to 3×/day with 500+ zero-downtime deploys over two years — 0s deploy downtime and rollbacks under 30s (metric: ArgoCD rollout logs, full audit).',
@@ -220,6 +234,8 @@ const dict: Dictionary = {
       },
       aligo: {
         company: 'ALIGO',
+        summary: 'Operated large-scale business messaging APIs and queue infrastructure',
+        metric: '5M messages/day · 3,000 RPS peak',
         bullets: [
           'Operated a Vanilla PHP 7 business-messaging dispatch API and server — 5M daily messages at a 3,000 RPS peak. Per-customer queues + weighted round-robin improved peak-hour fairness; retries use exponential backoff on isolated queues to spread load (metric: internal dispatch dashboard).',
           'Productized Kakao AlimTalk / FriendTalk Open APIs. A shared template and approval-status dashboard cut integration effort for downstream vendors and lightened CX back-office work.',
@@ -227,18 +243,24 @@ const dict: Dictionary = {
       },
       'studio-bloom': {
         company: 'Studio Bloom',
+        summary: 'Built a P2P lending product and fintech reconciliation flow',
+        metric: '~120K transactions · 0 consistency incidents',
         bullets: [
           'Built a P2P lending solution as a Wordpress plugin, integrated with Paygate Seyfert fintech API (virtual accounts, investing, repayment, status). Transaction isolation and idempotent response storage processed ~120K cumulative transactions over 2 years with 0 financial-consistency incidents (metric: daily reconciliation batch).',
         ],
       },
       ninefive: {
         company: 'Ninefive',
+        summary: 'Delivered promo interactions without dropping accessibility quality',
+        metric: 'Dwell/scroll KPIs · accessibility compliance',
         bullets: [
           "Shipped product promo-page interactions with prefers-reduced-motion handling, paired with a KWAH accessibility checklist. Dwell-time and scroll-depth KPIs hit targets alongside accessibility compliance.",
         ],
       },
       '4depth': {
         company: '4depth',
+        summary: 'Built public-sector sites with accessibility-first frontends',
+        metric: '14 public projects · K-WCAG certification',
         bullets: [
           'Delivered public-sector websites with WCAG accessibility and responsive markup. Semantic HTML, ARIA design, and a shift-left accessibility checklist carried 14 government/municipal projects through K-WCAG certification.',
         ],

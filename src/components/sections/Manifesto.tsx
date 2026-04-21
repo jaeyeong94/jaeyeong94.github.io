@@ -11,7 +11,7 @@ export function Manifesto({ dict }: Props) {
     <section
       id="manifesto"
       aria-labelledby="manifesto-heading"
-      className="relative scroll-mt-24 border-y border-border"
+      className="resume-print-hidden relative scroll-mt-24 border-y border-border"
     >
       <div className="section-frame py-16 md:py-20">
         <Reveal>

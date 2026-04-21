@@ -37,7 +37,7 @@ export function Contact({ dict }: Props) {
       </Reveal>
 
       <Reveal>
-        <address className="mt-12 grid grid-cols-1 gap-y-0 not-italic md:grid-cols-2">
+        <address className="resume-print-keep mt-12 grid grid-cols-1 gap-y-0 not-italic md:grid-cols-2">
           <ContactLine label={dict.contact.emailLabel}>
             <ObfuscatedEmail
               user={resume.profile.emailUser}
@@ -86,7 +86,7 @@ export function Contact({ dict }: Props) {
       </Reveal>
 
       <Reveal>
-        <div className="mt-10 flex flex-wrap items-center gap-3">
+        <div className="resume-print-hidden mt-10 flex flex-wrap items-center gap-3">
           <IconLink href={resume.profile.freelanceSite} label={dict.contact.freelanceValue}>
             <Globe className="size-4" aria-hidden />
           </IconLink>
@@ -100,7 +100,9 @@ export function Contact({ dict }: Props) {
       </Reveal>
 
       <Reveal>
-        <p className="mt-8 text-xs text-fg-subtle">≀ {dict.contact.testimonials}</p>
+        <p className="resume-print-hidden mt-8 text-xs text-fg-subtle">
+          ≀ {dict.contact.testimonials}
+        </p>
       </Reveal>
     </section>
   );

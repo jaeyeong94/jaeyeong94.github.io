@@ -69,6 +69,13 @@ describe('static export smoke', () => {
     expect(html).toContain('500+ 무중단 배포');
     expect(html).toContain('주요 작업 보기');
     expect(html).toContain('작업 방식');
+    expect(html).toContain('운영 중');
+    expect(html).toContain('"@type":"CollectionPage"');
+    expect(html).toContain('"name":"프로젝트"');
+    expect(html).toContain('"name":"글"');
+    expect(html).toContain('/ko/projects/flfi-lending/');
+    expect(html).toContain('보험 백오피스를 에이전트 오케스트레이션 흐름으로 재구성');
+    expect(html).toContain('github.com/jaeyeong94');
     expect(html.indexOf('id="skills"')).toBeLessThan(html.indexOf('id="writing"'));
     expect(html.indexOf('id="writing"')).toBeLessThan(html.indexOf('id="manifesto"'));
   });
@@ -95,5 +102,25 @@ describe('static export smoke', () => {
         "twitterCard": "summary_large_image",
       }
     `);
+    expect(html).toMatch(/\/en\/writing\/this-site\/opengraph-image-[^"?]+/);
+    expect(html).toMatch(/\/en\/writing\/this-site\/twitter-image-[^"?]+/);
+  });
+
+  it('exports the Momentir case study page', () => {
+    const html = readExportedHtml('en/projects/momentir/index.html');
+
+    expect(html).toContain('Momentir');
+    expect(html).toContain('12-agent pilot');
+    expect(html).toContain('https://jaeyeong.me/en/projects/momentir/');
+    expect(html).toMatch(/\/en\/projects\/momentir\/opengraph-image-[^"?]+/);
+    expect(html).toMatch(/\/en\/projects\/momentir\/twitter-image-[^"?]+/);
+  });
+
+  it('exports the FLFI fintech platform case study page', () => {
+    const html = readExportedHtml('en/projects/flfi-lending/index.html');
+
+    expect(html).toContain('FLFI Fintech Platform');
+    expect(html).toContain('500+ zero-downtime deploys');
+    expect(html).toContain('https://jaeyeong.me/en/projects/flfi-lending/');
   });
 });

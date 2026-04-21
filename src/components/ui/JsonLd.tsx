@@ -36,6 +36,76 @@ export function JsonLdPerson({ description }: { description: string }) {
   return <JsonLdScript data={data} />;
 }
 
+type ItemListEntry = {
+  name: string;
+  url: string;
+  description?: string;
+  type?: 'Article' | 'BlogPosting' | 'CreativeWork';
+};
+
+function createItemList(name: string, items: ItemListEntry[]) {
+  return {
+    '@type': 'ItemList',
+    name,
+    itemListOrder: 'https://schema.org/ItemListOrderAscending',
+    numberOfItems: items.length,
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      url: item.url,
+      item: {
+        '@type': item.type ?? 'CreativeWork',
+        name: item.name,
+        url: item.url,
+        description: item.description,
+      },
+    })),
+  };
+}
+
+export function JsonLdCollectionPage({
+  locale,
+  name,
+  description,
+  lists,
+}: {
+  locale: Locale;
+  name: string;
+  description: string;
+  lists: Array<{ name: string; items: ItemListEntry[] }>;
+}) {
+  const data = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name,
+    description,
+    url: absoluteUrl(`/${locale}/`),
+    inLanguage: locale,
+    about: getPublisher(),
+    mainEntity: getPublisher(),
+    hasPart: lists.map((list) => createItemList(list.name, list.items)),
+    primaryImageOfPage: getAbsoluteOgImageUrl(),
+    isPartOf: {
+      '@type': 'WebSite',
+      url: absoluteUrl(`/${locale}/`),
+      name,
+    },
+    publisher: getPublisher(),
+  };
+
+  return <JsonLdScript data={data} />;
+}
+
+export function JsonLdItemList({
+  name,
+  items,
+}: {
+  name: string;
+  items: ItemListEntry[];
+}) {
+  return <JsonLdScript data={{ '@context': 'https://schema.org', ...createItemList(name, items) }} />;
+}
+
 export function JsonLdWebsite({
   locale,
   name,

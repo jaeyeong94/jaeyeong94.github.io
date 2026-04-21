@@ -73,7 +73,7 @@ export function Projects({ dict, locale }: Props) {
           <ul className="grid gap-4 md:grid-cols-2">
             {others.map((p) => (
               <Reveal key={p.id} as="li">
-                <InternalProjectCard project={p} dict={dict} />
+                <InternalProjectCard project={p} dict={dict} locale={locale} />
               </Reveal>
             ))}
           </ul>
@@ -99,10 +99,28 @@ function LiveProjectCard({
   return (
     <article
       className={cn(
-        'group flex h-full flex-col rounded-2xl border border-border bg-surface p-6 transition-all',
+        'resume-print-keep group flex h-full flex-col rounded-2xl border border-border bg-gradient-to-b from-surface to-bg-subtle/20 p-6 transition-all',
         'hover:-translate-y-0.5 hover:border-accent-1/40 hover:shadow-md',
       )}
     >
+      <div className="mb-4 flex items-start justify-between gap-3">
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="rounded-full border border-accent-1/20 bg-accent-1/10 px-2.5 py-1 font-mono text-[0.65rem] uppercase tracking-[0.22em] text-accent-1">
+            {dict.projects.status[project.status]}
+          </span>
+          {caseStudyHref ? (
+            <span className="rounded-full border border-border px-2.5 py-1 font-mono text-[0.65rem] uppercase tracking-[0.22em] text-fg-subtle">
+              {dict.projects.viewCaseStudy}
+            </span>
+          ) : null}
+        </div>
+        {host ? (
+          <span className="font-mono text-[0.65rem] uppercase tracking-[0.22em] text-fg-subtle">
+            {host}
+          </span>
+        ) : null}
+      </div>
+
       <div className="flex items-start justify-between gap-3">
         {caseStudyHref ? (
           <Link
@@ -120,21 +138,20 @@ function LiveProjectCard({
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`${item.title} ${dict.projects.viewSite}`}
-            className="rounded-sm text-fg-subtle transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-1"
+            className="resume-print-hidden rounded-sm text-fg-subtle transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-1"
           >
             <ArrowUpRight className="size-4 shrink-0" aria-hidden />
           </a>
         ) : null}
       </div>
       <p className="mt-3 flex-1 text-sm leading-relaxed text-fg-muted">{item.desc}</p>
-      <p className="mt-4 text-sm leading-relaxed text-fg">{item.proof}</p>
-      <p className="mt-5 font-mono text-xs text-fg-subtle">{project.stack.join(' · ')}</p>
-      {host && (
-        <p className="mt-4 border-t border-border pt-3 font-mono text-xs text-fg-subtle">
-          {host}
+      <div className="mt-4 rounded-2xl border border-accent-1/15 bg-accent-1/5 px-4 py-3">
+        <p className="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-accent-1">
+          {item.proof}
         </p>
-      )}
-      <div className="mt-4 flex flex-wrap gap-2">
+      </div>
+      <p className="mt-5 font-mono text-xs text-fg-subtle">{project.stack.join(' · ')}</p>
+      <div className="resume-print-hidden mt-4 flex flex-wrap gap-2">
         {caseStudyHref ? (
           <Link
             href={caseStudyHref}
@@ -158,14 +175,23 @@ function LiveProjectCard({
   );
 }
 
-function InternalProjectCard({ project, dict }: { project: Project; dict: Dictionary }) {
+function InternalProjectCard({
+  project,
+  dict,
+  locale,
+}: {
+  project: Project;
+  dict: Dictionary;
+  locale: Locale;
+}) {
   const item = dict.projects.items[project.id];
   const statusLabel = dict.projects.status[project.status];
+  const caseStudyHref = hasProjectCaseStudy(project.id) ? `/${locale}/projects/${project.id}/` : null;
   return (
     <article
       className={cn(
-        'h-full rounded-2xl border border-dashed border-border bg-bg-subtle/40 p-6',
-        'transition-colors hover:border-border hover:bg-bg-subtle/70',
+        'resume-print-keep h-full rounded-2xl border border-dashed border-border bg-bg-subtle/20 p-6',
+        'transition-colors hover:border-border hover:bg-bg-subtle/40',
       )}
     >
       <div className="flex items-start justify-between gap-3">
@@ -175,8 +201,22 @@ function InternalProjectCard({ project, dict }: { project: Project; dict: Dictio
         </span>
       </div>
       <p className="mt-3 text-sm leading-relaxed text-fg-muted">{item.desc}</p>
-      <p className="mt-4 text-sm leading-relaxed text-fg">{item.proof}</p>
+      <div className="mt-4 rounded-2xl border border-dashed border-border bg-surface/70 px-4 py-3">
+        <p className="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-fg-subtle">
+          {item.proof}
+        </p>
+      </div>
       <p className="mt-4 font-mono text-xs text-fg-subtle">{project.stack.join(' · ')}</p>
+      {caseStudyHref ? (
+        <div className="resume-print-hidden mt-4 flex flex-wrap gap-2">
+          <Link
+            href={caseStudyHref}
+            className="inline-flex items-center rounded-full border border-border px-3 py-1.5 text-xs text-fg transition-colors hover:border-accent-1 hover:text-accent-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-1"
+          >
+            {dict.projects.viewCaseStudy}
+          </Link>
+        </div>
+      ) : null}
     </article>
   );
 }
