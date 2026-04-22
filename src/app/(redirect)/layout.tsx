@@ -10,8 +10,14 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: defaultDict.meta.title,
   description: defaultDict.meta.description,
+  manifest: '/manifest.webmanifest',
   icons: {
-    icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
+    shortcut: [{ url: '/favicon-32x32.png', type: 'image/png' }],
   },
 };
 

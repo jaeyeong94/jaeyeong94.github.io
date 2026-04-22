@@ -22,12 +22,28 @@ test('renders localized navigation affordances on the Korean homepage', async ({
   await expect(page.getByRole('link', { name: '주요 작업 보기' })).toBeVisible();
   await expect(page.getByRole('link', { name: '작업 방식' })).toBeVisible();
   await expect(page.getByText('운영 중').first()).toBeVisible();
+  await expect(page.locator('meta[property="og:type"]')).toHaveAttribute('content', 'website');
+  await expect(page.locator('meta[property="og:image"]')).toHaveAttribute(
+    'content',
+    'https://jaeyeong.me/opengraph-image',
+  );
+  await expect(page.locator('meta[name="twitter:image"]')).toHaveAttribute(
+    'content',
+    'https://jaeyeong.me/twitter-image',
+  );
+  await expect(page.locator('link[rel="manifest"]')).toHaveAttribute('href', '/manifest.webmanifest');
   const jsonLdEntries = await page.locator('script[type="application/ld+json"]').allTextContents();
   expect(
     jsonLdEntries.some(
       (entry) =>
         entry.includes('"@type":"CollectionPage"') &&
         entry.includes('/ko/projects/flfi-lending/'),
+    ),
+  ).toBe(true);
+  expect(
+    jsonLdEntries.some(
+      (entry) =>
+        entry.includes('"@type":"Person"') && entry.includes('"image":"https://jaeyeong.me/opengraph-image"'),
     ),
   ).toBe(true);
   await expect(

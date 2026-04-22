@@ -34,8 +34,14 @@ export async function generateMetadata({
     title: dict.meta.title,
     description: dict.meta.description,
     applicationName: dict.meta.siteName,
+    manifest: '/manifest.webmanifest',
     icons: {
-      icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
+      icon: [
+        { url: '/favicon.svg', type: 'image/svg+xml' },
+        { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      ],
+      apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
+      shortcut: [{ url: '/favicon-32x32.png', type: 'image/png' }],
     },
     keywords: resume.keywords,
     authors: [{ name: personName }],
@@ -60,14 +66,14 @@ export async function generateMetadata({
       alternateLocale: locales
         .filter((lang) => lang !== locale)
         .map((lang) => openGraphLocaleMap[lang]),
-      type: 'profile',
+      type: 'website',
       images: getOgImage(openGraphImageAlt),
     },
     twitter: {
       card: 'summary_large_image',
       title: dict.meta.title,
       description: dict.meta.description,
-      images: ['/og-image.png'],
+      images: ['/twitter-image'],
     },
   };
 }

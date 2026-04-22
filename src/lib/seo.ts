@@ -9,7 +9,7 @@ export const personAlternateNames = ['유재영', 'Ted Ryu'] as const;
 export const personJobTitle = 'Full-stack Developer';
 export const publisherName = 'Ted Ryu';
 export const sharedOgImage = {
-  url: '/og-image.png',
+  url: '/opengraph-image',
   width: 1200,
   height: 630,
 } as const;

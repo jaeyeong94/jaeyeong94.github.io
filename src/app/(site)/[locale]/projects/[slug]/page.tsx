@@ -7,7 +7,7 @@ import { getDictionary } from '@/content/i18n';
 import { projectCaseStudies, isProjectCaseStudySlug } from '@/content/projects';
 import { resume } from '@/content/resume';
 import { locales, isLocale } from '@/lib/i18n';
-import { absoluteUrl, openGraphLocaleMap, personName, publisherName } from '@/lib/seo';
+import { absoluteUrl, openGraphLocaleMap, personName, publisherName, siteUrl } from '@/lib/seo';
 
 export function generateStaticParams() {
   return locales.flatMap((locale) =>
@@ -34,6 +34,7 @@ export async function generateMetadata({
   if (!project) return {};
 
   return {
+    metadataBase: new URL(siteUrl),
     title: `${item.title} — ${dict.projects.viewCaseStudy}`,
     description: content.summary,
     keywords: [item.title, dict.projects.viewCaseStudy, ...project.stack, ...resume.keywords],

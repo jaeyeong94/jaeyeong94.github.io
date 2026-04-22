@@ -87,6 +87,11 @@ describe('static export smoke', () => {
 
     expect(html).toContain('<meta name="description" content="Full-stack developer designing and operating 0→1 SaaS, AI orchestration, and fintech systems with strengths in backend architecture and AWS/Kubernetes infrastructure."/>');
     expect(html).toContain('<meta property="og:description" content="Full-stack developer designing and operating 0→1 SaaS, AI orchestration, and fintech systems with strengths in backend architecture and AWS/Kubernetes infrastructure."/>');
+    expect(html).toContain('<meta property="og:type" content="website"/>');
+    expect(html).toContain('https://jaeyeong.me/opengraph-image');
+    expect(html).toContain('https://jaeyeong.me/twitter-image');
+    expect(html).toContain('<link rel="manifest" href="/manifest.webmanifest"/>');
+    expect(html).toContain('/apple-touch-icon.png');
   });
 
   it('emits localized metadata for English writing detail pages', () => {
@@ -129,9 +134,20 @@ describe('static export smoke', () => {
   });
 
   it('copies stable metadata image routes after build', () => {
+    expect(existsSync(resolve(outDir, 'opengraph-image'))).toBe(true);
+    expect(existsSync(resolve(outDir, 'twitter-image'))).toBe(true);
     expect(existsSync(resolve(outDir, 'en/projects/momentir/opengraph-image'))).toBe(true);
     expect(existsSync(resolve(outDir, 'en/projects/momentir/twitter-image'))).toBe(true);
     expect(existsSync(resolve(outDir, 'en/writing/this-site/opengraph-image'))).toBe(true);
     expect(existsSync(resolve(outDir, 'en/writing/this-site/twitter-image'))).toBe(true);
+  });
+
+  it('exports manifest and favicon assets', () => {
+    expect(existsSync(resolve(outDir, 'manifest.webmanifest'))).toBe(true);
+    expect(existsSync(resolve(outDir, 'favicon.svg'))).toBe(true);
+    expect(existsSync(resolve(outDir, 'favicon-32x32.png'))).toBe(true);
+    expect(existsSync(resolve(outDir, 'apple-touch-icon.png'))).toBe(true);
+    expect(existsSync(resolve(outDir, 'icon-192.png'))).toBe(true);
+    expect(existsSync(resolve(outDir, 'icon-512.png'))).toBe(true);
   });
 });

@@ -30,6 +30,7 @@ export function JsonLdPerson({ description }: { description: string }) {
     url: siteUrl,
     sameAs: personProfiles,
     description,
+    image: getAbsoluteOgImageUrl(),
     knowsAbout: resume.skills.flatMap((c) => c.items),
   };
 
@@ -122,6 +123,7 @@ export function JsonLdWebsite({
     description,
     url: absoluteUrl(`/${locale}/`),
     inLanguage: locale,
+    image: getAbsoluteOgImageUrl(),
     publisher: getPublisher(),
   };
 

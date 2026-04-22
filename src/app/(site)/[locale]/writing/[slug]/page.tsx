@@ -5,7 +5,7 @@ import { resume } from '@/content/resume';
 import { getDictionary } from '@/content/i18n';
 import { JsonLdBlogPosting, JsonLdBreadcrumbList } from '@/components/ui/JsonLd';
 import { isWritingSlug, writingPosts } from '@/content/writing';
-import { absoluteUrl, openGraphLocaleMap, personName, publisherName } from '@/lib/seo';
+import { absoluteUrl, openGraphLocaleMap, personName, publisherName, siteUrl } from '@/lib/seo';
 
 export function generateStaticParams() {
   const params: Array<{ locale: string; slug: string }> = [];
@@ -33,6 +33,7 @@ export async function generateMetadata({
     locales.map((lang) => [lang, `/${lang}/writing/${slug}/`]),
   );
   return {
+    metadataBase: new URL(siteUrl),
     title: item.title,
     description: item.summary,
     keywords: [item.title, ...resume.keywords],
