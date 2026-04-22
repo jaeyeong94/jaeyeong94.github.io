@@ -82,18 +82,20 @@ const dict: Dictionary = {
     sectionTitle: 'About',
     eyebrow: 'About',
     impact:
-      'Full-stack developer shipping and operating 0→1 products across fintech, blockchain, SaaS, and AI. Strong in backend architecture and AWS/Kubernetes infrastructure, with a recent focus on LLM · RAG applications.',
+      'I have spent most of my career turning rough product ideas into systems people can actually use and teams can keep operating. Across fintech, blockchain, SaaS, and AI, the pattern has been the same: reduce complexity, shorten the distance from prototype to production, and leave the system steadier than I found it.',
     stat1Label: 'Years of experience',
     stat1Suffix: 'yr+',
     stat2Label: '0→1 products',
     stat2Value: '6+',
     stat3Label: 'Production infra',
     stat3Value: 'AWS · K8s · Terraform',
-    philosophyTitle: 'How I work',
+    philosophyTitle: 'What I care about',
     philosophy1:
-      'I start by understanding the user problem and business goal, then design the system and operating model around them.',
+      'The resume carries the numbers, but I care more about the structure underneath them. I keep returning to release pipelines that can be rolled back without panic, payment and settlement flows that stay consistent under failure, and operator-facing tools that still leave room for human judgment when the stakes are real.',
     philosophy2:
-      'I use metrics and feedback loops to set the next priority, and I work best with teams that move quickly and deliberately.',
+      'LinkedIn and a resume usually preserve titles and outcomes. GitHub and writing preserve how you think. I try to leave both behind: evidence that something shipped, and a clear trail of why the system took this shape. New tools matter, but clear ownership, observability, and boring reliability matter longer.',
+    philosophy3:
+      'Recently that has meant wiring LLMs and agents into product and back-office workflows. I like automation, but I do not romanticize it. I prefer to be explicit about what the system can safely repeat and what a person still needs to decide. More than shipping fast, I care about leaving a system that still runs well after the excitement wears off.',
     domainsTitle: 'Domains',
     domains: {
       fullstack: 'Fullstack / Backend',

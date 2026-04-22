@@ -108,17 +108,15 @@ export function About({ dict }: Props) {
           <p className="text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle md:col-span-3">
             ≀ {dict.about.philosophyTitle}
           </p>
-          <ul className="max-w-readable space-y-4 md:col-span-9">
-            {[dict.about.philosophy1, dict.about.philosophy2].map((item) => (
-              <li key={item} className="flex items-start gap-3">
-                <span
-                  aria-hidden
-                  className="mt-2 size-1.5 shrink-0 rounded-full bg-accent-1"
-                />
-                <p className="text-base leading-relaxed text-fg-muted md:text-lg">{item}</p>
-              </li>
-            ))}
-          </ul>
+          <div className="max-w-readable space-y-5 md:col-span-9">
+            {[dict.about.philosophy1, dict.about.philosophy2, dict.about.philosophy3].map(
+              (item) => (
+                <p key={item} className="text-base leading-relaxed text-fg-muted md:text-lg">
+                  {item}
+                </p>
+              ),
+            )}
+          </div>
         </div>
       </Reveal>
     </section>
