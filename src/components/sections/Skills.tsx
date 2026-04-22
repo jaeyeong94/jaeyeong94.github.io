@@ -16,8 +16,15 @@ export function Skills({ dict }: Props) {
       className="section-frame section-pad relative scroll-mt-24"
     >
       <Reveal>
-        <div className="flex items-center gap-4">
-          <span className="font-mono text-sm text-fg-subtle">04</span>
+        <div className="resume-print-hidden flex items-center gap-4">
+          <span className="resume-print-hidden font-mono text-sm text-fg-subtle">04</span>
+          <span className="h-px flex-1 bg-border" />
+          <span className="text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle">
+            {dict.skills.eyebrow}
+          </span>
+        </div>
+        <div className="resume-print-only flex items-center gap-4">
+          <span className="font-mono text-sm text-fg-subtle">03</span>
           <span className="h-px flex-1 bg-border" />
           <span className="text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle">
             {dict.skills.eyebrow}

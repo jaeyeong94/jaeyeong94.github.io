@@ -24,7 +24,7 @@ export function Manifesto({ dict }: Props) {
           </div>
         </Reveal>
 
-        <div className="mt-8 grid grid-cols-1 gap-8 border-t border-border pt-8 lg:grid-cols-[minmax(0,24rem)_1fr] lg:gap-10">
+        <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,24rem)_1fr] lg:gap-10">
           <Reveal>
             <div className="max-w-xl">
               <h2
