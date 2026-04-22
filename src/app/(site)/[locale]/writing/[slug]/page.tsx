@@ -28,9 +28,9 @@ export async function generateMetadata({
   const dict = getDictionary(locale);
   const item = dict.writing.items[slug];
   const post = writingPosts[slug];
-  const url = `/${locale}/writing/${slug}/`;
+  const url = absoluteUrl(`/${locale}/writing/${slug}/`);
   const languageAlternates = Object.fromEntries(
-    locales.map((lang) => [lang, `/${lang}/writing/${slug}/`]),
+    locales.map((lang) => [lang, absoluteUrl(`/${lang}/writing/${slug}/`)]),
   );
   return {
     metadataBase: new URL(siteUrl),
@@ -44,7 +44,7 @@ export async function generateMetadata({
       canonical: url,
       languages: {
         ...languageAlternates,
-        'x-default': `/ko/writing/${slug}/`,
+        'x-default': absoluteUrl(`/ko/writing/${slug}/`),
       },
     },
     openGraph: {

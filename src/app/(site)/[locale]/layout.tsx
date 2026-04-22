@@ -9,6 +9,8 @@ import { ThemeScript } from '@/components/layout/ThemeScript';
 import { resume } from '@/content/resume';
 import { JsonLdPerson, JsonLdWebsite } from '@/components/ui/JsonLd';
 import {
+  absoluteUrl,
+  getAbsoluteTwitterImageUrl,
   getOgImage,
   openGraphLocaleMap,
   personName,
@@ -48,19 +50,19 @@ export async function generateMetadata({
     creator: personName,
     publisher: publisherName,
     alternates: {
-      canonical: `/${locale}/`,
+      canonical: absoluteUrl(`/${locale}/`),
       languages: {
-        ko: '/ko/',
-        en: '/en/',
-        zh: '/zh/',
-        ja: '/ja/',
-        'x-default': '/ko/',
+        ko: absoluteUrl('/ko/'),
+        en: absoluteUrl('/en/'),
+        zh: absoluteUrl('/zh/'),
+        ja: absoluteUrl('/ja/'),
+        'x-default': absoluteUrl('/ko/'),
       },
     },
     openGraph: {
       title: dict.meta.title,
       description: dict.meta.description,
-      url: `/${locale}/`,
+      url: absoluteUrl(`/${locale}/`),
       siteName: dict.meta.siteName,
       locale: openGraphLocaleMap[locale],
       alternateLocale: locales
@@ -73,7 +75,7 @@ export async function generateMetadata({
       card: 'summary_large_image',
       title: dict.meta.title,
       description: dict.meta.description,
-      images: ['/twitter-image'],
+      images: [getAbsoluteTwitterImageUrl()],
     },
   };
 }

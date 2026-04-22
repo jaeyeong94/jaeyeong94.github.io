@@ -87,7 +87,7 @@ const dict: Dictionary = {
     stat1Suffix: 'yr+',
     stat2Label: '0→1 products',
     stat2Value: '6+',
-    stat3Label: 'Production infra',
+    stat3Label: 'Production infrastructure',
     stat3Value: 'AWS · K8s · Terraform',
     philosophyTitle: 'What I care about',
     philosophy1:
@@ -98,7 +98,7 @@ const dict: Dictionary = {
       'Recently that has meant wiring LLMs and agents into product and back-office workflows. I like automation, but I do not romanticize it. I prefer to be explicit about what the system can safely repeat and what a person still needs to decide. More than shipping fast, I care about leaving a system that still runs well after the excitement wears off.',
     domainsTitle: 'Domains',
     domains: {
-      fullstack: 'Fullstack / Backend',
+      fullstack: 'Full-stack / Backend',
       fintech: 'Fintech',
       blockchain: 'Blockchain',
       saas: 'SaaS',
@@ -240,7 +240,7 @@ const dict: Dictionary = {
         metric: '5M messages/day · 3,000 RPS peak',
         bullets: [
           'Operated a Vanilla PHP 7 business-messaging dispatch API and server — 5M daily messages at a 3,000 RPS peak. Per-customer queues + weighted round-robin improved peak-hour fairness; retries use exponential backoff on isolated queues to spread load (metric: internal dispatch dashboard).',
-          'Productized Kakao AlimTalk / FriendTalk Open APIs. A shared template and approval-status dashboard cut integration effort for downstream vendors and lightened CX back-office work.',
+          'Turned Kakao AlimTalk / FriendTalk into reusable APIs. A shared template and approval-status dashboard reduced integration effort for downstream vendors and cut CX back-office workload.',
         ],
       },
       'studio-bloom': {
@@ -248,7 +248,7 @@ const dict: Dictionary = {
         summary: 'Built a P2P lending product and fintech reconciliation flow',
         metric: '~120K transactions · 0 consistency incidents',
         bullets: [
-          'Built a P2P lending solution as a Wordpress plugin, integrated with Paygate Seyfert fintech API (virtual accounts, investing, repayment, status). Transaction isolation and idempotent response storage processed ~120K cumulative transactions over 2 years with 0 financial-consistency incidents (metric: daily reconciliation batch).',
+          'Built a P2P lending solution as a WordPress plugin, integrated with the Paygate Seyfert fintech API (virtual accounts, investing, repayment, status). Transaction isolation and idempotent response storage processed ~120K cumulative transactions over 2 years with 0 financial-consistency incidents (metric: daily reconciliation batch).',
         ],
       },
       ninefive: {

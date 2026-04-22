@@ -28,11 +28,15 @@ export function absoluteUrl(path: string) {
 }
 
 export function getOgImage(alt: string) {
-  return [{ ...sharedOgImage, alt }];
+  return [{ ...sharedOgImage, url: getAbsoluteOgImageUrl(), alt }];
 }
 
 export function getAbsoluteOgImageUrl() {
   return absoluteUrl(sharedOgImage.url);
+}
+
+export function getAbsoluteTwitterImageUrl() {
+  return absoluteUrl('/twitter-image');
 }
 
 export function getPublisher() {

@@ -26,9 +26,9 @@ export async function generateMetadata({
   const dict = getDictionary(locale);
   const content = projectCaseStudies[slug].content[locale];
   const item = dict.projects.items[slug];
-  const url = `/${locale}/projects/${slug}/`;
+  const url = absoluteUrl(`/${locale}/projects/${slug}/`);
   const languageAlternates = Object.fromEntries(
-    locales.map((lang) => [lang, `/${lang}/projects/${slug}/`]),
+    locales.map((lang) => [lang, absoluteUrl(`/${lang}/projects/${slug}/`)]),
   );
   const project = resume.projects.find((projectItem) => projectItem.id === slug);
   if (!project) return {};
@@ -45,7 +45,7 @@ export async function generateMetadata({
       canonical: url,
       languages: {
         ...languageAlternates,
-        'x-default': `/ko/projects/${slug}/`,
+        'x-default': absoluteUrl(`/ko/projects/${slug}/`),
       },
     },
     openGraph: {
