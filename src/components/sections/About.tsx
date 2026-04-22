@@ -60,20 +60,6 @@ export function About({ dict }: Props) {
         </Reveal>
       </div>
 
-      <Reveal className="resume-print-only mt-6 border-t border-border pt-4" data-print-outcomes>
-        <p className="text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle">
-          ⟡ {dict.about.outcomesTitle}
-        </p>
-        <ul className="mt-3 space-y-2">
-          {dict.about.outcomes.map((item) => (
-            <li key={item.label}>
-              <p className="text-sm font-semibold text-fg">{item.value}</p>
-              <p className="text-[0.72rem] text-fg-muted">{item.label}</p>
-            </li>
-          ))}
-        </ul>
-      </Reveal>
-
       {/* Domain breakdown */}
       <Reveal className="resume-print-hidden">
         <div className="mt-14 border-t border-border pt-8">

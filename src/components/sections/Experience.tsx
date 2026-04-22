@@ -214,6 +214,7 @@ function PrintExperienceRow({
   const item = dict.experience.items[exp.id];
   const endIso = exp.end === 'present' ? new Date().toISOString().slice(0, 7) : exp.end;
   const months = monthsBetween(exp.start, exp.end);
+  const showDetailedPrint = exp.id === 'dio';
 
   return (
     <li className="border-t border-border pt-4 first:border-t-0 first:pt-0">
@@ -239,6 +240,18 @@ function PrintExperienceRow({
           <p className="mt-1 font-mono text-[0.65rem] uppercase tracking-[0.04em] text-fg-muted">
             {item.metric}
           </p>
+          {showDetailedPrint && (
+            <div data-print-dio-details className="mt-2">
+              <ul className="space-y-1.5 text-[0.76rem] leading-relaxed text-fg-muted">
+                {item.bullets.map((bullet, index) => (
+                  <li key={index}>{bullet}</li>
+                ))}
+              </ul>
+              <p className="mt-2 font-mono text-[0.64rem] text-fg-subtle">
+                {exp.stack.join(' · ')}
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </li>

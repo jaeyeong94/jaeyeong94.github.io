@@ -43,11 +43,15 @@ test('renders a print-friendly resume view on the Korean homepage', async ({ pag
     page.locator('#experience').getByText('보험 백오피스를 에이전트 오케스트레이션 흐름으로 재구성').first(),
   ).toBeVisible();
   await expect(
-    page.locator('#about').getByText('500+ 무중단 배포', { exact: true }).first(),
+    page.locator('#experience li').filter({ hasText: 'Toss PG · 카카오 알림톡' }).first(),
   ).toBeVisible();
   await expect(
     page.locator('#experience').getByText('나인파이브주식회사').first(),
   ).toBeVisible();
+  await expect(
+    page.locator('#experience').getByText('Node.js · NestJS · Next.js · PostgreSQL · Toss PG · LLM').first(),
+  ).toBeVisible();
+  await expect(page.getByText('선별된 성과')).toBeHidden();
   await expect(page.getByText('핵심 근거')).toBeHidden();
   await expect(page.getByRole('link', { name: '주요 작업 보기' })).toBeHidden();
   await expect(page.getByRole('heading', { name: '연락처' })).toBeHidden();
