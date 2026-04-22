@@ -23,12 +23,14 @@ export function Skills({ dict }: Props) {
             {dict.skills.eyebrow}
           </span>
         </div>
-        <div className="resume-print-only flex items-center gap-4">
-          <span className="font-mono text-sm text-fg-subtle">03</span>
-          <span className="h-px flex-1 bg-border" />
-          <span className="text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle">
-            {dict.skills.eyebrow}
-          </span>
+        <div className="resume-print-only">
+          <div className="grid grid-cols-[2rem_minmax(0,1fr)_auto] items-center gap-4">
+            <span className="font-mono text-sm text-fg-subtle">03</span>
+            <span className="h-px bg-border" />
+            <span className="justify-self-end text-[0.65rem] font-medium uppercase tracking-[0.35em] text-fg-subtle">
+              {dict.skills.eyebrow}
+            </span>
+          </div>
         </div>
         <h2
           id="skills-heading"
