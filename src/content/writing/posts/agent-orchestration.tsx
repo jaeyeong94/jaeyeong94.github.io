@@ -23,7 +23,7 @@ export default function AgentOrchestrationPost({ locale }: { locale: Locale }) {
       <p>
         미국 보험사의 백오피스 업무를 LLM 에이전트로 분해하는 프로젝트를 진행 중입니다. &ldquo;단일
         거대 프롬프트&rdquo; 로 해결할 수 있는 일은 데모뿐이라는 점이 곧바로 드러났고, 프로덕션에서
-        요구되는 것은 <strong>관측성 · 인간 개입 · 롤백 가능성</strong> 세 가지였습니다. 이 글은 그
+        요구되는 것은 <strong>관측성, 인간 개입, 롤백 가능성</strong> 세 가지였습니다. 이 글은 그
         세 가지를 어떻게 기본 구조로 녹였는지에 대한 메모입니다.
       </p>
 
@@ -36,8 +36,8 @@ export default function AgentOrchestrationPost({ locale }: { locale: Locale }) {
         실수했는지 추적할 수 없습니다.
       </p>
       <p>
-        대신 <strong>업무 하나 = 에이전트 하나</strong> 로 매핑하고, 각 에이전트가 입력 스키마 · 출력
-        스키마 · 허용 도구 세트 · 실패 기준을 명시적으로 가지게 했습니다. 오케스트레이터는 상태머신이
+        대신 <strong>업무 하나 = 에이전트 하나</strong> 로 매핑하고, 각 에이전트가 입력 스키마, 출력
+        스키마, 허용 도구 세트, 실패 기준을 명시적으로 가지게 했습니다. 오케스트레이터는 상태머신이
         되고, 에이전트는 함수입니다.
       </p>
 
@@ -98,7 +98,7 @@ export default function AgentOrchestrationPost({ locale }: { locale: Locale }) {
         5. 모델에게 맡기지 말아야 할 것
       </h2>
       <p>
-        에이전트 파이프라인의 경계는 <strong>비즈니스 로직 · 금액 · 규정</strong> 입니다. 이 범위에
+        에이전트 파이프라인의 경계는 <strong>비즈니스 로직, 금액, 규정</strong> 입니다. 이 범위에
         들어오는 계산은 모델이 아니라 코드가 해야 합니다. 모델은 그 코드를 어떤 순서로 호출할지 결정할
         뿐입니다.
       </p>
@@ -110,7 +110,7 @@ export default function AgentOrchestrationPost({ locale }: { locale: Locale }) {
       <h2 className="mt-10 text-xl font-semibold text-fg md:text-2xl">마치며</h2>
       <p>
         LLM 에이전트는 지금까지 엔지니어가 다뤄온 분산 시스템과 다르지 않습니다. &ldquo;사람이 개입하는
-        실패 가능한 함수&rdquo; 라는 관점으로 보면 <em>관측</em> · <em>가드레일</em> · <em>롤백</em>
+        실패 가능한 함수&rdquo; 라는 관점으로 보면 <em>관측</em>, <em>가드레일</em>, <em>롤백</em>
         이라는 익숙한 도구가 그대로 적용됩니다. 차이점은 그 함수의 비결정성이 훨씬 크다는 것뿐입니다.
         그래서 기본 구조가 더 중요합니다.
       </p>

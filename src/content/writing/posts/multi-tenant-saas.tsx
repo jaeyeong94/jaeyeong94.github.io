@@ -48,7 +48,7 @@ export default function MultiTenantSaasPost({ locale }: { locale: Locale }) {
       <p>
         두 방식 모두 검토했습니다. RLS(Row-Level Security)는 DB에서 격리를 강제해 &ldquo;실수로 누락한
         WHERE&rdquo; 를 원천 차단합니다. 반면 모든 커넥션에
-        <code> SET LOCAL app.workspace_id</code> 를 주입해야 하고, 마이그레이션 · 집계 · 관리자 기능에서
+        <code> SET LOCAL app.workspace_id</code> 를 주입해야 하고, 마이그레이션, 집계, 관리자 기능에서
         예외 경로가 필요해집니다.
       </p>
       <p>
