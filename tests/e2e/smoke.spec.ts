@@ -17,7 +17,7 @@ test('renders localized navigation affordances on the Korean homepage', async ({
   await expect(page.locator('#about').getByText('선별된 성과').last()).toBeVisible();
   await expect(page.locator('#about').getByText('500+ 무중단 배포', { exact: true }).last()).toBeVisible();
   await expect(
-    page.locator('#about').getByText('링크드인과 이력서에는 역할과 숫자가 남고').first(),
+    page.locator('#about').getByText('LinkedIn과 이력서에는 역할과 숫자가 남고').first(),
   ).toBeVisible();
   await expect(page.getByRole('link', { name: '주요 작업 보기' })).toBeVisible();
   await expect(page.getByRole('link', { name: '작업 방식' })).toBeVisible();
